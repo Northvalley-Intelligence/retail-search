@@ -1,0 +1,12 @@
+{
+  "project_id": "retail-search",
+  "updated_at": "2026-07-04",
+  "risks": [
+    {
+      "id": "RISK-001",
+      "severity": "medium",
+      "status": "open",
+      "summary": "Project-specific validation is not defined beyond the starter strategy."
+    }
+  ]
+}

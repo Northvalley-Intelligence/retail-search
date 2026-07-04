@@ -1,0 +1,44 @@
+{
+  "strategy_id": "VALSTRAT-001",
+  "project_type": "mission-driven local project",
+  "artifact_profiles": [
+    "mde_project",
+    "mission_driven_engineering"
+  ],
+  "mission_phase": "Generation 0",
+  "selected_validations": [
+    {
+      "category": "Mission Coverage",
+      "required": true,
+      "priority": "Critical",
+      "tools_or_methods": [
+        "mission review",
+        "BDD generation"
+      ],
+      "reason": "Implementation work must trace to the captured mission."
+    },
+    {
+      "category": "Functional",
+      "required": true,
+      "priority": "Critical",
+      "tools_or_methods": [
+        "project-specific tests selected before implementation"
+      ],
+      "reason": "Functional validation must be chosen for the actual project behavior."
+    },
+    {
+      "category": "Technical",
+      "required": true,
+      "priority": "High",
+      "tools_or_methods": [
+        "repository checks",
+        "artifact parse checks"
+      ],
+      "reason": "Local MDE state must remain parseable and retrievable."
+    }
+  ],
+  "validation_gates": {
+    "required_pass_count_before_phase_exit": 2,
+    "second_pass_policy": "Rerun Critical validations and any changed or failed validations."
+  }
+}

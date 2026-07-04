@@ -1,0 +1,30 @@
+{
+  "project_id": "retail-search",
+  "generated_at": "2026-07-04",
+  "mission_version": "MISSION-2026-07-04-GEN-000",
+  "summary": {
+    "total_active": 1,
+    "critical": 1,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "passing": 1,
+    "failing": 0,
+    "deferred": 0,
+    "planned": 0,
+    "tests_reused": 0,
+    "tests_newly_added": 0,
+    "tests_removed_or_deferred": 0
+  },
+  "scenarios": [
+    {
+      "id": "BDD-000",
+      "title": "Engineering work requires the captured mission",
+      "priority": "Critical",
+      "status": "passing",
+      "given": "a new project was created from a project name and mission",
+      "when": "implementation work is requested",
+      "then": "the session starts from MISSION.md and project-local MDE state before changing code"
+    }
+  ]
+}

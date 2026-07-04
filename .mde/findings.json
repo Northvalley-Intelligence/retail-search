@@ -1,0 +1,8 @@
+{
+  "project_id": "retail-search",
+  "updated_at": "2026-07-04",
+  "findings": [],
+  "residual_risks": [
+    "Project-specific validators have not been selected yet."
+  ]
+}

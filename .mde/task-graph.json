@@ -1,0 +1,11 @@
+{
+  "project_id": "retail-search",
+  "updated_at": "2026-07-04",
+  "tasks": [
+    {
+      "id": "TASK-001",
+      "status": "next",
+      "summary": "Clarify first implementation generation and validation checks."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "project_id": "retail-search",
+  "updated_at": "2026-07-04",
+  "current_generation": "GEN-000",
+  "completed": [
+    "Captured mission.",
+    "Initialized local MDE artifacts."
+  ],
+  "in_progress": [],
+  "next": [
+    "Review the mission and generate project-specific BDD scenarios before implementation.",
+    "Define the first implementation generation and validation strategy refinements."
+  ]
+}

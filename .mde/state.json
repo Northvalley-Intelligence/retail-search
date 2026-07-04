@@ -1,0 +1,31 @@
+{
+  "project_id": "retail-search",
+  "updated_at": "2026-07-04",
+  "current_phase": "Generation 0",
+  "active_generation": "GEN-000",
+  "phase_goal": "Clarify the mission, preserve local MDE context, and prepare the first implementation generation.",
+  "mission_status": "captured",
+  "implementation_status": "not_started",
+  "validation_gate": {
+    "latest_result": "pass",
+    "pass_count": 1,
+    "latest_run_id": "VAL-000",
+    "required_before_phase_exit": 2
+  },
+  "active_blockers": [],
+  "pending_approvals": [],
+  "next_recommended_actions": [
+    "Review the mission and generate project-specific BDD scenarios before implementation.",
+    "Define the first implementation generation and validation strategy refinements."
+  ],
+  "applicable_learning_check": {
+    "performed_at": "2026-07-04",
+    "artifact_types_touched": [
+      "mde_project_bootstrap"
+    ],
+    "central_context_packs_applied": [],
+    "known_issue_signatures_applied": [],
+    "downstream_projects_affected": [],
+    "validation_strategy_update_needed": true
+  }
+}
