@@ -1,0 +1,57 @@
+{
+  "validation_run_id": "VAL-001",
+  "project_id": "retail-search",
+  "generation_id": "GEN-001",
+  "run_at": "2026-07-04",
+  "gate": "primary",
+  "result": "pass_with_external_blockers",
+  "command": "npm run validate",
+  "categories": [
+    {
+      "category": "Mission Coverage",
+      "result": "pass",
+      "evidence": "BDD scenarios and ADL-001 trace the implementation to Phase 1 Cranfield/OpenSearch baseline."
+    },
+    {
+      "category": "Functional",
+      "result": "pass",
+      "evidence": "Worker search/explain endpoint tests and OpenSearch query tests passed."
+    },
+    {
+      "category": "Technical",
+      "result": "pass",
+      "evidence": "MDE parse check and Cranfield index check passed."
+    },
+    {
+      "category": "Security",
+      "result": "pass",
+      "evidence": "Runtime source scan found no LLM provider calls in src."
+    },
+    {
+      "category": "Performance",
+      "result": "pass_with_blocker",
+      "evidence": "Search/explain responses include API and OpenSearch latency fields; live average and p95 latency remain externally blocked."
+    },
+    {
+      "category": "Deployment",
+      "result": "pass_with_blocker",
+      "evidence": "GitHub repository exists and release-check metadata records Cloudflare/OpenSearch deployment blockers."
+    }
+  ],
+  "critical_findings": [],
+  "high_findings": [
+    "FIND-001",
+    "FIND-002"
+  ],
+  "skipped_validations": [
+    {
+      "category": "External",
+      "reason": "Live OpenSearch Cranfield corpus and credentials unavailable."
+    },
+    {
+      "category": "Deployment",
+      "reason": "Cloudflare deployment target unavailable."
+    }
+  ]
+}
+

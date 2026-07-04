@@ -8,12 +8,14 @@
   ],
   "context_packs": [],
   "validation_strategy_status": "active",
-  "latest_generation": "GEN-000",
-  "latest_validation_gate_result": "pass",
+  "latest_generation": "GEN-001",
+  "latest_validation_gate_result": "pass_with_external_blockers",
   "upstream_dependencies": [
     "mde"
   ],
   "downstream_dependencies": [],
   "repository_root": "/Users/feroshjacob/code/retail-search",
-  "last_sync_note": "Created locally by MDE Control Center from project name and mission input."
+  "repository_url": "https://github.com/Northvalley-Intelligence/retail-search",
+  "public_phase_1_status": "local_foundation_complete_external_deployment_blocked",
+  "last_sync_note": "GEN-001 created public GitHub repo and local Cranfield/OpenSearch foundation. Central portfolio registration is still pending from central mde."
 }

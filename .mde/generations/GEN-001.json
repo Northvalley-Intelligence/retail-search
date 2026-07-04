@@ -1,0 +1,154 @@
+{
+  "generation_id": "GEN-001",
+  "project_id": "retail-search",
+  "started_at": "2026-07-04",
+  "ended_at": "2026-07-04",
+  "mission_phase": "Phase 1 - Cranfield Foundation",
+  "mission_version": "MISSION-2026-07-04-GEN-001",
+  "validation_strategy_version": "VALSTRAT-002",
+  "status": "local_foundation_complete_external_deployment_blocked",
+  "focus": "Implement the smallest production-shaped Cranfield/OpenSearch baseline with Worker endpoints, explainability, evaluation metrics, index artifacts, repository publication, and MDE evidence.",
+  "reason_started": "The project completed Generation 0 and needed its first safe implementation generation for Phase 1.",
+  "reason_ended": "Local Phase 1 foundation passed the project-specific Validation Gate twice; public endpoint acceptance is blocked on live OpenSearch and Cloudflare deployment configuration.",
+  "files_changed_by_category": {
+    "human_artifacts": [
+      "README.md",
+      "MISSION_UPDATES.md",
+      "docs/api.md",
+      "docs/phase-1.md",
+      "docs/architecture-decisions/ADL-001-cranfield-opensearch-baseline.md",
+      "docs/articles/phase-1-cranfield-baseline.md",
+      "experiments/cranfield-v0/README.md"
+    ],
+    "implementation_artifacts": [
+      "package.json",
+      "wrangler.toml",
+      "src/errors.js",
+      "src/opensearch.js",
+      "src/worker.js",
+      "src/cranfield/schema.js",
+      "src/cranfield/search.js",
+      "src/cranfield/explain.js",
+      "src/evaluation/metrics.js",
+      "scripts/evaluate-cranfield.mjs",
+      "scripts/prepare-cranfield-index.mjs",
+      "scripts/local-server.mjs",
+      "scripts/validate-mde.mjs"
+    ],
+    "data_and_experiment_artifacts": [
+      "data/cranfield/sample-documents.jsonl",
+      "data/cranfield/sample-queries.json",
+      "opensearch/cranfield-index.json",
+      "experiments/cranfield-v0/cranfield-sample-bulk.ndjson",
+      "experiments/cranfield-v0/evaluation-sample.json"
+    ],
+    "validation_artifacts": [
+      "test/opensearch-query.test.js",
+      "test/worker.test.js",
+      "test/evaluation-metrics.test.js",
+      "test/no-runtime-llm.test.js",
+      ".github/workflows/validate.yml"
+    ],
+    "agent_artifacts": [
+      ".mde/project.json",
+      ".mde/state.json",
+      ".mde/validation-strategy.json",
+      ".mde/bdd-index.json",
+      ".mde/failing-bdds.json",
+      ".mde/progress.json",
+      ".mde/findings.json",
+      ".mde/validator-effectiveness.json",
+      ".mde/generation-summary.md",
+      ".mde/generations/GEN-001.json",
+      ".mde/validation-runs/VAL-001.json",
+      ".mde/validation-runs/VAL-002.json",
+      ".mde/risk-register.json",
+      ".mde/task-graph.json",
+      ".mde/decisions.jsonl",
+      ".mde/outbox/events.jsonl",
+      ".mde/outbox/impacts.jsonl",
+      ".mde/outbox/content-seeds.jsonl",
+      ".mde/outbox/portfolio-sync.json"
+    ],
+    "deploy_artifacts": [
+      "deploy/release-checks.json"
+    ]
+  },
+  "validators_executed": [
+    {
+      "name": "node --test",
+      "category": "Functional / Security",
+      "result": "pass",
+      "evidence": "10 tests passed covering OpenSearch query generation, Worker search/explain routes, endpoint aliases, metric math, and no-runtime-LLM source scan."
+    },
+    {
+      "name": "scripts/validate-mde.mjs",
+      "category": "Technical",
+      "result": "pass",
+      "evidence": "Project-local MDE JSON and JSONL artifacts parsed successfully."
+    },
+    {
+      "name": "scripts/prepare-cranfield-index.mjs --check",
+      "category": "Technical",
+      "result": "pass",
+      "evidence": "Cranfield sample documents and mapping fields validated."
+    },
+    {
+      "name": "scripts/evaluate-cranfield.mjs --fixture",
+      "category": "Functional / External",
+      "result": "pass",
+      "evidence": "Fixture evaluation artifact generated with MAP, nDCG, Precision, Recall, and MRR fields."
+    }
+  ],
+  "validators_skipped": [
+    {
+      "name": "live OpenSearch Cranfield evaluation",
+      "reason": "OPENSEARCH_URL and a loaded full Cranfield corpus were not configured in this session."
+    },
+    {
+      "name": "Cloudflare Worker deployment validation",
+      "reason": "Cloudflare deployment target and production secrets were not configured in this session."
+    }
+  ],
+  "validation_gate": {
+    "result": "pass_with_external_blockers",
+    "pass_count": 2,
+    "failed_categories": [],
+    "blocking_findings": [
+      "FIND-001",
+      "FIND-002"
+    ]
+  },
+  "reusable_lessons": [],
+  "downstream_impacts": [
+    "Central mde should register retail-search in portfolio memory from the local outbox."
+  ],
+  "content_seeds": [
+    "Phase 1 article draft can become a public article after live endpoints and commit URL are final."
+  ],
+  "skill_update_candidates": [],
+  "evidence_quality_notes": [
+    "Local validation is strong for source behavior and artifact shape.",
+    "External validation is intentionally blocked rather than simulated."
+  ],
+  "goal_drift_review": {
+    "supports_mission": [
+      "Starts with OpenSearch BM25 baseline before adding advanced components.",
+      "Makes explainability and metrics first-class from the first implementation.",
+      "Keeps runtime LLM calls out of live search."
+    ],
+    "missing": [
+      "Full Cranfield corpus ingestion.",
+      "Live OpenSearch evaluation.",
+      "Cloudflare public endpoint deployment."
+    ],
+    "over_engineered": [],
+    "deferred": [
+      "BEIR transferability.",
+      "Retail ESCI fields.",
+      "Behavioral ranking signals."
+    ],
+    "mission_alignment": "GEN-001 serves the Phase 1 foundation without adding unearned architecture."
+  }
+}
+

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "q1",
+    "query": "wing pressure distribution",
+    "qrels": {
+      "cranfield-sample-001": 3,
+      "cranfield-sample-005": 1
+    }
+  },
+  {
+    "id": "q2",
+    "query": "boundary layer transition",
+    "qrels": {
+      "cranfield-sample-002": 3,
+      "cranfield-sample-001": 1
+    }
+  },
+  {
+    "id": "q3",
+    "query": "hypersonic heat transfer",
+    "qrels": {
+      "cranfield-sample-003": 3
+    }
+  }
+]
+

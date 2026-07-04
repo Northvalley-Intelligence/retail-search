@@ -1,31 +1,53 @@
 {
   "project_id": "retail-search",
   "updated_at": "2026-07-04",
-  "current_phase": "Generation 0",
-  "active_generation": "GEN-000",
-  "phase_goal": "Clarify the mission, preserve local MDE context, and prepare the first implementation generation.",
+  "current_phase": "Phase 1 - Cranfield Foundation",
+  "active_generation": "GEN-001",
+  "phase_goal": "Build the smallest production-shaped Cranfield/OpenSearch baseline with search, explain, evaluation, and public-readiness evidence.",
   "mission_status": "captured",
-  "implementation_status": "not_started",
+  "implementation_status": "local_phase_1_foundation_implemented",
   "validation_gate": {
-    "latest_result": "pass",
-    "pass_count": 1,
-    "latest_run_id": "VAL-000",
+    "latest_result": "pass_with_external_blockers",
+    "pass_count": 2,
+    "latest_run_id": "VAL-002",
     "required_before_phase_exit": 2
   },
-  "active_blockers": [],
+  "active_blockers": [
+    "Live OpenSearch Cranfield corpus and credentials are not configured.",
+    "Cloudflare Worker deployment target and public endpoint URLs are not configured."
+  ],
   "pending_approvals": [],
   "next_recommended_actions": [
-    "Review the mission and generate project-specific BDD scenarios before implementation.",
-    "Define the first implementation generation and validation strategy refinements."
+    "Provision or select the OpenSearch runtime for Cranfield.",
+    "Load the full Cranfield corpus into cranfield-v0.",
+    "Run live OpenSearch evaluation and record MAP, nDCG, Precision, Recall, MRR, average latency, and p95 latency.",
+    "Deploy the Worker to Cloudflare and publish public search/explain URLs."
   ],
   "applicable_learning_check": {
     "performed_at": "2026-07-04",
     "artifact_types_touched": [
-      "mde_project_bootstrap"
+      "search_api",
+      "cloudflare_worker",
+      "opensearch_index",
+      "search_ir_evaluation",
+      "public_content",
+      "mde_project_state"
     ],
     "central_context_packs_applied": [],
     "known_issue_signatures_applied": [],
+    "known_issue_signatures_reviewed_not_applied": [
+      "PDF_TEXT_OVERFLOW_MARGIN",
+      "FORM_VALIDATION_CLEARS_VALID_INPUT",
+      "FAKE_BUTTON_NO_MEANINGFUL_ACTION",
+      "DEAD_LINK_CLIENT_FACING_DOCUMENT",
+      "DUPLICATE_PRIMARY_ACTIONS",
+      "PRINT_LAYOUT_PAGE_BREAK_OVERLAP",
+      "CLIENT_FACING_PROCESS_COPY_LEAK",
+      "PLACEHOLDER_OR_UNAPPROVED_PROOF_PUBLISHED",
+      "UNSUPPORTED_OPERATIONAL_CLAIM",
+      "VISUAL_PROOF_VARIETY_GAP"
+    ],
     "downstream_projects_affected": [],
-    "validation_strategy_update_needed": true
+    "validation_strategy_update_needed": false
   }
 }

@@ -1,19 +1,19 @@
 {
   "project_id": "retail-search",
   "generated_at": "2026-07-04",
-  "mission_version": "MISSION-2026-07-04-GEN-000",
+  "mission_version": "MISSION-2026-07-04-GEN-001",
   "summary": {
-    "total_active": 1,
-    "critical": 1,
-    "high": 0,
+    "total_active": 6,
+    "critical": 3,
+    "high": 3,
     "medium": 0,
     "low": 0,
-    "passing": 1,
+    "passing": 5,
     "failing": 0,
-    "deferred": 0,
+    "deferred": 1,
     "planned": 0,
     "tests_reused": 0,
-    "tests_newly_added": 0,
+    "tests_newly_added": 10,
     "tests_removed_or_deferred": 0
   },
   "scenarios": [
@@ -22,9 +22,55 @@
       "title": "Engineering work requires the captured mission",
       "priority": "Critical",
       "status": "passing",
-      "given": "a new project was created from a project name and mission",
+      "given": "an MDE-enabled project with a captured mission",
       "when": "implementation work is requested",
-      "then": "the session starts from MISSION.md and project-local MDE state before changing code"
+      "then": "the session starts from MISSION.md, project-local MDE state, and applicable central context before changing code"
+    },
+    {
+      "id": "BDD-001",
+      "title": "Cranfield search uses OpenSearch-backed retrieval",
+      "priority": "Critical",
+      "status": "passing",
+      "given": "a user calls the Cranfield search endpoint with a non-empty query",
+      "when": "OpenSearch configuration is present",
+      "then": "the Worker sends a generated OpenSearch multi_match request to the configured Cranfield index and maps returned hits without hardcoded query-specific results"
+    },
+    {
+      "id": "BDD-002",
+      "title": "Search explain reveals the active retrieval path",
+      "priority": "Critical",
+      "status": "passing",
+      "given": "a user calls the Cranfield explain endpoint",
+      "when": "OpenSearch returns matching hits",
+      "then": "the response includes the incoming query, normalized query, dataset, architecture version, generated OpenSearch query, retrieval strategy, ranking logic, accepted architecture decisions, applied techniques, top result explanations, and latency metadata"
+    },
+    {
+      "id": "BDD-003",
+      "title": "Live search has no runtime LLM dependency",
+      "priority": "Critical",
+      "status": "passing",
+      "given": "the live search source is inspected",
+      "when": "validation checks runtime code",
+      "then": "no OpenAI, Anthropic, chat completion, response generation, or Gemini runtime call is present in the search path"
+    },
+    {
+      "id": "BDD-004",
+      "title": "Baseline evaluator computes relevance metrics",
+      "priority": "High",
+      "status": "passing",
+      "given": "ranked Cranfield results and qrels",
+      "when": "the evaluator runs",
+      "then": "it reports MAP, nDCG, Precision, Recall, and MRR-style metrics in a versioned experiment artifact"
+    },
+    {
+      "id": "BDD-005",
+      "title": "Public Phase 1 endpoint availability",
+      "priority": "High",
+      "status": "deferred",
+      "given": "the Worker and OpenSearch implementation exists",
+      "when": "public Phase 1 acceptance is requested",
+      "then": "a Cloudflare Worker deployment and live OpenSearch Cranfield index must be configured and validated before public readiness is claimed",
+      "defer_reason": "Cloudflare deployment target and live OpenSearch credentials were not available in this session."
     }
   ]
 }

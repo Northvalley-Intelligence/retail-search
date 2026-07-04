@@ -8,6 +8,27 @@
       "category": "Mission Coverage / Technical",
       "usefulness": "medium",
       "notes": "Verified project name and mission created local MDE starter artifacts."
+    },
+    {
+      "validator_id": "GEN1-NODE-TEST",
+      "status": "useful",
+      "category": "Functional / Security",
+      "usefulness": "high",
+      "notes": "Validated Worker routes, OpenSearch query generation, explain contract, metric math, and no-runtime-LLM rule."
+    },
+    {
+      "validator_id": "GEN1-MDE-PARSE",
+      "status": "useful",
+      "category": "Technical",
+      "usefulness": "high",
+      "notes": "Validated project-local MDE JSON and JSONL artifacts remain parseable."
+    },
+    {
+      "validator_id": "GEN1-FIXTURE-EVAL",
+      "status": "limited",
+      "category": "Functional / External",
+      "usefulness": "medium",
+      "notes": "Validated evaluation artifact shape and metric calculations, but does not replace live OpenSearch Cranfield evaluation."
     }
   ]
 }

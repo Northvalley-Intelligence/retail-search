@@ -1,14 +1,20 @@
 {
   "project_id": "retail-search",
   "updated_at": "2026-07-04",
-  "current_generation": "GEN-000",
+  "current_generation": "GEN-001",
   "completed": [
     "Captured mission.",
-    "Initialized local MDE artifacts."
+    "Initialized local MDE artifacts.",
+    "Created public GitHub repository.",
+    "Implemented Cloudflare Worker-compatible Cranfield search and explain endpoints.",
+    "Added OpenSearch index mapping and sample bulk indexing artifact.",
+    "Added baseline evaluation metrics and fixture evaluation artifact.",
+    "Recorded ADL-001 for the OpenSearch BM25 baseline."
   ],
   "in_progress": [],
   "next": [
-    "Review the mission and generate project-specific BDD scenarios before implementation.",
-    "Define the first implementation generation and validation strategy refinements."
+    "Configure live OpenSearch and load full Cranfield corpus.",
+    "Deploy Cloudflare Worker public endpoints.",
+    "Run live Phase 1 evaluation and latency measurements."
   ]
 }

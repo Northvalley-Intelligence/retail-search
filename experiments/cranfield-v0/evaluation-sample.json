@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-07-04T00:00:00.000Z",
+  "dataset": "cranfield-sample",
+  "architectureVersion": "v0-cranfield-opensearch-baseline",
+  "transport": "fixture-validator",
+  "acceptanceNote": "Fixture evaluator validates metric math and run artifact shape; final Phase 1 acceptance still requires live OpenSearch data and public endpoints.",
+  "metrics": {
+    "map": 1,
+    "ndcgAtK": 1,
+    "precisionAtK": 0.8889,
+    "recallAtK": 1,
+    "mrr": 1
+  },
+  "evaluation": {
+    "k": 10,
+    "queryCount": 3,
+    "aggregate": {
+      "precisionAtK": 0.8889,
+      "recallAtK": 1,
+      "averagePrecision": 1,
+      "reciprocalRank": 1,
+      "ndcgAtK": 1
+    },
+    "perQuery": [
+      {
+        "queryId": "q1",
+        "query": "wing pressure distribution",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "q2",
+        "query": "boundary layer transition",
+        "metrics": {
+          "precisionAtK": 0.6667,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "q3",
+        "query": "hypersonic heat transfer",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      }
+    ]
+  }
+}

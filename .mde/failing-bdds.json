@@ -2,5 +2,12 @@
   "project_id": "retail-search",
   "generated_at": "2026-07-04",
   "failing_bdds": [],
-  "not_started_required_bdds": []
+  "not_started_required_bdds": [],
+  "deferred_bdds": [
+    {
+      "id": "BDD-005",
+      "priority": "High",
+      "summary": "Public Phase 1 endpoint availability requires Cloudflare and live OpenSearch configuration."
+    }
+  ]
 }

@@ -5,8 +5,15 @@
     {
       "id": "RISK-001",
       "severity": "medium",
+      "status": "mitigated",
+      "summary": "Project-specific validation was not defined beyond the starter strategy.",
+      "mitigation": "VALSTRAT-002 now defines Phase 1 search, explain, evaluation, security, performance, deployment, and MDE checks."
+    },
+    {
+      "id": "RISK-002",
+      "severity": "high",
       "status": "open",
-      "summary": "Project-specific validation is not defined beyond the starter strategy."
+      "summary": "Phase 1 public acceptance depends on external OpenSearch and Cloudflare configuration."
     }
   ]
 }

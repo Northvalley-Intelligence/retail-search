@@ -1,0 +1,18 @@
+{
+  "name": "@northvalley-intelligence/retail-search",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "Mission-driven OpenSearch retail search platform.",
+  "scripts": {
+    "dev": "node scripts/local-server.mjs",
+    "eval:cranfield": "node scripts/evaluate-cranfield.mjs --live",
+    "prepare:index": "node scripts/prepare-cranfield-index.mjs --write experiments/cranfield-v0/cranfield-sample-bulk.ndjson",
+    "test": "node --test",
+    "validate": "node --test && node scripts/validate-mde.mjs && node scripts/prepare-cranfield-index.mjs --check && node scripts/evaluate-cranfield.mjs --fixture --write experiments/cranfield-v0/evaluation-sample.json"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}
+

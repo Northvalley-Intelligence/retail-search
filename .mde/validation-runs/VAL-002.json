@@ -1,0 +1,58 @@
+{
+  "validation_run_id": "VAL-002",
+  "project_id": "retail-search",
+  "generation_id": "GEN-001",
+  "run_at": "2026-07-04",
+  "gate": "second",
+  "result": "pass_with_external_blockers",
+  "command": "npm run validate",
+  "second_pass_policy": "Reran all Critical validations, changed validations, and deployment blocker checks with no implementation, test, strategy, or validator behavior changes between clean passes.",
+  "categories": [
+    {
+      "category": "Mission Coverage",
+      "result": "pass",
+      "evidence": "Mission traceability remained unchanged between passes."
+    },
+    {
+      "category": "Functional",
+      "result": "pass",
+      "evidence": "10 Node tests passed again."
+    },
+    {
+      "category": "Technical",
+      "result": "pass",
+      "evidence": "MDE parse check and Cranfield index check passed again."
+    },
+    {
+      "category": "Security",
+      "result": "pass",
+      "evidence": "No-runtime-LLM source scan passed again."
+    },
+    {
+      "category": "Performance",
+      "result": "pass_with_blocker",
+      "evidence": "Latency fields remain implemented; live latency remains externally blocked."
+    },
+    {
+      "category": "Deployment",
+      "result": "pass_with_blocker",
+      "evidence": "Deployment blockers remain explicitly recorded."
+    }
+  ],
+  "critical_findings": [],
+  "high_findings": [
+    "FIND-001",
+    "FIND-002"
+  ],
+  "skipped_validations": [
+    {
+      "category": "External",
+      "reason": "Live OpenSearch Cranfield corpus and credentials unavailable."
+    },
+    {
+      "category": "Deployment",
+      "reason": "Cloudflare deployment target unavailable."
+    }
+  ]
+}
+

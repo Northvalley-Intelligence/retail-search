@@ -1,0 +1,51 @@
+{
+  "settings": {
+    "index": {
+      "number_of_shards": 1,
+      "number_of_replicas": 0
+    },
+    "analysis": {
+      "analyzer": {
+        "cranfield_english": {
+          "type": "english"
+        }
+      }
+    }
+  },
+  "mappings": {
+    "dynamic": "strict",
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "dataset": {
+        "type": "keyword"
+      },
+      "title": {
+        "type": "text",
+        "analyzer": "cranfield_english",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "abstract": {
+        "type": "text",
+        "analyzer": "cranfield_english"
+      },
+      "text": {
+        "type": "text",
+        "analyzer": "cranfield_english"
+      },
+      "source": {
+        "type": "keyword"
+      },
+      "indexed_at": {
+        "type": "date"
+      }
+    }
+  }
+}
+

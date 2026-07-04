@@ -4,8 +4,18 @@
   "tasks": [
     {
       "id": "TASK-001",
-      "status": "next",
+      "status": "complete",
       "summary": "Clarify first implementation generation and validation checks."
+    },
+    {
+      "id": "TASK-002",
+      "status": "complete",
+      "summary": "Implement local Phase 1 Cranfield/OpenSearch foundation."
+    },
+    {
+      "id": "TASK-003",
+      "status": "blocked_external",
+      "summary": "Deploy public Cloudflare Worker endpoints backed by a live OpenSearch Cranfield index."
     }
   ]
 }

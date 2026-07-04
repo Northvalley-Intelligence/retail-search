@@ -1,0 +1,31 @@
+{
+  "project_id": "retail-search",
+  "updated_at": "2026-07-04",
+  "github_repository": {
+    "status": "created",
+    "url": "https://github.com/Northvalley-Intelligence/retail-search",
+    "visibility": "public"
+  },
+  "cloudflare_worker": {
+    "status": "not_deployed",
+    "required_before_public_phase_1_acceptance": true,
+    "blockers": [
+      "Cloudflare account/project deployment target not configured in this session.",
+      "Live OpenSearch endpoint and credentials are not configured in this session."
+    ]
+  },
+  "opensearch": {
+    "status": "not_connected",
+    "required_before_public_phase_1_acceptance": true,
+    "required_environment": [
+      "OPENSEARCH_URL",
+      "OPENSEARCH_API_KEY or OPENSEARCH_USERNAME and OPENSEARCH_PASSWORD",
+      "CRANFIELD_INDEX"
+    ]
+  },
+  "validation": {
+    "local_gate_status": "pass",
+    "latest_local_validation_run": "VAL-002",
+    "public_endpoint_status": "blocked"
+  }
+}

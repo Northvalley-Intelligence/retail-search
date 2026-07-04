@@ -1,44 +1,85 @@
 {
-  "strategy_id": "VALSTRAT-001",
-  "project_type": "mission-driven local project",
+  "strategy_id": "VALSTRAT-002",
+  "project_type": "mission-driven OpenSearch search platform",
   "artifact_profiles": [
     "mde_project",
-    "mission_driven_engineering"
+    "mission_driven_engineering",
+    "search_api",
+    "search_ir_evaluation",
+    "cloudflare_worker",
+    "opensearch_index",
+    "public_content"
   ],
-  "mission_phase": "Generation 0",
+  "mission_phase": "Phase 1 - Cranfield Foundation",
   "selected_validations": [
     {
       "category": "Mission Coverage",
       "required": true,
       "priority": "Critical",
       "tools_or_methods": [
-        "mission review",
-        "BDD generation"
+        "MISSION.md review",
+        "BDD traceability review",
+        "architecture decision ledger"
       ],
-      "reason": "Implementation work must trace to the captured mission."
+      "reason": "Phase 1 work must stay focused on the Cranfield/OpenSearch baseline and avoid unearned architecture."
     },
     {
       "category": "Functional",
       "required": true,
       "priority": "Critical",
       "tools_or_methods": [
-        "project-specific tests selected before implementation"
+        "node --test",
+        "Worker endpoint contract tests",
+        "OpenSearch query generation tests",
+        "explain endpoint tests"
       ],
-      "reason": "Functional validation must be chosen for the actual project behavior."
+      "reason": "Search and explain endpoints must exercise actual request generation and response mapping behavior."
     },
     {
       "category": "Technical",
       "required": true,
       "priority": "High",
       "tools_or_methods": [
-        "repository checks",
-        "artifact parse checks"
+        "node --test",
+        "scripts/validate-mde.mjs",
+        "scripts/prepare-cranfield-index.mjs --check"
       ],
-      "reason": "Local MDE state must remain parseable and retrievable."
+      "reason": "Source modules, local MDE state, and index artifacts must remain parseable and runnable."
+    },
+    {
+      "category": "Performance",
+      "required": true,
+      "priority": "High",
+      "tools_or_methods": [
+        "latency fields in search/explain responses",
+        "live OpenSearch latency measurement when credentials exist"
+      ],
+      "reason": "The mission requires average and p95 latency tracking; GEN-001 adds response fields, but live measurement remains blocked."
+    },
+    {
+      "category": "Security",
+      "required": true,
+      "priority": "Critical",
+      "tools_or_methods": [
+        "runtime source scan for LLM providers",
+        "environment variable based OpenSearch credentials"
+      ],
+      "reason": "The live search path must not call an LLM and secrets must not be committed."
+    },
+    {
+      "category": "Deployment",
+      "required": true,
+      "priority": "High",
+      "tools_or_methods": [
+        "deploy/release-checks.json",
+        "GitHub repository verification",
+        "Cloudflare deployment check when credentials exist"
+      ],
+      "reason": "Phase 1 requires public endpoints; deployment is explicitly blocked until external services are configured."
     }
   ],
   "validation_gates": {
     "required_pass_count_before_phase_exit": 2,
-    "second_pass_policy": "Rerun Critical validations and any changed or failed validations."
+    "second_pass_policy": "Rerun all Critical validations, all changed validations, and deployment blocker checks with no implementation, test, strategy, or validator changes between passes."
   }
 }

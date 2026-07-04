@@ -1,8 +1,24 @@
 {
   "project_id": "retail-search",
   "updated_at": "2026-07-04",
-  "findings": [],
+  "findings": [
+    {
+      "id": "FIND-001",
+      "severity": "High",
+      "status": "blocked_external",
+      "category": "Deployment",
+      "summary": "Public Phase 1 endpoints cannot be claimed until Cloudflare Worker deployment and live OpenSearch configuration exist."
+    },
+    {
+      "id": "FIND-002",
+      "severity": "High",
+      "status": "blocked_external",
+      "category": "External Validation",
+      "summary": "Live Cranfield metrics and latency cannot be measured until the full corpus is loaded into OpenSearch."
+    }
+  ],
   "residual_risks": [
-    "Project-specific validators have not been selected yet."
+    "Fixture evaluation proves metric math and artifact shape only.",
+    "OpenSearch relevance and p95 latency remain unknown until a live index is available."
   ]
 }

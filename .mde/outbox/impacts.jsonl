@@ -1,0 +1,2 @@
+{"id":"IMP-001","date":"2026-07-04","project_id":"retail-search","generation_id":"GEN-001","confidentiality":"private","summary":"Central portfolio should register retail-search as an active MDE product repo with public GitHub URL and upstream dependency on mde.","central_worthy":true}
+{"id":"IMP-002","date":"2026-07-04","project_id":"retail-search","generation_id":"GEN-001","confidentiality":"private","summary":"Phase 1 public readiness is blocked until OpenSearch Cranfield corpus and Cloudflare Worker deployment are configured.","central_worthy":true}

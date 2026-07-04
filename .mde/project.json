@@ -5,6 +5,7 @@
   "mission_version": "MISSION-2026-07-04-GEN-000",
   "type": "product",
   "repo_or_path": ".",
+  "repository_url": "https://github.com/Northvalley-Intelligence/retail-search",
   "status": "active",
   "mde_status": "active",
   "owner": "Ferosh",
@@ -23,12 +24,15 @@
   "downstream_dependencies": [],
   "primary_artifacts": [
     "mission",
-    "local MDE state"
+    "local MDE state",
+    "Cloudflare Worker search API",
+    "OpenSearch Cranfield index artifacts",
+    "evaluation framework"
   ],
-  "current_session_status": "not_started",
+  "current_session_status": "phase_1_local_foundation_complete",
   "validation_strategy_status": "active",
-  "central_sync_status": "local_only",
-  "latest_generation": "GEN-000",
-  "latest_validation_gate_result": "pass",
-  "notes": "Created from project name and mission input."
+  "central_sync_status": "local_outbox_ready",
+  "latest_generation": "GEN-001",
+  "latest_validation_gate_result": "pass_with_external_blockers",
+  "notes": "Created from project name and mission input. GEN-001 created the public repository and local Cranfield/OpenSearch foundation; live deployment remains externally blocked."
 }
