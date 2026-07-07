@@ -5,4 +5,4 @@ compatibility_date = "2026-07-04"
 [vars]
 ARCHITECTURE_VERSION = "v0-cranfield-opensearch-baseline"
 CRANFIELD_INDEX = "cranfield-v0"
-
+GIT_VERSION = "v0.1.0"
