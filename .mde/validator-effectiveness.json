@@ -1,6 +1,6 @@
 {
   "project_id": "retail-search",
-  "updated_at": "2026-07-04",
+  "updated_at": "2026-07-06",
   "validators": [
     {
       "validator_id": "GEN0-CONTROL-CENTER-CREATION",
@@ -29,6 +29,111 @@
       "category": "Functional / External",
       "usefulness": "medium",
       "notes": "Validated evaluation artifact shape and metric calculations, but does not replace live OpenSearch Cranfield evaluation."
+    },
+    {
+      "validator_id": "GEN4-WRANGLER-DEPLOY",
+      "status": "useful",
+      "category": "Deployment",
+      "usefulness": "high",
+      "notes": "Proved Workers write scope, secret upload, deployment, workers.dev route, and deployed version creation."
+    },
+    {
+      "validator_id": "GEN4-PUBLIC-ENDPOINT-CURL",
+      "status": "useful",
+      "category": "Functional / External",
+      "usefulness": "high",
+      "notes": "Verified public health, search, explain, latest, and versioned endpoints against live OpenSearch results."
+    },
+    {
+      "validator_id": "GEN5-ROOT-UI-CONTRACT",
+      "status": "useful",
+      "category": "Functional / Usability",
+      "usefulness": "high",
+      "notes": "Verified the Worker root serves a search interface with indexed-data details and example queries."
+    },
+    {
+      "validator_id": "GEN5-DATASET-METADATA-CONTRACT",
+      "status": "useful",
+      "category": "Functional / Data Integrity",
+      "usefulness": "high",
+      "notes": "Verified metadata endpoints expose Cranfield document counts, qrel counts, searchable fields, topic hints, and example queries."
+    },
+    {
+      "validator_id": "GEN5-BROWSER-VISUAL-CHECK",
+      "status": "unavailable",
+      "category": "Usability / UI Standards",
+      "usefulness": "limited",
+      "notes": "The browser plugin reported no available browser instances, so visual inspection was limited to served HTML structure and public HTTP contract checks."
+    },
+    {
+      "validator_id": "GEN6-EXPLAIN-FLOW-CONTRACT",
+      "status": "useful",
+      "category": "Functional / Explainability",
+      "usefulness": "high",
+      "notes": "Verified the explain API returns a retrievalFlow sequence that matches the public flow diagram."
+    },
+    {
+      "validator_id": "GEN6-PUBLIC-FLOW-HTTP",
+      "status": "useful",
+      "category": "Usability / External",
+      "usefulness": "high",
+      "notes": "Verified the deployed root UI contains the flow diagram and public explain endpoints include retrievalFlow for live queries."
+    },
+    {
+      "validator_id": "GEN7-EVALUATION-CONTRACT",
+      "status": "useful",
+      "category": "Evaluation Transparency / Data Integrity",
+      "usefulness": "high",
+      "notes": "Verified the public evaluation endpoint exposes aggregate metrics and representative strong, mixed, and weak examples."
+    },
+    {
+      "validator_id": "GEN7-PUBLIC-EVALUATION-HTTP",
+      "status": "useful",
+      "category": "Usability / External",
+      "usefulness": "high",
+      "notes": "Verified the deployed root UI includes the evaluation section and live search/explain still work after the evaluation addition."
+    },
+    {
+      "validator_id": "GEN8-ROUTE-ORGANIZATION-CONTRACT",
+      "status": "useful",
+      "category": "Usability / Information Architecture",
+      "usefulness": "high",
+      "notes": "Verified the root page is a phase overview and Phase 1 content is split into focused overview, search, data, explain, and evaluation routes."
+    },
+    {
+      "validator_id": "GEN8-PUBLIC-ROUTE-HTTP",
+      "status": "useful",
+      "category": "Usability / External",
+      "usefulness": "high",
+      "notes": "Verified deployed home, Phase 1 subpages, /phase-1 aliases, planned phase pages, search API, explain API, and evaluation API against the public Worker."
+    },
+    {
+      "validator_id": "GEN9-DATASET-REFERENCE-CONTRACT",
+      "status": "useful",
+      "category": "Usability / Dataset Transparency",
+      "usefulness": "high",
+      "notes": "Verified local Worker HTML includes dataset references on the home page, Cranfield data page, and BEIR planned page, and that /api/cranfield/meta exposes the Cranfield source URL."
+    },
+    {
+      "validator_id": "GEN9-PUBLIC-REFERENCE-HTTP",
+      "status": "useful",
+      "category": "Usability / External",
+      "usefulness": "high",
+      "notes": "Verified deployed pages include Cranfield, BEIR, ESCI, and behavior-source status references, while live search still returns the expected top Cranfield result."
+    },
+    {
+      "validator_id": "GEN10-TRACEABILITY-CONTRACT",
+      "status": "useful",
+      "category": "Traceability / Versioning",
+      "usefulness": "high",
+      "notes": "Verified .mde/traceability.json, timeline docs, canonical IDs, and endpoint manifest contain the Phase 1 chain M-0001, A-0002, SE-0001, ARCH-0.1, ADL-0001, and v0.1.0."
+    },
+    {
+      "validator_id": "GEN10-VERSIONED-ENDPOINT-CONTRACT",
+      "status": "useful",
+      "category": "Functional / Traceability",
+      "usefulness": "high",
+      "notes": "Verified local /api/v0.1/search aliases route to the Cranfield baseline and API payloads include traceability identifiers."
     }
   ]
 }

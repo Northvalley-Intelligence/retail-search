@@ -1,0 +1,43 @@
+{
+  "run_id": "VAL-019",
+  "project_id": "retail-search",
+  "generation_id": "GEN-009",
+  "executed_at": "2026-07-05T20:19:53Z",
+  "validation_strategy_version": "VALSTRAT-004",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "Cloudflare Worker deployment",
+      "category": "Deployment / External",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "npx wrangler deploy --config wrangler.toml deployed retail-search version 68e53192-0cad-4466-b238-f2ab35150d1f at https://retail-search.feroshjacob.workers.dev."
+    },
+    {
+      "name": "public dataset references",
+      "category": "Usability / Dataset Transparency / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Live checks confirmed the home page references Glasgow Cranfield, BEIR, Amazon ESCI, and behavior source-not-selected status; Cranfield data and overview pages include the Glasgow Cranfield reference; BEIR and ESCI planned pages include their source URLs."
+    },
+    {
+      "name": "public Cranfield metadata",
+      "category": "Data Integrity / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "/api/cranfield/meta returned source.url https://ir.dcs.gla.ac.uk/resources/test_collections/cran/."
+    },
+    {
+      "name": "public search stability",
+      "category": "Functional / External",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "/api/search?q=wing%20pressure%20distribution&size=3 returned top result id 652 after the content update."
+    }
+  ],
+  "blocked_or_skipped": [],
+  "critical_findings": [],
+  "high_findings": [],
+  "medium_findings": [],
+  "evidence_quality": "Public verification covers the new source references and confirms the live search baseline remains stable."
+}

@@ -1,0 +1,43 @@
+{
+  "run_id": "VAL-006",
+  "project_id": "retail-search",
+  "generation_id": "GEN-004",
+  "executed_at": "2026-07-05T05:03:32Z",
+  "validation_strategy_version": "VALSTRAT-003",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Second pass: 14 tests passed, MDE parse check passed, sample index check passed, fixture evaluation passed."
+    },
+    {
+      "name": "public /health",
+      "category": "Functional / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Second pass: public health endpoint returned status ok and architecture version v0-cranfield-opensearch-baseline."
+    },
+    {
+      "name": "public /api/search",
+      "category": "Functional / External",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "Second pass latest search alias returned live cranfield-v0 results for 'wing pressure distribution'; top result id 652; total hits 794; API latency 348 ms; OpenSearch took 7 ms."
+    },
+    {
+      "name": "public /api/explain",
+      "category": "Functional / External",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "Second pass latest explain alias returned generated OpenSearch query, retrieval strategy, ranking logic, ADL-001, top result id 652, API latency 329 ms, and OpenSearch took 5 ms."
+    }
+  ],
+  "blocked_or_skipped": [],
+  "critical_findings": [],
+  "high_findings": [],
+  "medium_findings": [],
+  "evidence_quality": "Second pass confirms deployed endpoint behavior without code, test, validation strategy, or validator changes between public checks. Broader p95 latency sampling remains a follow-up."
+}

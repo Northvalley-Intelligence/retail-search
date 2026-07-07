@@ -1,0 +1,119 @@
+{
+  "generation_id": "GEN-008",
+  "project_id": "retail-search",
+  "started_at": "2026-07-05",
+  "ended_at": "2026-07-05",
+  "mission_phase": "Phase 1 - Cranfield Foundation",
+  "mission_version": "MISSION-2026-07-05-GEN-008",
+  "validation_strategy_version": "VALSTRAT-004",
+  "status": "public_pages_organized_deployed_validated",
+  "focus": "Reorganize the public site into a project phase home page and focused Phase 1 subsection pages.",
+  "reason_started": "The operator said the public URL looked crowded with explain and evaluation content on the same page and asked for an intro page listing phases plus separate detail pages.",
+  "reason_ended": "The organized public routes are deployed, local validation passes, and public verification confirms home, Phase 1 subpages, aliases, planned phase pages, and APIs.",
+  "files_changed_by_category": {
+    "human_artifacts": [
+      "README.md",
+      "MISSION_UPDATES.md",
+      "docs/deployment-opensearch-cloudflare.md"
+    ],
+    "implementation_artifacts": [
+      "src/ui.js",
+      "src/worker.js"
+    ],
+    "test_artifacts": [
+      "test/worker.test.js"
+    ],
+    "agent_artifacts": [
+      ".mde/state.json",
+      ".mde/progress.json",
+      ".mde/bdd-index.json",
+      ".mde/task-graph.json",
+      ".mde/validator-effectiveness.json",
+      ".mde/generation-summary.md",
+      ".mde/generations/GEN-008.json",
+      ".mde/validation-runs/VAL-016.json",
+      ".mde/validation-runs/VAL-017.json",
+      ".mde/outbox/events.jsonl",
+      ".mde/outbox/impacts.jsonl"
+    ],
+    "deploy_artifacts": [
+      "deploy/release-checks.json"
+    ]
+  },
+  "deployment": {
+    "provider": "Cloudflare Workers",
+    "worker_name": "retail-search",
+    "public_url": "https://retail-search.feroshjacob.workers.dev",
+    "version_id": "61b9978e-788b-42f1-baa3-03c479a1c65c",
+    "workers_dev": true
+  },
+  "validators_executed": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Information Architecture",
+      "result": "pass",
+      "evidence": "20 tests passed, including route organization and focused-page assertions."
+    },
+    {
+      "name": "wrangler deploy",
+      "category": "Deployment / External",
+      "result": "pass",
+      "evidence": "Cloudflare deployed version 61b9978e-788b-42f1-baa3-03c479a1c65c."
+    },
+    {
+      "name": "public route verification",
+      "category": "Usability / External",
+      "result": "pass",
+      "evidence": "Live checks passed for home, Phase 1 overview/search/data/explain/evaluation, /phase-1 aliases, planned phase page, and APIs."
+    }
+  ],
+  "validators_skipped": [
+    {
+      "name": "browser visual screenshot",
+      "category": "Usability / Visual",
+      "reason": "The browser plugin was unavailable in this session; verification used route-level HTML and public HTTP contract checks."
+    }
+  ],
+  "validation_gate": {
+    "result": "pass",
+    "pass_count": 2,
+    "failed_categories": [],
+    "blocking_findings": []
+  },
+  "github_submission": {
+    "status": "not_submitted",
+    "blocker": "The operator asked to deploy and organize the public pages, not to commit or push."
+  },
+  "reusable_lessons": [
+    "Public research demos need an information architecture before adding multiple evidence artifacts; the root page should orient users and route them to focused pages."
+  ],
+  "downstream_impacts": [
+    "Future BEIR, ESCI, and behavioral ranking phases now have planned entry pages and should add their own focused detail pages rather than expanding Phase 1."
+  ],
+  "content_seeds": [
+    "Phase 1 article can link directly to /phases/cranfield/search, /data, /explain, and /evaluation depending on the reader's task."
+  ],
+  "skill_update_candidates": [],
+  "evidence_quality_notes": [
+    "Route checks include negative assertions that search and explain pages do not carry evaluation-only content.",
+    "Public API checks prove the page reorganization did not regress search, explain, or evaluation endpoints."
+  ],
+  "goal_drift_review": {
+    "supports_mission": [
+      "Keeps the public demo understandable as the project grows past Phase 1.",
+      "Preserves transparent search, data, explain, and evaluation evidence without crowding one page.",
+      "Creates clear extension points for later phases."
+    ],
+    "missing": [
+      "Visual screenshot verification from a browser instance.",
+      "Phase 1 article linked to the organized route set."
+    ],
+    "over_engineered": [],
+    "deferred": [
+      "BEIR transferability implementation.",
+      "ESCI retail relevance implementation.",
+      "Behavioral ranking implementation."
+    ],
+    "mission_alignment": "GEN-008 improves public usability and roadmap clarity without changing the Phase 1 retrieval architecture."
+  }
+}

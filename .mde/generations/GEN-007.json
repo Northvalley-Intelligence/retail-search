@@ -1,0 +1,115 @@
+{
+  "generation_id": "GEN-007",
+  "project_id": "retail-search",
+  "started_at": "2026-07-05",
+  "ended_at": "2026-07-05",
+  "mission_phase": "Phase 1 - Cranfield Foundation",
+  "mission_version": "MISSION-2026-07-05-GEN-007",
+  "validation_strategy_version": "VALSTRAT-004",
+  "status": "public_evaluation_results_deployed_validated",
+  "focus": "Expose live Cranfield evaluation metrics and representative correct, wrong, and missed examples in the public UI and API.",
+  "reason_started": "The operator asked where evaluation results are and noted that people should see some correct and wrong examples.",
+  "reason_ended": "Evaluation results are deployed in the UI, exposed as JSON, and verified through local validation and two public checks.",
+  "files_changed_by_category": {
+    "human_artifacts": [
+      "README.md",
+      "MISSION_UPDATES.md",
+      "docs/deployment-opensearch-cloudflare.md"
+    ],
+    "implementation_artifacts": [
+      "src/cranfield/evaluation-profile.js",
+      "src/ui.js",
+      "src/worker.js"
+    ],
+    "test_artifacts": [
+      "test/worker.test.js"
+    ],
+    "agent_artifacts": [
+      ".mde/state.json",
+      ".mde/progress.json",
+      ".mde/validation-strategy.json",
+      ".mde/bdd-index.json",
+      ".mde/task-graph.json",
+      ".mde/validator-effectiveness.json",
+      ".mde/generation-summary.md",
+      ".mde/generations/GEN-007.json",
+      ".mde/validation-runs/VAL-014.json",
+      ".mde/validation-runs/VAL-015.json",
+      ".mde/outbox/events.jsonl",
+      ".mde/outbox/impacts.jsonl"
+    ],
+    "deploy_artifacts": [
+      "deploy/release-checks.json"
+    ]
+  },
+  "deployment": {
+    "provider": "Cloudflare Workers",
+    "worker_name": "retail-search",
+    "public_url": "https://retail-search.feroshjacob.workers.dev",
+    "version_id": "b81ae2c6-00fe-479d-a1ca-d9cc723f96c1",
+    "workers_dev": true
+  },
+  "validators_executed": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Evaluation Transparency",
+      "result": "pass",
+      "evidence": "17 tests passed, including evaluation endpoint and UI content assertions."
+    },
+    {
+      "name": "public root evaluation UI checks",
+      "category": "Usability / Evaluation Transparency / External",
+      "result": "pass",
+      "evidence": "Root UI includes Evaluation Results and representative examples."
+    },
+    {
+      "name": "public evaluation endpoint checks",
+      "category": "Data Integrity / Evaluation Transparency / External",
+      "result": "pass",
+      "evidence": "Evaluation endpoints expose aggregate metrics and strong/mixed/weak examples."
+    }
+  ],
+  "validators_skipped": [],
+  "validation_gate": {
+    "result": "pass",
+    "pass_count": 2,
+    "failed_categories": [],
+    "blocking_findings": []
+  },
+  "github_submission": {
+    "status": "not_submitted",
+    "blocker": "Evaluation UI and evidence changes remain in the working tree for review; no explicit commit or push request was made."
+  },
+  "reusable_lessons": [
+    "Public evaluation pages should include concrete correct, weak, and missed examples in addition to aggregate metrics."
+  ],
+  "downstream_impacts": [
+    "Future BEIR and ESCI phases should expose comparable evaluation examples before public release."
+  ],
+  "content_seeds": [
+    "Phase 1 article can use the strong/mixed/weak examples to explain BM25 baseline behavior."
+  ],
+  "skill_update_candidates": [],
+  "evidence_quality_notes": [
+    "Examples are grounded in the live Cranfield evaluation artifact and live OpenSearch result checks.",
+    "Result-level examples are curated rather than full 225-query public dump to keep the page readable."
+  ],
+  "goal_drift_review": {
+    "supports_mission": [
+      "Makes evaluation evidence transparent to readers.",
+      "Shows baseline wins and failures without pretending the v0 search is complete.",
+      "Keeps architecture changes evidence-led."
+    ],
+    "missing": [
+      "Full browsable per-query evaluation table.",
+      "Phase 1 article linked to commit and endpoint."
+    ],
+    "over_engineered": [],
+    "deferred": [
+      "BEIR transferability.",
+      "ESCI retail relevance.",
+      "Behavioral ranking."
+    ],
+    "mission_alignment": "GEN-007 strengthens Phase 1 evidence without changing the baseline retrieval architecture."
+  }
+}

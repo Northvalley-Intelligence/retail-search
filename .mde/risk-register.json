@@ -1,6 +1,6 @@
 {
   "project_id": "retail-search",
-  "updated_at": "2026-07-04",
+  "updated_at": "2026-07-05",
   "risks": [
     {
       "id": "RISK-001",
@@ -12,8 +12,9 @@
     {
       "id": "RISK-002",
       "severity": "high",
-      "status": "open",
-      "summary": "Phase 1 public acceptance depends on external OpenSearch and Cloudflare configuration."
+      "status": "mitigated",
+      "summary": "Phase 1 public acceptance depends on external OpenSearch and Cloudflare configuration.",
+      "mitigation": "GEN-003 loaded and evaluated the live cranfield-v0 OpenSearch index; GEN-004 configured Worker secrets, deployed Cloudflare, and verified public endpoints."
     }
   ]
 }

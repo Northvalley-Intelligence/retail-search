@@ -1,0 +1,36 @@
+{
+  "run_id": "VAL-016",
+  "project_id": "retail-search",
+  "generation_id": "GEN-008",
+  "executed_at": "2026-07-05T14:23:58Z",
+  "validation_strategy_version": "VALSTRAT-004",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Information Architecture",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "20 node tests passed, including root phase overview, focused Phase 1 search page, explain page, evaluation page, API aliases, and error handling."
+    },
+    {
+      "name": "MDE artifact parse",
+      "category": "Technical / Evidence Integrity",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "scripts/validate-mde.mjs passed with 46 checked MDE files after the GEN-008 evidence files were added."
+    },
+    {
+      "name": "fixture index and evaluation checks",
+      "category": "Data Integrity / Evaluation",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Fixture Cranfield index preparation and evaluation artifact generation passed through npm run validate."
+    }
+  ],
+  "blocked_or_skipped": [],
+  "critical_findings": [],
+  "high_findings": [],
+  "medium_findings": [],
+  "evidence_quality": "Local validation proves the route organization contract and keeps the API baseline stable before public deployment."
+}

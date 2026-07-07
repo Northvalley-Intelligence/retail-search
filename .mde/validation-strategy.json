@@ -1,5 +1,5 @@
 {
-  "strategy_id": "VALSTRAT-002",
+  "strategy_id": "VALSTRAT-005",
   "project_type": "mission-driven OpenSearch search platform",
   "artifact_profiles": [
     "mde_project",
@@ -7,8 +7,14 @@
     "search_api",
     "search_ir_evaluation",
     "cloudflare_worker",
+    "public_search_interface",
+    "dataset_metadata",
+    "evaluation_results_ui",
     "opensearch_index",
-    "public_content"
+    "public_content",
+    "traceability",
+    "artifact_versioning",
+    "versioned_api_contract"
   ],
   "mission_phase": "Phase 1 - Cranfield Foundation",
   "selected_validations": [
@@ -42,9 +48,12 @@
       "tools_or_methods": [
         "node --test",
         "scripts/validate-mde.mjs",
-        "scripts/prepare-cranfield-index.mjs --check"
+        "scripts/prepare-cranfield-index.mjs --check",
+        "Cranfield corpus parser tests",
+        "scripts/export-cranfield.mjs public source check when network is available",
+        "scripts/load-cranfield-opensearch.mjs live load when credentials exist"
       ],
-      "reason": "Source modules, local MDE state, and index artifacts must remain parseable and runnable."
+      "reason": "Source modules, local MDE state, index artifacts, and reproducible Cranfield export artifacts must remain parseable and runnable."
     },
     {
       "category": "Performance",
@@ -52,9 +61,32 @@
       "priority": "High",
       "tools_or_methods": [
         "latency fields in search/explain responses",
-        "live OpenSearch latency measurement when credentials exist"
+        "live OpenSearch latency measurement when credentials exist",
+        "scripts/evaluate-cranfield.mjs --live"
       ],
-      "reason": "The mission requires average and p95 latency tracking; GEN-001 adds response fields, but live measurement remains blocked."
+      "reason": "The mission requires latency tracking. Point latency is collected in live responses; broader p95 sampling remains a follow-up before public latency claims."
+    },
+    {
+      "category": "Usability / UI Standards",
+      "required": true,
+      "priority": "High",
+      "tools_or_methods": [
+        "Worker root HTML contract tests",
+        "public root UI HTTP checks",
+        "browser visual inspection when a browser connector is available"
+      ],
+      "reason": "Users need a first-screen search interface plus indexed-data context so they can try useful Cranfield queries without reading source code."
+    },
+    {
+      "category": "Evaluation Transparency",
+      "required": true,
+      "priority": "High",
+      "tools_or_methods": [
+        "live evaluation artifact",
+        "public evaluation endpoint checks",
+        "root UI evaluation section checks"
+      ],
+      "reason": "Readers need aggregate metrics plus concrete correct, wrong, and missed examples to understand what the baseline proves and where it fails."
     },
     {
       "category": "Security",
@@ -75,7 +107,21 @@
         "GitHub repository verification",
         "Cloudflare deployment check when credentials exist"
       ],
-      "reason": "Phase 1 requires public endpoints; deployment is explicitly blocked until external services are configured."
+      "reason": "Phase 1 requires public endpoints and a usable public interface backed by live OpenSearch."
+    },
+    {
+      "category": "Traceability / Versioning",
+      "required": true,
+      "priority": "Critical",
+      "tools_or_methods": [
+        "scripts/validate-traceability.mjs",
+        "Worker endpoint contract tests",
+        ".mde/traceability.json",
+        "docs/traceability.md",
+        "Search Evolution timeline review",
+        "Architecture timeline review"
+      ],
+      "reason": "Every mission, article, experiment, architecture version, decision, tag, and endpoint must be navigable through stable identifiers before Phase 2 adds more experiments."
     }
   ],
   "validation_gates": {

@@ -1,4 +1,5 @@
 import { executeOpenSearchSearch, getOpenSearchIndex } from "../opensearch.js";
+import { traceabilityPayload } from "../traceability.js";
 import {
   ARCHITECTURE_VERSION,
   DATASET_ID,
@@ -97,6 +98,7 @@ export async function searchCranfield({
     incomingQuery: normalized.incoming,
     dataset: DATASET_ID,
     architectureVersion: env.ARCHITECTURE_VERSION || ARCHITECTURE_VERSION,
+    traceability: traceabilityPayload(env),
     index,
     ranking: RANKING_LOGIC,
     resultCount: results.length,
@@ -114,4 +116,3 @@ export async function searchCranfield({
 
   return response;
 }
-

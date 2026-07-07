@@ -1,0 +1,57 @@
+{
+  "run_id": "VAL-013",
+  "project_id": "retail-search",
+  "generation_id": "GEN-006",
+  "executed_at": "2026-07-05T05:36:42Z",
+  "validation_strategy_version": "VALSTRAT-004",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Explainability",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Before redeploy, 16 tests passed, MDE parse checked 39 files, sample index check passed, and fixture evaluation passed."
+    },
+    {
+      "name": "wrangler deploy",
+      "category": "Deployment",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Redeployed retail-search to https://retail-search.feroshjacob.workers.dev with version 42521e68-8bd8-4554-bf0d-52e70d4eab10."
+    },
+    {
+      "name": "public root UI",
+      "category": "Usability / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Root URL returned Search Cranfield, Indexed Data, flow-diagram, and OpenSearch Query content."
+    },
+    {
+      "name": "public metadata endpoint",
+      "category": "Data Integrity / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "/api/cranfield/meta returned 1,400 documents and example query 'wing pressure distribution'."
+    },
+    {
+      "name": "public latest search alias",
+      "category": "Functional / External",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "/api/search returned live cranfield-v0 results for 'wing pressure distribution'; top result id 652; total hits 794; API latency 275 ms; OpenSearch took 4 ms."
+    },
+    {
+      "name": "public latest explain alias with retrievalFlow",
+      "category": "Functional / Explainability / External",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "/api/explain returned six retrievalFlow steps and top result id 652 for 'wing pressure distribution'; API latency 71 ms; OpenSearch took 4 ms."
+    }
+  ],
+  "blocked_or_skipped": [],
+  "critical_findings": [],
+  "high_findings": [],
+  "medium_findings": [],
+  "evidence_quality": "Redeploy evidence confirms the current public Worker version is testable with the search UI, metadata endpoint, search API, and explain flow."
+}

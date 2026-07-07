@@ -1,0 +1,113 @@
+{
+  "generation_id": "GEN-009",
+  "project_id": "retail-search",
+  "started_at": "2026-07-05",
+  "ended_at": "2026-07-05",
+  "mission_phase": "Phase 1 - Cranfield Foundation",
+  "mission_version": "MISSION-2026-07-05-GEN-009",
+  "validation_strategy_version": "VALSTRAT-004",
+  "status": "public_dataset_references_deployed_validated",
+  "focus": "Add official dataset references to public phase pages and Cranfield metadata.",
+  "reason_started": "The operator noted that readers may not know Cranfield, BEIR, or ESCI and asked for dataset references.",
+  "reason_ended": "Dataset references are visible on the deployed public pages, Cranfield metadata includes source URLs, local validation passes, and public verification passed.",
+  "files_changed_by_category": {
+    "human_artifacts": [
+      "README.md",
+      "MISSION_UPDATES.md",
+      "docs/deployment-opensearch-cloudflare.md"
+    ],
+    "implementation_artifacts": [
+      "src/cranfield/schema.js",
+      "src/ui.js"
+    ],
+    "test_artifacts": [
+      "test/worker.test.js"
+    ],
+    "agent_artifacts": [
+      ".mde/state.json",
+      ".mde/progress.json",
+      ".mde/bdd-index.json",
+      ".mde/task-graph.json",
+      ".mde/validator-effectiveness.json",
+      ".mde/generation-summary.md",
+      ".mde/generations/GEN-009.json",
+      ".mde/validation-runs/VAL-018.json",
+      ".mde/validation-runs/VAL-019.json",
+      ".mde/outbox/events.jsonl",
+      ".mde/outbox/impacts.jsonl"
+    ],
+    "deploy_artifacts": [
+      "deploy/release-checks.json"
+    ]
+  },
+  "deployment": {
+    "provider": "Cloudflare Workers",
+    "worker_name": "retail-search",
+    "public_url": "https://retail-search.feroshjacob.workers.dev",
+    "version_id": "68e53192-0cad-4466-b238-f2ab35150d1f",
+    "workers_dev": true
+  },
+  "validators_executed": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Dataset Transparency",
+      "result": "pass",
+      "evidence": "21 tests passed, including dataset reference route assertions and metadata source URL assertion."
+    },
+    {
+      "name": "wrangler deploy",
+      "category": "Deployment / External",
+      "result": "pass",
+      "evidence": "Cloudflare deployed version 68e53192-0cad-4466-b238-f2ab35150d1f."
+    },
+    {
+      "name": "public reference verification",
+      "category": "Usability / External",
+      "result": "pass",
+      "evidence": "Live checks passed for home references, Phase 1 source references, BEIR and ESCI planned pages, metadata source URL, and search API stability."
+    }
+  ],
+  "validators_skipped": [],
+  "validation_gate": {
+    "result": "pass",
+    "pass_count": 2,
+    "failed_categories": [],
+    "blocking_findings": []
+  },
+  "github_submission": {
+    "status": "not_submitted",
+    "blocker": "The operator asked for a project-local public content update, not a commit or push."
+  },
+  "reusable_lessons": [
+    "Public benchmark demos should link unfamiliar dataset names to official source material and mark future datasets as not selected instead of implying availability."
+  ],
+  "downstream_impacts": [
+    "Future BEIR, ESCI, and behavioral phases should keep source links and dataset provenance visible before claiming results."
+  ],
+  "content_seeds": [
+    "Phase 1 article can introduce Cranfield by linking to the Glasgow collection source and explain why later phases move to BEIR and ESCI."
+  ],
+  "skill_update_candidates": [],
+  "evidence_quality_notes": [
+    "References use official project or dataset source pages, not generic summaries.",
+    "Behavioral ranking explicitly remains source-not-selected to avoid unsupported dataset claims."
+  ],
+  "goal_drift_review": {
+    "supports_mission": [
+      "Makes the public demo more educational for readers unfamiliar with IR benchmarks.",
+      "Improves dataset provenance without changing the retrieval architecture.",
+      "Keeps future phases honest about source status."
+    ],
+    "missing": [
+      "A full dataset bibliography page.",
+      "Phase 1 article linked to the organized route set."
+    ],
+    "over_engineered": [],
+    "deferred": [
+      "BEIR implementation.",
+      "ESCI implementation.",
+      "Behavioral ranking dataset selection."
+    ],
+    "mission_alignment": "GEN-009 improves public transparency and educational value while preserving the validated Phase 1 baseline."
+  }
+}

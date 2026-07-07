@@ -1,31 +1,190 @@
 {
   "project_id": "retail-search",
-  "updated_at": "2026-07-04",
+  "updated_at": "2026-07-06",
   "github_repository": {
     "status": "created",
     "url": "https://github.com/Northvalley-Intelligence/retail-search",
     "visibility": "public"
   },
   "cloudflare_worker": {
-    "status": "not_deployed",
+    "status": "deployed_verified",
     "required_before_public_phase_1_acceptance": true,
-    "blockers": [
-      "Cloudflare account/project deployment target not configured in this session.",
-      "Live OpenSearch endpoint and credentials are not configured in this session."
-    ]
+    "public_url": "https://retail-search.feroshjacob.workers.dev",
+    "version_id": "68e53192-0cad-4466-b238-f2ab35150d1f",
+    "blockers": [],
+    "verified_without_secret_exposure": [
+      "Wrangler auth succeeded with Workers write scope.",
+      "CLOUDFLARE_ACCOUNT_ID present locally without printing value.",
+      "Worker secrets OPENSEARCH_URL, OPENSEARCH_USERNAME, and OPENSEARCH_PASSWORD uploaded without printing values.",
+      "wrangler deploy succeeded."
+    ],
+    "public_endpoint_checks": {
+      "health": "pass",
+      "root_search_interface": {
+        "status": "pass",
+        "url": "https://retail-search.feroshjacob.workers.dev",
+        "evidence": "Root page serves the project phase directory and links to focused phase pages instead of crowding search, explain, and evaluation onto one page."
+      },
+      "page_organization": {
+        "status": "pass",
+        "home_url": "https://retail-search.feroshjacob.workers.dev",
+        "phase_1_routes": [
+          "/phases/cranfield",
+          "/phases/cranfield/search",
+          "/phases/cranfield/data",
+          "/phases/cranfield/explain",
+          "/phases/cranfield/evaluation"
+        ],
+        "phase_1_aliases": [
+          "/phase-1",
+          "/phase-1/search",
+          "/phase-1/data",
+          "/phase-1/explain",
+          "/phase-1/evaluation"
+        ],
+        "planned_phase_routes": [
+          "/phases/beir",
+          "/phases/esci",
+          "/phases/behavior"
+        ],
+        "evidence": "Live verification confirmed the home page lists phases, search and explain pages exclude evaluation-only content, evaluation remains on its own page, and /phase-1 aliases route correctly."
+      },
+      "search_explain_flow": {
+        "status": "pass",
+        "url": "https://retail-search.feroshjacob.workers.dev/api/explain?q=airfoil%20drag%20coefficient&size=2",
+        "flow_steps": [
+          "Query",
+          "Normalize",
+          "OpenSearch Query",
+          "Retrieve",
+          "Rank",
+          "Explain"
+        ],
+        "latest_top_result_id": "1201",
+        "latest_observed_api_ms": 242,
+        "latest_observed_opensearch_took_ms": 5
+      },
+      "dataset_metadata": {
+        "status": "pass",
+        "url": "https://retail-search.feroshjacob.workers.dev/api/cranfield/meta",
+        "document_count": 1400,
+        "evaluation_query_count": 225,
+        "relevance_judgment_count": 1837,
+        "source_url": "https://ir.dcs.gla.ac.uk/resources/test_collections/cran/"
+      },
+      "dataset_references": {
+        "status": "pass",
+        "home_url": "https://retail-search.feroshjacob.workers.dev",
+        "references": {
+          "cranfield": "https://ir.dcs.gla.ac.uk/resources/test_collections/cran/",
+          "beir": "https://github.com/beir-cellar/beir",
+          "esci": "https://github.com/amazon-science/esci-data",
+          "behavior": "source not selected"
+        },
+        "evidence": "Live verification confirmed dataset references on the home page, Cranfield overview/data pages, BEIR and ESCI planned phase pages, behavior source-not-selected status, /api/cranfield/meta source URL, and unchanged live search behavior."
+      },
+      "evaluation_results": {
+        "status": "pass",
+        "url": "https://retail-search.feroshjacob.workers.dev/api/cranfield/evaluation",
+        "query_count": 225,
+        "metrics": {
+          "map": 0.2402,
+          "ndcg_at_10": 0.2995,
+          "precision_at_10": 0.2316,
+          "recall_at_10": 0.3994,
+          "mrr": 0.535
+        },
+        "examples": [
+          "strong",
+          "mixed",
+          "weak"
+        ]
+      },
+      "cranfield_search": {
+        "status": "pass",
+        "url": "https://retail-search.feroshjacob.workers.dev/api/search?q=wing%20pressure%20distribution&size=3",
+        "top_result_id": "652",
+        "total_hits": 794,
+        "latest_observed_api_ms": 225,
+        "latest_observed_opensearch_took_ms": 4
+      },
+      "cranfield_explain": {
+        "status": "pass",
+        "url": "https://retail-search.feroshjacob.workers.dev/api/explain?q=airfoil%20drag%20coefficient&size=2",
+        "top_result_id": "1201",
+        "latest_observed_api_ms": 242,
+        "latest_observed_opensearch_took_ms": 5
+      },
+      "latest_aliases": {
+        "search": "pass",
+        "explain": "pass"
+      }
+    }
   },
   "opensearch": {
-    "status": "not_connected",
+    "status": "connected_loaded",
     "required_before_public_phase_1_acceptance": true,
+    "provider": "Provided managed OpenSearch-compatible service from /tmp/opensearch.md",
+    "health": {
+      "status": "ok",
+      "distribution": "opensearch",
+      "version": "3.3.2",
+      "cluster_health": "green",
+      "node_count": 1
+    },
     "required_environment": [
       "OPENSEARCH_URL",
       "OPENSEARCH_API_KEY or OPENSEARCH_USERNAME and OPENSEARCH_PASSWORD",
       "CRANFIELD_INDEX"
-    ]
+    ],
+    "live_index": {
+      "name": "cranfield-v0",
+      "status": "created",
+      "loaded_documents": 1400,
+      "live_count": 1400
+    },
+    "live_evaluation": {
+      "artifact": "experiments/cranfield-v0/evaluation-live.json",
+      "query_count": 225,
+      "k": 10,
+      "metrics": {
+        "map": 0.2402,
+        "ndcg_at_10": 0.2995,
+        "precision_at_10": 0.2316,
+        "recall_at_10": 0.3994,
+        "mrr": 0.535
+      }
+    }
+  },
+  "cranfield_corpus": {
+    "status": "export_script_verified",
+    "source": "http://ir.dcs.gla.ac.uk/resources/test_collections/cran/cran.tar.gz",
+    "ir_datasets_id": "cranfield",
+    "verified_counts": {
+      "documents": 1400,
+      "queries": 225,
+      "qrels": 1837
+    },
+    "bulk_payload": "experiments/cranfield-v0/cranfield-full-bulk.ndjson when npm run export:cranfield is run"
   },
   "validation": {
     "local_gate_status": "pass",
-    "latest_local_validation_run": "VAL-002",
-    "public_endpoint_status": "blocked"
+    "latest_local_validation_run": "VAL-021",
+    "latest_public_validation_run": "VAL-019",
+    "public_endpoint_status": "verified",
+    "phase_1_public_acceptance": "pass",
+    "public_interface_status": "verified",
+    "traceability_status": {
+      "local_status": "validated",
+      "deployed_status": "pending_explicit_deploy_approval",
+      "mission_id": "M-0001",
+      "article_id": "A-0002",
+      "search_evolution_id": "SE-0001",
+      "architecture_version": "ARCH-0.1",
+      "architecture_decision_id": "ADL-0001",
+      "intended_git_tag": "v0.1.0",
+      "versioned_search_endpoint": "/api/v0.1/search",
+      "versioned_explain_endpoint": "/api/v0.1/explain"
+    }
   }
 }

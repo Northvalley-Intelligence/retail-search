@@ -1,0 +1,138 @@
+{
+  "generation_id": "GEN-005",
+  "project_id": "retail-search",
+  "started_at": "2026-07-05",
+  "ended_at": "2026-07-05",
+  "mission_phase": "Phase 1 - Cranfield Foundation",
+  "mission_version": "MISSION-2026-07-05-GEN-005",
+  "validation_strategy_version": "VALSTRAT-004",
+  "status": "public_search_interface_deployed_validated",
+  "focus": "Add a public root search interface and indexed-data details so users can try the live Cranfield baseline without reading source code or raw API docs.",
+  "reason_started": "The operator noted that users need a search interface and details of indexed data so they know what to search for.",
+  "reason_ended": "The interface, metadata endpoints, local tests, Cloudflare deployment, and two public validation passes after VALSTRAT-004 stabilized are complete.",
+  "files_changed_by_category": {
+    "human_artifacts": [
+      "README.md",
+      "MISSION_UPDATES.md",
+      "docs/deployment-opensearch-cloudflare.md"
+    ],
+    "implementation_artifacts": [
+      "src/ui.js",
+      "src/worker.js",
+      "src/cranfield/schema.js"
+    ],
+    "test_artifacts": [
+      "test/worker.test.js"
+    ],
+    "agent_artifacts": [
+      ".mde/state.json",
+      ".mde/progress.json",
+      ".mde/validation-strategy.json",
+      ".mde/bdd-index.json",
+      ".mde/task-graph.json",
+      ".mde/validator-effectiveness.json",
+      ".mde/generation-summary.md",
+      ".mde/generations/GEN-005.json",
+      ".mde/validation-runs/VAL-007.json",
+      ".mde/validation-runs/VAL-008.json",
+      ".mde/validation-runs/VAL-009.json",
+      ".mde/validation-runs/VAL-010.json",
+      ".mde/outbox/events.jsonl",
+      ".mde/outbox/impacts.jsonl"
+    ],
+    "deploy_artifacts": [
+      "deploy/release-checks.json"
+    ]
+  },
+  "deployment": {
+    "provider": "Cloudflare Workers",
+    "worker_name": "retail-search",
+    "public_url": "https://retail-search.feroshjacob.workers.dev",
+    "version_id": "f4e361a8-686d-4059-9892-1a435ac5a8f2",
+    "workers_dev": true
+  },
+  "validators_executed": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Usability",
+      "result": "pass",
+      "evidence": "16 tests passed, including root UI and metadata endpoint contract tests."
+    },
+    {
+      "name": "public root UI checks",
+      "category": "Usability / External",
+      "result": "pass",
+      "evidence": "Root URL served a first-screen search interface with indexed-data details and example queries."
+    },
+    {
+      "name": "public metadata endpoint checks",
+      "category": "Data Integrity / External",
+      "result": "pass",
+      "evidence": "Metadata endpoints returned Cranfield counts, fields, topic hints, and sample queries."
+    },
+    {
+      "name": "public search/explain checks",
+      "category": "Functional / External",
+      "result": "pass",
+      "evidence": "Live search and explain worked through latest aliases and canonical Cranfield endpoints."
+    },
+    {
+      "name": "second validation pass",
+      "category": "Validation Gate",
+      "result": "pass",
+      "evidence": "After VALSTRAT-004 stabilized, public UI, metadata, search, and explain behavior passed twice with additional queries."
+    }
+  ],
+  "validators_skipped": [
+    {
+      "name": "browser visual screenshot",
+      "reason": "The browser plugin reported no available browser instances. Public HTTP and contract validation were still completed."
+    }
+  ],
+  "validation_gate": {
+    "result": "pass",
+    "pass_count": 2,
+    "failed_categories": [],
+    "blocking_findings": []
+  },
+  "github_submission": {
+    "status": "not_submitted",
+    "blocker": "Interface and evidence changes remain in the working tree for review; no explicit commit or push request was made."
+  },
+  "reusable_lessons": [
+    "Public search APIs need a root interface and dataset profile before they are genuinely tryable by non-technical users.",
+    "Dataset metadata should be available both in the UI and as JSON so articles, agents, and users can discover what searches are likely to work."
+  ],
+  "downstream_impacts": [
+    "Phase 1 article can link to a usable search UI instead of only raw API examples.",
+    "Future BEIR and ESCI phases should add comparable dataset metadata before public endpoint release."
+  ],
+  "content_seeds": [
+    "Phase 1 article can include screenshots or examples from the public search interface."
+  ],
+  "skill_update_candidates": [],
+  "evidence_quality_notes": [
+    "Functional evidence is strong: local tests and two public validation passes after the UI validation strategy stabilized.",
+    "Visual screenshot evidence is absent because the browser connector had no available browser instance.",
+    "Point latency evidence was collected during public checks; p95 still needs sampled measurement before public latency claims."
+  ],
+  "goal_drift_review": {
+    "supports_mission": [
+      "Makes the public endpoint directly tryable.",
+      "Teaches users what Cranfield contains and why certain queries work.",
+      "Keeps the baseline transparent by pairing search results with explain output."
+    ],
+    "missing": [
+      "Browser screenshot validation when browser tooling is available.",
+      "Broader sampled public latency run.",
+      "Phase 1 article linked to commit and endpoint."
+    ],
+    "over_engineered": [],
+    "deferred": [
+      "BEIR transferability.",
+      "ESCI retail relevance.",
+      "Behavioral ranking."
+    ],
+    "mission_alignment": "GEN-005 improves Phase 1 public usability without adding unearned search architecture."
+  }
+}

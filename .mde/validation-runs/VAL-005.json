@@ -1,0 +1,64 @@
+{
+  "run_id": "VAL-005",
+  "project_id": "retail-search",
+  "generation_id": "GEN-004",
+  "executed_at": "2026-07-05T05:02:00Z",
+  "validation_strategy_version": "VALSTRAT-003",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "14 tests passed, MDE parse check passed, sample index check passed, fixture evaluation passed."
+    },
+    {
+      "name": "wrangler whoami",
+      "category": "Deployment",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Wrangler auth succeeded with Workers write permissions; account id and token values were redacted."
+    },
+    {
+      "name": "wrangler secret put OPENSEARCH_URL OPENSEARCH_USERNAME OPENSEARCH_PASSWORD",
+      "category": "Security / Deployment",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "Worker runtime OpenSearch secrets were uploaded through stdin without printing values."
+    },
+    {
+      "name": "wrangler deploy",
+      "category": "Deployment",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Deployed retail-search to https://retail-search.feroshjacob.workers.dev with version efc32480-bc42-45b4-a3e0-488ee6ba6de0."
+    },
+    {
+      "name": "public /health",
+      "category": "Functional / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Public health endpoint returned status ok and architecture version v0-cranfield-opensearch-baseline."
+    },
+    {
+      "name": "public /api/cranfield/search",
+      "category": "Functional / External",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "Query 'wing pressure distribution' returned live cranfield-v0 results; top result id 652; total hits 794; API latency 639 ms; OpenSearch took 13 ms."
+    },
+    {
+      "name": "public /api/cranfield/explain",
+      "category": "Functional / External",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "Explain response returned generated OpenSearch query, retrieval strategy, ranking logic, ADL-001, top result id 652, API latency 641 ms, and OpenSearch took 7 ms."
+    }
+  ],
+  "blocked_or_skipped": [],
+  "critical_findings": [],
+  "high_findings": [],
+  "medium_findings": [],
+  "evidence_quality": "Strong public deployment evidence from Wrangler plus live public search and explain endpoint responses."
+}

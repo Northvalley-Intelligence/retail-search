@@ -1,0 +1,55 @@
+{
+  "run_id": "VAL-009",
+  "project_id": "retail-search",
+  "generation_id": "GEN-005",
+  "executed_at": "2026-07-05T05:19:00Z",
+  "validation_strategy_version": "VALSTRAT-004",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Usability",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "After VALSTRAT-004 and GEN-005 evidence edits, 16 tests passed, MDE parse checked 34 files, sample index check passed, and fixture evaluation passed."
+    },
+    {
+      "name": "public root UI",
+      "category": "Usability / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Root URL returned HTML containing Search Cranfield, Indexed Data, and the 1,400 indexed Cranfield documents note."
+    },
+    {
+      "name": "public metadata latest alias",
+      "category": "Data Integrity / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "/api/dataset returned 1,400 documents and example query 'wing pressure distribution'."
+    },
+    {
+      "name": "public latest search alias",
+      "category": "Functional / External",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "/api/search returned live cranfield-v0 results for 'hypersonic heat transfer'; top result id 295; total hits 420; API latency 361 ms; OpenSearch took 4 ms."
+    },
+    {
+      "name": "public latest explain alias",
+      "category": "Functional / External",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "/api/explain returned the generated OpenSearch query and top result id 295 for 'hypersonic heat transfer'; API latency 196 ms; OpenSearch took 3 ms."
+    }
+  ],
+  "blocked_or_skipped": [
+    {
+      "name": "browser visual screenshot",
+      "reason": "The browser plugin reported no available browser instances."
+    }
+  ],
+  "critical_findings": [],
+  "high_findings": [],
+  "medium_findings": [],
+  "evidence_quality": "Stable-strategy pass 1 confirmed local validation and public UI, metadata, search, and explain behavior."
+}

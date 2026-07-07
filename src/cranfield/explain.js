@@ -3,9 +3,11 @@ import {
   ARCHITECTURE_VERSION,
   DATASET_ID,
   RANKING_LOGIC,
+  RETRIEVAL_FLOW,
   normalizeQuery
 } from "./schema.js";
 import { searchCranfield } from "./search.js";
+import { traceabilityPayload } from "../traceability.js";
 
 export async function explainCranfield({ query, size = 10, env = {}, fetchImpl }) {
   const normalized = normalizeQuery(query);
@@ -22,11 +24,13 @@ export async function explainCranfield({ query, size = 10, env = {}, fetchImpl }
     normalizedQuery: normalized.normalized,
     dataset: DATASET_ID,
     architectureVersion: env.ARCHITECTURE_VERSION || ARCHITECTURE_VERSION,
+    traceability: traceabilityPayload(env),
     queryTransformations: normalized.transformations,
     openSearch: {
       index: searchResponse.index,
       query: searchResponse.openSearchQuery
     },
+    retrievalFlow: RETRIEVAL_FLOW,
     retrievalStrategy: "OpenSearch multi_match over Cranfield title, abstract, and text fields.",
     rankingLogic: RANKING_LOGIC,
     acceptedArchitectureDecisions: ACCEPTED_ARCHITECTURE_DECISIONS,
@@ -46,4 +50,3 @@ export async function explainCranfield({ query, size = 10, env = {}, fetchImpl }
     latency: searchResponse.latency
   };
 }
-

@@ -1,0 +1,43 @@
+{
+  "run_id": "VAL-017",
+  "project_id": "retail-search",
+  "generation_id": "GEN-008",
+  "executed_at": "2026-07-05T14:20:59Z",
+  "validation_strategy_version": "VALSTRAT-004",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "Cloudflare Worker deployment",
+      "category": "Deployment / External",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "npx wrangler deploy --config wrangler.toml deployed retail-search version 61b9978e-788b-42f1-baa3-03c479a1c65c at https://retail-search.feroshjacob.workers.dev."
+    },
+    {
+      "name": "public route organization",
+      "category": "Usability / Information Architecture / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Live checks confirmed / lists project phases, /phases/cranfield provides the Phase 1 overview, /phases/cranfield/search and /phases/cranfield/explain exclude evaluation-only text, /phases/cranfield/evaluation contains the evaluation examples, and /phase-1/search aliases correctly."
+    },
+    {
+      "name": "planned phase route",
+      "category": "Usability / Roadmap Visibility / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "/phases/beir returned the Phase 2 - BEIR Transferability planned page."
+    },
+    {
+      "name": "public API stability",
+      "category": "Functional / External",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "/api/search returned top result 652 for wing pressure distribution and top result 1201 for airfoil drag coefficient; /api/explain returned six retrievalFlow steps and top result 1201; /api/evaluation returned MAP 0.2402."
+    }
+  ],
+  "blocked_or_skipped": [],
+  "critical_findings": [],
+  "high_findings": [],
+  "medium_findings": [],
+  "evidence_quality": "Public verification covers the newly organized pages plus live OpenSearch-backed search, explain, and evaluation endpoints."
+}

@@ -1,0 +1,36 @@
+{
+  "run_id": "VAL-015",
+  "project_id": "retail-search",
+  "generation_id": "GEN-007",
+  "executed_at": "2026-07-05T13:21:25Z",
+  "validation_strategy_version": "VALSTRAT-004",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "public root evaluation UI with query parameters",
+      "category": "Usability / Evaluation Transparency / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Root URL with q=transonic aileron buzz returned Evaluation Results, Mixed case, and Missed relevant docs content."
+    },
+    {
+      "name": "public evaluation alias",
+      "category": "Data Integrity / Evaluation Transparency / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "/api/evaluation returned nDCG@10 0.2995 and weak example query id 13."
+    },
+    {
+      "name": "public explain still live",
+      "category": "Functional / Explainability / External",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "/api/explain returned retrievalFlow and live results for 'transonic aileron buzz'; top result id 496; API latency 339 ms."
+    }
+  ],
+  "blocked_or_skipped": [],
+  "critical_findings": [],
+  "high_findings": [],
+  "medium_findings": [],
+  "evidence_quality": "Second public pass confirms evaluation UI and endpoint behavior with the weak example query."
+}

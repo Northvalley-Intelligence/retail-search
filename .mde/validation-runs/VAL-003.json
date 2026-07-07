@@ -1,0 +1,61 @@
+{
+  "run_id": "VAL-003",
+  "project_id": "retail-search",
+  "generation_id": "GEN-002",
+  "executed_at": "2026-07-04",
+  "validation_strategy_version": "VALSTRAT-003",
+  "result": "pass_with_external_blockers",
+  "checks": [
+    {
+      "name": "node --test",
+      "category": "Functional / Security",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "14 tests passed, including Cranfield corpus parsing, qrel joining, OpenSearch bulk payload generation, endpoint contracts, metrics, and no-runtime-LLM scan."
+    },
+    {
+      "name": "npm run validate",
+      "category": "Technical",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "node --test, MDE parse check, Cranfield sample index check, and fixture evaluation all passed."
+    },
+    {
+      "name": "npm run export:cranfield -- --out-dir /private/tmp/retail-search-cranfield-export --bulk /private/tmp/retail-search-cranfield-bulk.ndjson",
+      "category": "External Data Source",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Public Glasgow Cranfield source exported 1,400 documents, 225 queries, and 1,837 qrels without credentials or deployment."
+    },
+    {
+      "name": "Cloudflare read-only token/account/Workers verification",
+      "category": "Deployment",
+      "priority": "High",
+      "result": "partial_pass",
+      "evidence": "A sibling .env.local Cloudflare token was active, account read access succeeded, and Workers services read access succeeded. No secret values were printed. Deploy/write scope was not proven because no mutation was approved."
+    }
+  ],
+  "blocked_or_skipped": [
+    {
+      "name": "live OpenSearch domain verification",
+      "reason": "No live AWS OpenSearch Service domain, OPENSEARCH_URL, or runtime/indexer users exist in this session."
+    },
+    {
+      "name": "live OpenSearch Cranfield evaluation",
+      "reason": "The full Cranfield corpus is exportable but not loaded into a live cranfield-v0 index."
+    },
+    {
+      "name": "Cloudflare Worker deployment validation",
+      "reason": "No deployment or external infrastructure mutation was approved."
+    }
+  ],
+  "critical_findings": [],
+  "high_findings": [
+    "FIND-001",
+    "FIND-002"
+  ],
+  "medium_findings": [
+    "FIND-003"
+  ],
+  "evidence_quality": "Strong local and public-data-source evidence; live endpoint evidence remains intentionally blocked."
+}

@@ -376,6 +376,119 @@ Each article should link to:
 
 ---
 
+## Project Traceability And Versioning
+
+Every meaningful artifact produced by the project must be uniquely identifiable and permanently traceable. A reader should be able to start from any artifact - an article, Git commit, search endpoint, architecture version, benchmark report, or experiment - and navigate the complete engineering history.
+
+Nothing should become an isolated document.
+
+### Identifier Standards
+
+Stable identifiers:
+
+* Missions: `M-0001`, `M-0002`, `M-0003`
+* Articles: `A-0001`, `A-0002`, `A-0003`
+* Search Evolution entries: `SE-0001`, `SE-0002`, `SE-0003`
+* Architecture versions: `ARCH-0.1`, `ARCH-0.2`, `ARCH-0.3`
+* Architecture Decision Ledger entries: `ADL-0001`, `ADL-0002`, `ADL-0003`
+* Git tags: semantic versions such as `v0.1.0`, `v0.2.0`, `v0.3.0`
+
+Each release corresponds to one architecture version. Architecture versions are cumulative. Search Evolution entries are permanent even when an experiment is rejected, deferred, rolled back, or superseded.
+
+### Cross-Reference Requirements
+
+Each mission references:
+
+* Article
+* Search Evolution entry
+* Architecture version
+* Git tag
+
+Each article references:
+
+* Mission
+* Search Evolution entry
+* Architecture version
+* Architecture Decision Ledger entry
+* Git commit
+* Search endpoint
+* Search explain endpoint
+
+Each Search Evolution entry references:
+
+* Mission
+* Dataset
+* Architecture version
+* Architecture Decision Ledger entry
+* Git commit
+* Article
+* Benchmark report
+* Search endpoint
+* Search explain endpoint
+
+Each Architecture Timeline entry references:
+
+* Search Evolution entry
+* Architecture Decision Ledger entry
+* Mission
+* Git tag
+
+Each Architecture Decision Ledger entry references:
+
+* Mission
+* Search Evolution entry
+* Architecture version
+* Dataset
+* Related article
+
+### Public Endpoint Traceability
+
+Every released architecture exposes versioned APIs:
+
+```text
+/api/search
+/api/explain
+
+/api/v0.1/search
+/api/v0.1/explain
+
+/api/v0.2/search
+/api/v0.2/explain
+```
+
+Every endpoint reports:
+
+* Architecture version
+* Search Evolution entry
+* Git version
+
+The explain endpoint also reports:
+
+* Query transformations
+* OpenSearch query
+* Active architectural components
+* Architecture Decision Ledger entries involved
+* Ranking strategy
+* Latency
+* Result explanation
+
+### Current Phase 1 Traceability Chain
+
+```text
+Mission M-0001
+  -> Article A-0002
+  -> Search Evolution SE-0001
+  -> Architecture ARCH-0.1
+  -> Decision ADL-0001
+  -> Git Tag v0.1.0
+  -> Live Endpoint /api/v0.1/search
+  -> Explain Endpoint /api/v0.1/explain
+```
+
+The project must function not only as a continuously improving search platform, but also as a traceable engineering knowledge base documenting how production search architecture evolves through evidence, experimentation, and Mission-Driven Engineering.
+
+---
+
 ## Definition of Success
 
 Success is not building the most complex search architecture.

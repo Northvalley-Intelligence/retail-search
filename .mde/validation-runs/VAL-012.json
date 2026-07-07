@@ -1,0 +1,34 @@
+{
+  "run_id": "VAL-012",
+  "project_id": "retail-search",
+  "generation_id": "GEN-006",
+  "executed_at": "2026-07-05T05:24:00Z",
+  "validation_strategy_version": "VALSTRAT-004",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "public root flow UI with query parameters",
+      "category": "Usability / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Root URL with q=boundary layer transition returned HTML containing flow-diagram, Search explain flow, and the query text."
+    },
+    {
+      "name": "public canonical explain retrievalFlow",
+      "category": "Functional / Explainability / External",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "/api/cranfield/explain returned retrievalFlow steps query and build plus live top result id 337 for 'boundary layer transition'; API latency 328 ms; OpenSearch took 4 ms."
+    }
+  ],
+  "blocked_or_skipped": [
+    {
+      "name": "browser visual screenshot",
+      "reason": "The browser plugin reported no available browser instances earlier in the session."
+    }
+  ],
+  "critical_findings": [],
+  "high_findings": [],
+  "medium_findings": [],
+  "evidence_quality": "Second public pass confirmed the flow diagram and retrievalFlow on canonical Cranfield explain paths."
+}

@@ -1,0 +1,48 @@
+{
+  "run_id": "VAL-008",
+  "project_id": "retail-search",
+  "generation_id": "GEN-005",
+  "executed_at": "2026-07-05T05:16:59Z",
+  "validation_strategy_version": "VALSTRAT-004",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "public root UI with query parameters",
+      "category": "Usability / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Second pass root URL with q=boundary layer transition returned HTML containing the search interface, Indexed Data panel, and query text."
+    },
+    {
+      "name": "public metadata alias",
+      "category": "Data Integrity / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "/api/datasets/cranfield returned 1,400 documents, 1,837 relevance judgments, and topic hint 'airfoils'."
+    },
+    {
+      "name": "public canonical Cranfield search",
+      "category": "Functional / External",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "/api/cranfield/search returned live cranfield-v0 results for 'boundary layer transition'; top result id 337; total hits 533; API latency 306 ms; OpenSearch took 6 ms."
+    },
+    {
+      "name": "public canonical Cranfield explain",
+      "category": "Functional / External",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "/api/cranfield/explain returned the generated OpenSearch query and top result id 337 for 'boundary layer transition'; API latency 259 ms; OpenSearch took 7 ms."
+    }
+  ],
+  "blocked_or_skipped": [
+    {
+      "name": "browser visual screenshot",
+      "reason": "The browser plugin reported no available browser instances."
+    }
+  ],
+  "critical_findings": [],
+  "high_findings": [],
+  "medium_findings": [],
+  "evidence_quality": "Second pass confirmed public UI, metadata, search, and explain behavior with a different query and canonical endpoints."
+}

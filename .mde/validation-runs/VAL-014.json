@@ -1,0 +1,50 @@
+{
+  "run_id": "VAL-014",
+  "project_id": "retail-search",
+  "generation_id": "GEN-007",
+  "executed_at": "2026-07-05T13:20:00Z",
+  "validation_strategy_version": "VALSTRAT-004",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Evaluation Transparency",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "17 tests passed, including evaluation endpoint contract assertions; MDE parse checked 40 files, sample index check passed, and fixture evaluation passed."
+    },
+    {
+      "name": "wrangler deploy",
+      "category": "Deployment",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Deployed retail-search to https://retail-search.feroshjacob.workers.dev with version b81ae2c6-00fe-479d-a1ca-d9cc723f96c1."
+    },
+    {
+      "name": "public root evaluation UI",
+      "category": "Usability / Evaluation Transparency / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Root URL returned Evaluation Results, Strong baseline case, Failure case, and Wrong/weak content."
+    },
+    {
+      "name": "public evaluation endpoint",
+      "category": "Data Integrity / Evaluation Transparency / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "/api/cranfield/evaluation returned 225 queries, MAP 0.2402, and strong/mixed/weak examples."
+    },
+    {
+      "name": "public search still live",
+      "category": "Functional / External",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "/api/search returned live cranfield-v0 results for 'wing pressure distribution'; top result id 652; API latency 688 ms."
+    }
+  ],
+  "blocked_or_skipped": [],
+  "critical_findings": [],
+  "high_findings": [],
+  "medium_findings": [],
+  "evidence_quality": "Public evidence confirms evaluation metrics and examples are visible in both UI and JSON."
+}

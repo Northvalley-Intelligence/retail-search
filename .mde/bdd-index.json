@@ -1,19 +1,19 @@
 {
   "project_id": "retail-search",
-  "generated_at": "2026-07-04",
-  "mission_version": "MISSION-2026-07-04-GEN-001",
+  "generated_at": "2026-07-06",
+  "mission_version": "MISSION-2026-07-06-GEN-010",
   "summary": {
-    "total_active": 6,
-    "critical": 3,
-    "high": 3,
+    "total_active": 12,
+    "critical": 5,
+    "high": 7,
     "medium": 0,
     "low": 0,
-    "passing": 5,
+    "passing": 12,
     "failing": 0,
-    "deferred": 1,
+    "deferred": 0,
     "planned": 0,
     "tests_reused": 0,
-    "tests_newly_added": 10,
+    "tests_newly_added": 20,
     "tests_removed_or_deferred": 0
   },
   "scenarios": [
@@ -66,11 +66,71 @@
       "id": "BDD-005",
       "title": "Public Phase 1 endpoint availability",
       "priority": "High",
-      "status": "deferred",
+      "status": "passing",
       "given": "the Worker and OpenSearch implementation exists",
       "when": "public Phase 1 acceptance is requested",
       "then": "a Cloudflare Worker deployment and live OpenSearch Cranfield index must be configured and validated before public readiness is claimed",
-      "defer_reason": "Cloudflare deployment target and live OpenSearch credentials were not available in this session."
+      "evidence": "GEN-004 deployed https://retail-search.feroshjacob.workers.dev and verified public health, search, explain, latest, and versioned endpoints against cranfield-v0."
+    },
+    {
+      "id": "BDD-006",
+      "title": "Public users can try searches with indexed-data context",
+      "priority": "High",
+      "status": "passing",
+      "given": "a public user opens the deployed Retail Search URL",
+      "when": "they need to try the Cranfield baseline",
+      "then": "the first screen provides a search form, example queries, indexed document counts, searchable field weights, topic hints, and live search/explain responses backed by cranfield-v0",
+      "evidence": "GEN-005 deployed the root search interface, added metadata endpoints, and verified root UI, metadata, search, and explain behavior twice against the public Worker."
+    },
+    {
+      "id": "BDD-007",
+      "title": "Search explain shows the retrieval flow",
+      "priority": "High",
+      "status": "passing",
+      "given": "a public user reviews Search Explain for a Cranfield query",
+      "when": "the explain endpoint and UI respond",
+      "then": "they expose a step-by-step flow from query input through normalization, OpenSearch query construction, retrieval, BM25 ranking, and explanation output",
+      "evidence": "GEN-006 added retrievalFlow to the explain API, rendered it as a flow diagram in the public UI, and verified both public root and explain endpoints twice."
+    },
+    {
+      "id": "BDD-008",
+      "title": "Public users can inspect evaluation outcomes",
+      "priority": "High",
+      "status": "passing",
+      "given": "a public user reviews the Phase 1 Cranfield baseline",
+      "when": "they need to understand evaluation quality",
+      "then": "the interface and API expose aggregate metrics plus representative correct, wrong or weak, and missed-relevant examples from the live evaluation",
+      "evidence": "GEN-007 added public evaluation metrics, strong/mixed/weak examples, and /api/cranfield/evaluation plus /api/evaluation endpoints; public checks passed twice."
+    },
+    {
+      "id": "BDD-009",
+      "title": "Public pages stay focused by phase and subsection",
+      "priority": "High",
+      "status": "passing",
+      "given": "a public user opens Retail Search as more phases are planned",
+      "when": "they browse the deployed site",
+      "then": "the home page lists project phases while Phase 1 details are split into focused overview, search, data, explain, and evaluation pages so one page does not carry every artifact",
+      "evidence": "GEN-008 deployed the phase overview home page and focused Phase 1 subpages, then verified home, /phases/cranfield/* routes, /phase-1/* aliases, planned phase pages, and APIs against the public Worker."
+    },
+    {
+      "id": "BDD-010",
+      "title": "Public users can identify dataset sources",
+      "priority": "High",
+      "status": "passing",
+      "given": "a public user sees phase names such as Cranfield, BEIR, or ESCI",
+      "when": "they browse the deployed home page, Phase 1 data page, or planned phase pages",
+      "then": "the interface links to the official dataset source or clearly states that a future dataset source has not been selected yet",
+      "evidence": "GEN-009 added source references for Glasgow Cranfield, BEIR, and Amazon ESCI, marked behavior data as not selected, exposed Cranfield source URLs in /api/cranfield/meta, and verified the deployed pages and metadata endpoint."
+    },
+    {
+      "id": "BDD-011",
+      "title": "Artifacts remain permanently traceable",
+      "priority": "Critical",
+      "status": "passing",
+      "given": "a reader starts from a mission, article, search endpoint, experiment, architecture version, decision, benchmark report, or tag",
+      "when": "they inspect the project artifacts or local API response contracts",
+      "then": "the artifact exposes stable identifiers linking Mission, Article, Search Evolution, Architecture Version, Architecture Decision Ledger, Git Tag, search endpoint, explain endpoint, and benchmark report",
+      "evidence": "GEN-010 added M-0001, A-0002, SE-0001, ARCH-0.1, ADL-0001, v0.1.0 traceability docs, .mde/traceability.json, local /api/v0.1 aliases, traceability payloads, and scripts/validate-traceability.mjs."
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "project_id": "retail-search",
-  "updated_at": "2026-07-04",
-  "current_generation": "GEN-001",
+  "updated_at": "2026-07-06",
+  "current_generation": "GEN-010",
   "completed": [
     "Captured mission.",
     "Initialized local MDE artifacts.",
@@ -9,12 +9,39 @@
     "Implemented Cloudflare Worker-compatible Cranfield search and explain endpoints.",
     "Added OpenSearch index mapping and sample bulk indexing artifact.",
     "Added baseline evaluation metrics and fixture evaluation artifact.",
-    "Recorded ADL-001 for the OpenSearch BM25 baseline."
+    "Recorded ADL-001 for the OpenSearch BM25 baseline.",
+    "Implemented full public Cranfield export and OpenSearch bulk payload generation.",
+    "Documented AWS OpenSearch Service managed-cluster provider setup and credential split.",
+    "Verified Cloudflare token/account/Workers read access without exposing secret values.",
+    "Created ignored .env.local from the provided OpenSearch ServiceURL without printing secrets.",
+    "Verified live OpenSearch health.",
+    "Created and loaded cranfield-v0 with 1,400 public Cranfield documents.",
+    "Ran live Cranfield evaluation over 225 queries.",
+    "Uploaded Cloudflare Worker OpenSearch runtime secrets without printing values.",
+    "Deployed the retail-search Cloudflare Worker.",
+    "Verified public health, search, explain, latest, and versioned endpoint aliases.",
+    "Added and deployed a public root search interface.",
+    "Added indexed-data guidance and metadata endpoints for Cranfield.",
+    "Verified the public interface, metadata, search, and explain endpoints twice.",
+    "Added and deployed a Search Explain retrieval flow diagram.",
+    "Verified the public flow diagram and explain retrievalFlow response twice.",
+    "Added and deployed public evaluation results with aggregate metrics plus strong, mixed, and weak query examples.",
+    "Verified the evaluation UI and evaluation JSON endpoints twice.",
+    "Reorganized the public interface into a home page that lists all phases and focused Phase 1 subsection pages for overview, search, data, explain, and evaluation.",
+    "Deployed and verified the organized public routes, aliases, search API, explain API, and evaluation API.",
+    "Added public dataset references for Cranfield, BEIR, and Amazon ESCI, plus an explicit no-source-yet note for the future behavior phase.",
+    "Deployed and verified the dataset references on the public home, Phase 1 data/overview, planned phase pages, metadata API, and search API.",
+    "Integrated the project traceability and versioning mission update into MISSION.md.",
+    "Added the Phase 1 traceability chain M-0001 -> A-0002 -> SE-0001 -> ARCH-0.1 -> ADL-0001 -> v0.1.0.",
+    "Added local /api/v0.1/search and /api/v0.1/explain aliases plus traceability payloads in API responses.",
+    "Added a traceability validator to npm run validate."
   ],
   "in_progress": [],
   "next": [
-    "Configure live OpenSearch and load full Cranfield corpus.",
-    "Deploy Cloudflare Worker public endpoints.",
-    "Run live Phase 1 evaluation and latency measurements."
+    "Deploy the GEN-010 /api/v0.1 traceability route changes when explicitly approved.",
+    "Commit and tag ARCH-0.1 as v0.1.0 when the Phase 1 working tree is ready.",
+    "Commit and push deployment, interface, flow diagram, evaluation, page organization, dataset reference, and traceability evidence when ready.",
+    "Prepare Phase 1 public article.",
+    "Plan Phase 2 BEIR transferability."
   ]
 }

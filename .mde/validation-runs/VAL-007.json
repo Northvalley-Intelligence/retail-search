@@ -1,0 +1,62 @@
+{
+  "run_id": "VAL-007",
+  "project_id": "retail-search",
+  "generation_id": "GEN-005",
+  "executed_at": "2026-07-05T05:15:30Z",
+  "validation_strategy_version": "VALSTRAT-004",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Usability",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "16 tests passed, including root search interface and dataset metadata endpoint contract tests; MDE parse check, sample index check, and fixture evaluation passed."
+    },
+    {
+      "name": "wrangler deploy",
+      "category": "Deployment",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Deployed retail-search to https://retail-search.feroshjacob.workers.dev with version f4e361a8-686d-4059-9892-1a435ac5a8f2."
+    },
+    {
+      "name": "public root UI",
+      "category": "Usability / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Root URL returned HTML containing the search interface, Indexed Data panel, document count, example query 'wing pressure distribution', and Search Explain panel."
+    },
+    {
+      "name": "public metadata endpoint",
+      "category": "Data Integrity / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "/api/cranfield/meta returned 1,400 documents, 225 evaluation queries, 1,837 relevance judgments, searchable fields, topic hints, and example queries."
+    },
+    {
+      "name": "public latest search alias",
+      "category": "Functional / External",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "/api/search returned live cranfield-v0 results for 'wing pressure distribution'; top result id 652; total hits 794; API latency 477 ms; OpenSearch took 5 ms."
+    },
+    {
+      "name": "public latest explain alias",
+      "category": "Functional / External",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "/api/explain returned the generated OpenSearch query and top result id 652 for 'wing pressure distribution'; API latency 187 ms; OpenSearch took 4 ms."
+    }
+  ],
+  "blocked_or_skipped": [
+    {
+      "name": "browser visual screenshot",
+      "reason": "The browser plugin reported no available browser instances. Served HTML and public HTTP behavior were still verified."
+    }
+  ],
+  "critical_findings": [],
+  "high_findings": [],
+  "medium_findings": [],
+  "evidence_quality": "Strong functional and public HTTP evidence for the interface and metadata. Visual screenshot evidence was unavailable because the browser connector had no browser instances."
+}

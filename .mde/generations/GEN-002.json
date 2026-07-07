@@ -1,0 +1,125 @@
+{
+  "generation_id": "GEN-002",
+  "project_id": "retail-search",
+  "started_at": "2026-07-04",
+  "ended_at": "2026-07-04",
+  "mission_phase": "Phase 1 - Cranfield Foundation",
+  "mission_version": "MISSION-2026-07-04-GEN-002",
+  "validation_strategy_version": "VALSTRAT-003",
+  "status": "local_deployment_unblockers_complete_external_live_services_blocked",
+  "focus": "Implement the reproducible full Cranfield export path, document an extensible OpenSearch provider setup, and verify Cloudflare access without exposing secrets or deploying.",
+  "reason_started": "The operator resolved the prior blocker with instructions to verify Cloudflare, recommend OpenSearch setup, and implement Cranfield ingestion before deployment.",
+  "reason_ended": "Cranfield export and provider documentation are complete and locally validated; Cloudflare read access is verified; live public acceptance remains blocked on OpenSearch creation, corpus loading, and deployment approval.",
+  "files_changed_by_category": {
+    "human_artifacts": [
+      "README.md",
+      "MISSION_UPDATES.md",
+      "docs/deployment-opensearch-cloudflare.md",
+      ".env.example"
+    ],
+    "implementation_artifacts": [
+      "package.json",
+      "src/cranfield/corpus.js",
+      "scripts/export-cranfield.mjs",
+      ".gitignore"
+    ],
+    "validation_artifacts": [
+      "test/cranfield-corpus.test.js",
+      ".mde/validation-runs/VAL-003.json"
+    ],
+    "agent_artifacts": [
+      ".mde/state.json",
+      ".mde/progress.json",
+      ".mde/findings.json",
+      ".mde/generation-summary.md",
+      ".mde/generations/GEN-002.json",
+      ".mde/outbox/events.jsonl",
+      ".mde/outbox/impacts.jsonl"
+    ],
+    "deploy_artifacts": [
+      "deploy/release-checks.json"
+    ]
+  },
+  "validators_executed": [
+    {
+      "name": "node --test",
+      "category": "Functional / Security",
+      "result": "pass",
+      "evidence": "14 tests passed."
+    },
+    {
+      "name": "npm run validate",
+      "category": "Technical",
+      "result": "pass",
+      "evidence": "Full local validation passed after Cranfield exporter implementation."
+    },
+    {
+      "name": "npm run export:cranfield",
+      "category": "External Data Source",
+      "result": "pass",
+      "evidence": "Public source exported expected Cranfield counts to /private/tmp without credentials or deployment."
+    },
+    {
+      "name": "Cloudflare read-only verification",
+      "category": "Deployment",
+      "result": "partial_pass",
+      "evidence": "Token active, account readable, and Workers services readable; deploy/write scope not proven."
+    }
+  ],
+  "validators_skipped": [
+    {
+      "name": "live OpenSearch domain verification",
+      "reason": "No domain or OpenSearch users exist yet."
+    },
+    {
+      "name": "Cloudflare deployment validation",
+      "reason": "Deployment and external mutation were not approved."
+    }
+  ],
+  "validation_gate": {
+    "result": "pass_with_external_blockers",
+    "pass_count": 1,
+    "failed_categories": [],
+    "blocking_findings": [
+      "FIND-001",
+      "FIND-002"
+    ]
+  },
+  "github_submission": {
+    "status": "not_submitted",
+    "blocker": "Changes were left in the working tree for operator review; no explicit commit or push request was made during this blocker-handling turn."
+  },
+  "reusable_lessons": [
+    "Public gzip archives can be auto-decoded by fetch when servers send Content-Encoding; corpus exporters should accept both compressed and decoded archive checksums when the content source is otherwise stable."
+  ],
+  "downstream_impacts": [
+    "Central MDE should keep retail-search marked blocked on live OpenSearch provisioning, not on Cranfield source discovery."
+  ],
+  "content_seeds": [
+    "Phase 1 article can now include a reproducible Cranfield ingestion note."
+  ],
+  "skill_update_candidates": [],
+  "evidence_quality_notes": [
+    "Cranfield public source and parser are verified against expected counts.",
+    "Cloudflare was verified only through read-only API calls; deployment readiness still needs write-scope proof or an approved deploy."
+  ],
+  "goal_drift_review": {
+    "supports_mission": [
+      "Moves Phase 1 from fixture-only data toward reproducible full Cranfield ingestion.",
+      "Keeps OpenSearch as the extensible production search provider for later phases.",
+      "Preserves no-secret-exposure and no-unapproved-deployment constraints."
+    ],
+    "missing": [
+      "Live OpenSearch domain and users.",
+      "Bulk-loaded cranfield-v0 live index.",
+      "Live public Worker endpoint and latency measurements."
+    ],
+    "over_engineered": [],
+    "deferred": [
+      "Automated live bulk upload command.",
+      "OpenSearch domain creation automation.",
+      "Cloudflare deployment."
+    ],
+    "mission_alignment": "GEN-002 serves Phase 1 by removing reproducibility blockers without introducing unearned ranking architecture."
+  }
+}

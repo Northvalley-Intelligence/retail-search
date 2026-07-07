@@ -1,36 +1,21 @@
-# Building The First Retail Search Baseline
+# Phase 1 Cranfield Baseline Article Note
 
-## Mission
+This note is retained as a legacy article placeholder.
 
-Start with a transparent OpenSearch Cranfield baseline and make every later improvement earn its place through evidence.
+Canonical Article 2 traceability entry:
 
-## Dataset
+`docs/articles/A-0002-baseline-before-agents.md`
 
-Cranfield is the Phase 1 foundation dataset. GEN-001 includes Cranfield-shaped sample records for local validation; full Cranfield ingestion is pending external data setup.
+Article evidence handoff:
 
-## Baseline
+`.mde/handoffs/stream_mr88ju6f_8ca1315d_article2_evidence.md`
 
-The baseline uses OpenSearch BM25 over title, abstract, and text fields. Title is boosted most heavily because short document titles often carry strong relevance signals.
+Current status:
 
-## Current Evidence
-
-The repository validates:
-
-- Worker search and explain contracts
-- generated OpenSearch query shape
-- no runtime LLM dependency
-- metric calculations for MAP, nDCG, Precision, Recall, and MRR
-- MDE artifact parseability
-
-## Endpoint Status
-
-The endpoint implementation exists, but live public URLs are pending Cloudflare and OpenSearch configuration.
-
-## Architecture Impact
-
-ADL-001 accepts the OpenSearch BM25 Cranfield baseline as v0. No semantic, LTR, personalization, or behavior component has been accepted.
-
-## Next Mission
-
-Load the full Cranfield corpus into OpenSearch, deploy the Worker, run live evaluation, and publish the public endpoint URLs.
-
+- Phase 1 is live and validated.
+- Production URL: `https://retail-search.feroshjacob.workers.dev/`
+- Mission: `M-0001`
+- Search Evolution: `SE-0001`
+- Architecture: `ARCH-0.1`
+- Decision: `ADL-0001`
+- Intended Git Tag: `v0.1.0`

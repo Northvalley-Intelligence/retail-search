@@ -1,0 +1,55 @@
+{
+  "run_id": "VAL-010",
+  "project_id": "retail-search",
+  "generation_id": "GEN-005",
+  "executed_at": "2026-07-05T05:20:12Z",
+  "validation_strategy_version": "VALSTRAT-004",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Usability",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Stable-strategy pass 2: 16 tests passed, MDE parse checked 34 files, sample index check passed, and fixture evaluation passed."
+    },
+    {
+      "name": "public root UI with query parameters",
+      "category": "Usability / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Root URL with q=airfoil drag coefficient returned HTML containing Search Cranfield, Indexed Data, and the query text."
+    },
+    {
+      "name": "public metadata canonical endpoint",
+      "category": "Data Integrity / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "/api/cranfield/meta returned 1,400 documents and abstract field weight 2x."
+    },
+    {
+      "name": "public canonical Cranfield search",
+      "category": "Functional / External",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "/api/cranfield/search returned live cranfield-v0 results for 'airfoil drag coefficient'; top result id 1201; total hits 363; API latency 283 ms; OpenSearch took 4 ms."
+    },
+    {
+      "name": "public canonical Cranfield explain",
+      "category": "Functional / External",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "/api/cranfield/explain returned the generated OpenSearch query and top result id 1201 for 'airfoil drag coefficient'; API latency 71 ms; OpenSearch took 5 ms."
+    }
+  ],
+  "blocked_or_skipped": [
+    {
+      "name": "browser visual screenshot",
+      "reason": "The browser plugin reported no available browser instances."
+    }
+  ],
+  "critical_findings": [],
+  "high_findings": [],
+  "medium_findings": [],
+  "evidence_quality": "Stable-strategy pass 2 confirmed local validation and public UI, metadata, search, and explain behavior with no code, strategy, or validator changes between stable passes."
+}

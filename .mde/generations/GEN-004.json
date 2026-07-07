@@ -1,0 +1,140 @@
+{
+  "generation_id": "GEN-004",
+  "project_id": "retail-search",
+  "started_at": "2026-07-05",
+  "ended_at": "2026-07-05",
+  "mission_phase": "Phase 1 - Cranfield Foundation",
+  "mission_version": "MISSION-2026-07-05-GEN-004",
+  "validation_strategy_version": "VALSTRAT-003",
+  "status": "phase_1_public_endpoints_deployed_validated",
+  "focus": "Configure Cloudflare Worker runtime secrets, deploy the Worker, and verify public health, search, explain, latest, and versioned endpoints against the live cranfield-v0 OpenSearch index.",
+  "reason_started": "The operator explicitly approved deployment after GEN-003 had loaded and evaluated live OpenSearch but left public endpoints blocked.",
+  "reason_ended": "Cloudflare secrets were configured, the Worker deployed, public endpoints returned live OpenSearch-backed responses, and the validation gate passed twice.",
+  "files_changed_by_category": {
+    "human_artifacts": [
+      "README.md",
+      "MISSION_UPDATES.md",
+      "docs/deployment-opensearch-cloudflare.md",
+      "experiments/cranfield-v0/README.md"
+    ],
+    "agent_artifacts": [
+      ".mde/state.json",
+      ".mde/progress.json",
+      ".mde/findings.json",
+      ".mde/failing-bdds.json",
+      ".mde/bdd-index.json",
+      ".mde/risk-register.json",
+      ".mde/task-graph.json",
+      ".mde/validator-effectiveness.json",
+      ".mde/generation-summary.md",
+      ".mde/generations/GEN-004.json",
+      ".mde/validation-runs/VAL-005.json",
+      ".mde/validation-runs/VAL-006.json",
+      ".mde/outbox/events.jsonl",
+      ".mde/outbox/impacts.jsonl"
+    ],
+    "deploy_artifacts": [
+      "deploy/release-checks.json"
+    ],
+    "cloudflare_resources": [
+      "Worker secrets OPENSEARCH_URL, OPENSEARCH_USERNAME, OPENSEARCH_PASSWORD",
+      "Cloudflare Worker retail-search"
+    ]
+  },
+  "deployment": {
+    "provider": "Cloudflare Workers",
+    "worker_name": "retail-search",
+    "public_url": "https://retail-search.feroshjacob.workers.dev",
+    "version_id": "efc32480-bc42-45b4-a3e0-488ee6ba6de0",
+    "workers_dev": true
+  },
+  "validators_executed": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional",
+      "result": "pass",
+      "evidence": "14 tests passed, MDE artifacts parsed, sample index check passed, fixture evaluation passed."
+    },
+    {
+      "name": "wrangler whoami",
+      "category": "Deployment",
+      "result": "pass",
+      "evidence": "Wrangler auth had Workers write scope; secret/account values were redacted."
+    },
+    {
+      "name": "wrangler secret put",
+      "category": "Security / Deployment",
+      "result": "pass",
+      "evidence": "OpenSearch runtime secrets were uploaded without printing values."
+    },
+    {
+      "name": "wrangler deploy",
+      "category": "Deployment",
+      "result": "pass",
+      "evidence": "Worker deployed to the public workers.dev URL."
+    },
+    {
+      "name": "public endpoint checks",
+      "category": "Functional / External",
+      "result": "pass",
+      "evidence": "Public health, search, explain, latest, and versioned endpoints returned live cranfield-v0 responses."
+    },
+    {
+      "name": "second validation pass",
+      "category": "Validation Gate",
+      "result": "pass",
+      "evidence": "Local validation and public endpoint checks passed again with no code, test, strategy, or validator changes between public checks."
+    }
+  ],
+  "validators_skipped": [
+    {
+      "name": "broad p95 latency sample",
+      "reason": "Point latency evidence was collected during endpoint validation; a larger sampled latency run is useful but not required to prove Phase 1 public availability."
+    }
+  ],
+  "validation_gate": {
+    "result": "pass",
+    "pass_count": 2,
+    "failed_categories": [],
+    "blocking_findings": []
+  },
+  "github_submission": {
+    "status": "not_submitted",
+    "blocker": "Deployment evidence remains in the working tree for review; no explicit commit or push request was made."
+  },
+  "reusable_lessons": [
+    "Cloudflare Worker secret upload can create the Worker before first deploy, so evidence should distinguish secret-created Worker existence from deployed code.",
+    "Public endpoint validation should include both canonical versioned paths and latest aliases after deployment."
+  ],
+  "downstream_impacts": [
+    "Retail Search Phase 1 public baseline can now be referenced by articles or portfolio status.",
+    "Phase 2 can start from a deployed Cranfield baseline rather than deployment unblockers."
+  ],
+  "content_seeds": [
+    "Phase 1 article can include the public endpoint URL and live OpenSearch metrics."
+  ],
+  "skill_update_candidates": [],
+  "evidence_quality_notes": [
+    "Deployment evidence is live and public.",
+    "Endpoint checks prove real OpenSearch-backed behavior through Cloudflare.",
+    "Latency evidence is point-in-time; p95 needs a sampled run if used in public claims."
+  ],
+  "goal_drift_review": {
+    "supports_mission": [
+      "Exposes public search and explain endpoints.",
+      "Keeps OpenSearch as the execution engine.",
+      "Keeps v0 transparent and baseline-only without unearned ranking architecture."
+    ],
+    "missing": [
+      "Broader public endpoint latency sample.",
+      "Phase 1 article linked to commit and endpoint."
+    ],
+    "over_engineered": [],
+    "deferred": [
+      "BEIR transferability.",
+      "ESCI retail relevance.",
+      "Behavioral ranking."
+    ],
+    "mission_alignment": "GEN-004 completes the public deployment requirement for the Phase 1 Cranfield Foundation."
+  }
+}

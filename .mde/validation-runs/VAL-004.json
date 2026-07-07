@@ -1,0 +1,70 @@
+{
+  "run_id": "VAL-004",
+  "project_id": "retail-search",
+  "generation_id": "GEN-003",
+  "executed_at": "2026-07-04",
+  "validation_strategy_version": "VALSTRAT-003",
+  "result": "pass_with_deployment_blocker",
+  "checks": [
+    {
+      "name": ".env.local secret handling",
+      "category": "Security",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": ".env.local was created/updated from /tmp/opensearch.md without printing values, chmod 0600, and is ignored by .gitignore."
+    },
+    {
+      "name": "npm run opensearch:health",
+      "category": "External / Deployment",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Live provider returned OpenSearch 3.3.2, green cluster health, one node."
+    },
+    {
+      "name": "npm run load:cranfield",
+      "category": "External Data Source",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "cranfield-v0 was created, 1,400 public Cranfield documents were indexed, and live count returned 1,400."
+    },
+    {
+      "name": "npm run eval:cranfield -- --queries /private/tmp/retail-search-cranfield-live/queries.json --write experiments/cranfield-v0/evaluation-live.json --summary --concurrency 3",
+      "category": "Functional / Performance",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "225-query live evaluation passed: MAP 0.2402, nDCG@10 0.2995, Precision@10 0.2316, Recall@10 0.3994, MRR 0.535."
+    },
+    {
+      "name": "live search sanity check",
+      "category": "Functional",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "searchCranfield returned five live results for 'wing pressure distribution'; top result id 652; OpenSearch took 7 ms."
+    },
+    {
+      "name": "npm run validate",
+      "category": "Technical",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "14 tests passed, MDE parse check passed, sample index check passed, fixture evaluation passed."
+    }
+  ],
+  "blocked_or_skipped": [
+    {
+      "name": "Cloudflare Worker deployment validation",
+      "reason": "Deployment and external Cloudflare mutation were not approved in this turn."
+    },
+    {
+      "name": "public endpoint search/explain validation",
+      "reason": "Worker is not deployed to public Cloudflare endpoints yet."
+    }
+  ],
+  "critical_findings": [],
+  "high_findings": [
+    "FIND-001"
+  ],
+  "medium_findings": [
+    "FIND-003"
+  ],
+  "evidence_quality": "Strong live OpenSearch evidence and local validation; public endpoint evidence remains blocked on Cloudflare deployment."
+}

@@ -1,6 +1,6 @@
 {
   "project_id": "retail-search",
-  "updated_at": "2026-07-04",
+  "updated_at": "2026-07-06",
   "tasks": [
     {
       "id": "TASK-001",
@@ -14,8 +14,38 @@
     },
     {
       "id": "TASK-003",
-      "status": "blocked_external",
+      "status": "complete",
       "summary": "Deploy public Cloudflare Worker endpoints backed by a live OpenSearch Cranfield index."
+    },
+    {
+      "id": "TASK-004",
+      "status": "complete",
+      "summary": "Add a public search interface with indexed-data details and sample searches."
+    },
+    {
+      "id": "TASK-005",
+      "status": "complete",
+      "summary": "Add a flow diagram to Search Explain and expose the retrieval flow through the explain API."
+    },
+    {
+      "id": "TASK-006",
+      "status": "complete",
+      "summary": "Expose live evaluation metrics and representative correct, wrong, and missed examples on the public Phase 1 page."
+    },
+    {
+      "id": "TASK-007",
+      "status": "complete",
+      "summary": "Organize the public UI into a phase overview home page and focused Phase 1 subsection pages."
+    },
+    {
+      "id": "TASK-008",
+      "status": "complete",
+      "summary": "Add official dataset references to public phase pages and Cranfield metadata."
+    },
+    {
+      "id": "TASK-009",
+      "status": "complete",
+      "summary": "Integrate stable mission, article, search evolution, architecture, decision, tag, and endpoint traceability for Phase 1."
     }
   ]
 }

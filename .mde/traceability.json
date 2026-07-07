@@ -1,0 +1,38 @@
+{
+  "project_id": "retail-search",
+  "updated_at": "2026-07-06",
+  "standard_version": "TRACE-2026-07-06",
+  "current_chain": {
+    "mission_id": "M-0001",
+    "article_id": "A-0002",
+    "search_evolution_id": "SE-0001",
+    "architecture_version": "ARCH-0.1",
+    "architecture_slug": "v0-cranfield-opensearch-baseline",
+    "architecture_decision_id": "ADL-0001",
+    "legacy_architecture_decision_id": "ADL-001",
+    "git_tag": "v0.1.0",
+    "git_commit": "pending",
+    "search_endpoint": "/api/v0.1/search",
+    "explain_endpoint": "/api/v0.1/explain",
+    "latest_search_endpoint": "/api/search",
+    "latest_explain_endpoint": "/api/explain",
+    "dataset": "cranfield",
+    "benchmark_report": "experiments/cranfield-v0/evaluation-live.json",
+    "article_handoff": ".mde/handoffs/stream_mr88ju6f_8ca1315d_article2_evidence.md"
+  },
+  "artifacts": {
+    "mission": "docs/missions/M-0001-cranfield-foundation.md",
+    "article": "docs/articles/A-0002-baseline-before-agents.md",
+    "search_evolution": "docs/evolution/experiments/SE-0001-cranfield-baseline.md",
+    "search_evolution_timeline": "docs/evolution/timeline.md",
+    "architecture_version": "docs/architecture/versions/ARCH-0.1-cranfield-baseline.md",
+    "architecture_timeline": "docs/architecture/timeline.md",
+    "architecture_decision": "docs/architecture/decisions/ADL-0001-cranfield-opensearch-baseline.md",
+    "endpoint_manifest": "docs/endpoints/ARCH-0.1-endpoints.md",
+    "traceability_standard": "docs/traceability.md"
+  },
+  "unresolved": [
+    "Git commit and git tag are pending until the current Phase 1 working tree is committed.",
+    "The deployed Worker still uses the previously deployed bundle until the traceability endpoint changes are explicitly deployed."
+  ]
+}

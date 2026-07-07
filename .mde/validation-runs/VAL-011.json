@@ -1,0 +1,48 @@
+{
+  "run_id": "VAL-011",
+  "project_id": "retail-search",
+  "generation_id": "GEN-006",
+  "executed_at": "2026-07-05T05:23:00Z",
+  "validation_strategy_version": "VALSTRAT-004",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Explainability",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "16 tests passed, including root flow diagram and explain retrievalFlow contract assertions; MDE parse, sample index, and fixture evaluation passed."
+    },
+    {
+      "name": "wrangler deploy",
+      "category": "Deployment",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Deployed retail-search to https://retail-search.feroshjacob.workers.dev with version f30691e0-1fe2-4a04-917c-0537697d0a3d."
+    },
+    {
+      "name": "public root flow UI",
+      "category": "Usability / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Root URL returned HTML containing the flow diagram, OpenSearch Query step, and BM25 ranking detail."
+    },
+    {
+      "name": "public explain retrievalFlow",
+      "category": "Functional / Explainability / External",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "/api/explain returned a six-step retrievalFlow and live top result id 652 for 'wing pressure distribution'; API latency 313 ms; OpenSearch took 6 ms."
+    }
+  ],
+  "blocked_or_skipped": [
+    {
+      "name": "browser visual screenshot",
+      "reason": "The browser plugin reported no available browser instances earlier in the session."
+    }
+  ],
+  "critical_findings": [],
+  "high_findings": [],
+  "medium_findings": [],
+  "evidence_quality": "Public HTTP evidence confirms the flow diagram is served and the explain API exposes retrievalFlow."
+}

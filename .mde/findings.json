@@ -1,24 +1,31 @@
 {
   "project_id": "retail-search",
-  "updated_at": "2026-07-04",
+  "updated_at": "2026-07-05",
   "findings": [
     {
       "id": "FIND-001",
       "severity": "High",
-      "status": "blocked_external",
+      "status": "resolved",
       "category": "Deployment",
-      "summary": "Public Phase 1 endpoints cannot be claimed until Cloudflare Worker deployment and live OpenSearch configuration exist."
+      "summary": "Public Phase 1 endpoints are deployed and verified against the live cranfield-v0 OpenSearch index."
     },
     {
       "id": "FIND-002",
       "severity": "High",
-      "status": "blocked_external",
+      "status": "resolved",
       "category": "External Validation",
-      "summary": "Live Cranfield metrics and latency cannot be measured until the full corpus is loaded into OpenSearch."
+      "summary": "Full Cranfield export is implemented, cranfield-v0 is loaded with 1,400 live documents, and live evaluation metrics were recorded."
+    },
+    {
+      "id": "FIND-003",
+      "severity": "Medium",
+      "status": "resolved",
+      "category": "Deployment",
+      "summary": "Cloudflare Workers write scope was proven by secret upload and Worker deployment."
     }
   ],
   "residual_risks": [
-    "Fixture evaluation proves metric math and artifact shape only.",
-    "OpenSearch relevance and p95 latency remain unknown until a live index is available."
+    "Public endpoint p95 latency needs a broader sampled run beyond point checks.",
+    "Provider cost depends on the selected managed OpenSearch service plan and usage."
   ]
 }
