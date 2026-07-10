@@ -383,6 +383,10 @@ test("phase explain page is focused on the explain flow", async () => {
   assert.match(html, /Search explain flow/);
   assert.match(html, /OpenSearch Query/);
   assert.match(html, /Run explain/);
+  assert.match(html, /Architecture milestones/);
+  assert.match(html, /\/api\/milestones\/arch-0\.1\/explain/);
+  assert.match(html, /\/api\/milestones\/arch-0\.2-prf\/explain/);
+  assert.match(html, /\/api\/milestones\/arch-0\.3-bge\/explain/);
   assert.doesNotMatch(html, /Evaluation Results/);
   assert.doesNotMatch(html, /Wrong\/weak/);
 });

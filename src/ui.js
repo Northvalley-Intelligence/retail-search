@@ -1058,6 +1058,15 @@ function renderExplainSection() {
       ${renderFlowDiagram()}
     </section>
     <section class="tool-surface">
+      <h3>Architecture milestones</h3>
+      <p class="evaluation-note" style="margin-top:8px;">Compare explain output across milestones: the ARCH-0.2 PRF candidate adds pseudo-relevance-feedback reranking metadata on top of the ARCH-0.1 baseline, and ARCH-0.3 BGE reports its runtime status.</p>
+      <div class="quick-links" style="margin-top:12px;">
+        <a class="button-link secondary" href="/api/milestones/arch-0.1/explain?q=wing%20pressure%20distribution&size=2">ARCH-0.1 explain</a>
+        <a class="button-link secondary" href="/api/milestones/arch-0.2-prf/explain?q=wing%20pressure%20distribution&size=2">ARCH-0.2 PRF explain</a>
+        <a class="button-link secondary" href="/api/milestones/arch-0.3-bge/explain?q=wing%20pressure%20distribution&size=2">ARCH-0.3 explain status</a>
+      </div>
+    </section>
+    <section class="tool-surface">
       <h3>Run explain</h3>
       <form id="explain-form" class="search-form" style="margin-top:12px;">
         <div>
