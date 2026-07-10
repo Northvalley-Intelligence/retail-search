@@ -1,6 +1,6 @@
 # A-0003 — SLAB-RS, Part 3: The Agent Climbs Keyword Search to Its Ceiling
 
-Status: draft ready for publishing handoff (target: feroshjacob.github.io, series part 3)
+Status: publish PR open — https://github.com/feroshjacob/feroshjacob.github.io/pull/20 (LinkedIn promo staged, publishes only after the live URL exists)
 Series: SLAB-RS (Self-Learning Agent-Based Retail Search), Phase 1 advances part 1 of 2 (next: `A-0004`)
 Source handoff: `.mde/handoffs/control-center-stream_mreep6je_ab6e2bd9-phase1-article-source.md`
 
