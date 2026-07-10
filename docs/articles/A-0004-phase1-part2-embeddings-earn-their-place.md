@@ -14,10 +14,13 @@ Cross references:
 - Live system: https://retail-search.feroshjacob.workers.dev
 - Reference paper: Ghasemi & Hiemstra, "BERT meets Cranfield", EACL 2021 — https://aclanthology.org/2021.eacl-srw.9/
 - Experiment artifacts: `experiments/cranfield-v0/`
+Header image: /images/self-learning-agent-based-retail-search-part-4-embeddings-break-ceiling.png (staged in the blog repo working tree)
 
 ---
 
 ## Draft
+
+![Six embedding experiments on one nDCG scale: fake vectors and chat-model embeddings fail below the 0.3260 lexical ceiling while BGE vectors, the BGE hybrid, and the BGE-signal learned ranker break above it](/images/self-learning-agent-based-retail-search-part-4-embeddings-break-ceiling.png)
 
 [Part 3](./A-0003-phase1-part1-lexical-ceiling.md) ended at a measured ceiling. Five experiments improved keyword search from nDCG@10 0.2995 to **0.3260**, the last improvement was worth two tenths of a percent, and 27 of the 225 test queries still found nothing relevant in their top 10 — because they ask for things using words their answer documents never use. You cannot keyword-match your way out of a vocabulary mismatch.
 

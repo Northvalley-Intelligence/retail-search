@@ -14,10 +14,13 @@ Cross references:
 - Live system: https://retail-search.feroshjacob.workers.dev
 - Reference paper: Ghasemi & Hiemstra, "BERT meets Cranfield", EACL 2021 — https://aclanthology.org/2021.eacl-srw.9/
 - Experiment artifacts: `experiments/cranfield-v0/`
+Header image: /images/self-learning-agent-based-retail-search-part-3-keyword-ceiling.png (staged in the blog repo working tree)
 
 ---
 
 ## Draft
+
+![Staircase of five keyword ranking experiments climbing from a 0.2995 BM25 baseline to the 0.3260 lexical ceiling, with two rejected experiments and the agent standing on the top step](/images/self-learning-agent-based-retail-search-part-3-keyword-ceiling.png)
 
 In my experience, the work in this article would have been a quarter's roadmap for a core search team of ten to fifteen people a few years ago. Data pipeline, cluster setup, a public API, an evaluation harness, a failure analysis, five ranking experiments, and a public deployment. Not because any single piece is hard — but because in a real organization those pieces belong to different specialists, and every handoff between them costs weeks of coordination.
 
