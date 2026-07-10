@@ -15,6 +15,10 @@
 - Search: `/api/search`
 - Explain: `/api/explain`
 
+## Milestone Aliases
+
+Comparison endpoints for `ARCH-0.1`, `ARCH-0.2-candidate`, and `ARCH-0.3-candidate` are documented in [Milestone endpoints](milestone-endpoints.md).
+
 ## Dataset-Specific API
 
 - Search: `/api/cranfield/search`

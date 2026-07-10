@@ -8,6 +8,23 @@ function resultIds(results) {
   return results.map((result) => (typeof result === "string" ? result : result.id));
 }
 
+function gainForGrade(grade, relevanceMode = "graded") {
+  const value = Number(grade || 0);
+  if (value <= 0) {
+    return 0;
+  }
+  if (relevanceMode === "binary") {
+    return 1;
+  }
+  if (relevanceMode === "linear") {
+    return value;
+  }
+  if (relevanceMode === "cranfield-reversed") {
+    return 2 ** (5 - value) - 1;
+  }
+  return 2 ** value - 1;
+}
+
 export function precisionAtK(results, qrels, k = 10) {
   const ids = resultIds(results).slice(0, k);
   if (ids.length === 0) {
@@ -55,42 +72,45 @@ export function reciprocalRank(results, qrels, k = 10) {
   return index === -1 ? 0 : 1 / (index + 1);
 }
 
-export function dcg(results, qrels, k = 10) {
+export function dcg(results, qrels, k = 10, options = {}) {
+  const relevanceMode = options.relevanceMode || "graded";
   return resultIds(results)
     .slice(0, k)
     .reduce((sum, id, index) => {
-      const grade = Number(qrels[id] || 0);
-      if (grade <= 0) {
+      const gain = gainForGrade(qrels[id], relevanceMode);
+      if (gain <= 0) {
         return sum;
       }
-      return sum + (2 ** grade - 1) / Math.log2(index + 2);
+      return sum + gain / Math.log2(index + 2);
     }, 0);
 }
 
-export function ndcgAtK(results, qrels, k = 10) {
+export function ndcgAtK(results, qrels, k = 10, options = {}) {
+  const relevanceMode = options.relevanceMode || "graded";
   const ideal = Object.entries(qrels)
     .filter(([, grade]) => Number(grade) > 0)
-    .sort((a, b) => Number(b[1]) - Number(a[1]))
+    .sort((a, b) => gainForGrade(b[1], relevanceMode) - gainForGrade(a[1], relevanceMode) || a[0].localeCompare(b[0]))
     .map(([id]) => id);
-  const idealDcg = dcg(ideal, qrels, k);
+  const idealDcg = dcg(ideal, qrels, k, { relevanceMode });
   if (idealDcg === 0) {
     return 0;
   }
-  return dcg(results, qrels, k) / idealDcg;
+  return dcg(results, qrels, k, { relevanceMode }) / idealDcg;
 }
 
 function roundMetric(value) {
   return Math.round(value * 10000) / 10000;
 }
 
-export function evaluateRun(cases, k = 10) {
+export function evaluateRun(cases, k = 10, options = {}) {
+  const relevanceMode = options.relevanceMode || "graded";
   const perQuery = cases.map((testCase) => {
     const metrics = {
       precisionAtK: roundMetric(precisionAtK(testCase.results, testCase.qrels, k)),
       recallAtK: roundMetric(recallAtK(testCase.results, testCase.qrels, k)),
       averagePrecision: roundMetric(averagePrecision(testCase.results, testCase.qrels, k)),
       reciprocalRank: roundMetric(reciprocalRank(testCase.results, testCase.qrels, k)),
-      ndcgAtK: roundMetric(ndcgAtK(testCase.results, testCase.qrels, k))
+      ndcgAtK: roundMetric(ndcgAtK(testCase.results, testCase.qrels, k, { relevanceMode }))
     };
     return {
       queryId: testCase.queryId,
@@ -118,9 +138,9 @@ export function evaluateRun(cases, k = 10) {
   const count = perQuery.length || 1;
   return {
     k,
+    relevanceMode,
     queryCount: perQuery.length,
     aggregate: Object.fromEntries(Object.entries(aggregate).map(([name, value]) => [name, roundMetric(value / count)])),
     perQuery
   };
 }
-

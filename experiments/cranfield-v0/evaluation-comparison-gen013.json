@@ -1,0 +1,956 @@
+{
+  "generatedAt": "2026-07-07T15:30:50.218Z",
+  "dataset": "cranfield",
+  "k": 10,
+  "retrieveSize": 50,
+  "baseline": {
+    "artifact": "experiments/cranfield-v0/evaluation-live-baseline-gen011.json",
+    "architectureVersion": "v0-cranfield-opensearch-baseline",
+    "searchArchitecture": {
+      "id": "baseline",
+      "label": "ARCH-0.1 OpenSearch BM25 baseline",
+      "status": "accepted",
+      "searchEvolutionId": "SE-0001",
+      "architectureVersion": "ARCH-0.1",
+      "architectureSlug": "v0-cranfield-opensearch-baseline",
+      "architectureDecisionIds": [
+        "ADL-0001"
+      ],
+      "queryStrategy": "Single OpenSearch multi_match best_fields query over title, abstract, and text.",
+      "rankingLogic": [
+        "OpenSearch BM25 baseline over title, abstract, and text fields.",
+        "Title receives the highest field boost, abstract receives a moderate boost, and full text is unboosted.",
+        "No query-specific result overrides, runtime LLM calls, personalization, or learning-to-rank model are used in v0."
+      ],
+      "techniquesApplied": [
+        "OpenSearch English analyzer",
+        "BM25 baseline scoring",
+        "field weighting for title and abstract",
+        "dataset filter for Cranfield documents"
+      ]
+    },
+    "metrics": {
+      "map": 0.2402,
+      "ndcgAtK": 0.2995,
+      "precisionAtK": 0.2316,
+      "recallAtK": 0.3994,
+      "mrr": 0.535
+    },
+    "failureGroups": [
+      {
+        "id": "passing_or_minor",
+        "label": "Passing or minor issue",
+        "description": "The top K behavior is not currently classified as a meaningful failure.",
+        "queryCount": 64,
+        "averageMetrics": {
+          "precisionAtK": 0.3328,
+          "recallAtK": 0.7494,
+          "averagePrecision": 0.5109,
+          "reciprocalRank": 0.7682,
+          "ndcgAtK": 0.5707
+        },
+        "averageRelevantCount": 4.7344,
+        "averageRelevantHitsAtK": 3.3281
+      },
+      {
+        "id": "late_first_relevant",
+        "label": "Relevant result ranked too late",
+        "description": "A relevant document appears in the top K, but below the first three positions.",
+        "queryCount": 42,
+        "averageMetrics": {
+          "precisionAtK": 0.1667,
+          "recallAtK": 0.2951,
+          "averagePrecision": 0.0646,
+          "reciprocalRank": 0.1796,
+          "ndcgAtK": 0.1476
+        },
+        "averageRelevantCount": 8.5476,
+        "averageRelevantHitsAtK": 1.6667
+      },
+      {
+        "id": "zero_relevant_at_k",
+        "label": "No relevant result in top K",
+        "description": "The query retrieved results, but none of the top K results are judged relevant.",
+        "queryCount": 28,
+        "averageMetrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        },
+        "averageRelevantCount": 4.2857,
+        "averageRelevantHitsAtK": 0
+      },
+      {
+        "id": "lexical_noise_low_precision",
+        "label": "Lexical noise dominates",
+        "description": "The query finds at least one relevant document, but most top K results are non-relevant.",
+        "queryCount": 27,
+        "averageMetrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.3324,
+          "averagePrecision": 0.1938,
+          "reciprocalRank": 0.5679,
+          "ndcgAtK": 0.2439
+        },
+        "averageRelevantCount": 4.4074,
+        "averageRelevantHitsAtK": 1
+      },
+      {
+        "id": "broad_need_low_recall",
+        "label": "Broad information need with low recall",
+        "description": "The query has many relevant judgments, but the top K captures only a small fraction.",
+        "queryCount": 25,
+        "averageMetrics": {
+          "precisionAtK": 0.304,
+          "recallAtK": 0.2107,
+          "averagePrecision": 0.1379,
+          "reciprocalRank": 0.7933,
+          "ndcgAtK": 0.2485
+        },
+        "averageRelevantCount": 14.6,
+        "averageRelevantHitsAtK": 3.04
+      },
+      {
+        "id": "partial_recall",
+        "label": "Partial recall",
+        "description": "The query has relevant hits, but leaves most judged relevant documents outside top K.",
+        "queryCount": 23,
+        "averageMetrics": {
+          "precisionAtK": 0.4174,
+          "recallAtK": 0.4119,
+          "averagePrecision": 0.2917,
+          "reciprocalRank": 0.7899,
+          "ndcgAtK": 0.3959
+        },
+        "averageRelevantCount": 10.1739,
+        "averageRelevantHitsAtK": 4.1739
+      },
+      {
+        "id": "graded_ranking_loss",
+        "label": "Relevant results found but weak graded ranking",
+        "description": "Some relevant documents are found, but graded relevance remains low.",
+        "queryCount": 16,
+        "averageMetrics": {
+          "precisionAtK": 0.2437,
+          "recallAtK": 0.3619,
+          "averagePrecision": 0.2021,
+          "reciprocalRank": 0.6458,
+          "ndcgAtK": 0.1716
+        },
+        "averageRelevantCount": 7,
+        "averageRelevantHitsAtK": 2.4375
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "artifact": "experiments/cranfield-v0/evaluation-live-coverage-rerank-gen012.json",
+      "architectureVersion": "v0.2-candidate-cranfield-coverage-rerank",
+      "searchArchitecture": {
+        "id": "coverage-rerank",
+        "label": "SE-0002 coverage-rerank candidate",
+        "status": "candidate",
+        "searchEvolutionId": "SE-0002",
+        "architectureVersion": "ARCH-0.2-candidate",
+        "architectureSlug": "v0.2-candidate-cranfield-coverage-rerank",
+        "architectureDecisionIds": [
+          "ADL-0002"
+        ],
+        "queryStrategy": "Retrieve the top 50 with field-sum BM25, then apply a small deterministic title/abstract query-term coverage bonus before returning the requested results.",
+        "rankingLogic": [
+          "Use the field-sum candidate as the OpenSearch retrieval floor.",
+          "Normalize the OpenSearch score within the retrieved set.",
+          "Add a small title and abstract coverage bonus for significant query terms.",
+          "Return the requested result count after reranking the top 50 candidates.",
+          "No query-specific result overrides, runtime LLM calls, personalization, or learning-to-rank model are used in the candidate."
+        ],
+        "techniquesApplied": [
+          "OpenSearch English analyzer",
+          "BM25 field-specific match scoring",
+          "summed title, abstract, and text evidence",
+          "deterministic title/abstract coverage rerank",
+          "dataset filter for Cranfield documents"
+        ],
+        "targetedFailureGroups": [
+          "zero_relevant_at_k",
+          "late_first_relevant",
+          "lexical_noise_low_precision"
+        ]
+      },
+      "metrics": {
+        "map": 0.2531,
+        "ndcgAtK": 0.3095,
+        "precisionAtK": 0.2502,
+        "recallAtK": 0.4283,
+        "mrr": 0.552
+      },
+      "failureGroups": [
+        {
+          "id": "passing_or_minor",
+          "label": "Passing or minor issue",
+          "description": "The top K behavior is not currently classified as a meaningful failure.",
+          "queryCount": 69,
+          "averageMetrics": {
+            "precisionAtK": 0.3551,
+            "recallAtK": 0.7603,
+            "averagePrecision": 0.5059,
+            "reciprocalRank": 0.7609,
+            "ndcgAtK": 0.5612
+          },
+          "averageRelevantCount": 5.0435,
+          "averageRelevantHitsAtK": 3.5507
+        },
+        {
+          "id": "late_first_relevant",
+          "label": "Relevant result ranked too late",
+          "description": "A relevant document appears in the top K, but below the first three positions.",
+          "queryCount": 34,
+          "averageMetrics": {
+            "precisionAtK": 0.1676,
+            "recallAtK": 0.3754,
+            "averagePrecision": 0.0816,
+            "reciprocalRank": 0.1772,
+            "ndcgAtK": 0.1632
+          },
+          "averageRelevantCount": 5.4706,
+          "averageRelevantHitsAtK": 1.6765
+        },
+        {
+          "id": "partial_recall",
+          "label": "Partial recall",
+          "description": "The query has relevant hits, but leaves most judged relevant documents outside top K.",
+          "queryCount": 29,
+          "averageMetrics": {
+            "precisionAtK": 0.3931,
+            "recallAtK": 0.4009,
+            "averagePrecision": 0.2735,
+            "reciprocalRank": 0.7126,
+            "ndcgAtK": 0.3662
+          },
+          "averageRelevantCount": 9.6552,
+          "averageRelevantHitsAtK": 3.931
+        },
+        {
+          "id": "broad_need_low_recall",
+          "label": "Broad information need with low recall",
+          "description": "The query has many relevant judgments, but the top K captures only a small fraction.",
+          "queryCount": 28,
+          "averageMetrics": {
+            "precisionAtK": 0.3107,
+            "recallAtK": 0.191,
+            "averagePrecision": 0.123,
+            "reciprocalRank": 0.75,
+            "ndcgAtK": 0.2208
+          },
+          "averageRelevantCount": 16.8214,
+          "averageRelevantHitsAtK": 3.1071
+        },
+        {
+          "id": "zero_relevant_at_k",
+          "label": "No relevant result in top K",
+          "description": "The query retrieved results, but none of the top K results are judged relevant.",
+          "queryCount": 27,
+          "averageMetrics": {
+            "precisionAtK": 0,
+            "recallAtK": 0,
+            "averagePrecision": 0,
+            "reciprocalRank": 0,
+            "ndcgAtK": 0
+          },
+          "averageRelevantCount": 5.037,
+          "averageRelevantHitsAtK": 0
+        },
+        {
+          "id": "lexical_noise_low_precision",
+          "label": "Lexical noise dominates",
+          "description": "The query finds at least one relevant document, but most top K results are non-relevant.",
+          "queryCount": 22,
+          "averageMetrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.346,
+            "averagePrecision": 0.2114,
+            "reciprocalRank": 0.6439,
+            "ndcgAtK": 0.2663
+          },
+          "averageRelevantCount": 4.1818,
+          "averageRelevantHitsAtK": 1
+        },
+        {
+          "id": "graded_ranking_loss",
+          "label": "Relevant results found but weak graded ranking",
+          "description": "Some relevant documents are found, but graded relevance remains low.",
+          "queryCount": 16,
+          "averageMetrics": {
+            "precisionAtK": 0.2375,
+            "recallAtK": 0.4102,
+            "averagePrecision": 0.2024,
+            "reciprocalRank": 0.6146,
+            "ndcgAtK": 0.169
+          },
+          "averageRelevantCount": 6.1875,
+          "averageRelevantHitsAtK": 2.375
+        }
+      ],
+      "metricDeltas": {
+        "map": 0.0129,
+        "ndcgAtK": 0.01,
+        "precisionAtK": 0.0186,
+        "recallAtK": 0.0289,
+        "mrr": 0.017
+      },
+      "groupDeltas": [
+        {
+          "id": "late_first_relevant",
+          "baselineCount": 42,
+          "candidateCount": 34,
+          "delta": -8
+        },
+        {
+          "id": "partial_recall",
+          "baselineCount": 23,
+          "candidateCount": 29,
+          "delta": 6
+        },
+        {
+          "id": "lexical_noise_low_precision",
+          "baselineCount": 27,
+          "candidateCount": 22,
+          "delta": -5
+        },
+        {
+          "id": "passing_or_minor",
+          "baselineCount": 64,
+          "candidateCount": 69,
+          "delta": 5
+        },
+        {
+          "id": "broad_need_low_recall",
+          "baselineCount": 25,
+          "candidateCount": 28,
+          "delta": 3
+        },
+        {
+          "id": "zero_relevant_at_k",
+          "baselineCount": 28,
+          "candidateCount": 27,
+          "delta": -1
+        },
+        {
+          "id": "graded_ranking_loss",
+          "baselineCount": 16,
+          "candidateCount": 16,
+          "delta": 0
+        }
+      ],
+      "queryDeltas": {
+        "improvedCount": 109,
+        "worsenedCount": 69,
+        "unchangedCount": 47,
+        "topImproved": [
+          {
+            "queryId": "52",
+            "query": "what is the available information pertaining to the effect of slight rarefaction on boundary layer flows (the ?slip? effect) .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": 0.4241,
+            "averagePrecisionDelta": 0.5196,
+            "reciprocalRankDelta": 0.5,
+            "recallDelta": 0.5,
+            "baselineNdcgAtK": 0.5289,
+            "candidateNdcgAtK": 0.953
+          },
+          {
+            "queryId": "106",
+            "query": "experimental techniques in shell vibration .",
+            "baselineGroup": "lexical_noise_low_precision",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": 0.2752,
+            "averagePrecisionDelta": 0.2333,
+            "reciprocalRankDelta": 0,
+            "recallDelta": 0.4,
+            "baselineNdcgAtK": 0.0933,
+            "candidateNdcgAtK": 0.3685
+          },
+          {
+            "queryId": "113",
+            "query": "what data exists on oscillatory aerodynamic forces on control surfaces at transonic mach numbers .",
+            "baselineGroup": "late_first_relevant",
+            "candidateGroup": "lexical_noise_low_precision",
+            "ndcgDelta": 0.2394,
+            "averagePrecisionDelta": 0.2,
+            "reciprocalRankDelta": 0.8,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.151,
+            "candidateNdcgAtK": 0.3904
+          },
+          {
+            "queryId": "103",
+            "query": "is the information on the buckling of sandwich sphere available .",
+            "baselineGroup": "zero_relevant_at_k",
+            "candidateGroup": "late_first_relevant",
+            "ndcgDelta": 0.2372,
+            "averagePrecisionDelta": 0.1,
+            "reciprocalRankDelta": 0.2,
+            "recallDelta": 0.5,
+            "baselineNdcgAtK": 0,
+            "candidateNdcgAtK": 0.2372
+          },
+          {
+            "queryId": "83",
+            "query": "what is the present state of the theory of quasi-conical flows .",
+            "baselineGroup": "late_first_relevant",
+            "candidateGroup": "lexical_noise_low_precision",
+            "ndcgDelta": 0.2223,
+            "averagePrecisionDelta": 0.1875,
+            "reciprocalRankDelta": 0.75,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.1681,
+            "candidateNdcgAtK": 0.3904
+          },
+          {
+            "queryId": "122",
+            "query": "what analytical investigations have been made of the stability of conical shells . how do the results compare with experiment .",
+            "baselineGroup": "lexical_noise_low_precision",
+            "candidateGroup": "partial_recall",
+            "ndcgDelta": 0.2113,
+            "averagePrecisionDelta": 0.1031,
+            "reciprocalRankDelta": 0,
+            "recallDelta": 0.2222,
+            "baselineNdcgAtK": 0.2275,
+            "candidateNdcgAtK": 0.4388
+          },
+          {
+            "queryId": "95",
+            "query": "what is the theoretical heat transfer distribution around a hemisphere .",
+            "baselineGroup": "late_first_relevant",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": 0.2029,
+            "averagePrecisionDelta": 0.3154,
+            "reciprocalRankDelta": 0.25,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.4346,
+            "candidateNdcgAtK": 0.6375
+          },
+          {
+            "queryId": "197",
+            "query": "how is fatigue damage estimated using the normal long-hand method .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": 0.1935,
+            "averagePrecisionDelta": 0.2222,
+            "reciprocalRankDelta": 0,
+            "recallDelta": 0.3333,
+            "baselineNdcgAtK": 0.6581,
+            "candidateNdcgAtK": 0.8516
+          }
+        ],
+        "topWorsened": [
+          {
+            "queryId": "15",
+            "query": "material properties of photoelastic materials .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "late_first_relevant",
+            "ndcgDelta": -0.5222,
+            "averagePrecisionDelta": -0.375,
+            "reciprocalRankDelta": -0.75,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.968,
+            "candidateNdcgAtK": 0.4458
+          },
+          {
+            "queryId": "130",
+            "query": "what are the flutter characteristics of the exposed skin panels of the x-15 vertical stabilizer when subjected to aerodynamic heating .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "partial_recall",
+            "ndcgDelta": -0.4187,
+            "averagePrecisionDelta": -0.3867,
+            "reciprocalRankDelta": -0.5,
+            "recallDelta": -0.4,
+            "baselineNdcgAtK": 0.7177,
+            "candidateNdcgAtK": 0.299
+          },
+          {
+            "queryId": "143",
+            "query": "what general solutions for the stresses in pressurized shells of revolution are available .",
+            "baselineGroup": "lexical_noise_low_precision",
+            "candidateGroup": "lexical_noise_low_precision",
+            "ndcgDelta": -0.3065,
+            "averagePrecisionDelta": -0.3333,
+            "reciprocalRankDelta": -0.6667,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.6131,
+            "candidateNdcgAtK": 0.3066
+          },
+          {
+            "queryId": "12",
+            "query": "how can the aerodynamic performance of channel flow ground effect machines be calculated .",
+            "baselineGroup": "partial_recall",
+            "candidateGroup": "late_first_relevant",
+            "ndcgDelta": -0.2958,
+            "averagePrecisionDelta": -0.1334,
+            "reciprocalRankDelta": -0.3333,
+            "recallDelta": -0.2,
+            "baselineNdcgAtK": 0.3471,
+            "candidateNdcgAtK": 0.0513
+          },
+          {
+            "queryId": "16",
+            "query": "can the transverse potential flow about a body of revolution be calculated efficiently by an electronic computer .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "lexical_noise_low_precision",
+            "ndcgDelta": -0.27,
+            "averagePrecisionDelta": -0.2407,
+            "reciprocalRankDelta": -0.5,
+            "recallDelta": -0.3334,
+            "baselineNdcgAtK": 0.6119,
+            "candidateNdcgAtK": 0.3419
+          },
+          {
+            "queryId": "86",
+            "query": "can a satisfactory experimental technique be developed for measuring oscillatory derivatives on slender sting-mounted models in supersonic wind tunnels .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": -0.2263,
+            "averagePrecisionDelta": -0.25,
+            "reciprocalRankDelta": -0.5,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.9197,
+            "candidateNdcgAtK": 0.6934
+          },
+          {
+            "queryId": "167",
+            "query": "exact solution methods for calculating the ablative mass loss of a material ablating at high temperatures in a hypersonic flight environment .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "late_first_relevant",
+            "ndcgDelta": -0.2069,
+            "averagePrecisionDelta": -0.425,
+            "reciprocalRankDelta": -0.75,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.6764,
+            "candidateNdcgAtK": 0.4695
+          },
+          {
+            "queryId": "133",
+            "query": "experimental studies of creep buckling .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "late_first_relevant",
+            "ndcgDelta": -0.2027,
+            "averagePrecisionDelta": -0.2289,
+            "reciprocalRankDelta": -0.0833,
+            "recallDelta": -0.2857,
+            "baselineNdcgAtK": 0.274,
+            "candidateNdcgAtK": 0.0713
+          }
+        ]
+      },
+      "decision": "candidate_improved_core_metrics"
+    },
+    {
+      "artifact": "experiments/cranfield-v0/evaluation-live-prf-rerank-gen013.json",
+      "architectureVersion": "v0.2-candidate-cranfield-prf-rerank",
+      "searchArchitecture": {
+        "id": "prf-rerank",
+        "label": "SE-0002 pseudo-relevance-feedback rerank candidate",
+        "status": "candidate",
+        "searchEvolutionId": "SE-0002",
+        "architectureVersion": "ARCH-0.2-candidate",
+        "architectureSlug": "v0.2-candidate-cranfield-prf-rerank",
+        "architectureDecisionIds": [
+          "ADL-0002"
+        ],
+        "queryStrategy": "Retrieve the top 50 with field-sum BM25, derive feedback terms from the highest-ranked titles and abstracts, then rerank candidates with original-query and feedback-term coverage.",
+        "rankingLogic": [
+          "Use the field-sum candidate as the OpenSearch retrieval floor.",
+          "Extract expansion terms from the top retrieved titles and abstracts using pseudo-relevance feedback.",
+          "Normalize the OpenSearch score within the retrieved set.",
+          "Add deterministic original-query and feedback-term title/abstract coverage bonuses.",
+          "Return the requested result count after reranking the top 50 candidates.",
+          "No query-specific result overrides, runtime LLM calls, personalization, or learning-to-rank model are used in the candidate."
+        ],
+        "techniquesApplied": [
+          "OpenSearch English analyzer",
+          "BM25 field-specific match scoring",
+          "summed title, abstract, and text evidence",
+          "pseudo-relevance feedback over top titles and abstracts",
+          "deterministic title/abstract coverage rerank",
+          "dataset filter for Cranfield documents"
+        ],
+        "targetedFailureGroups": [
+          "zero_relevant_at_k",
+          "late_first_relevant",
+          "lexical_noise_low_precision",
+          "partial_recall"
+        ]
+      },
+      "metrics": {
+        "map": 0.2696,
+        "ndcgAtK": 0.3253,
+        "precisionAtK": 0.2676,
+        "recallAtK": 0.4466,
+        "mrr": 0.562
+      },
+      "failureGroups": [
+        {
+          "id": "passing_or_minor",
+          "label": "Passing or minor issue",
+          "description": "The top K behavior is not currently classified as a meaningful failure.",
+          "queryCount": 83,
+          "averageMetrics": {
+            "precisionAtK": 0.3976,
+            "recallAtK": 0.7567,
+            "averagePrecision": 0.5179,
+            "reciprocalRank": 0.761,
+            "ndcgAtK": 0.5603
+          },
+          "averageRelevantCount": 5.7229,
+          "averageRelevantHitsAtK": 3.9759
+        },
+        {
+          "id": "late_first_relevant",
+          "label": "Relevant result ranked too late",
+          "description": "A relevant document appears in the top K, but below the first three positions.",
+          "queryCount": 40,
+          "averageMetrics": {
+            "precisionAtK": 0.1525,
+            "recallAtK": 0.3403,
+            "averagePrecision": 0.0765,
+            "reciprocalRank": 0.1947,
+            "ndcgAtK": 0.153
+          },
+          "averageRelevantCount": 5.65,
+          "averageRelevantHitsAtK": 1.525
+        },
+        {
+          "id": "broad_need_low_recall",
+          "label": "Broad information need with low recall",
+          "description": "The query has many relevant judgments, but the top K captures only a small fraction.",
+          "queryCount": 29,
+          "averageMetrics": {
+            "precisionAtK": 0.3241,
+            "recallAtK": 0.202,
+            "averagePrecision": 0.1223,
+            "reciprocalRank": 0.7701,
+            "ndcgAtK": 0.235
+          },
+          "averageRelevantCount": 16.4828,
+          "averageRelevantHitsAtK": 3.2414
+        },
+        {
+          "id": "zero_relevant_at_k",
+          "label": "No relevant result in top K",
+          "description": "The query retrieved results, but none of the top K results are judged relevant.",
+          "queryCount": 23,
+          "averageMetrics": {
+            "precisionAtK": 0,
+            "recallAtK": 0,
+            "averagePrecision": 0,
+            "reciprocalRank": 0,
+            "ndcgAtK": 0
+          },
+          "averageRelevantCount": 4.087,
+          "averageRelevantHitsAtK": 0
+        },
+        {
+          "id": "lexical_noise_low_precision",
+          "label": "Lexical noise dominates",
+          "description": "The query finds at least one relevant document, but most top K results are non-relevant.",
+          "queryCount": 21,
+          "averageMetrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.3365,
+            "averagePrecision": 0.202,
+            "reciprocalRank": 0.6508,
+            "ndcgAtK": 0.2732
+          },
+          "averageRelevantCount": 4.1905,
+          "averageRelevantHitsAtK": 1
+        },
+        {
+          "id": "partial_recall",
+          "label": "Partial recall",
+          "description": "The query has relevant hits, but leaves most judged relevant documents outside top K.",
+          "queryCount": 16,
+          "averageMetrics": {
+            "precisionAtK": 0.4062,
+            "recallAtK": 0.3941,
+            "averagePrecision": 0.2773,
+            "reciprocalRank": 0.75,
+            "ndcgAtK": 0.3755
+          },
+          "averageRelevantCount": 10.1875,
+          "averageRelevantHitsAtK": 4.0625
+        },
+        {
+          "id": "graded_ranking_loss",
+          "label": "Relevant results found but weak graded ranking",
+          "description": "Some relevant documents are found, but graded relevance remains low.",
+          "queryCount": 13,
+          "averageMetrics": {
+            "precisionAtK": 0.2385,
+            "recallAtK": 0.3712,
+            "averagePrecision": 0.1842,
+            "reciprocalRank": 0.5769,
+            "ndcgAtK": 0.1534
+          },
+          "averageRelevantCount": 6.7692,
+          "averageRelevantHitsAtK": 2.3846
+        }
+      ],
+      "metricDeltas": {
+        "map": 0.0294,
+        "ndcgAtK": 0.0258,
+        "precisionAtK": 0.036,
+        "recallAtK": 0.0472,
+        "mrr": 0.027
+      },
+      "groupDeltas": [
+        {
+          "id": "passing_or_minor",
+          "baselineCount": 64,
+          "candidateCount": 83,
+          "delta": 19
+        },
+        {
+          "id": "partial_recall",
+          "baselineCount": 23,
+          "candidateCount": 16,
+          "delta": -7
+        },
+        {
+          "id": "lexical_noise_low_precision",
+          "baselineCount": 27,
+          "candidateCount": 21,
+          "delta": -6
+        },
+        {
+          "id": "zero_relevant_at_k",
+          "baselineCount": 28,
+          "candidateCount": 23,
+          "delta": -5
+        },
+        {
+          "id": "broad_need_low_recall",
+          "baselineCount": 25,
+          "candidateCount": 29,
+          "delta": 4
+        },
+        {
+          "id": "graded_ranking_loss",
+          "baselineCount": 16,
+          "candidateCount": 13,
+          "delta": -3
+        },
+        {
+          "id": "late_first_relevant",
+          "baselineCount": 42,
+          "candidateCount": 40,
+          "delta": -2
+        }
+      ],
+      "queryDeltas": {
+        "improvedCount": 127,
+        "worsenedCount": 72,
+        "unchangedCount": 26,
+        "topImproved": [
+          {
+            "queryId": "52",
+            "query": "what is the available information pertaining to the effect of slight rarefaction on boundary layer flows (the ?slip? effect) .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": 0.3601,
+            "averagePrecisionDelta": 0.3363,
+            "reciprocalRankDelta": 0.5,
+            "recallDelta": 0.25,
+            "baselineNdcgAtK": 0.5289,
+            "candidateNdcgAtK": 0.889
+          },
+          {
+            "queryId": "83",
+            "query": "what is the present state of the theory of quasi-conical flows .",
+            "baselineGroup": "late_first_relevant",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": 0.3398,
+            "averagePrecisionDelta": 0.2431,
+            "reciprocalRankDelta": 0.75,
+            "recallDelta": 0.25,
+            "baselineNdcgAtK": 0.1681,
+            "candidateNdcgAtK": 0.5079
+          },
+          {
+            "queryId": "163",
+            "query": "can the hypersonic similarity results be applied to the technique of predicting surface pressures of an ogive forebody at angle of attack .",
+            "baselineGroup": "late_first_relevant",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": 0.3203,
+            "averagePrecisionDelta": 0.3389,
+            "reciprocalRankDelta": 0.75,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.3836,
+            "candidateNdcgAtK": 0.7039
+          },
+          {
+            "queryId": "106",
+            "query": "experimental techniques in shell vibration .",
+            "baselineGroup": "lexical_noise_low_precision",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": 0.3099,
+            "averagePrecisionDelta": 0.2833,
+            "reciprocalRankDelta": 0,
+            "recallDelta": 0.4,
+            "baselineNdcgAtK": 0.0933,
+            "candidateNdcgAtK": 0.4032
+          },
+          {
+            "queryId": "64",
+            "query": "can't the static deflection shapes be used in predicting flutter in place of vibrational shapes . if so, can we provide a justification by means of an example .",
+            "baselineGroup": "lexical_noise_low_precision",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": 0.2607,
+            "averagePrecisionDelta": 0.125,
+            "reciprocalRankDelta": 0,
+            "recallDelta": 0.5,
+            "baselineNdcgAtK": 0.2754,
+            "candidateNdcgAtK": 0.5361
+          },
+          {
+            "queryId": "61",
+            "query": "does there exist a closed-form expression for the local heat transfer around a yawed cylinder .",
+            "baselineGroup": "graded_ranking_loss",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": 0.2592,
+            "averagePrecisionDelta": 0.3217,
+            "reciprocalRankDelta": 0.5,
+            "recallDelta": 0.4,
+            "baselineNdcgAtK": 0.2126,
+            "candidateNdcgAtK": 0.4718
+          },
+          {
+            "queryId": "113",
+            "query": "what data exists on oscillatory aerodynamic forces on control surfaces at transonic mach numbers .",
+            "baselineGroup": "late_first_relevant",
+            "candidateGroup": "lexical_noise_low_precision",
+            "ndcgDelta": 0.2394,
+            "averagePrecisionDelta": 0.2,
+            "reciprocalRankDelta": 0.8,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.151,
+            "candidateNdcgAtK": 0.3904
+          },
+          {
+            "queryId": "103",
+            "query": "is the information on the buckling of sandwich sphere available .",
+            "baselineGroup": "zero_relevant_at_k",
+            "candidateGroup": "late_first_relevant",
+            "ndcgDelta": 0.2372,
+            "averagePrecisionDelta": 0.1,
+            "reciprocalRankDelta": 0.2,
+            "recallDelta": 0.5,
+            "baselineNdcgAtK": 0,
+            "candidateNdcgAtK": 0.2372
+          }
+        ],
+        "topWorsened": [
+          {
+            "queryId": "15",
+            "query": "material properties of photoelastic materials .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "late_first_relevant",
+            "ndcgDelta": -0.5665,
+            "averagePrecisionDelta": -0.4333,
+            "reciprocalRankDelta": -0.8,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.968,
+            "candidateNdcgAtK": 0.4015
+          },
+          {
+            "queryId": "36",
+            "query": "has anyone investigated relaxation effects on gaseous heat transfer to a suddenly heated wall .",
+            "baselineGroup": "lexical_noise_low_precision",
+            "candidateGroup": "zero_relevant_at_k",
+            "ndcgDelta": -0.3936,
+            "averagePrecisionDelta": -0.1667,
+            "reciprocalRankDelta": -0.3333,
+            "recallDelta": -0.5,
+            "baselineNdcgAtK": 0.3936,
+            "candidateNdcgAtK": 0
+          },
+          {
+            "queryId": "16",
+            "query": "can the transverse potential flow about a body of revolution be calculated efficiently by an electronic computer .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "lexical_noise_low_precision",
+            "ndcgDelta": -0.27,
+            "averagePrecisionDelta": -0.2407,
+            "reciprocalRankDelta": -0.5,
+            "recallDelta": -0.3334,
+            "baselineNdcgAtK": 0.6119,
+            "candidateNdcgAtK": 0.3419
+          },
+          {
+            "queryId": "223",
+            "query": "papers on shear buckling of unstiffened rectangular plates under shear .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": -0.2394,
+            "averagePrecisionDelta": -0.2875,
+            "reciprocalRankDelta": -0.5,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.8048,
+            "candidateNdcgAtK": 0.5654
+          },
+          {
+            "queryId": "12",
+            "query": "how can the aerodynamic performance of channel flow ground effect machines be calculated .",
+            "baselineGroup": "partial_recall",
+            "candidateGroup": "graded_ranking_loss",
+            "ndcgDelta": -0.2318,
+            "averagePrecisionDelta": -0.0556,
+            "reciprocalRankDelta": -0.1667,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.3471,
+            "candidateNdcgAtK": 0.1153
+          },
+          {
+            "queryId": "86",
+            "query": "can a satisfactory experimental technique be developed for measuring oscillatory derivatives on slender sting-mounted models in supersonic wind tunnels .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": -0.2263,
+            "averagePrecisionDelta": -0.25,
+            "reciprocalRankDelta": -0.5,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.9197,
+            "candidateNdcgAtK": 0.6934
+          },
+          {
+            "queryId": "84",
+            "query": "references on the methods available for accurately estimating aerodynamic heat transfer to conical bodies for both laminar and turbulent flow .",
+            "baselineGroup": "partial_recall",
+            "candidateGroup": "broad_need_low_recall",
+            "ndcgDelta": -0.2204,
+            "averagePrecisionDelta": -0.1818,
+            "reciprocalRankDelta": 0,
+            "recallDelta": -0.1818,
+            "baselineNdcgAtK": 0.5656,
+            "candidateNdcgAtK": 0.3452
+          },
+          {
+            "queryId": "190",
+            "query": "will an analysis of panel flutter based on arbitrarily assumed modes of deformation prove satisfactory, and if so, what is the minimum number of modes that need be considered .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": -0.2203,
+            "averagePrecisionDelta": -0.0267,
+            "reciprocalRankDelta": -0.5,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.6042,
+            "candidateNdcgAtK": 0.3839
+          }
+        ]
+      },
+      "decision": "candidate_improved_core_metrics"
+    }
+  ]
+}

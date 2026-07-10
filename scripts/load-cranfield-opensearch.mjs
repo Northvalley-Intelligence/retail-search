@@ -1,12 +1,12 @@
 import { createHash } from "node:crypto";
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import {
   buildCranfieldBulkPayload,
   CRANFIELD_SOURCE,
   parseCranfieldArchive
 } from "../src/cranfield/corpus.js";
-import { CRANFIELD_INDEX_BODY, DEFAULT_INDEX } from "../src/cranfield/schema.js";
+import { CRANFIELD_INDEX_BODY, CRANFIELD_PAPER_BM25_INDEX_BODY, DEFAULT_INDEX } from "../src/cranfield/schema.js";
 import { buildOpenSearchHeaders } from "../src/opensearch.js";
 import { mergedEnv } from "./lib/local-env.mjs";
 
@@ -20,8 +20,10 @@ function parseArgs(argv) {
     outDir: DEFAULT_EXPORT_DIR,
     bulk: DEFAULT_BULK_PATH,
     source: CRANFIELD_SOURCE.url,
+    documents: null,
     indexedAt: DEFAULT_INDEXED_AT,
-    chunkSize: 500
+    chunkSize: 500,
+    indexProfile: "default"
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -38,10 +40,20 @@ function parseArgs(argv) {
     } else if (value === "--source") {
       args.source = argv[index + 1];
       index += 1;
+    } else if (value === "--documents") {
+      args.documents = argv[index + 1];
+      index += 1;
     } else if (value === "--chunk-size") {
       args.chunkSize = Number(argv[index + 1]);
       index += 1;
+    } else if (value === "--index-profile") {
+      args.indexProfile = argv[index + 1];
+      index += 1;
     }
+  }
+
+  if (!["default", "paper-bm25"].includes(args.indexProfile)) {
+    throw new Error("--index-profile must be default or paper-bm25");
   }
 
   return args;
@@ -88,6 +100,14 @@ async function downloadArchive(source) {
   return Buffer.from(await response.arrayBuffer());
 }
 
+async function readDocumentsJsonl(path) {
+  const content = await readFile(path, "utf8");
+  return content
+    .split("\n")
+    .filter(Boolean)
+    .map((line) => JSON.parse(line));
+}
+
 function md5(buffer) {
   return createHash("md5").update(buffer).digest("hex");
 }
@@ -102,7 +122,11 @@ async function writeJsonl(path, values) {
   await writeFile(path, values.map((value) => JSON.stringify(value)).join("\n").concat("\n"));
 }
 
-async function ensureIndex(env, index) {
+function indexBodyForProfile(indexProfile) {
+  return indexProfile === "paper-bm25" ? CRANFIELD_PAPER_BM25_INDEX_BODY : CRANFIELD_INDEX_BODY;
+}
+
+async function ensureIndex(env, index, indexProfile) {
   const exists = await fetch(buildUrl(env, `/${encodeURIComponent(index)}`), {
     method: "HEAD",
     headers: buildOpenSearchHeaders(env)
@@ -116,7 +140,7 @@ async function ensureIndex(env, index) {
 
   const created = await request(env, `/${encodeURIComponent(index)}`, {
     method: "PUT",
-    body: JSON.stringify(CRANFIELD_INDEX_BODY)
+    body: JSON.stringify(indexBodyForProfile(indexProfile))
   });
   if (!created.response.ok) {
     throw new Error(`Index create failed: ${created.response.status}`);
@@ -171,21 +195,24 @@ async function main() {
   requireConfig(env);
   const index = args.index || env.CRANFIELD_INDEX || DEFAULT_INDEX;
 
-  const archive = await downloadArchive(args.source);
-  const checksum = md5(archive);
-  const parsed = parseCranfieldArchive(archive, { indexedAt: args.indexedAt });
+  const archive = args.documents ? null : await downloadArchive(args.source);
+  const checksum = archive ? md5(archive) : null;
+  const parsed = archive ? parseCranfieldArchive(archive, { indexedAt: args.indexedAt }) : null;
+  const documents = args.documents ? await readDocumentsJsonl(args.documents) : parsed.documents;
   const documentsPath = join(args.outDir, "documents.jsonl");
   const queriesPath = join(args.outDir, "queries.json");
   const qrelsPath = join(args.outDir, "qrels.jsonl");
 
-  await writeJsonl(documentsPath, parsed.documents);
-  await writeJson(queriesPath, parsed.evaluationQueries);
-  await writeJsonl(qrelsPath, parsed.qrels);
+  if (parsed) {
+    await writeJsonl(documentsPath, parsed.documents);
+    await writeJson(queriesPath, parsed.evaluationQueries);
+    await writeJsonl(qrelsPath, parsed.qrels);
+  }
   await mkdir(dirname(args.bulk), { recursive: true });
-  await writeFile(args.bulk, buildCranfieldBulkPayload(parsed.documents, { index }));
+  await writeFile(args.bulk, buildCranfieldBulkPayload(documents, { index }));
 
-  const indexStatus = await ensureIndex(env, index);
-  const indexed = await bulkLoad(env, index, parsed.documents, args.chunkSize);
+  const indexStatus = await ensureIndex(env, index, args.indexProfile);
+  const indexed = await bulkLoad(env, index, documents, args.chunkSize);
   const liveCount = await countDocuments(env, index);
 
   console.log(
@@ -193,16 +220,17 @@ async function main() {
       {
         status: "ok",
         index,
+        indexProfile: args.indexProfile,
         indexStatus,
-        source: "public-cranfield",
+        source: args.documents ? "local-documents-jsonl" : "public-cranfield",
         checksum,
-        exported: parsed.counts,
+        exported: parsed?.counts || { documents: documents.length, queries: null, qrels: null },
         indexed,
         liveCount,
         outputs: {
-          documents: documentsPath,
-          queries: queriesPath,
-          qrels: qrelsPath,
+          documents: args.documents || documentsPath,
+          queries: parsed ? queriesPath : null,
+          qrels: parsed ? qrelsPath : null,
           bulk: args.bulk
         },
         valuesPrinted: false

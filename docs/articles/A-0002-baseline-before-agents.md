@@ -14,7 +14,8 @@ Evidence handoff complete. Public article artifact is owned by the separate `fer
 - Search Evolution: `SE-0001`
 - Architecture Version: `ARCH-0.1`
 - Architecture Decision: `ADL-0001`
-- Intended Git Tag: `v0.1.0`
+- Git Tag: `v0.1.0`
+- Git Commit: `baeae54`
 - Production URL: `https://retail-search.feroshjacob.workers.dev/`
 - Search Endpoint: `/api/v0.1/search`
 - Explain Endpoint: `/api/v0.1/explain`

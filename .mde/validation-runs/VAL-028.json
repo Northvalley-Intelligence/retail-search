@@ -1,0 +1,75 @@
+{
+  "run_id": "VAL-028",
+  "project_id": "retail-search",
+  "generation_id": "GEN-018",
+  "executed_at": "2026-07-07T20:45:00-04:00",
+  "validation_strategy_version": "VALSTRAT-006",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "35 node tests passed; MDE parser checked 69 files; traceability validator checked 23 files and required IDs through GEN-018/SE-0003/ARCH-0.3-candidate/ADL-0003; fixture index check passed; fixture evaluation passed."
+    },
+    {
+      "name": "npm run embed:cranfield -- --provider local-hash",
+      "category": "Architecture Experiment Comparison / Embedding Infrastructure",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "experiments/cranfield-v0/embeddings-local-hash-gen018.json records deterministic control embeddings for 1,400 documents and 225 queries."
+    },
+    {
+      "name": "npm run eval:cranfield:vector",
+      "category": "Architecture Experiment Comparison / Vector Retrieval",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "experiments/cranfield-v0/evaluation-vector-local-hash-gen018.json records vector-only nDCG@10 0.1453 and best depth-50 hybrid nDCG@10 0.3052."
+    },
+    {
+      "name": "npm run eval:cranfield:vector -- --vector-depth 100",
+      "category": "Architecture Experiment Comparison / Vector Retrieval",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "experiments/cranfield-v0/evaluation-vector-local-hash-depth100-gen018.json records best local-control hybrid nDCG@10 0.3054, still below refined PRF nDCG@10 0.3260."
+    },
+    {
+      "name": "npm run eval:cranfield:vector -- --k 20 --relevance-mode binary",
+      "category": "External Comparison",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "experiments/cranfield-v0/evaluation-vector-local-hash-k20-binary-gen018.json records best local-control binary nDCG@20 0.4340, below refined PRF comparable nDCG@20 0.4563."
+    }
+  ],
+  "blocked_or_skipped": [
+    {
+      "name": "real LLM embedding generation",
+      "reason": "No OPENAI_API_KEY or equivalent embedding provider key was configured."
+    },
+    {
+      "name": "remote OpenSearch vector index validation",
+      "reason": "Deferred until an offline real-embedding run beats the current refined PRF candidate."
+    },
+    {
+      "name": "Cloudflare deploy verification",
+      "reason": "No deployment was requested; GEN-018 leaves the public/default architecture unchanged."
+    }
+  ],
+  "critical_findings": [],
+  "high_findings": [
+    {
+      "id": "FIND-004",
+      "status": "deferred",
+      "summary": "ARCH-0.2-candidate refined prf-rerank remains candidate-only until BEIR transferability is measured."
+    }
+  ],
+  "medium_findings": [
+    {
+      "id": "FIND-006",
+      "status": "active",
+      "summary": "No real LLM embedding result exists yet because no embedding provider key was configured."
+    }
+  ],
+  "evidence_quality": "GEN-018 validates the vector/hybrid experiment path and records local-control metrics. It does not prove LLM embeddings improve Cranfield; that requires a real provider-backed embedding artifact."
+}

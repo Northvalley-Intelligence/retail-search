@@ -1,0 +1,334 @@
+{
+  "generatedAt": "2026-07-08T14:10:17.959Z",
+  "dataset": "cranfield",
+  "transport": "offline-ltr-evaluator",
+  "retrievalCache": "experiments/cranfield-v0/retrieval-pools-field-sum-top50-gen017.json",
+  "sourceArchitecture": "field-sum",
+  "embeddingSource": null,
+  "embeddingProvider": null,
+  "embeddingModel": null,
+  "embeddingDimension": null,
+  "k": 10,
+  "relevanceMode": "graded",
+  "retrieveSize": 50,
+  "queryCount": 225,
+  "folds": 5,
+  "currentBestReference": {
+    "architecture": "ARCH-0.2-candidate refined prf-rerank",
+    "metric": "nDCG@10",
+    "value": 0.326
+  },
+  "candidatePool": {
+    "relevantCount": 1612,
+    "relevantInPool": 974,
+    "recall": 0.604218,
+    "queriesWithRelevant": 225,
+    "queriesWithRelevantInPool": 217,
+    "queryCoverage": 0.964444,
+    "oracleMetrics": {
+      "map": 0.6578,
+      "ndcgAtK": 0.7033,
+      "precisionAtK": 0.4231,
+      "recallAtK": 0.6578,
+      "mrr": 0.9644
+    }
+  },
+  "fieldSum": {
+    "metrics": {
+      "map": 0.2452,
+      "ndcgAtK": 0.3022,
+      "precisionAtK": 0.2418,
+      "recallAtK": 0.4136,
+      "mrr": 0.5499
+    }
+  },
+  "crossValidation": {
+    "metrics": {
+      "map": 0.2619,
+      "ndcgAtK": 0.3166,
+      "precisionAtK": 0.252,
+      "recallAtK": 0.4232,
+      "mrr": 0.5558
+    },
+    "averageWeights": {
+      "lexicalScore": 0.758,
+      "rankReciprocal": -0.3,
+      "rankPercentile": 0.128,
+      "titleCoverage": 0.266,
+      "abstractCoverage": 0.498,
+      "anyCoverage": 0.8,
+      "phraseCoverage": 1.096,
+      "feedbackCoverage": 1,
+      "prfScore": 0.8,
+      "vectorScore": 0,
+      "vectorRankReciprocal": 0,
+      "titleLength": -0.6,
+      "abstractLength": -0.254
+    },
+    "foldRuns": [
+      {
+        "fold": 0,
+        "trainQueryCount": 180,
+        "testQueryCount": 45,
+        "trainNdcgAtK": 0.3343,
+        "testMetrics": {
+          "map": 0.2764,
+          "ndcgAtK": 0.3299,
+          "precisionAtK": 0.2956,
+          "recallAtK": 0.4431,
+          "mrr": 0.5948
+        },
+        "weights": {
+          "lexicalScore": 0.5,
+          "rankReciprocal": 0,
+          "rankPercentile": 0.1,
+          "titleCoverage": 0.75,
+          "abstractCoverage": 0.61,
+          "anyCoverage": 1,
+          "phraseCoverage": 2.5,
+          "feedbackCoverage": 2,
+          "prfScore": 1,
+          "vectorScore": 0,
+          "vectorRankReciprocal": 0,
+          "titleLength": 0,
+          "abstractLength": -1
+        }
+      },
+      {
+        "fold": 1,
+        "trainQueryCount": 180,
+        "testQueryCount": 45,
+        "trainNdcgAtK": 0.3303,
+        "testMetrics": {
+          "map": 0.2546,
+          "ndcgAtK": 0.3276,
+          "precisionAtK": 0.2756,
+          "recallAtK": 0.4183,
+          "mrr": 0.5411
+        },
+        "weights": {
+          "lexicalScore": 1,
+          "rankReciprocal": -1,
+          "rankPercentile": -0.25,
+          "titleCoverage": 0.2,
+          "abstractCoverage": 0.07,
+          "anyCoverage": 1,
+          "phraseCoverage": 1.25,
+          "feedbackCoverage": 1,
+          "prfScore": 1,
+          "vectorScore": 0,
+          "vectorRankReciprocal": 0,
+          "titleLength": -1,
+          "abstractLength": 0
+        }
+      },
+      {
+        "fold": 2,
+        "trainQueryCount": 180,
+        "testQueryCount": 45,
+        "trainNdcgAtK": 0.329,
+        "testMetrics": {
+          "map": 0.2928,
+          "ndcgAtK": 0.3302,
+          "precisionAtK": 0.2622,
+          "recallAtK": 0.4642,
+          "mrr": 0.553
+        },
+        "weights": {
+          "lexicalScore": 0.76,
+          "rankReciprocal": 0.02,
+          "rankPercentile": 0,
+          "titleCoverage": -1.05,
+          "abstractCoverage": 0.4,
+          "anyCoverage": 0,
+          "phraseCoverage": 1.15,
+          "feedbackCoverage": 1,
+          "prfScore": 1,
+          "vectorScore": 0,
+          "vectorRankReciprocal": 0,
+          "titleLength": -0.9,
+          "abstractLength": 0
+        }
+      },
+      {
+        "fold": 3,
+        "trainQueryCount": 180,
+        "testQueryCount": 45,
+        "trainNdcgAtK": 0.3431,
+        "testMetrics": {
+          "map": 0.2341,
+          "ndcgAtK": 0.2862,
+          "precisionAtK": 0.1933,
+          "recallAtK": 0.3913,
+          "mrr": 0.5183
+        },
+        "weights": {
+          "lexicalScore": 0.48,
+          "rankReciprocal": 0.48,
+          "rankPercentile": 0.02,
+          "titleCoverage": -0.08,
+          "abstractCoverage": -0.1,
+          "anyCoverage": 1,
+          "phraseCoverage": 0.83,
+          "feedbackCoverage": 1,
+          "prfScore": 0,
+          "vectorScore": 0,
+          "vectorRankReciprocal": 0,
+          "titleLength": -0.1,
+          "abstractLength": -0.27
+        }
+      },
+      {
+        "fold": 4,
+        "trainQueryCount": 180,
+        "testQueryCount": 45,
+        "trainNdcgAtK": 0.3283,
+        "testMetrics": {
+          "map": 0.2515,
+          "ndcgAtK": 0.3089,
+          "precisionAtK": 0.2333,
+          "recallAtK": 0.3989,
+          "mrr": 0.572
+        },
+        "weights": {
+          "lexicalScore": 1.05,
+          "rankReciprocal": -1,
+          "rankPercentile": 0.77,
+          "titleCoverage": 1.51,
+          "abstractCoverage": 1.51,
+          "anyCoverage": 1,
+          "phraseCoverage": -0.25,
+          "feedbackCoverage": 0,
+          "prfScore": 1,
+          "vectorScore": 0,
+          "vectorRankReciprocal": 0,
+          "titleLength": -1,
+          "abstractLength": 0
+        }
+      }
+    ]
+  },
+  "allQueryModel": {
+    "warning": "In-sample training result; use crossValidation for promotion decisions.",
+    "metrics": {
+      "map": 0.275,
+      "ndcgAtK": 0.3338,
+      "precisionAtK": 0.2698,
+      "recallAtK": 0.447,
+      "mrr": 0.5565
+    },
+    "weights": {
+      "lexicalScore": 1,
+      "rankReciprocal": 0.07,
+      "rankPercentile": 0,
+      "titleCoverage": 1.25,
+      "abstractCoverage": 1,
+      "anyCoverage": 1,
+      "phraseCoverage": 2.02,
+      "feedbackCoverage": 2.5,
+      "prfScore": 0.5,
+      "vectorScore": 0,
+      "vectorRankReciprocal": 0,
+      "titleLength": 0,
+      "abstractLength": -1
+    },
+    "trainMetric": 0.3338,
+    "history": [
+      {
+        "featureName": "titleCoverage",
+        "step": 1,
+        "metric": 0.3044
+      },
+      {
+        "featureName": "abstractCoverage",
+        "step": 1,
+        "metric": 0.3067
+      },
+      {
+        "featureName": "anyCoverage",
+        "step": 1,
+        "metric": 0.3105
+      },
+      {
+        "featureName": "feedbackCoverage",
+        "step": 1,
+        "metric": 0.3174
+      },
+      {
+        "featureName": "prfScore",
+        "step": 1,
+        "metric": 0.3192
+      },
+      {
+        "featureName": "titleLength",
+        "step": 1,
+        "metric": 0.3203
+      },
+      {
+        "featureName": "titleCoverage",
+        "step": 1,
+        "metric": 0.321
+      },
+      {
+        "featureName": "phraseCoverage",
+        "step": 1,
+        "metric": 0.3253
+      },
+      {
+        "featureName": "feedbackCoverage",
+        "step": 1,
+        "metric": 0.3258
+      },
+      {
+        "featureName": "abstractLength",
+        "step": 1,
+        "metric": 0.3263
+      },
+      {
+        "featureName": "titleCoverage",
+        "step": 1,
+        "metric": 0.3275
+      },
+      {
+        "featureName": "phraseCoverage",
+        "step": 1,
+        "metric": 0.33
+      },
+      {
+        "featureName": "titleLength",
+        "step": 1,
+        "metric": 0.3313
+      },
+      {
+        "featureName": "feedbackCoverage",
+        "step": 0.5,
+        "metric": 0.3315
+      },
+      {
+        "featureName": "prfScore",
+        "step": 0.5,
+        "metric": 0.3324
+      },
+      {
+        "featureName": "titleCoverage",
+        "step": 0.25,
+        "metric": 0.3333
+      },
+      {
+        "featureName": "rankReciprocal",
+        "step": 0.05,
+        "metric": 0.3335
+      },
+      {
+        "featureName": "rankReciprocal",
+        "step": 0.02,
+        "metric": 0.3337
+      },
+      {
+        "featureName": "phraseCoverage",
+        "step": 0.02,
+        "metric": 0.3338
+      }
+    ]
+  }
+}

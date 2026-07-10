@@ -948,6 +948,18 @@ function renderSearchSection() {
       description: "Try the live Cranfield BM25 baseline. Results come from the deployed Worker and the live cranfield-v0 OpenSearch index.",
       links: '<a class="button-link secondary" href="/phases/cranfield/explain">Explain Flow</a>'
     })}
+    <section class="tool-surface">
+      <h3>Architecture milestones</h3>
+      <p class="evaluation-note" style="margin-top:8px;">Use these stable endpoints to compare the baseline, refined PRF, and the remote BGE candidate without changing the default Cranfield search.</p>
+      <div class="quick-links" style="margin-top:12px;">
+        <a class="button-link secondary" href="/api/milestones/arch-0.1/search?q=wing%20pressure%20distribution&size=2">ARCH-0.1 search</a>
+        <a class="button-link secondary" href="/api/milestones/arch-0.1/explain?q=wing%20pressure%20distribution&size=2">ARCH-0.1 explain</a>
+        <a class="button-link secondary" href="/api/milestones/arch-0.2-prf/search?q=wing%20pressure%20distribution&size=2">ARCH-0.2 PRF search</a>
+        <a class="button-link secondary" href="/api/milestones/arch-0.2-prf/explain?q=wing%20pressure%20distribution&size=2">ARCH-0.2 PRF explain</a>
+        <a class="button-link secondary" href="/api/milestones/arch-0.3-bge/search?q=wing%20pressure%20distribution&size=2">ARCH-0.3 search status</a>
+        <a class="button-link secondary" href="/api/milestones/arch-0.3-bge/demo">ARCH-0.3 demo JSON</a>
+      </div>
+    </section>
     <section class="tool-surface" aria-labelledby="search-title">
       <h3 id="search-title">Search Cranfield</h3>
       <form id="search-form" class="search-form">
@@ -972,6 +984,19 @@ function renderSearchSection() {
       </div>
       <div id="results" class="result-list">
         <div class="empty-state">Search aerospace terms such as boundary layers, airfoils, pressure distribution, heat transfer, or wind tunnel measurements.</div>
+      </div>
+    </section>
+    <section class="tool-surface">
+      <h3>ARCH-0.3 demo samples</h3>
+      <p class="evaluation-note" style="margin-top:8px;">These buttons replay archived GEN-023 BGE candidate samples so you can inspect a few query-level outcomes without pretending arbitrary live vector search is enabled yet.</p>
+      <div class="quick-links" id="arch03-demo-controls" style="margin-top:12px;">
+        <button class="chip" type="button" data-demo-sample="1">Sample 1</button>
+        <button class="chip" type="button" data-demo-sample="3">Sample 3</button>
+        <button class="chip" type="button" data-demo-sample="9">Sample 9</button>
+        <button class="chip" type="button" data-demo-sample="all">Run all</button>
+      </div>
+      <div id="arch03-demo-output" class="example-grid" style="margin-top:12px;">
+        <div class="empty-state">Choose a sample to load archived ARCH-0.3 BGE evidence.</div>
       </div>
     </section>
   </div>`;
@@ -1108,6 +1133,7 @@ export function renderPlannedPhasePage(phaseId) {
 
 function clientScript(currentSection) {
   const includeEvaluation = currentSection === "evaluation";
+  const includeSearchDemo = currentSection === "search";
   const evaluationJson = includeEvaluation ? EVALUATION_PROFILE_JSON : "null";
   const evaluationScript = includeEvaluation
     ? `
@@ -1153,6 +1179,57 @@ function clientScript(currentSection) {
     }`
     : "";
   const evaluationInit = includeEvaluation ? "renderEvaluation(EVALUATION_PROFILE);" : "";
+  const searchDemoScript = includeSearchDemo
+    ? `
+    function renderArch03DemoCard(sample) {
+      return (
+        '<article class="eval-example">' +
+          '<span class="eval-type">Archived ARCH-0.3 demo</span>' +
+          '<h3>' + escapeHtml(sample.label) + '</h3>' +
+          '<p class="eval-query">' + escapeHtml(sample.query) + '</p>' +
+          '<div class="eval-row"><span>Query ID</span><strong>' + escapeHtml(sample.queryId) + '</strong></div>' +
+          '<div class="eval-row"><span>nDCG@10</span><strong>' + Number(sample.metrics.ndcgAtK).toFixed(4) + '</strong></div>' +
+          '<div class="eval-row"><span>Precision@10</span><strong>' + Number(sample.metrics.precisionAtK).toFixed(4) + '</strong></div>' +
+          '<div class="eval-row"><span>Recall@10</span><strong>' + Number(sample.metrics.recallAtK).toFixed(4) + '</strong></div>' +
+          '<div class="missed">Average precision: ' + Number(sample.metrics.averagePrecision).toFixed(4) + ' · Reciprocal rank: ' + Number(sample.metrics.reciprocalRank).toFixed(4) + '</div>' +
+          '<p class="evaluation-note" style="margin-top:10px;">' + escapeHtml(sample.note) + '</p>' +
+        '</article>'
+      );
+    }
+
+    function initializeArch03Demo() {
+      const controls = document.querySelector("#arch03-demo-controls");
+      const output = document.querySelector("#arch03-demo-output");
+      if (!controls || !output) return;
+
+      async function runSample(sample) {
+        output.innerHTML = '<div class="empty-state">Loading archived ARCH-0.3 demo sample ' + escapeHtml(sample) + '...</div>';
+        try {
+          const response = await fetch('/api/milestones/arch-0.3-bge/demo?' + new URLSearchParams({ sample }).toString());
+          const payload = await response.json();
+          if (!response.ok) throw new Error(payload.error?.message || "ARCH-0.3 demo failed");
+          output.innerHTML =
+            '<div class="query-box" style="margin:0 0 12px;">' +
+              escapeHtml(payload.sourceArtifact) + '\\n' +
+              'Generation ' + escapeHtml(payload.archivedValidation.generationId) + ' · ' +
+              'Remote index ' + escapeHtml(payload.archivedValidation.index) + '\\n' +
+              'This demo replays archived evidence; live runtime search remains disabled.' +
+            '</div>' +
+            payload.samples.map(renderArch03DemoCard).join("");
+        } catch (error) {
+          output.innerHTML = '<div class="empty-state">' + escapeHtml(error.message || "ARCH-0.3 demo failed") + '</div>';
+        }
+      }
+
+      controls.addEventListener("click", (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLElement)) return;
+        const sample = target.dataset.demoSample;
+        if (!sample) return;
+        runSample(sample);
+      });
+    }`
+    : "";
   return `<script>
     const DATASET_PROFILE = ${DATASET_PROFILE_JSON};
     const EVALUATION_PROFILE = ${evaluationJson};
@@ -1213,6 +1290,7 @@ function clientScript(currentSection) {
     }
 
     ${evaluationScript}
+    ${searchDemoScript}
 
     function initializeSearch() {
       const form = document.querySelector("#search-form");
@@ -1305,6 +1383,7 @@ function clientScript(currentSection) {
 
     initializeSearch();
     initializeExplain();
+    ${includeSearchDemo ? "initializeArch03Demo();" : ""}
     ${evaluationInit}
   </script>`;
 }

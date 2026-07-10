@@ -1,0 +1,134 @@
+{
+  "generation_id": "GEN-022",
+  "project_id": "retail-search",
+  "started_at": "2026-07-08",
+  "ended_at": "2026-07-08",
+  "mission_phase": "Phase 1 - Cranfield Foundation",
+  "mission_version": "MISSION-2026-07-08-GEN-022",
+  "validation_strategy_version": "VALSTRAT-006",
+  "status": "huggingface_bge_embeddings_evaluated_above_refined_prf_offline",
+  "focus": "Evaluate dedicated Hugging Face retrieval embeddings after local Llama/Ollama embeddings and pointwise LTR failed to beat refined PRF.",
+  "reason_started": "GEN-019 showed chat-model embeddings were weak, and GEN-020/GEN-021 showed LTR needs stronger features before promotion.",
+  "reason_ended": "BGE embeddings beat refined PRF offline in vector/hybrid retrieval and LTR features, but remote OpenSearch vector/hybrid validation is still required before promotion.",
+  "files_changed_by_category": {
+    "implementation_artifacts": [
+      "scripts/cache-cranfield-embeddings.mjs",
+      "scripts/lib/huggingface-embed.py"
+    ],
+    "evaluation_artifacts": [
+      "experiments/cranfield-v0/embeddings-huggingface-bge-base-en-v15-title-abstract-gen022.json",
+      "experiments/cranfield-v0/evaluation-vector-huggingface-bge-base-en-v15-gen022.json",
+      "experiments/cranfield-v0/evaluation-vector-huggingface-bge-base-en-v15-depth100-gen022.json",
+      "experiments/cranfield-v0/evaluation-vector-huggingface-bge-base-en-v15-k20-binary-gen022.json",
+      "experiments/cranfield-v0/evaluation-vector-huggingface-bge-base-en-v15-depth100-k20-binary-gen022.json",
+      "experiments/cranfield-v0/evaluation-ltr-huggingface-bge-base-en-v15-features-gen022.json",
+      "experiments/cranfield-v0/evaluation-ltr-huggingface-bge-base-en-v15-features-k20-binary-gen022.json",
+      "experiments/cranfield-v0/evaluation-ltr-boosted-trees-huggingface-bge-base-en-v15-features-gen022.json",
+      "experiments/cranfield-v0/evaluation-ltr-boosted-trees-huggingface-bge-base-en-v15-features-k20-binary-gen022.json"
+    ],
+    "human_artifacts": [
+      "README.md",
+      "MISSION_UPDATES.md",
+      "docs/evaluation/timeline.md",
+      "docs/evaluation/cranfield-vector-hybrid-research.md",
+      "docs/evaluation/cranfield-ltr-research.md",
+      "docs/evolution/timeline.md",
+      "docs/evolution/experiments/SE-0003-cranfield-vector-hybrid.md",
+      "docs/evolution/experiments/SE-0004-cranfield-ltr.md",
+      "docs/architecture/timeline.md",
+      "docs/architecture/versions/ARCH-0.3-candidate-cranfield-vector-hybrid.md",
+      "docs/architecture/versions/ARCH-0.4-candidate-cranfield-ltr.md",
+      "docs/architecture/decisions/ADL-0003-cranfield-vector-hybrid-candidate.md",
+      "docs/architecture/decisions/ADL-0004-cranfield-ltr-candidate.md",
+      "experiments/cranfield-v0/README.md"
+    ],
+    "agent_artifacts": [
+      ".mde/generations/GEN-022.json",
+      ".mde/validation-runs/VAL-032.json",
+      ".mde/generation-summary.md",
+      ".mde/traceability.json",
+      ".mde/state.json",
+      ".mde/progress.json",
+      ".mde/findings.json",
+      ".mde/risk-register.json",
+      ".mde/validator-effectiveness.json"
+    ]
+  },
+  "candidate_results": {
+    "current_refined_prf": {
+      "status": "previous_best_offline_reference",
+      "ndcg_at_10": 0.326,
+      "binary_ndcg_at_20": 0.4563
+    },
+    "bge_vector_only": {
+      "status": "above_refined_prf",
+      "ndcg_at_10": 0.3419,
+      "binary_ndcg_at_20": 0.4748
+    },
+    "bge_hybrid_best": {
+      "status": "best_simple_offline_candidate",
+      "ndcg_at_10": 0.3533,
+      "binary_ndcg_at_20": 0.4915
+    },
+    "bge_ltr_coordinate_cv": {
+      "status": "above_refined_prf",
+      "ndcg_at_10": 0.3541,
+      "binary_ndcg_at_20": 0.4857
+    },
+    "bge_ltr_boosted_tree_cv": {
+      "status": "best_ltr_graded_cv",
+      "ndcg_at_10": 0.3603,
+      "binary_ndcg_at_20": 0.491
+    }
+  },
+  "validators_executed": [
+    {
+      "name": "npm run embed:cranfield -- --provider huggingface",
+      "category": "Architecture Experiment Comparison / Embedding Infrastructure",
+      "result": "pass",
+      "evidence": "Generated 768-dimensional BGE embeddings for 1,400 documents and 225 queries."
+    },
+    {
+      "name": "npm run eval:cranfield:vector",
+      "category": "Architecture Experiment Comparison / Vector Retrieval",
+      "result": "pass",
+      "evidence": "BGE vector and hybrid evaluations completed for graded nDCG@10 and binary nDCG@20."
+    },
+    {
+      "name": "npm run eval:cranfield:ltr",
+      "category": "Architecture Experiment Comparison / Learning-To-Rank",
+      "result": "pass",
+      "evidence": "Coordinate and boosted-tree LTR with BGE features completed under query-grouped cross-validation."
+    },
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "result": "pass",
+      "evidence": "Node tests, MDE parser, traceability validation through GEN-022, fixture index check, and fixture evaluation passed. Final run is recorded in VAL-032."
+    }
+  ],
+  "validators_skipped": [
+    {
+      "name": "remote OpenSearch vector/hybrid validation",
+      "category": "Deployment / External",
+      "reason": "Deferred to the next generation because GEN-022 establishes offline evidence and leaves the public/default architecture unchanged."
+    },
+    {
+      "name": "Cloudflare deploy verification",
+      "category": "Deployment / External",
+      "reason": "No deployment was requested; GEN-022 leaves the public/default architecture unchanged."
+    }
+  ],
+  "validation_gate": {
+    "result": "pass",
+    "pass_count": 1,
+    "failed_categories": [],
+    "blocking_findings": []
+  },
+  "evidence_quality_notes": [
+    "BGE is the first embedding path to beat refined PRF offline.",
+    "The simple BGE hybrid path has the best binary nDCG@20 and is easier to validate remotely than BGE LTR.",
+    "BGE LTR has the best graded nDCG@10 but requires more runtime/model complexity.",
+    "No public/default architecture changed in GEN-022."
+  ]
+}

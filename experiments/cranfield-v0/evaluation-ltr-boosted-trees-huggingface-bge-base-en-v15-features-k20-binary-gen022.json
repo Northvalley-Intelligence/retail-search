@@ -1,0 +1,4239 @@
+{
+  "generatedAt": "2026-07-08T15:02:10.531Z",
+  "dataset": "cranfield",
+  "transport": "offline-ltr-evaluator",
+  "retrievalCache": "experiments/cranfield-v0/retrieval-pools-field-sum-top50-gen017.json",
+  "sourceArchitecture": "field-sum",
+  "embeddingSource": "experiments/cranfield-v0/embeddings-huggingface-bge-base-en-v15-title-abstract-gen022.json",
+  "embeddingProvider": "huggingface",
+  "embeddingModel": "BAAI/bge-base-en-v1.5",
+  "embeddingDimension": 768,
+  "k": 20,
+  "relevanceMode": "binary",
+  "ltrModel": "boosted-trees",
+  "modelOptions": {
+    "treeCount": 60,
+    "learningRate": 0.05,
+    "maxDepth": 3,
+    "minLeafSize": 12,
+    "maxThresholds": 12
+  },
+  "retrieveSize": 50,
+  "queryCount": 225,
+  "folds": 5,
+  "currentBestReference": {
+    "architecture": "ARCH-0.2-candidate refined prf-rerank",
+    "metric": "nDCG@20",
+    "value": 0.4563
+  },
+  "candidatePool": {
+    "relevantCount": 1612,
+    "relevantInPool": 974,
+    "recall": 0.604218,
+    "queriesWithRelevant": 225,
+    "queriesWithRelevantInPool": 217,
+    "queryCoverage": 0.964444,
+    "oracleMetrics": {
+      "map": 0.6621,
+      "ndcgAtK": 0.7482,
+      "precisionAtK": 0.2164,
+      "recallAtK": 0.6621,
+      "mrr": 0.9644
+    }
+  },
+  "fieldSum": {
+    "metrics": {
+      "map": 0.2766,
+      "ndcgAtK": 0.4319,
+      "precisionAtK": 0.1647,
+      "recallAtK": 0.5276,
+      "mrr": 0.5531
+    }
+  },
+  "crossValidation": {
+    "metrics": {
+      "map": 0.3345,
+      "ndcgAtK": 0.491,
+      "precisionAtK": 0.1842,
+      "recallAtK": 0.5832,
+      "mrr": 0.5959
+    },
+    "averageWeights": null,
+    "foldRuns": [
+      {
+        "fold": 0,
+        "trainQueryCount": 180,
+        "testQueryCount": 45,
+        "testMetrics": {
+          "map": 0.3457,
+          "ndcgAtK": 0.5126,
+          "precisionAtK": 0.2078,
+          "recallAtK": 0.6058,
+          "mrr": 0.6079
+        },
+        "modelSummary": {
+          "modelType": "pointwise-gradient-boosted-regression-trees",
+          "baseScore": 0.232667,
+          "learningRate": 0.05,
+          "treeCount": 60,
+          "maxDepth": 3,
+          "minLeafSize": 12
+        }
+      },
+      {
+        "fold": 1,
+        "trainQueryCount": 180,
+        "testQueryCount": 45,
+        "testMetrics": {
+          "map": 0.3304,
+          "ndcgAtK": 0.48,
+          "precisionAtK": 0.1922,
+          "recallAtK": 0.5351,
+          "mrr": 0.6175
+        },
+        "modelSummary": {
+          "modelType": "pointwise-gradient-boosted-regression-trees",
+          "baseScore": 0.228111,
+          "learningRate": 0.05,
+          "treeCount": 60,
+          "maxDepth": 3,
+          "minLeafSize": 12
+        }
+      },
+      {
+        "fold": 2,
+        "trainQueryCount": 180,
+        "testQueryCount": 45,
+        "testMetrics": {
+          "map": 0.3349,
+          "ndcgAtK": 0.4963,
+          "precisionAtK": 0.1844,
+          "recallAtK": 0.6209,
+          "mrr": 0.5771
+        },
+        "modelSummary": {
+          "modelType": "pointwise-gradient-boosted-regression-trees",
+          "baseScore": 0.237667,
+          "learningRate": 0.05,
+          "treeCount": 60,
+          "maxDepth": 3,
+          "minLeafSize": 12
+        }
+      },
+      {
+        "fold": 3,
+        "trainQueryCount": 180,
+        "testQueryCount": 45,
+        "testMetrics": {
+          "map": 0.3046,
+          "ndcgAtK": 0.4566,
+          "precisionAtK": 0.1522,
+          "recallAtK": 0.569,
+          "mrr": 0.5476
+        },
+        "modelSummary": {
+          "modelType": "pointwise-gradient-boosted-regression-trees",
+          "baseScore": 0.241667,
+          "learningRate": 0.05,
+          "treeCount": 60,
+          "maxDepth": 3,
+          "minLeafSize": 12
+        }
+      },
+      {
+        "fold": 4,
+        "trainQueryCount": 180,
+        "testQueryCount": 45,
+        "testMetrics": {
+          "map": 0.3569,
+          "ndcgAtK": 0.5094,
+          "precisionAtK": 0.1844,
+          "recallAtK": 0.5852,
+          "mrr": 0.6295
+        },
+        "modelSummary": {
+          "modelType": "pointwise-gradient-boosted-regression-trees",
+          "baseScore": 0.237667,
+          "learningRate": 0.05,
+          "treeCount": 60,
+          "maxDepth": 3,
+          "minLeafSize": 12
+        }
+      }
+    ]
+  },
+  "allQueryModel": {
+    "warning": "In-sample training result; use crossValidation for promotion decisions.",
+    "metrics": {
+      "map": 0.3708,
+      "ndcgAtK": 0.5267,
+      "precisionAtK": 0.1891,
+      "recallAtK": 0.5931,
+      "mrr": 0.6835
+    },
+    "model": {
+      "modelType": "pointwise-gradient-boosted-regression-trees",
+      "baseScore": 0.235556,
+      "learningRate": 0.05,
+      "treeCount": 60,
+      "maxDepth": 3,
+      "minLeafSize": 12,
+      "maxThresholds": 12
+    },
+    "history": [
+      {
+        "iteration": 1,
+        "residualMse": 0.642939
+      },
+      {
+        "iteration": 10,
+        "residualMse": 0.590047
+      },
+      {
+        "iteration": 20,
+        "residualMse": 0.562459
+      },
+      {
+        "iteration": 30,
+        "residualMse": 0.548241
+      },
+      {
+        "iteration": 40,
+        "residualMse": 0.540091
+      },
+      {
+        "iteration": 50,
+        "residualMse": 0.534972
+      },
+      {
+        "iteration": 60,
+        "residualMse": 0.531176
+      }
+    ],
+    "fullModel": {
+      "modelType": "pointwise-gradient-boosted-regression-trees",
+      "baseScore": 0.235556,
+      "learningRate": 0.05,
+      "treeCount": 60,
+      "maxDepth": 3,
+      "minLeafSize": 12,
+      "maxThresholds": 12,
+      "trees": [
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.118056,
+          "left": {
+            "leaf": false,
+            "featureName": "vectorRankReciprocal",
+            "threshold": 0.046537,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.408334,
+              "left": {
+                "leaf": true,
+                "value": -0.181052
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.731111
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.28726,
+              "left": {
+                "leaf": true,
+                "value": -0.067685
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.229809
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.373973,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.595983,
+              "left": {
+                "leaf": true,
+                "value": -0.026405
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.289066
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.183334,
+              "left": {
+                "leaf": true,
+                "value": 0.480533
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.892873
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.118056,
+          "left": {
+            "leaf": false,
+            "featureName": "vectorRankReciprocal",
+            "threshold": 0.046537,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.408334,
+              "left": {
+                "leaf": true,
+                "value": -0.171999
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.694556
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.241702,
+              "left": {
+                "leaf": true,
+                "value": -0.082965
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.1932
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.373973,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.595983,
+              "left": {
+                "leaf": true,
+                "value": -0.025085
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.274612
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.183334,
+              "left": {
+                "leaf": true,
+                "value": 0.456506
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.84823
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.118056,
+          "left": {
+            "leaf": false,
+            "featureName": "vectorScore",
+            "threshold": 0.533672,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.080128,
+              "left": {
+                "leaf": true,
+                "value": -0.166006
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.090558
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.261363,
+              "left": {
+                "leaf": true,
+                "value": 0.010264
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.566406
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.373973,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.4375,
+              "left": {
+                "leaf": true,
+                "value": 0.141897
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.45675
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.183334,
+              "left": {
+                "leaf": true,
+                "value": 0.433681
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.805818
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.118056,
+          "left": {
+            "leaf": false,
+            "featureName": "vectorRankReciprocal",
+            "threshold": 0.046537,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.408334,
+              "left": {
+                "leaf": true,
+                "value": -0.156478
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.65348
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.28726,
+              "left": {
+                "leaf": true,
+                "value": -0.059856
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.206438
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.373973,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.595983,
+              "left": {
+                "leaf": true,
+                "value": -0.033395
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.250954
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.183334,
+              "left": {
+                "leaf": true,
+                "value": 0.411997
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.765527
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.118056,
+          "left": {
+            "leaf": false,
+            "featureName": "vectorScore",
+            "threshold": 0.533672,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.080128,
+              "left": {
+                "leaf": true,
+                "value": -0.150984
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.085579
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.261363,
+              "left": {
+                "leaf": true,
+                "value": 0.010388
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.531383
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "rankReciprocal",
+            "threshold": 0.080128,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.4375,
+              "left": {
+                "leaf": true,
+                "value": 0.100637
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.411584
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "lexicalScore",
+              "threshold": 0.29301,
+              "left": {
+                "leaf": true,
+                "value": 0.185762
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.683074
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.118056,
+          "left": {
+            "leaf": false,
+            "featureName": "vectorRankReciprocal",
+            "threshold": 0.046537,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.408334,
+              "left": {
+                "leaf": true,
+                "value": -0.14237
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.614708
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.056569
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.208345
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "rankReciprocal",
+            "threshold": 0.080128,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.4375,
+              "left": {
+                "leaf": true,
+                "value": 0.095605
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.391005
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "lexicalScore",
+              "threshold": 0.29301,
+              "left": {
+                "leaf": true,
+                "value": 0.176474
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.64892
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.118056,
+          "left": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.290406,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.454132,
+              "left": {
+                "leaf": true,
+                "value": -0.154612
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.070246
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.591667,
+              "left": {
+                "leaf": true,
+                "value": 0.009948
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.368129
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "rankReciprocal",
+            "threshold": 0.080128,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.4375,
+              "left": {
+                "leaf": true,
+                "value": 0.088591
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.379713
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "lexicalScore",
+              "threshold": 0.29301,
+              "left": {
+                "leaf": true,
+                "value": 0.167651
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.616474
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.080128,
+          "left": {
+            "leaf": false,
+            "featureName": "vectorScore",
+            "threshold": 0.505295,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.291954,
+              "left": {
+                "leaf": true,
+                "value": -0.168039
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.113623
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.6875,
+              "left": {
+                "leaf": true,
+                "value": -0.025944
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.666608
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.428154,
+            "left": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.206913,
+              "left": {
+                "leaf": true,
+                "value": -0.023206
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.211212
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.225,
+              "left": {
+                "leaf": true,
+                "value": 0.395242
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.679611
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.118056,
+          "left": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.290406,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.131469
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.038677
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.039231,
+              "left": {
+                "leaf": true,
+                "value": -0.097222
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.167617
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "rankReciprocal",
+            "threshold": 0.080128,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.694535,
+              "left": {
+                "leaf": true,
+                "value": -0.010686
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.205534
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.291667,
+              "left": {
+                "leaf": true,
+                "value": 0.36966
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.652897
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.080128,
+          "left": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.408334,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.46224,
+              "left": {
+                "leaf": true,
+                "value": -0.131322
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.029329
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.73797,
+              "left": {
+                "leaf": true,
+                "value": 0.03816
+              },
+              "right": {
+                "leaf": true,
+                "value": 1.126241
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.428154,
+            "left": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.206913,
+              "left": {
+                "leaf": true,
+                "value": -0.021861
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.190824
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.4375,
+              "left": {
+                "leaf": true,
+                "value": 0.36324
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.625218
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.080128,
+          "left": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.408334,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.46224,
+              "left": {
+                "leaf": true,
+                "value": -0.124756
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.027863
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.4375,
+              "left": {
+                "leaf": true,
+                "value": 0.13542
+              },
+              "right": {
+                "leaf": true,
+                "value": 1.280388
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.428154,
+            "left": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.206913,
+              "left": {
+                "leaf": true,
+                "value": -0.020768
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.181283
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.225,
+              "left": {
+                "leaf": true,
+                "value": 0.338735
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.590042
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.118056,
+          "left": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.290406,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.115783
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.02969
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.591667,
+              "left": {
+                "leaf": true,
+                "value": 0.006473
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.325779
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "rankReciprocal",
+            "threshold": 0.080128,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.4375,
+              "left": {
+                "leaf": true,
+                "value": 0.061031
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.338207
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.225,
+              "left": {
+                "leaf": true,
+                "value": 0.281274
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.540833
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.080128,
+          "left": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.466849,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.490715,
+              "left": {
+                "leaf": true,
+                "value": -0.115327
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.031992
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.607693,
+              "left": {
+                "leaf": true,
+                "value": -0.005471
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.571053
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.428154,
+            "left": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.206913,
+              "left": {
+                "leaf": true,
+                "value": -0.020151
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.164972
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.4375,
+              "left": {
+                "leaf": true,
+                "value": 0.307533
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.548353
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.080128,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.6875,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.040834,
+              "left": {
+                "leaf": true,
+                "value": -0.106868
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.015829
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.620192,
+              "left": {
+                "leaf": true,
+                "value": 0.127014
+              },
+              "right": {
+                "leaf": true,
+                "value": 1.394656
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.428154,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.416667,
+              "left": {
+                "leaf": true,
+                "value": 0.054811
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.464705
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.4375,
+              "left": {
+                "leaf": true,
+                "value": 0.292157
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.520935
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorScore",
+          "threshold": 0.709825,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.6875,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.074176,
+              "left": {
+                "leaf": true,
+                "value": -0.085604
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.068838
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.541127,
+              "left": {
+                "leaf": true,
+                "value": 0.066646
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.682654
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.138095,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.291667,
+              "left": {
+                "leaf": true,
+                "value": 0.07529
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.399962
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.042573,
+              "left": {
+                "leaf": true,
+                "value": 0.134135
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.496783
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.118056,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.3125,
+            "left": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.422619,
+              "left": {
+                "leaf": true,
+                "value": -0.091988
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.089686
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.639611,
+              "left": {
+                "leaf": true,
+                "value": 0.013782
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.468862
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "rankReciprocal",
+            "threshold": 0.080128,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.4375,
+              "left": {
+                "leaf": true,
+                "value": 0.039902
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.304224
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "lexicalScore",
+              "threshold": 0.29301,
+              "left": {
+                "leaf": true,
+                "value": 0.070514
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.405321
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorScore",
+          "threshold": 0.709825,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.6875,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.074176,
+              "left": {
+                "leaf": true,
+                "value": -0.078351
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.062684
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.064584,
+              "left": {
+                "leaf": true,
+                "value": 0.108699
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.700732
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.138095,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.291667,
+              "left": {
+                "leaf": true,
+                "value": 0.066526
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.36392
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.162281,
+              "left": {
+                "leaf": true,
+                "value": 0.798347
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.375435
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorScore",
+          "threshold": 0.709825,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.6875,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.074176,
+              "left": {
+                "leaf": true,
+                "value": -0.074434
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.05955
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.183334,
+              "left": {
+                "leaf": true,
+                "value": 0.264177
+              },
+              "right": {
+                "leaf": true,
+                "value": 1.239381
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.138095,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.291667,
+              "left": {
+                "leaf": true,
+                "value": 0.063199
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.345724
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.042573,
+              "left": {
+                "leaf": true,
+                "value": 0.103751
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.436039
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorScore",
+          "threshold": 0.709825,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.5625,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.601366,
+              "left": {
+                "leaf": true,
+                "value": -0.075442
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.037674
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.105556,
+              "left": {
+                "leaf": true,
+                "value": 0.094675
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.693205
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.138095,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.291667,
+              "left": {
+                "leaf": true,
+                "value": 0.060039
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.328438
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.162281,
+              "left": {
+                "leaf": true,
+                "value": 0.739695
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.337025
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "prfScore",
+          "threshold": 0.476268,
+          "left": {
+            "leaf": false,
+            "featureName": "vectorRankReciprocal",
+            "threshold": 0.060662,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.355042,
+              "left": {
+                "leaf": true,
+                "value": -0.089766
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.035197
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.024552
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.209503
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "vectorRankReciprocal",
+            "threshold": 0.225,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.8125,
+              "left": {
+                "leaf": true,
+                "value": 0.091123
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.772844
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.75,
+              "left": {
+                "leaf": true,
+                "value": 0.563248
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.09331
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "vectorRankReciprocal",
+            "threshold": 0.04881,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.305014,
+              "left": {
+                "leaf": true,
+                "value": -0.102448
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.063099
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.040304
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.108167
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "vectorRankReciprocal",
+            "threshold": 0.040834,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.236111,
+              "left": {
+                "leaf": true,
+                "value": -0.086433
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.176428
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.4375,
+              "left": {
+                "leaf": true,
+                "value": 0.142239
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.37436
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorScore",
+          "threshold": 0.589302,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.5625,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.363652,
+              "left": {
+                "leaf": true,
+                "value": -0.092388
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.042769
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.105556,
+              "left": {
+                "leaf": true,
+                "value": 0.038949
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.714773
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.54092,
+            "left": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.040834,
+              "left": {
+                "leaf": true,
+                "value": -0.039825
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.120339
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.04881,
+              "left": {
+                "leaf": true,
+                "value": 1.54569
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.288017
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.118056,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.3125,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.069048,
+              "left": {
+                "leaf": true,
+                "value": -0.08425
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.023278
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.639611,
+              "left": {
+                "leaf": true,
+                "value": 0.01329
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.413371
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "rankReciprocal",
+            "threshold": 0.080128,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.4375,
+              "left": {
+                "leaf": true,
+                "value": 0.00865
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.262098
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.541959,
+              "left": {
+                "leaf": true,
+                "value": 0.199312
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.397786
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.225,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.6875,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.560521,
+              "left": {
+                "leaf": true,
+                "value": -0.061653
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.034261
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.408334,
+              "left": {
+                "leaf": true,
+                "value": 0.233455
+              },
+              "right": {
+                "leaf": true,
+                "value": 1.499954
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleLength",
+            "threshold": 0.145834,
+            "left": {
+              "leaf": false,
+              "featureName": "lexicalScore",
+              "threshold": 0.577276,
+              "left": {
+                "leaf": true,
+                "value": 0.478332
+              },
+              "right": {
+                "leaf": true,
+                "value": 1.496957
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.4375,
+              "left": {
+                "leaf": true,
+                "value": 0.198106
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.546462
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "vectorRankReciprocal",
+            "threshold": 0.04881,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.305014,
+              "left": {
+                "leaf": true,
+                "value": -0.08695
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.053452
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.037396
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.097168
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "abstractCoverage",
+            "threshold": 0.568323,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.060662,
+              "left": {
+                "leaf": true,
+                "value": -0.037326
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.158162
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.133929,
+              "left": {
+                "leaf": true,
+                "value": 0.070328
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.36973
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorScore",
+          "threshold": 0.709825,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.6875,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.44451,
+              "left": {
+                "leaf": true,
+                "value": -0.069976
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.004096
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.509741,
+              "left": {
+                "leaf": true,
+                "value": -0.045767
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.48118
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleLength",
+            "threshold": 0.1875,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.4375,
+              "left": {
+                "leaf": true,
+                "value": 0.221073
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.936401
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.064584,
+              "left": {
+                "leaf": true,
+                "value": 0.022209
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.190443
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.1875,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.683009,
+              "left": {
+                "leaf": true,
+                "value": -0.077539
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.028942
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.060662,
+              "left": {
+                "leaf": true,
+                "value": -0.041687
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.082455
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "vectorRankReciprocal",
+            "threshold": 0.225,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.8125,
+              "left": {
+                "leaf": true,
+                "value": 0.053175
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.637998
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.75,
+              "left": {
+                "leaf": true,
+                "value": 0.422739
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.002056
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.1875,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.080128,
+              "left": {
+                "leaf": true,
+                "value": -0.081687
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.017571
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.060662,
+              "left": {
+                "leaf": true,
+                "value": -0.039602
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.078332
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "abstractCoverage",
+            "threshold": 0.568323,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.060662,
+              "left": {
+                "leaf": true,
+                "value": -0.037318
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.136298
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 1.164542,
+              "left": {
+                "leaf": true,
+                "value": 0.316295
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.104929
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.225,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.5625,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.60304,
+              "left": {
+                "leaf": true,
+                "value": -0.048892
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.028524
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.620192,
+              "left": {
+                "leaf": true,
+                "value": 0.087082
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.66097
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "vectorRankReciprocal",
+            "threshold": 0.75,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": 0.804516
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.210479
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.5625,
+              "left": {
+                "leaf": true,
+                "value": 0.300634
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.208641
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.1875,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.080128,
+              "left": {
+                "leaf": true,
+                "value": -0.075828
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.015576
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.060662,
+              "left": {
+                "leaf": true,
+                "value": -0.036207
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.072464
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.4375,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.225,
+              "left": {
+                "leaf": true,
+                "value": 0.01284
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.243107
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": 0.789988
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.183359
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.225,
+          "left": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.279221,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.8125,
+              "left": {
+                "leaf": true,
+                "value": -0.030843
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.416991
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.4375,
+              "left": {
+                "leaf": true,
+                "value": 0.074253
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.552315
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "vectorRankReciprocal",
+            "threshold": 0.75,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": 0.745808
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.19225
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.5625,
+              "left": {
+                "leaf": true,
+                "value": 0.274951
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.210004
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.3125,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.080128,
+              "left": {
+                "leaf": true,
+                "value": -0.061136
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.009932
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.060662,
+              "left": {
+                "leaf": true,
+                "value": -0.031452
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.107009
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "abstractCoverage",
+            "threshold": 0.568323,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.8125,
+              "left": {
+                "leaf": true,
+                "value": 0.03435
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.376054
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.291667,
+              "left": {
+                "leaf": true,
+                "value": 0.481415
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.186104
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorScore",
+          "threshold": 0.589302,
+          "left": {
+            "leaf": false,
+            "featureName": "vectorScore",
+            "threshold": 0.431481,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.219445,
+              "left": {
+                "leaf": true,
+                "value": -0.004064
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.060608
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.040278
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.053808
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "rankReciprocal",
+            "threshold": 0.040834,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.645834,
+              "left": {
+                "leaf": true,
+                "value": -0.050197
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.375113
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.057566,
+              "left": {
+                "leaf": true,
+                "value": 0.046808
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.199951
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.225,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.8125,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.320513,
+              "left": {
+                "leaf": true,
+                "value": -0.026548
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.183097
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.581231,
+              "left": {
+                "leaf": true,
+                "value": -0.067761
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.62101
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "vectorRankReciprocal",
+            "threshold": 0.75,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": 0.697843
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.171938
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.5625,
+              "left": {
+                "leaf": true,
+                "value": 0.246603
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.219094
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorScore",
+          "threshold": 0.589302,
+          "left": {
+            "leaf": false,
+            "featureName": "vectorScore",
+            "threshold": 0.431481,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.104167,
+              "left": {
+                "leaf": true,
+                "value": 0.164593
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.052188
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.037257
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.051825
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.54092,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.479167,
+              "left": {
+                "leaf": true,
+                "value": 0.001721
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.199991
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.04881,
+              "left": {
+                "leaf": true,
+                "value": 1.348847
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.173051
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.1875,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.080128,
+              "left": {
+                "leaf": true,
+                "value": -0.062477
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.010573
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.441666,
+              "left": {
+                "leaf": true,
+                "value": 0.054079
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.033074
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.4375,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.158334,
+              "left": {
+                "leaf": true,
+                "value": 0.395742
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.021541
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": 0.69456
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.146926
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorScore",
+          "threshold": 0.589302,
+          "left": {
+            "leaf": false,
+            "featureName": "vectorScore",
+            "threshold": 0.431481,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.219445,
+              "left": {
+                "leaf": true,
+                "value": 0.000823
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.052557
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.034339
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.048333
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "rankReciprocal",
+            "threshold": 0.040834,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.645834,
+              "left": {
+                "leaf": true,
+                "value": -0.047453
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.348235
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.057566,
+              "left": {
+                "leaf": true,
+                "value": 0.036147
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.175752
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.225,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.6875,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.035917
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.02724
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.408334,
+              "left": {
+                "leaf": true,
+                "value": 0.146229
+              },
+              "right": {
+                "leaf": true,
+                "value": 1.230744
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "vectorRankReciprocal",
+            "threshold": 0.75,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.479167,
+              "left": {
+                "leaf": true,
+                "value": 0.163717
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.791817
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.5625,
+              "left": {
+                "leaf": true,
+                "value": 0.217598
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.233966
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorScore",
+          "threshold": 0.589302,
+          "left": {
+            "leaf": false,
+            "featureName": "vectorScore",
+            "threshold": 0.297016,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.291667,
+              "left": {
+                "leaf": true,
+                "value": -0.028597
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.063774
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.0625,
+              "left": {
+                "leaf": true,
+                "value": -0.062734
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.00591
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.3125,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.225,
+              "left": {
+                "leaf": true,
+                "value": -0.025181
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.149666
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.138095,
+              "left": {
+                "leaf": true,
+                "value": 0.069936
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.248007
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.1875,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.080128,
+              "left": {
+                "leaf": true,
+                "value": -0.053988
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.006306
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.441666,
+              "left": {
+                "leaf": true,
+                "value": 0.052138
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.031848
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "abstractCoverage",
+            "threshold": 0.568323,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.8125,
+              "left": {
+                "leaf": true,
+                "value": 0.016693
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.307604
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 1.093968,
+              "left": {
+                "leaf": true,
+                "value": 0.248046
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.069613
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.080128,
+          "left": {
+            "leaf": false,
+            "featureName": "titleCoverage",
+            "threshold": 0.436508,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.0625,
+              "left": {
+                "leaf": true,
+                "value": -0.060138
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.016173
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.322222,
+              "left": {
+                "leaf": true,
+                "value": 0.442842
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.003068
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.4375,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.416667,
+              "left": {
+                "leaf": true,
+                "value": 0.00444
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.245299
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.75,
+              "left": {
+                "leaf": true,
+                "value": 0.23173
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.121276
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.225,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.8125,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.320513,
+              "left": {
+                "leaf": true,
+                "value": -0.020342
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.149909
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.581231,
+              "left": {
+                "leaf": true,
+                "value": -0.085243
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.530179
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleLength",
+            "threshold": 0.4375,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": 0.427075
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.022818
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 1.101511,
+              "left": {
+                "leaf": true,
+                "value": 0.519381
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.330212
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorScore",
+          "threshold": 0.589302,
+          "left": {
+            "leaf": false,
+            "featureName": "vectorScore",
+            "threshold": 0.431481,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.104167,
+              "left": {
+                "leaf": true,
+                "value": 0.164634
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.039604
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.788889,
+              "left": {
+                "leaf": true,
+                "value": -0.007816
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.416558
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.057566,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.479167,
+              "left": {
+                "leaf": true,
+                "value": -0.030791
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.162771
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.218254,
+              "left": {
+                "leaf": true,
+                "value": 0.452077
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.100917
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "abstractLength",
+            "threshold": 0.497222,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.6875,
+              "left": {
+                "leaf": true,
+                "value": -0.00739
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.565001
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "lexicalScore",
+              "threshold": 0.05993,
+              "left": {
+                "leaf": true,
+                "value": -0.065537
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.024509
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "abstractCoverage",
+            "threshold": 0.568323,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.8125,
+              "left": {
+                "leaf": true,
+                "value": 0.012271
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.275757
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 1.093968,
+              "left": {
+                "leaf": true,
+                "value": 0.223948
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.078309
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "feedbackCoverage",
+          "threshold": 0.3125,
+          "left": {
+            "leaf": false,
+            "featureName": "vectorRankReciprocal",
+            "threshold": 0.225,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.0625,
+              "left": {
+                "leaf": true,
+                "value": -0.057086
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.015634
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.581772,
+              "left": {
+                "leaf": true,
+                "value": -0.03752
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.370512
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "vectorRankReciprocal",
+            "threshold": 0.060662,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.186111,
+              "left": {
+                "leaf": true,
+                "value": 0.403997
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.020283
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.129167,
+              "left": {
+                "leaf": true,
+                "value": 0.012345
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.164258
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "feedbackCoverage",
+          "threshold": 0.4375,
+          "left": {
+            "leaf": false,
+            "featureName": "vectorRankReciprocal",
+            "threshold": 0.225,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.0625,
+              "left": {
+                "leaf": true,
+                "value": -0.054231
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.007624
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.563493,
+              "left": {
+                "leaf": true,
+                "value": 0.027414
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.796752
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "abstractLength",
+            "threshold": 0.186111,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.155556,
+              "left": {
+                "leaf": true,
+                "value": 0.139462
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.990141
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.369318,
+              "left": {
+                "leaf": true,
+                "value": -0.030048
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.135969
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.060662,
+          "left": {
+            "leaf": false,
+            "featureName": "titleCoverage",
+            "threshold": 0.436508,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.050126,
+              "left": {
+                "leaf": true,
+                "value": -0.035791
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.005395
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.322222,
+              "left": {
+                "leaf": true,
+                "value": 0.432344
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.018421
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.3125,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.591667,
+              "left": {
+                "leaf": true,
+                "value": -0.015281
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.650556
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.129167,
+              "left": {
+                "leaf": true,
+                "value": 0.010826
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.152022
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorScore",
+          "threshold": 0.589302,
+          "left": {
+            "leaf": false,
+            "featureName": "abstractLength",
+            "threshold": 0.147222,
+            "left": {
+              "leaf": false,
+              "featureName": "lexicalScore",
+              "threshold": 0.278364,
+              "left": {
+                "leaf": true,
+                "value": 0.04479
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.377141
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.5625,
+              "left": {
+                "leaf": true,
+                "value": -0.026621
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.047318
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "rankReciprocal",
+            "threshold": 0.040834,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.645834,
+              "left": {
+                "leaf": true,
+                "value": -0.046853
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.327323
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.057566,
+              "left": {
+                "leaf": true,
+                "value": 0.019724
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.127107
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "feedbackCoverage",
+          "threshold": 0.3125,
+          "left": {
+            "leaf": false,
+            "featureName": "vectorRankReciprocal",
+            "threshold": 0.225,
+            "left": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.6125,
+              "left": {
+                "leaf": true,
+                "value": -0.023081
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.265375
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.581772,
+              "left": {
+                "leaf": true,
+                "value": -0.03859
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.33959
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "vectorRankReciprocal",
+            "threshold": 0.060662,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.186111,
+              "left": {
+                "leaf": true,
+                "value": 0.371414
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.018838
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.229167,
+              "left": {
+                "leaf": true,
+                "value": 0.234523
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.077164
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "feedbackCoverage",
+          "threshold": 0.4375,
+          "left": {
+            "leaf": false,
+            "featureName": "abstractLength",
+            "threshold": 0.147222,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.82017,
+              "left": {
+                "leaf": true,
+                "value": 0.081988
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.636436
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.763889,
+              "left": {
+                "leaf": true,
+                "value": -0.017515
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.17226
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "abstractLength",
+            "threshold": 0.186111,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.169445,
+              "left": {
+                "leaf": true,
+                "value": 0.262775
+              },
+              "right": {
+                "leaf": true,
+                "value": 1.058586
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.369318,
+              "left": {
+                "leaf": true,
+                "value": -0.032845
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.119282
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.040834,
+          "left": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.422619,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.147222,
+              "left": {
+                "leaf": true,
+                "value": 0.0627
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.028475
+              }
+            },
+            "right": {
+              "leaf": true,
+              "value": -0.25907
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.3125,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.416667,
+              "left": {
+                "leaf": true,
+                "value": -0.015597
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.176281
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.129167,
+              "left": {
+                "leaf": true,
+                "value": -0.012924
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.125363
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "titleCoverage",
+          "threshold": 0.431677,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.5625,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.225,
+              "left": {
+                "leaf": true,
+                "value": -0.01695
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.066087
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "lexicalScore",
+              "threshold": 0.625606,
+              "left": {
+                "leaf": true,
+                "value": 0.151549
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.088713
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "abstractLength",
+            "threshold": 0.286111,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.042573,
+              "left": {
+                "leaf": true,
+                "value": -0.320304
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.442425
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 1.111253,
+              "left": {
+                "leaf": true,
+                "value": 0.115619
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.177153
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.040834,
+          "left": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.422619,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.147222,
+              "left": {
+                "leaf": true,
+                "value": 0.060713
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.026479
+              }
+            },
+            "right": {
+              "leaf": true,
+              "value": -0.246021
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.3125,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.147222,
+              "left": {
+                "leaf": true,
+                "value": 0.229625
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.012902
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.129167,
+              "left": {
+                "leaf": true,
+                "value": -0.013441
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.117738
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "titleCoverage",
+          "threshold": 0.431677,
+          "left": {
+            "leaf": false,
+            "featureName": "abstractCoverage",
+            "threshold": 0.809091,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.225,
+              "left": {
+                "leaf": true,
+                "value": -0.012763
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.068524
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": -0.522241
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.692616
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.218254,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.820711,
+              "left": {
+                "leaf": true,
+                "value": 0.097152
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.400195
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 1.120065,
+              "left": {
+                "leaf": true,
+                "value": 0.260565
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.191154
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.040834,
+          "left": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.422619,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.147222,
+              "left": {
+                "leaf": true,
+                "value": 0.058074
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.024671
+              }
+            },
+            "right": {
+              "leaf": true,
+              "value": -0.23801
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.4375,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.416667,
+              "left": {
+                "leaf": true,
+                "value": -0.004995
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.176101
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.138095,
+              "left": {
+                "leaf": true,
+                "value": -0.056949
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.152494
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "phraseCoverage",
+          "threshold": 0.279221,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.8125,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.225,
+              "left": {
+                "leaf": true,
+                "value": -0.014182
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.07568
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "lexicalScore",
+              "threshold": 0.666533,
+              "left": {
+                "leaf": true,
+                "value": 0.551991
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.031324
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "vectorScore",
+            "threshold": 0.931703,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.812519,
+              "left": {
+                "leaf": true,
+                "value": 0.068785
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.472947
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorRankReciprocal",
+              "threshold": 0.75,
+              "left": {
+                "leaf": true,
+                "value": 0.278254
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.408987
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "abstractCoverage",
+          "threshold": 0.825757,
+          "left": {
+            "leaf": false,
+            "featureName": "titleCoverage",
+            "threshold": 0.414216,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.0625,
+              "left": {
+                "leaf": true,
+                "value": -0.037355
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.00048
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.291667,
+              "left": {
+                "leaf": true,
+                "value": 0.291798
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.028011
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "lexicalScore",
+            "threshold": 0.958393,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.675067,
+              "left": {
+                "leaf": true,
+                "value": -0.054373
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.700257
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.997979,
+              "left": {
+                "leaf": true,
+                "value": 0.030958
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.565261
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "vectorRankReciprocal",
+          "threshold": 0.040834,
+          "left": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.422619,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.8125,
+              "left": {
+                "leaf": true,
+                "value": -0.021467
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.219302
+              }
+            },
+            "right": {
+              "leaf": true,
+              "value": -0.231108
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.3125,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.147222,
+              "left": {
+                "leaf": true,
+                "value": 0.213181
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.01293
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": 0.236992
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.048641
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "abstractCoverage",
+          "threshold": 0.825757,
+          "left": {
+            "leaf": false,
+            "featureName": "titleCoverage",
+            "threshold": 0.414216,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.6875,
+              "left": {
+                "leaf": true,
+                "value": -0.010238
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.073978
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.291667,
+              "left": {
+                "leaf": true,
+                "value": 0.275903
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.02545
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "lexicalScore",
+            "threshold": 0.958393,
+            "left": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.675067,
+              "left": {
+                "leaf": true,
+                "value": -0.050944
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.663315
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "vectorScore",
+              "threshold": 0.997979,
+              "left": {
+                "leaf": true,
+                "value": 0.025408
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.541352
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "phraseCoverage",
+          "threshold": 0.057566,
+          "left": {
+            "leaf": false,
+            "featureName": "titleLength",
+            "threshold": 0.104167,
+            "left": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.095455,
+              "left": {
+                "leaf": true,
+                "value": -0.032444
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.685
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "lexicalScore",
+              "threshold": 0.440814,
+              "left": {
+                "leaf": true,
+                "value": -0.013485
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.076916
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.499605,
+            "left": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.183334,
+              "left": {
+                "leaf": true,
+                "value": -0.004176
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.277532
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.226496,
+              "left": {
+                "leaf": true,
+                "value": 0.908169
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.082818
+              }
+            }
+          }
+        }
+      ],
+      "history": [
+        {
+          "iteration": 1,
+          "residualMse": 0.642939
+        },
+        {
+          "iteration": 10,
+          "residualMse": 0.590047
+        },
+        {
+          "iteration": 20,
+          "residualMse": 0.562459
+        },
+        {
+          "iteration": 30,
+          "residualMse": 0.548241
+        },
+        {
+          "iteration": 40,
+          "residualMse": 0.540091
+        },
+        {
+          "iteration": 50,
+          "residualMse": 0.534972
+        },
+        {
+          "iteration": 60,
+          "residualMse": 0.531176
+        }
+      ]
+    }
+  }
+}

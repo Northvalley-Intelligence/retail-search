@@ -1,0 +1,77 @@
+{
+  "generation_id": "GEN-015",
+  "project_id": "retail-search",
+  "started_at": "2026-07-07",
+  "ended_at": "2026-07-07",
+  "mission_phase": "Phase 1 - Cranfield Foundation",
+  "mission_version": "MISSION-2026-07-07-GEN-015",
+  "validation_strategy_version": "VALSTRAT-006",
+  "status": "evolution_traceability_repair_validated",
+  "focus": "Repair and enforce the local traceability chain across mission updates, evaluation timeline, search evolution, architecture timeline, decisions, and experiment artifacts.",
+  "reason_started": "The operator asked why mission updates did not keep architecture and evaluation evolution tightly aligned and asked to fix this before continuing the journey.",
+  "reason_ended": "Mission updates, evaluation timeline, search evolution, architecture timeline, traceability registry, generation records, and validation checks now align through GEN-015.",
+  "files_changed_by_category": {
+    "human_artifacts": [
+      "MISSION_UPDATES.md",
+      "README.md",
+      "docs/traceability.md",
+      "docs/evaluation/timeline.md",
+      "docs/evolution/timeline.md",
+      "docs/evolution/experiments/SE-0002-cranfield-field-sum.md",
+      "docs/architecture/timeline.md",
+      "docs/architecture/versions/ARCH-0.2-candidate-cranfield-field-sum.md",
+      "experiments/cranfield-v0/README.md"
+    ],
+    "agent_artifacts": [
+      ".mde/traceability.json",
+      ".mde/generation-summary.md",
+      ".mde/state.json",
+      ".mde/progress.json",
+      ".mde/generations/GEN-013.json",
+      ".mde/generations/GEN-014.json",
+      ".mde/generations/GEN-015.json"
+    ],
+    "validation_artifacts": [
+      "scripts/validate-traceability.mjs"
+    ]
+  },
+  "traceability_rules_added": [
+    "Metric-moving experiments must update the mission update, evaluation timeline, search evolution entry, architecture timeline/version, decision ledger, traceability registry, generation summary, and experiment README.",
+    "Released architectures receive Git tags; candidate-only experiments keep Git tag as not assigned until promotion."
+  ],
+  "validators_executed": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "result": "pass",
+      "evidence": "30 node tests passed; MDE parser checked 63 files; traceability validator checked 19 files and IDs through GEN-015/prf-rerank; fixture index and evaluation checks passed."
+    },
+    {
+      "name": "traceability stale-current-best scan",
+      "category": "Traceability / Human Artifact Consistency",
+      "result": "pass",
+      "evidence": "Docs consistently identify prf-rerank as current best and keep candidate Git tags unassigned until promotion."
+    }
+  ],
+  "validators_skipped": [
+    {
+      "name": "Cloudflare deploy verification",
+      "category": "Deployment / External",
+      "reason": "GEN-015 changes local documentation and traceability artifacts only."
+    },
+    {
+      "name": "Live OpenSearch re-evaluation",
+      "category": "External / Evaluation",
+      "reason": "GEN-015 did not change retrieval behavior and records existing GEN-013/GEN-014 live evidence."
+    }
+  ],
+  "validation_gate": {
+    "result": "pass",
+    "pass_count": 1,
+    "failed_categories": [],
+    "blocking_findings": []
+  },
+  "evidence_quality_notes": [
+    "GEN-015 is a traceability repair and does not change public/default search behavior."
+  ]
+}

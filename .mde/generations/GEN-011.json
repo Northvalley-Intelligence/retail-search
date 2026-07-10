@@ -1,0 +1,166 @@
+{
+  "generation_id": "GEN-011",
+  "project_id": "retail-search",
+  "started_at": "2026-07-07",
+  "ended_at": "2026-07-07",
+  "mission_phase": "Phase 1 - Cranfield Foundation",
+  "mission_version": "MISSION-2026-07-07-GEN-011",
+  "validation_strategy_version": "VALSTRAT-006",
+  "status": "cranfield_failure_grouping_and_field_sum_candidate_live_validated",
+  "focus": "Group live Cranfield failures by observed behavior, test candidate query architectures, and preserve measured accept/reject evidence.",
+  "reason_started": "The operator asked to group failing Cranfield cases by behavior and try architecture changes one issue group at a time to improve evaluation techniques.",
+  "reason_ended": "Failure behavior grouping is implemented, candidate architectures are opt-in, live comparison evidence is recorded, and field-sum is preserved as a transferability-pending candidate.",
+  "files_changed_by_category": {
+    "implementation_artifacts": [
+      "src/evaluation/failure-analysis.js",
+      "src/cranfield/schema.js",
+      "src/cranfield/search.js",
+      "src/cranfield/explain.js",
+      "src/worker.js"
+    ],
+    "evaluation_artifacts": [
+      "scripts/evaluate-cranfield.mjs",
+      "scripts/compare-cranfield-evaluations.mjs",
+      "experiments/cranfield-v0/evaluation-live-baseline-gen011.json",
+      "experiments/cranfield-v0/evaluation-live-query-rescue-gen011.json",
+      "experiments/cranfield-v0/evaluation-live-field-sum-gen011.json",
+      "experiments/cranfield-v0/evaluation-comparison-gen011.json"
+    ],
+    "test_artifacts": [
+      "test/failure-analysis.test.js",
+      "test/worker.test.js",
+      "package.json"
+    ],
+    "human_artifacts": [
+      "README.md",
+      "MISSION_UPDATES.md",
+      "docs/evaluation/cranfield-failure-groups.md",
+      "docs/evolution/timeline.md",
+      "docs/evolution/experiments/SE-0002-cranfield-field-sum.md",
+      "docs/architecture/timeline.md",
+      "docs/architecture/versions/ARCH-0.2-candidate-cranfield-field-sum.md",
+      "docs/architecture/decisions/ADL-0002-cranfield-field-sum-candidate.md",
+      "docs/traceability.md",
+      "experiments/cranfield-v0/README.md"
+    ],
+    "agent_artifacts": [
+      ".mde/state.json",
+      ".mde/progress.json",
+      ".mde/validation-strategy.json",
+      ".mde/bdd-index.json",
+      ".mde/findings.json",
+      ".mde/failing-bdds.json",
+      ".mde/risk-register.json",
+      ".mde/task-graph.json",
+      ".mde/validator-effectiveness.json",
+      ".mde/generation-summary.md",
+      ".mde/traceability.json",
+      ".mde/generations/GEN-011.json",
+      ".mde/validation-runs/VAL-022.json",
+      ".mde/validation-runs/VAL-023.json"
+    ]
+  },
+  "deployment": {
+    "status": "not_deployed",
+    "reason": "GEN-011 is a local/live OpenSearch experiment; the public default remains ARCH-0.1 and no Worker deployment was requested."
+  },
+  "candidate_results": {
+    "baseline": {
+      "architecture": "baseline",
+      "map": 0.2402,
+      "ndcg_at_10": 0.2995,
+      "precision_at_10": 0.2316,
+      "recall_at_10": 0.3994,
+      "mrr": 0.535
+    },
+    "query_rescue": {
+      "status": "rejected",
+      "map": 0.2283,
+      "ndcg_at_10": 0.2904,
+      "precision_at_10": 0.2222,
+      "recall_at_10": 0.3882,
+      "mrr": 0.5149
+    },
+    "field_sum": {
+      "status": "candidate_improved_transferability_pending",
+      "map": 0.2452,
+      "ndcg_at_10": 0.3022,
+      "precision_at_10": 0.2418,
+      "recall_at_10": 0.4136,
+      "mrr": 0.5499
+    }
+  },
+  "validators_executed": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "result": "pass",
+      "evidence": "24 tests passed; MDE parser passed; traceability validator checked baseline and SE-0002 candidate IDs; fixture evaluation passed."
+    },
+    {
+      "name": "live baseline/query-rescue/field-sum evaluation",
+      "category": "Evaluation Behavior Analysis / Architecture Experiment Comparison",
+      "result": "pass",
+      "evidence": "All three live evaluations completed over 225 Cranfield queries with metrics at K=10 and retrieval depth 50."
+    },
+    {
+      "name": "npm run compare:cranfield",
+      "category": "Architecture Experiment Comparison",
+      "result": "pass",
+      "evidence": "Comparison artifact classified query-rescue as regressed and field-sum as improved across core metrics."
+    }
+  ],
+  "validators_skipped": [
+    {
+      "name": "Cloudflare deploy verification",
+      "category": "Deployment / External",
+      "reason": "No deployment was requested and the candidate must not replace the public default before transferability evidence."
+    },
+    {
+      "name": "BEIR transferability gate",
+      "category": "External / Transferability",
+      "reason": "Phase 2 has not started yet."
+    }
+  ],
+  "validation_gate": {
+    "result": "pass_local_and_live_evaluation",
+    "pass_count": 2,
+    "failed_categories": [],
+    "blocking_findings": []
+  },
+  "reusable_lessons": [
+    "Aggregate search metrics should be paired with behavior-grouped query evidence before architecture changes are accepted.",
+    "A plausible query rescue strategy can regress metrics; rejected candidates should be preserved as evidence instead of deleted."
+  ],
+  "downstream_impacts": [
+    "Phase 2 BEIR should include field-sum as the first transferability candidate.",
+    "Article 2 can explain why the next agent work should focus on specific failure groups instead of generic tuning."
+  ],
+  "content_seeds": [
+    "Failure group chart for Article 2: 42 late-first-relevant, 28 zero-relevant, 27 lexical-noise, 25 broad-low-recall, 23 partial-recall, 16 graded-ranking-loss baseline cases.",
+    "Field-sum improved all core Cranfield metrics but still worsened 77 queries, making it a good example of evidence-based caution."
+  ],
+  "skill_update_candidates": [],
+  "evidence_quality_notes": [
+    "Live evaluation evidence is stronger than fixture evidence because it uses the full 225-query Cranfield qrel set and the configured OpenSearch index.",
+    "The candidate remains transferability-pending to avoid Cranfield overfitting."
+  ],
+  "goal_drift_review": {
+    "supports_mission": [
+      "Moves architecture through measured experiments rather than assumptions.",
+      "Improves the evaluation framework so readers can understand why metrics move.",
+      "Preserves accepted, rejected, and deferred experiment evidence."
+    ],
+    "missing": [
+      "BEIR transferability evidence.",
+      "Public UI for browsing the new failure groups.",
+      "Deployment of GEN-010 versioned endpoint changes."
+    ],
+    "over_engineered": [],
+    "deferred": [
+      "Promoting field-sum to a released architecture.",
+      "Deploying candidate architecture as a public default."
+    ],
+    "mission_alignment": "GEN-011 directly supports evidence-driven search architecture evolution while keeping the public baseline stable."
+  }
+}

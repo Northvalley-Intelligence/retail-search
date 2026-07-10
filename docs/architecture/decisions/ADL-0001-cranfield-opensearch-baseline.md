@@ -9,7 +9,8 @@ Legacy alias: `ADL-001`
 - Architecture Version: `ARCH-0.1`
 - Dataset: Cranfield
 - Related Article: `A-0002`
-- Intended Git Tag: `v0.1.0`
+- Git Tag: `v0.1.0`
+- Git Commit: `baeae54`
 
 ## Problem
 

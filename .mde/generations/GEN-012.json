@@ -1,0 +1,153 @@
+{
+  "generation_id": "GEN-012",
+  "project_id": "retail-search",
+  "started_at": "2026-07-07",
+  "ended_at": "2026-07-07",
+  "mission_phase": "Phase 1 - Cranfield Foundation",
+  "mission_version": "MISSION-2026-07-07-GEN-012",
+  "validation_strategy_version": "VALSTRAT-006",
+  "status": "coverage_rerank_candidate_live_validated_transferability_pending",
+  "focus": "Drill into zero-relevant-at-10 Cranfield failures and test a deterministic coverage rerank candidate.",
+  "reason_started": "The operator asked to continue with the next problem group after field-sum left zero-relevant-at-10 failures unchanged.",
+  "reason_ended": "Coverage-rerank improved all core live Cranfield metrics over baseline and field-sum while remaining candidate-only.",
+  "files_changed_by_category": {
+    "implementation_artifacts": [
+      "src/cranfield/schema.js",
+      "src/cranfield/search.js",
+      "src/cranfield/explain.js"
+    ],
+    "evaluation_artifacts": [
+      "experiments/cranfield-v0/evaluation-live-coverage-rerank-gen012.json",
+      "experiments/cranfield-v0/evaluation-comparison-gen012.json"
+    ],
+    "test_artifacts": [
+      "test/opensearch-query.test.js",
+      "test/worker.test.js"
+    ],
+    "human_artifacts": [
+      "README.md",
+      "MISSION_UPDATES.md",
+      "docs/evaluation/cranfield-failure-groups.md",
+      "docs/evolution/experiments/SE-0002-cranfield-field-sum.md",
+      "docs/architecture/versions/ARCH-0.2-candidate-cranfield-field-sum.md",
+      "docs/architecture/decisions/ADL-0002-cranfield-field-sum-candidate.md",
+      "docs/evolution/timeline.md",
+      "docs/architecture/timeline.md",
+      "docs/traceability.md",
+      "experiments/cranfield-v0/README.md"
+    ],
+    "agent_artifacts": [
+      ".mde/generations/GEN-012.json",
+      ".mde/validation-runs/VAL-024.json",
+      ".mde/state.json",
+      ".mde/progress.json",
+      ".mde/bdd-index.json",
+      ".mde/task-graph.json",
+      ".mde/findings.json",
+      ".mde/risk-register.json",
+      ".mde/traceability.json",
+      ".mde/validator-effectiveness.json",
+      ".mde/generation-summary.md",
+      ".mde/decisions.jsonl"
+    ]
+  },
+  "candidate_results": {
+    "baseline": {
+      "architecture": "baseline",
+      "map": 0.2402,
+      "ndcg_at_10": 0.2995,
+      "precision_at_10": 0.2316,
+      "recall_at_10": 0.3994,
+      "mrr": 0.535
+    },
+    "field_sum": {
+      "architecture": "field-sum",
+      "map": 0.2452,
+      "ndcg_at_10": 0.3022,
+      "precision_at_10": 0.2418,
+      "recall_at_10": 0.4136,
+      "mrr": 0.5499
+    },
+    "coverage_rerank": {
+      "status": "candidate_improved_transferability_pending",
+      "map": 0.2531,
+      "ndcg_at_10": 0.3095,
+      "precision_at_10": 0.2502,
+      "recall_at_10": 0.4283,
+      "mrr": 0.552
+    }
+  },
+  "failure_group_result": {
+    "baseline_zero_relevant_at_k": 28,
+    "zero_relevant_with_relevant_rank_11_to_50": 19,
+    "zero_relevant_absent_from_top_50": 9,
+    "coverage_rerank_zero_relevant_at_k": 27,
+    "interpretation": "Most zero-at-10 failures have some relevant evidence below rank 10, but remaining zero-at-10 cases likely need recall or vocabulary work."
+  },
+  "validators_executed": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "result": "pass",
+      "evidence": "26 node tests passed; MDE parser passed; traceability validator passed; fixture index check and fixture evaluation passed."
+    },
+    {
+      "name": "live coverage-rerank evaluation",
+      "category": "Architecture Experiment Comparison",
+      "result": "pass",
+      "evidence": "Live evaluation completed over 225 Cranfield queries: nDCG@10 0.3095."
+    },
+    {
+      "name": "npm run compare:cranfield",
+      "category": "Architecture Experiment Comparison",
+      "result": "pass",
+      "evidence": "Comparison artifact classified coverage-rerank as candidate_improved_core_metrics."
+    }
+  ],
+  "validators_skipped": [
+    {
+      "name": "Cloudflare deploy verification",
+      "category": "Deployment / External",
+      "reason": "No deployment was requested; GEN-012 leaves the public default unchanged."
+    },
+    {
+      "name": "BEIR transferability gate",
+      "category": "External / Transferability",
+      "reason": "Phase 2 has not started yet."
+    }
+  ],
+  "validation_gate": {
+    "result": "pass_local_and_live_evaluation",
+    "pass_count": 2,
+    "failed_categories": [],
+    "blocking_findings": []
+  },
+  "reusable_lessons": [
+    "When zero-at-10 failures have relevant documents at ranks 11-50, reranking can be tested before broader recall expansion.",
+    "A deterministic rerank can improve aggregate metrics while still worsening individual queries, so candidate promotion needs transferability and query-delta review."
+  ],
+  "downstream_impacts": [
+    "Phase 2 BEIR should test coverage-rerank before considering it an accepted architecture.",
+    "Remaining Cranfield zero-at-10 failures are likely vocabulary or recall failures rather than only field weighting issues."
+  ],
+  "evidence_quality_notes": [
+    "Live evaluation uses the full 225-query Cranfield qrel set and the configured OpenSearch index.",
+    "Candidate remains transferability-pending to avoid Cranfield overfitting."
+  ],
+  "goal_drift_review": {
+    "supports_mission": [
+      "Improves relevance through measured candidate architecture changes.",
+      "Keeps the public baseline stable until transferability evidence exists."
+    ],
+    "missing": [
+      "BEIR transferability evidence.",
+      "A targeted recall/vocabulary candidate for the nine zero-at-50 cases."
+    ],
+    "over_engineered": [],
+    "deferred": [
+      "Promoting coverage-rerank to a released architecture.",
+      "Deploying candidate architecture as a public default."
+    ],
+    "mission_alignment": "GEN-012 advances evidence-driven search architecture without assuming semantic or LTR components before they earn their place."
+  }
+}

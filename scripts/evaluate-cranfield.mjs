@@ -1,14 +1,27 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
+import { analyzeFailureBehavior } from "../src/evaluation/failure-analysis.js";
 import { evaluateRun } from "../src/evaluation/metrics.js";
 import { searchCranfield } from "../src/cranfield/search.js";
+import { DEFAULT_SEARCH_ARCHITECTURE_ID, resolveSearchArchitecture } from "../src/cranfield/schema.js";
 import { mergedEnv } from "./lib/local-env.mjs";
 
 const DOCUMENTS_PATH = new URL("../data/cranfield/sample-documents.jsonl", import.meta.url);
 const QUERIES_PATH = new URL("../data/cranfield/sample-queries.json", import.meta.url);
 
 function parseArgs(argv) {
-  const args = { mode: "fixture", write: null, queries: null, k: 10, summary: false, concurrency: 5 };
+  const args = {
+    mode: "fixture",
+    write: null,
+    queries: null,
+    k: 10,
+    retrieveSize: null,
+    summary: false,
+    concurrency: 5,
+    architecture: DEFAULT_SEARCH_ARCHITECTURE_ID,
+    details: false,
+    relevanceMode: "graded"
+  };
   for (let index = 0; index < argv.length; index += 1) {
     const value = argv[index];
     if (value === "--fixture") {
@@ -24,12 +37,26 @@ function parseArgs(argv) {
     } else if (value === "--k") {
       args.k = Number(argv[index + 1]);
       index += 1;
+    } else if (value === "--retrieve-size") {
+      args.retrieveSize = Number(argv[index + 1]);
+      index += 1;
     } else if (value === "--summary") {
       args.summary = true;
     } else if (value === "--concurrency") {
       args.concurrency = Number(argv[index + 1]);
       index += 1;
+    } else if (value === "--architecture") {
+      args.architecture = argv[index + 1];
+      index += 1;
+    } else if (value === "--details") {
+      args.details = true;
+    } else if (value === "--relevance-mode") {
+      args.relevanceMode = argv[index + 1];
+      index += 1;
     }
+  }
+  if (!["graded", "binary", "linear", "cranfield-reversed"].includes(args.relevanceMode)) {
+    throw new Error("--relevance-mode must be graded, binary, linear, or cranfield-reversed");
   }
   return args;
 }
@@ -88,17 +115,17 @@ function envFromProcess() {
   };
 }
 
-async function runFixtureEvaluation(queries, k) {
+async function runFixtureEvaluation(queries, size) {
   const documents = await readDocuments();
   return queries.map((query) => ({
     queryId: query.id,
     query: query.query,
     qrels: query.qrels,
-    results: fixtureSearch(query.query, documents, k)
+    results: fixtureSearch(query.query, documents, size)
   }));
 }
 
-async function runLiveEvaluation(queries, k, concurrency = 5) {
+async function runLiveEvaluation(queries, size, concurrency = 5, architecture = DEFAULT_SEARCH_ARCHITECTURE_ID) {
   const env = envFromProcess();
   const results = new Array(queries.length);
   let nextIndex = 0;
@@ -110,8 +137,9 @@ async function runLiveEvaluation(queries, k, concurrency = 5) {
       const query = queries[currentIndex];
       const response = await searchCranfield({
         query: query.query,
-        size: k,
-        env
+        size,
+        env,
+        architecture
       });
       results[currentIndex] = {
         queryId: query.id,
@@ -127,15 +155,27 @@ async function runLiveEvaluation(queries, k, concurrency = 5) {
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
+  const searchArchitecture = resolveSearchArchitecture(args.architecture);
   const queries = await readJson(args.queries || QUERIES_PATH);
-  const cases = args.mode === "live" ? await runLiveEvaluation(queries, args.k, args.concurrency) : await runFixtureEvaluation(queries, args.k);
-  const evaluation = evaluateRun(cases, args.k);
+  const retrieveSize = args.retrieveSize || args.k;
+  const cases =
+    args.mode === "live"
+      ? await runLiveEvaluation(queries, retrieveSize, args.concurrency, searchArchitecture.id)
+      : await runFixtureEvaluation(queries, retrieveSize);
+  const evaluation = evaluateRun(cases, args.k, { relevanceMode: args.relevanceMode });
+  const failureAnalysis = analyzeFailureBehavior(cases, evaluation.perQuery, {
+    k: args.k,
+    includePerQuery: args.details,
+    exampleLimit: 5
+  });
 
   const output = {
     generatedAt: "2026-07-04T00:00:00.000Z",
     dataset: args.queries ? "cranfield" : "cranfield-sample",
-    architectureVersion: "v0-cranfield-opensearch-baseline",
+    architectureVersion: searchArchitecture.architectureSlug,
+    searchArchitecture,
     transport: args.mode === "live" ? "live-opensearch" : "fixture-validator",
+    retrieveSize,
     acceptanceNote:
       args.mode === "live"
         ? "Live OpenSearch evaluation run."
@@ -147,7 +187,8 @@ async function main() {
       recallAtK: evaluation.aggregate.recallAtK,
       mrr: evaluation.aggregate.reciprocalRank
     },
-    evaluation
+    evaluation,
+    failureAnalysis
   };
 
   if (args.write) {
@@ -164,8 +205,12 @@ async function main() {
             architectureVersion: output.architectureVersion,
             transport: output.transport,
             metrics: output.metrics,
+            failureGroups: output.failureAnalysis.groups,
             queryCount: output.evaluation.queryCount,
             k: output.evaluation.k,
+            relevanceMode: output.evaluation.relevanceMode,
+            retrieveSize,
+            searchArchitecture: output.searchArchitecture,
             concurrency: args.mode === "live" ? args.concurrency : null,
             wrote: args.write || null
           }

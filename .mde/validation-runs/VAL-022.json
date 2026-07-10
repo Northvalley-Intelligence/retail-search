@@ -1,0 +1,51 @@
+{
+  "run_id": "VAL-022",
+  "project_id": "retail-search",
+  "generation_id": "GEN-011",
+  "executed_at": "2026-07-07T05:59:30Z",
+  "validation_strategy_version": "VALSTRAT-006",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "First GEN-011 validation pass: 24 node tests passed, MDE parser passed, traceability validator checked 14 files, fixture index and evaluation checks passed."
+    },
+    {
+      "name": "live Cranfield baseline evaluation",
+      "category": "Evaluation Behavior Analysis",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Baseline live run over 225 queries at K=10 with retrieval depth 50 produced MAP 0.2402, nDCG@10 0.2995, Precision@10 0.2316, Recall@10 0.3994, MRR 0.5350."
+    },
+    {
+      "name": "live candidate evaluations",
+      "category": "Architecture Experiment Comparison",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Query-rescue regressed all core metrics; field-sum improved all core metrics and was kept as transferability-pending candidate."
+    }
+  ],
+  "blocked_or_skipped": [
+    {
+      "name": "Cloudflare deploy verification",
+      "reason": "No deployment was requested; the public default remains ARCH-0.1."
+    },
+    {
+      "name": "BEIR transferability gate",
+      "reason": "Phase 2 has not started yet."
+    }
+  ],
+  "critical_findings": [],
+  "high_findings": [
+    {
+      "id": "FIND-004",
+      "status": "deferred",
+      "summary": "Field-sum improved Cranfield metrics but needs BEIR transferability before release."
+    }
+  ],
+  "medium_findings": [],
+  "evidence_quality": "Live OpenSearch evidence plus query-level behavior groups provide enough signal to reject query-rescue and carry field-sum into Phase 2 transferability."
+}

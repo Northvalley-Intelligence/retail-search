@@ -1,0 +1,51 @@
+{
+  "run_id": "VAL-023",
+  "project_id": "retail-search",
+  "generation_id": "GEN-011",
+  "executed_at": "2026-07-07T06:05:00Z",
+  "validation_strategy_version": "VALSTRAT-006",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "Second GEN-011 validation pass after evidence files: 24 node tests passed, 57 MDE files parsed, 14 traceability files checked, fixture index check passed, and fixture evaluation passed."
+    },
+    {
+      "name": "scripts/validate-traceability.mjs",
+      "category": "Traceability / Versioning",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "Validator now checks M-0001, A-0002, SE-0001, ARCH-0.1, ADL-0001, v0.1.0, SE-0002, ARCH-0.2-candidate, and ADL-0002."
+    },
+    {
+      "name": "experiments/cranfield-v0/evaluation-comparison-gen011.json",
+      "category": "Architecture Experiment Comparison",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Comparison artifact records query-rescue as candidate_regressed_core_metrics and field-sum as candidate_improved_core_metrics."
+    }
+  ],
+  "blocked_or_skipped": [
+    {
+      "name": "Cloudflare deploy verification",
+      "reason": "No deployment was requested; GEN-011 leaves the public default unchanged."
+    },
+    {
+      "name": "BEIR transferability gate",
+      "reason": "Deferred to Phase 2."
+    }
+  ],
+  "critical_findings": [],
+  "high_findings": [
+    {
+      "id": "FIND-004",
+      "status": "deferred",
+      "summary": "Field-sum remains candidate-only until BEIR transferability is measured."
+    }
+  ],
+  "medium_findings": [],
+  "evidence_quality": "Second pass confirms implementation, docs, traceability, and MDE evidence remain parseable after the GEN-011 experiment records were added."
+}

@@ -1,6 +1,6 @@
 {
   "project_id": "retail-search",
-  "updated_at": "2026-07-06",
+  "updated_at": "2026-07-08",
   "tasks": [
     {
       "id": "TASK-001",
@@ -46,6 +46,41 @@
       "id": "TASK-009",
       "status": "complete",
       "summary": "Integrate stable mission, article, search evolution, architecture, decision, tag, and endpoint traceability for Phase 1."
+    },
+    {
+      "id": "TASK-010",
+      "status": "complete",
+      "summary": "Group live Cranfield failures by behavior and evaluate query-rescue and field-sum candidate architectures."
+    },
+    {
+      "id": "TASK-011",
+      "status": "complete",
+      "summary": "Drill into zero-relevant-at-10 failures and evaluate the coverage-rerank candidate."
+    },
+    {
+      "id": "TASK-012",
+      "status": "complete",
+      "summary": "Evaluate PRF, vector/hybrid, local Ollama embeddings, and LTR candidate architectures with traceable evidence through GEN-020."
+    },
+    {
+      "id": "TASK-013",
+      "status": "complete",
+      "summary": "Evaluate Hugging Face BGE retrieval embeddings in vector/hybrid and LTR paths, recording offline gains above refined PRF."
+    },
+    {
+      "id": "TASK-014",
+      "status": "complete",
+      "summary": "Validate BGE vector/hybrid in a separate remote OpenSearch candidate index before promotion."
+    },
+    {
+      "id": "TASK-015",
+      "status": "planned",
+      "summary": "Validate transferability and runtime cost before any public/default promotion of remote BGE hybrid."
+    },
+    {
+      "id": "TASK-016",
+      "status": "complete",
+      "summary": "Expose key Cranfield architecture milestones through stable search and explain endpoint aliases."
     }
   ]
 }

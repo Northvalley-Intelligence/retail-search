@@ -7,7 +7,8 @@
 - Architecture Version: `ARCH-0.1`
 - Architecture Decision: `ADL-0001`
 - Related Article: `A-0002`
-- Intended Git Tag: `v0.1.0`
+- Git Tag: `v0.1.0`
+- Git Commit: `baeae54`
 
 ## Mission
 
@@ -34,6 +35,7 @@ Phase 1 is live and validated.
 - Public search, data, explain, and evaluation pages.
 - Dataset references for Cranfield, BEIR, and Amazon ESCI.
 - Article 2 evidence handoff.
+- Failure behavior grouping and `ARCH-0.2-candidate` field-sum evidence for Phase 2 transferability.
 
 ## Current Architecture
 
@@ -60,7 +62,6 @@ Source: `experiments/cranfield-v0/evaluation-live.json`
 
 ## Remaining Closure Work Before Phase 2
 
-- Commit the Phase 1 working tree.
-- Create the intended `v0.1.0` tag for `ARCH-0.1`.
 - Deploy the local `/api/v0.1/*` traceability route changes after explicit approval.
 - Capture p95 latency, index size, memory, and index-time evidence.
+- Test `ARCH-0.2-candidate` field-sum against BEIR before promoting it to a released architecture.

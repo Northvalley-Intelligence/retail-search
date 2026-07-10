@@ -1,0 +1,64 @@
+{
+  "run_id": "VAL-030",
+  "project_id": "retail-search",
+  "generation_id": "GEN-020",
+  "executed_at": "2026-07-08T10:17:00-04:00",
+  "validation_strategy_version": "VALSTRAT-006",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "40 node tests passed; MDE parser checked project JSON/JSONL files; traceability validator checked required IDs through GEN-020/SE-0004/ARCH-0.4-candidate/ADL-0004; fixture index check passed; fixture evaluation passed."
+    },
+    {
+      "name": "node --test test/ltr.test.js",
+      "category": "Architecture Experiment Comparison / Learning-To-Rank",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "LTR feature extraction, learned reranking behavior, query-fold cross-validation, and candidate-pool recall tests passed."
+    },
+    {
+      "name": "npm run eval:cranfield:ltr -- --embeddings experiments/cranfield-v0/embeddings-ollama-llama31-8b-title-abstract-gen019.json",
+      "category": "Architecture Experiment Comparison / Learning-To-Rank",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "evaluation-ltr-ollama-features-gen020.json records cross-validated nDCG@10 0.3164; evaluation-ltr-ollama-features-k20-binary-gen020.json records binary nDCG@20 0.4467."
+    },
+    {
+      "name": "npm run eval:cranfield:ltr lexical feature ablation",
+      "category": "Architecture Experiment Comparison / Learning-To-Rank",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "evaluation-ltr-lexical-features-gen020.json records cross-validated nDCG@10 0.3166; evaluation-ltr-lexical-features-k20-binary-gen020.json records binary nDCG@20 0.4529."
+    }
+  ],
+  "blocked_or_skipped": [
+    {
+      "name": "remote OpenSearch LTR plugin validation",
+      "reason": "Deferred because offline cross-validated LTR did not beat refined PRF."
+    },
+    {
+      "name": "Cloudflare deploy verification",
+      "reason": "No deployment was requested; GEN-020 leaves the public/default architecture unchanged."
+    }
+  ],
+  "critical_findings": [],
+  "high_findings": [
+    {
+      "id": "FIND-004",
+      "status": "deferred",
+      "summary": "ARCH-0.2-candidate refined prf-rerank remains candidate-only until BEIR transferability is measured."
+    }
+  ],
+  "medium_findings": [
+    {
+      "id": "FIND-008",
+      "status": "active",
+      "summary": "LTR in-sample gains exceed refined PRF but cross-validated metrics remain below refined PRF, so ARCH-0.4-candidate is not promoted."
+    }
+  ],
+  "evidence_quality": "GEN-020 validates an offline LTR path and records that LTR has ranking signal but is not yet promotion-quality under query-grouped cross-validation."
+}

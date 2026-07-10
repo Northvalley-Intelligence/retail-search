@@ -1,0 +1,71 @@
+{
+  "run_id": "VAL-029",
+  "project_id": "retail-search",
+  "generation_id": "GEN-019",
+  "executed_at": "2026-07-08T09:39:00-04:00",
+  "validation_strategy_version": "VALSTRAT-006",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "35 node tests passed; MDE parser checked project JSON/JSONL files; traceability validator checked required IDs through GEN-019/SE-0003/ARCH-0.3-candidate/ADL-0003; fixture index check passed; fixture evaluation passed."
+    },
+    {
+      "name": "npm run embed:cranfield -- --provider ollama --model llama3.1:8b",
+      "category": "Architecture Experiment Comparison / Embedding Infrastructure",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "experiments/cranfield-v0/embeddings-ollama-llama31-8b-title-abstract-gen019.json records local Ollama embeddings for 1,400 documents and 225 queries with dimension 4,096."
+    },
+    {
+      "name": "npm run eval:cranfield:vector",
+      "category": "Architecture Experiment Comparison / Vector Retrieval",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "experiments/cranfield-v0/evaluation-vector-ollama-llama31-8b-title-abstract-gen019.json records Ollama vector-only nDCG@10 0.0282 and best depth-50 hybrid nDCG@10 0.3035."
+    },
+    {
+      "name": "npm run eval:cranfield:vector -- --vector-depth 100",
+      "category": "Architecture Experiment Comparison / Vector Retrieval",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "experiments/cranfield-v0/evaluation-vector-ollama-llama31-8b-title-abstract-depth100-gen019.json records best depth-100 Ollama hybrid nDCG@10 0.3026."
+    },
+    {
+      "name": "npm run eval:cranfield:vector -- --k 20 --relevance-mode binary",
+      "category": "External Comparison",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "experiments/cranfield-v0/evaluation-vector-ollama-llama31-8b-title-abstract-k20-binary-gen019.json records best Ollama binary nDCG@20 0.4343, below refined PRF comparable nDCG@20 0.4563."
+    }
+  ],
+  "blocked_or_skipped": [
+    {
+      "name": "remote OpenSearch vector index validation",
+      "reason": "Deferred because the offline Ollama hybrid result did not beat refined PRF."
+    },
+    {
+      "name": "Cloudflare deploy verification",
+      "reason": "No deployment was requested; GEN-019 leaves the public/default architecture unchanged."
+    }
+  ],
+  "critical_findings": [],
+  "high_findings": [
+    {
+      "id": "FIND-004",
+      "status": "deferred",
+      "summary": "ARCH-0.2-candidate refined prf-rerank remains candidate-only until BEIR transferability is measured."
+    }
+  ],
+  "medium_findings": [
+    {
+      "id": "FIND-007",
+      "status": "active",
+      "summary": "Ollama llama3.1:8b chat-model embeddings remain below refined PRF and should not be promoted."
+    }
+  ],
+  "evidence_quality": "GEN-019 validates a real local Ollama embedding run and records that the available chat-model embeddings do not improve NDCG enough for promotion."
+}

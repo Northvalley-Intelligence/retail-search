@@ -26,8 +26,8 @@ Cranfield Aeronautics Collection.
 
 ## Git
 
-- Intended tag: `v0.1.0`
-- Commit: pending
+- Tag: `v0.1.0`
+- Commit: `baeae54`
 
 ## Endpoints
 
@@ -67,4 +67,4 @@ None.
 ## Lessons Learned
 
 - Cranfield exposes hard lexical BM25 failures even when top results look plausible.
-- The next experiment should let agents inspect failures and propose OpenSearch-native changes first.
+- `SE-0002` showed that failure behavior grouping is necessary before accepting OpenSearch-native changes.

@@ -1,0 +1,61 @@
+{
+  "run_id": "VAL-027",
+  "project_id": "retail-search",
+  "generation_id": "GEN-017",
+  "executed_at": "2026-07-07T17:50:00-04:00",
+  "validation_strategy_version": "VALSTRAT-006",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "32 node tests passed; MDE parser checked 67 files; traceability validator checked 19 files and required IDs through GEN-017/retrieval-pools-field-sum-top50-gen017; fixture index check passed; fixture evaluation passed."
+    },
+    {
+      "name": "npm run cache:cranfield",
+      "category": "Architecture Experiment Comparison / Evaluation Infrastructure",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "experiments/cranfield-v0/retrieval-pools-field-sum-top50-gen017.json stores live OpenSearch field-sum top-50 retrieval pools for 225 Cranfield queries."
+    },
+    {
+      "name": "npm run tune:cranfield:prf -- --retrieval-cache",
+      "category": "Architecture Experiment Comparison / Evaluation Infrastructure",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "experiments/cranfield-v0/prf-phrase-tuning-from-cache-gen017.json reproduced the refined PRF result from cache: MAP 0.2699, nDCG@10 0.3260, Precision@10 0.2680, Recall@10 0.4469, MRR 0.5622."
+    }
+  ],
+  "blocked_or_skipped": [
+    {
+      "name": "Cloudflare deploy verification",
+      "reason": "No deployment was requested; GEN-017 leaves the public/default architecture unchanged."
+    },
+    {
+      "name": "remote final candidate evaluation",
+      "reason": "No new ranking behavior was selected; the cached tuner only reproduced the GEN-016 refined PRF result."
+    },
+    {
+      "name": "BEIR transferability gate",
+      "reason": "Deferred to Phase 2."
+    }
+  ],
+  "critical_findings": [],
+  "high_findings": [
+    {
+      "id": "FIND-004",
+      "status": "deferred",
+      "summary": "ARCH-0.2-candidate refined prf-rerank remains candidate-only until BEIR transferability is measured."
+    }
+  ],
+  "medium_findings": [
+    {
+      "id": "FIND-005",
+      "status": "mitigated",
+      "summary": "GEN-017 mitigated slow repeated remote retrieval during reranker tuning by caching first-stage field-sum pools."
+    }
+  ],
+  "evidence_quality": "GEN-017 has one live OpenSearch cache refresh, one offline cached tuning reproduction, and one full local validation pass. It improves iteration speed and traceability, not the current best candidate score."
+}

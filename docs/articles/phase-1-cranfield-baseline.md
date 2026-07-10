@@ -18,4 +18,5 @@ Current status:
 - Search Evolution: `SE-0001`
 - Architecture: `ARCH-0.1`
 - Decision: `ADL-0001`
-- Intended Git Tag: `v0.1.0`
+- Git Tag: `v0.1.0`
+- Git Commit: `baeae54`

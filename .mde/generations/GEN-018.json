@@ -1,0 +1,137 @@
+{
+  "generation_id": "GEN-018",
+  "project_id": "retail-search",
+  "started_at": "2026-07-07",
+  "ended_at": "2026-07-07",
+  "mission_phase": "Phase 1 - Cranfield Foundation",
+  "mission_version": "MISSION-2026-07-07-GEN-018",
+  "validation_strategy_version": "VALSTRAT-006",
+  "status": "vector_hybrid_infrastructure_validated_real_embeddings_blocked",
+  "focus": "Add an embedding/vector/hybrid retrieval experiment path and test whether vector evidence can improve Cranfield metrics.",
+  "reason_started": "The operator asked to try LLM embeddings and vector search as the next NDCG optimization path.",
+  "reason_ended": "Vector/hybrid infrastructure was added and local-control evaluation completed, but real LLM embeddings could not run because no embedding provider key was configured.",
+  "files_changed_by_category": {
+    "implementation_artifacts": [
+      "src/evaluation/vector-search.js",
+      "scripts/cache-cranfield-embeddings.mjs",
+      "scripts/evaluate-cranfield-vector.mjs",
+      "package.json"
+    ],
+    "test_artifacts": [
+      "test/vector-search.test.js"
+    ],
+    "evaluation_artifacts": [
+      "experiments/cranfield-v0/embeddings-local-hash-gen018.json",
+      "experiments/cranfield-v0/evaluation-vector-local-hash-gen018.json",
+      "experiments/cranfield-v0/evaluation-vector-local-hash-depth100-gen018.json",
+      "experiments/cranfield-v0/evaluation-vector-local-hash-k20-binary-gen018.json"
+    ],
+    "human_artifacts": [
+      "README.md",
+      "MISSION_UPDATES.md",
+      "docs/evaluation/timeline.md",
+      "docs/evaluation/cranfield-vector-hybrid-research.md",
+      "docs/evolution/timeline.md",
+      "docs/evolution/experiments/SE-0003-cranfield-vector-hybrid.md",
+      "docs/architecture/timeline.md",
+      "docs/architecture/versions/ARCH-0.3-candidate-cranfield-vector-hybrid.md",
+      "docs/architecture/decisions/ADL-0003-cranfield-vector-hybrid-candidate.md",
+      "docs/traceability.md",
+      "experiments/cranfield-v0/README.md"
+    ],
+    "agent_artifacts": [
+      ".mde/generations/GEN-018.json",
+      ".mde/validation-runs/VAL-028.json",
+      ".mde/generation-summary.md",
+      ".mde/traceability.json",
+      ".mde/state.json",
+      ".mde/progress.json",
+      ".mde/findings.json",
+      ".mde/risk-register.json",
+      ".mde/validation-strategy.json",
+      ".mde/validator-effectiveness.json"
+    ]
+  },
+  "candidate_results": {
+    "current_refined_prf": {
+      "status": "current_best",
+      "ndcg_at_10": 0.326,
+      "map": 0.2699,
+      "precision_at_10": 0.268,
+      "recall_at_10": 0.4469,
+      "mrr": 0.5622
+    },
+    "local_hash_vector_only": {
+      "status": "rejected_control",
+      "ndcg_at_10": 0.1453,
+      "map": 0.1054,
+      "precision_at_10": 0.1058,
+      "recall_at_10": 0.1867,
+      "mrr": 0.3141
+    },
+    "local_hash_hybrid_depth100": {
+      "status": "below_current_best",
+      "ndcg_at_10": 0.3054,
+      "map": 0.249,
+      "precision_at_10": 0.2413,
+      "recall_at_10": 0.4112,
+      "mrr": 0.5491
+    },
+    "local_hash_hybrid_binary_k20": {
+      "status": "below_current_best_comparable",
+      "ndcg_at_20": 0.434,
+      "map": 0.2794,
+      "precision_at_20": 0.1653,
+      "recall_at_20": 0.5307,
+      "mrr": 0.5493
+    }
+  },
+  "validators_executed": [
+    {
+      "name": "npm run embed:cranfield -- --provider local-hash",
+      "category": "Architecture Experiment Comparison / Embedding Infrastructure",
+      "result": "pass",
+      "evidence": "Generated deterministic local-control embeddings for 1,400 Cranfield documents and 225 queries."
+    },
+    {
+      "name": "npm run eval:cranfield:vector",
+      "category": "Architecture Experiment Comparison / Vector Retrieval",
+      "result": "pass",
+      "evidence": "Vector-only and hybrid local-control evaluations completed; best nDCG@10 was 0.3054, below refined PRF 0.3260."
+    },
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "result": "pass",
+      "evidence": "35 node tests passed; MDE parser, strengthened traceability validation, fixture index check, and fixture evaluation passed. Final run is recorded in VAL-028."
+    }
+  ],
+  "validators_skipped": [
+    {
+      "name": "real LLM embedding generation",
+      "category": "External / Embedding Provider",
+      "reason": "No OPENAI_API_KEY or equivalent embedding provider key was configured."
+    },
+    {
+      "name": "remote OpenSearch vector index validation",
+      "category": "Deployment / External",
+      "reason": "Deferred until an offline real-embedding run beats the current refined PRF candidate."
+    },
+    {
+      "name": "Cloudflare deploy verification",
+      "category": "Deployment / External",
+      "reason": "No deployment was requested; GEN-018 leaves the public/default architecture unchanged."
+    }
+  ],
+  "validation_gate": {
+    "result": "pass",
+    "pass_count": 1,
+    "failed_categories": [],
+    "blocking_findings": []
+  },
+  "evidence_quality_notes": [
+    "Local-hash vectors validate the vector/hybrid mechanics but are not LLM embeddings.",
+    "The local-control vector signal is below refined PRF and should not be promoted.",
+    "A real embedding provider run is required before judging whether LLM embeddings improve Cranfield."
+  ]
+}

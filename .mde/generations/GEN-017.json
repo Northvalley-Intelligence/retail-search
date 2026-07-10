@@ -1,0 +1,122 @@
+{
+  "generation_id": "GEN-017",
+  "project_id": "retail-search",
+  "started_at": "2026-07-07",
+  "ended_at": "2026-07-07",
+  "mission_phase": "Phase 1 - Cranfield Foundation",
+  "mission_version": "MISSION-2026-07-07-GEN-017",
+  "validation_strategy_version": "VALSTRAT-006",
+  "status": "cached_retrieval_pool_fast_loop_validated",
+  "focus": "Create a reusable cached retrieval-pool workflow so reranker tuning can run offline and remote OpenSearch is reserved for cache refreshes and final validation.",
+  "reason_started": "The operator asked whether local OpenSearch-style testing could speed up experimentation before implementing only the best approaches on the remote OpenSearch-backed path.",
+  "reason_ended": "A field-sum top-50 retrieval cache was generated from live OpenSearch and the PRF phrase-coherence tuner reproduced the current best nDCG@10 result offline from that cache.",
+  "files_changed_by_category": {
+    "implementation_artifacts": [
+      "scripts/cache-cranfield-retrieval-pools.mjs",
+      "scripts/tune-cranfield-prf.mjs",
+      "package.json"
+    ],
+    "evaluation_artifacts": [
+      "experiments/cranfield-v0/retrieval-pools-field-sum-top50-gen017.json",
+      "experiments/cranfield-v0/prf-phrase-tuning-from-cache-gen017.json"
+    ],
+    "human_artifacts": [
+      "README.md",
+      "MISSION_UPDATES.md",
+      "docs/evaluation/timeline.md",
+      "docs/evolution/timeline.md",
+      "docs/evolution/experiments/SE-0002-cranfield-field-sum.md",
+      "docs/architecture/timeline.md",
+      "docs/architecture/versions/ARCH-0.2-candidate-cranfield-field-sum.md",
+      "docs/architecture/decisions/ADL-0002-cranfield-field-sum-candidate.md",
+      "docs/traceability.md",
+      "experiments/cranfield-v0/README.md"
+    ],
+    "agent_artifacts": [
+      ".mde/generations/GEN-017.json",
+      ".mde/validation-runs/VAL-027.json",
+      ".mde/generation-summary.md",
+      ".mde/traceability.json",
+      ".mde/state.json",
+      ".mde/progress.json",
+      ".mde/findings.json",
+      ".mde/risk-register.json",
+      ".mde/validator-effectiveness.json"
+    ]
+  },
+  "cache_result": {
+    "artifact": "experiments/cranfield-v0/retrieval-pools-field-sum-top50-gen017.json",
+    "dataset": "cranfield",
+    "source": "live OpenSearch",
+    "source_architecture": "field-sum",
+    "query_count": 225,
+    "retrieve_size": 50,
+    "transport": "live-opensearch-cache"
+  },
+  "offline_tuning_result": {
+    "artifact": "experiments/cranfield-v0/prf-phrase-tuning-from-cache-gen017.json",
+    "retrieval_source": "experiments/cranfield-v0/retrieval-pools-field-sum-top50-gen017.json",
+    "best_config": {
+      "feedbackDocuments": 4,
+      "feedbackTerms": 8,
+      "originalWeight": 0.06,
+      "expansionWeight": 0.14,
+      "phraseWeight": 0.01
+    },
+    "metrics": {
+      "map": 0.2699,
+      "ndcg_at_10": 0.326,
+      "precision_at_10": 0.268,
+      "recall_at_10": 0.4469,
+      "mrr": 0.5622
+    }
+  },
+  "validators_executed": [
+    {
+      "name": "npm run cache:cranfield",
+      "category": "Architecture Experiment Comparison / Evaluation Infrastructure",
+      "result": "pass",
+      "evidence": "Generated a reusable live OpenSearch field-sum top-50 retrieval cache for all 225 Cranfield queries."
+    },
+    {
+      "name": "npm run tune:cranfield:prf -- --retrieval-cache",
+      "category": "Architecture Experiment Comparison / Evaluation Infrastructure",
+      "result": "pass",
+      "evidence": "Offline tuning from the retrieval cache reproduced the refined PRF result: nDCG@10 0.3260 with phraseWeight 0.01."
+    },
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "result": "pass",
+      "evidence": "32 node tests passed; MDE parser, strengthened traceability validation, fixture index check, and fixture evaluation passed. Final run is recorded in VAL-027."
+    }
+  ],
+  "validators_skipped": [
+    {
+      "name": "Cloudflare deploy verification",
+      "category": "Deployment / External",
+      "reason": "No deployment was requested; GEN-017 changes local evaluation workflow and leaves public/default behavior unchanged."
+    },
+    {
+      "name": "remote final candidate evaluation",
+      "category": "Architecture Experiment Comparison",
+      "reason": "No new ranking behavior was selected; the cached tuner only reproduced the GEN-016 refined PRF result."
+    },
+    {
+      "name": "BEIR transferability gate",
+      "category": "External / Transferability",
+      "reason": "Deferred to Phase 2."
+    }
+  ],
+  "validation_gate": {
+    "result": "pass",
+    "pass_count": 1,
+    "failed_categories": [],
+    "blocking_findings": []
+  },
+  "evidence_quality_notes": [
+    "GEN-017 improves experiment speed and reproducibility rather than raising the candidate metric.",
+    "Cached pools must be refreshed when the index, analyzer, first-stage architecture, query set, or retrieve depth changes.",
+    "The public/default architecture remains ARCH-0.1 and refined PRF remains an ARCH-0.2-candidate pending transferability evidence."
+  ]
+}

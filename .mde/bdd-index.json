@@ -1,19 +1,19 @@
 {
   "project_id": "retail-search",
-  "generated_at": "2026-07-06",
-  "mission_version": "MISSION-2026-07-06-GEN-010",
+  "generated_at": "2026-07-08",
+  "mission_version": "MISSION-2026-07-08-GEN-024",
   "summary": {
-    "total_active": 12,
+    "total_active": 17,
     "critical": 5,
-    "high": 7,
+    "high": 12,
     "medium": 0,
     "low": 0,
-    "passing": 12,
+    "passing": 14,
     "failing": 0,
     "deferred": 0,
     "planned": 0,
     "tests_reused": 0,
-    "tests_newly_added": 20,
+    "tests_newly_added": 41,
     "tests_removed_or_deferred": 0
   },
   "scenarios": [
@@ -131,6 +131,56 @@
       "when": "they inspect the project artifacts or local API response contracts",
       "then": "the artifact exposes stable identifiers linking Mission, Article, Search Evolution, Architecture Version, Architecture Decision Ledger, Git Tag, search endpoint, explain endpoint, and benchmark report",
       "evidence": "GEN-010 added M-0001, A-0002, SE-0001, ARCH-0.1, ADL-0001, v0.1.0 traceability docs, .mde/traceability.json, local /api/v0.1 aliases, traceability payloads, and scripts/validate-traceability.mjs."
+    },
+    {
+      "id": "BDD-012",
+      "title": "Evaluation failures are grouped by retrieval behavior before architecture changes",
+      "priority": "High",
+      "status": "passing",
+      "given": "live Cranfield evaluation results and qrels",
+      "when": "a candidate architecture is tested",
+      "then": "the evaluator reports behavior groups, query-level relevant and retrieved IDs, first relevant rank, missing relevant IDs, aggregate metric deltas, and query-level improved/worsened counts before the architecture is accepted or rejected",
+      "evidence": "GEN-011 added failure behavior analysis, detailed live baseline/query-rescue/field-sum artifacts, comparison output, SE-0002, ADL-0002, and tests for behavior grouping plus candidate query construction."
+    },
+    {
+      "id": "BDD-013",
+      "title": "Candidate reranking is opt-in and evaluated before promotion",
+      "priority": "High",
+      "status": "passing",
+      "given": "live Cranfield failure groups show zero-relevant-at-10 and late-first-relevant behavior",
+      "when": "a reranking candidate is added",
+      "then": "the public default remains ARCH-0.1, the candidate is selected explicitly by architecture parameter, rerank metadata is returned, live metrics are compared against baseline and prior candidates, and transferability remains deferred until Phase 2",
+      "evidence": "GEN-012 added coverage-rerank, tested it as opt-in, evaluated it live over 225 Cranfield queries, and recorded nDCG@10 0.3095 in evaluation-live-coverage-rerank-gen012.json plus evaluation-comparison-gen012.json."
+    },
+    {
+      "id": "BDD-014",
+      "title": "Supervised LTR requires query-held-out evidence before promotion",
+      "priority": "High",
+      "status": "passing",
+      "given": "Cranfield qrels are used to train a ranking model",
+      "when": "an LTR candidate is evaluated for architecture promotion",
+      "then": "the promotion decision uses query-grouped cross-validation or transferability evidence, and in-sample gains are recorded only as capacity evidence",
+      "evidence": "GEN-020 added offline LTR evaluation with query-grouped 5-fold cross-validation; GEN-021 added boosted-tree LTR; GEN-022 added BGE features that beat refined PRF under cross-validation. GEN-023 remotely validated the simpler BGE hybrid comparator. In-sample gains remain capacity evidence only, and ARCH-0.4-candidate stays unreleased until transferability and complexity comparison."
+    },
+    {
+      "id": "BDD-015",
+      "title": "Vector hybrid candidates require remote validation before promotion",
+      "priority": "High",
+      "status": "passing",
+      "given": "an offline vector/hybrid candidate beats the current lexical candidate",
+      "when": "it is considered for architecture promotion",
+      "then": "it is first validated in a separate remote OpenSearch vector index, the public/default index remains unchanged, and promotion waits for transferability plus runtime evidence",
+      "evidence": "GEN-023 created cranfield-v0-bge-base-en-v15-gen023, validated remote BGE hybrid nDCG@10 0.3533 and binary nDCG@20 0.4926, and kept the public/default ARCH-0.1 path unchanged."
+    },
+    {
+      "id": "BDD-016",
+      "title": "Milestone endpoints expose architecture evolution honestly",
+      "priority": "High",
+      "status": "passing",
+      "given": "a reader wants to compare key Cranfield search milestones through stable URLs",
+      "when": "they call milestone search or explain endpoints",
+      "then": "ARCH-0.1 and ARCH-0.2 PRF routes force their milestone architecture, ARCH-0.3 BGE routes return an explicit runtime-not-enabled response, and the public/default endpoints remain unchanged",
+      "evidence": "GEN-024 added /api/milestones/arch-0.1/*, /api/milestones/arch-0.2-prf/*, and /api/milestones/arch-0.3-bge/* plus Worker route tests and docs/endpoints/milestone-endpoints.md."
     }
   ]
 }

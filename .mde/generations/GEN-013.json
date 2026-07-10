@@ -1,0 +1,108 @@
+{
+  "generation_id": "GEN-013",
+  "project_id": "retail-search",
+  "started_at": "2026-07-07",
+  "ended_at": "2026-07-07",
+  "mission_phase": "Phase 1 - Cranfield Foundation",
+  "mission_version": "MISSION-2026-07-07-GEN-013",
+  "validation_strategy_version": "VALSTRAT-006",
+  "status": "prf_rerank_candidate_live_validated_transferability_pending",
+  "focus": "Research and test a pseudo-relevance-feedback rerank candidate for the remaining Cranfield vocabulary and late-ranking failures.",
+  "reason_started": "Coverage-rerank improved aggregate metrics but left recall and vocabulary mismatch failures unresolved.",
+  "reason_ended": "PRF rerank improved all core live Cranfield metrics over baseline and coverage-rerank while remaining candidate-only.",
+  "files_changed_by_category": {
+    "implementation_artifacts": [
+      "src/cranfield/schema.js",
+      "src/cranfield/search.js",
+      "src/cranfield/explain.js"
+    ],
+    "evaluation_artifacts": [
+      "experiments/cranfield-v0/evaluation-live-prf-rerank-gen013.json",
+      "experiments/cranfield-v0/evaluation-comparison-gen013.json"
+    ],
+    "test_artifacts": [
+      "test/opensearch-query.test.js",
+      "test/worker.test.js"
+    ],
+    "human_artifacts": [
+      "MISSION_UPDATES.md",
+      "docs/evaluation/cranfield-prf-rerank-research.md",
+      "docs/evaluation/cranfield-failure-groups.md",
+      "docs/evolution/experiments/SE-0002-cranfield-field-sum.md",
+      "docs/architecture/decisions/ADL-0002-cranfield-field-sum-candidate.md"
+    ],
+    "agent_artifacts": [
+      ".mde/generations/GEN-013.json",
+      ".mde/generation-summary.md",
+      ".mde/traceability.json"
+    ]
+  },
+  "candidate_results": {
+    "baseline": {
+      "architecture": "baseline",
+      "map": 0.2402,
+      "ndcg_at_10": 0.2995,
+      "precision_at_10": 0.2316,
+      "recall_at_10": 0.3994,
+      "mrr": 0.535
+    },
+    "coverage_rerank": {
+      "architecture": "coverage-rerank",
+      "map": 0.2531,
+      "ndcg_at_10": 0.3095,
+      "precision_at_10": 0.2502,
+      "recall_at_10": 0.4283,
+      "mrr": 0.552
+    },
+    "prf_rerank": {
+      "status": "candidate_improved_transferability_pending",
+      "map": 0.2696,
+      "ndcg_at_10": 0.3253,
+      "precision_at_10": 0.2676,
+      "recall_at_10": 0.4466,
+      "mrr": 0.562
+    }
+  },
+  "validators_executed": [
+    {
+      "name": "node --test",
+      "category": "Technical / Functional",
+      "result": "pass",
+      "evidence": "Local node tests passed after PRF rerank additions."
+    },
+    {
+      "name": "live prf-rerank evaluation",
+      "category": "Architecture Experiment Comparison",
+      "result": "pass",
+      "evidence": "experiments/cranfield-v0/evaluation-live-prf-rerank-gen013.json records nDCG@10 0.3253 over 225 live Cranfield queries."
+    },
+    {
+      "name": "npm run compare:cranfield",
+      "category": "Architecture Experiment Comparison",
+      "result": "pass",
+      "evidence": "experiments/cranfield-v0/evaluation-comparison-gen013.json compares baseline, coverage-rerank, and prf-rerank."
+    }
+  ],
+  "validators_skipped": [
+    {
+      "name": "Cloudflare deploy verification",
+      "category": "Deployment / External",
+      "reason": "No deployment was requested; GEN-013 leaves the public default unchanged."
+    },
+    {
+      "name": "BEIR transferability gate",
+      "category": "External / Transferability",
+      "reason": "Deferred to Phase 2."
+    }
+  ],
+  "validation_gate": {
+    "result": "pass_local_and_live_evaluation",
+    "pass_count": 1,
+    "failed_categories": [],
+    "blocking_findings": []
+  },
+  "evidence_quality_notes": [
+    "Live evaluation uses the full 225-query Cranfield qrel set and the configured OpenSearch index.",
+    "Candidate remains transferability-pending to avoid Cranfield overfitting."
+  ]
+}

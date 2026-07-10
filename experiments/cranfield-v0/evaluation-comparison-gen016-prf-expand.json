@@ -1,0 +1,663 @@
+{
+  "generatedAt": "2026-07-07T19:22:20.275Z",
+  "dataset": "cranfield",
+  "k": 10,
+  "retrieveSize": 50,
+  "baseline": {
+    "artifact": "experiments/cranfield-v0/evaluation-live-prf-rerank-gen013.json",
+    "architectureVersion": "v0.2-candidate-cranfield-prf-rerank",
+    "searchArchitecture": {
+      "id": "prf-rerank",
+      "label": "SE-0002 pseudo-relevance-feedback rerank candidate",
+      "status": "candidate",
+      "searchEvolutionId": "SE-0002",
+      "architectureVersion": "ARCH-0.2-candidate",
+      "architectureSlug": "v0.2-candidate-cranfield-prf-rerank",
+      "architectureDecisionIds": [
+        "ADL-0002"
+      ],
+      "queryStrategy": "Retrieve the top 50 with field-sum BM25, derive feedback terms from the highest-ranked titles and abstracts, then rerank candidates with original-query and feedback-term coverage.",
+      "rankingLogic": [
+        "Use the field-sum candidate as the OpenSearch retrieval floor.",
+        "Extract expansion terms from the top retrieved titles and abstracts using pseudo-relevance feedback.",
+        "Normalize the OpenSearch score within the retrieved set.",
+        "Add deterministic original-query and feedback-term title/abstract coverage bonuses.",
+        "Return the requested result count after reranking the top 50 candidates.",
+        "No query-specific result overrides, runtime LLM calls, personalization, or learning-to-rank model are used in the candidate."
+      ],
+      "techniquesApplied": [
+        "OpenSearch English analyzer",
+        "BM25 field-specific match scoring",
+        "summed title, abstract, and text evidence",
+        "pseudo-relevance feedback over top titles and abstracts",
+        "deterministic title/abstract coverage rerank",
+        "dataset filter for Cranfield documents"
+      ],
+      "targetedFailureGroups": [
+        "zero_relevant_at_k",
+        "late_first_relevant",
+        "lexical_noise_low_precision",
+        "partial_recall"
+      ]
+    },
+    "metrics": {
+      "map": 0.2696,
+      "ndcgAtK": 0.3253,
+      "precisionAtK": 0.2676,
+      "recallAtK": 0.4466,
+      "mrr": 0.562
+    },
+    "failureGroups": [
+      {
+        "id": "passing_or_minor",
+        "label": "Passing or minor issue",
+        "description": "The top K behavior is not currently classified as a meaningful failure.",
+        "queryCount": 83,
+        "averageMetrics": {
+          "precisionAtK": 0.3976,
+          "recallAtK": 0.7567,
+          "averagePrecision": 0.5179,
+          "reciprocalRank": 0.761,
+          "ndcgAtK": 0.5603
+        },
+        "averageRelevantCount": 5.7229,
+        "averageRelevantHitsAtK": 3.9759
+      },
+      {
+        "id": "late_first_relevant",
+        "label": "Relevant result ranked too late",
+        "description": "A relevant document appears in the top K, but below the first three positions.",
+        "queryCount": 40,
+        "averageMetrics": {
+          "precisionAtK": 0.1525,
+          "recallAtK": 0.3403,
+          "averagePrecision": 0.0765,
+          "reciprocalRank": 0.1947,
+          "ndcgAtK": 0.153
+        },
+        "averageRelevantCount": 5.65,
+        "averageRelevantHitsAtK": 1.525
+      },
+      {
+        "id": "broad_need_low_recall",
+        "label": "Broad information need with low recall",
+        "description": "The query has many relevant judgments, but the top K captures only a small fraction.",
+        "queryCount": 29,
+        "averageMetrics": {
+          "precisionAtK": 0.3241,
+          "recallAtK": 0.202,
+          "averagePrecision": 0.1223,
+          "reciprocalRank": 0.7701,
+          "ndcgAtK": 0.235
+        },
+        "averageRelevantCount": 16.4828,
+        "averageRelevantHitsAtK": 3.2414
+      },
+      {
+        "id": "zero_relevant_at_k",
+        "label": "No relevant result in top K",
+        "description": "The query retrieved results, but none of the top K results are judged relevant.",
+        "queryCount": 23,
+        "averageMetrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        },
+        "averageRelevantCount": 4.087,
+        "averageRelevantHitsAtK": 0
+      },
+      {
+        "id": "lexical_noise_low_precision",
+        "label": "Lexical noise dominates",
+        "description": "The query finds at least one relevant document, but most top K results are non-relevant.",
+        "queryCount": 21,
+        "averageMetrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.3365,
+          "averagePrecision": 0.202,
+          "reciprocalRank": 0.6508,
+          "ndcgAtK": 0.2732
+        },
+        "averageRelevantCount": 4.1905,
+        "averageRelevantHitsAtK": 1
+      },
+      {
+        "id": "partial_recall",
+        "label": "Partial recall",
+        "description": "The query has relevant hits, but leaves most judged relevant documents outside top K.",
+        "queryCount": 16,
+        "averageMetrics": {
+          "precisionAtK": 0.4062,
+          "recallAtK": 0.3941,
+          "averagePrecision": 0.2773,
+          "reciprocalRank": 0.75,
+          "ndcgAtK": 0.3755
+        },
+        "averageRelevantCount": 10.1875,
+        "averageRelevantHitsAtK": 4.0625
+      },
+      {
+        "id": "graded_ranking_loss",
+        "label": "Relevant results found but weak graded ranking",
+        "description": "Some relevant documents are found, but graded relevance remains low.",
+        "queryCount": 13,
+        "averageMetrics": {
+          "precisionAtK": 0.2385,
+          "recallAtK": 0.3712,
+          "averagePrecision": 0.1842,
+          "reciprocalRank": 0.5769,
+          "ndcgAtK": 0.1534
+        },
+        "averageRelevantCount": 6.7692,
+        "averageRelevantHitsAtK": 2.3846
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "artifact": "experiments/cranfield-v0/evaluation-live-prf-expand-rerank-gen016.json",
+      "architectureVersion": "v0.2-candidate-cranfield-prf-expand-rerank",
+      "searchArchitecture": {
+        "id": "prf-expand-rerank",
+        "label": "SE-0002 PRF expanded-retrieval rerank candidate",
+        "status": "candidate",
+        "searchEvolutionId": "SE-0002",
+        "architectureVersion": "ARCH-0.2-candidate",
+        "architectureSlug": "v0.2-candidate-cranfield-prf-expand-rerank",
+        "architectureDecisionIds": [
+          "ADL-0002"
+        ],
+        "queryStrategy": "Retrieve top candidates with field-sum BM25, derive feedback terms, issue a second feedback-expanded OpenSearch retrieval, then rerank the merged pool.",
+        "rankingLogic": [
+          "Use field-sum BM25 as the first-stage retrieval floor.",
+          "Extract expansion terms from the top retrieved titles and abstracts using pseudo-relevance feedback.",
+          "Run a second OpenSearch query that includes original query clauses and lower-weight feedback-term clauses.",
+          "Merge the original and expanded retrieval pools, preserving original and expanded ranks.",
+          "Rerank with normalized original score, normalized expanded score, and original-query plus feedback-term coverage.",
+          "Return the requested result count after reranking the merged candidates.",
+          "No query-specific result overrides, runtime LLM calls, personalization, or learning-to-rank model are used in the candidate."
+        ],
+        "techniquesApplied": [
+          "OpenSearch English analyzer",
+          "BM25 field-specific match scoring",
+          "summed title, abstract, and text evidence",
+          "pseudo-relevance feedback over top titles and abstracts",
+          "feedback-expanded second-stage retrieval",
+          "deterministic merged-pool rerank",
+          "dataset filter for Cranfield documents"
+        ],
+        "targetedFailureGroups": [
+          "zero_relevant_at_k",
+          "broad_need_low_recall",
+          "partial_recall",
+          "late_first_relevant"
+        ]
+      },
+      "metrics": {
+        "map": 0.2675,
+        "ndcgAtK": 0.3219,
+        "precisionAtK": 0.2653,
+        "recallAtK": 0.4412,
+        "mrr": 0.5575
+      },
+      "failureGroups": [
+        {
+          "id": "passing_or_minor",
+          "label": "Passing or minor issue",
+          "description": "The top K behavior is not currently classified as a meaningful failure.",
+          "queryCount": 79,
+          "averageMetrics": {
+            "precisionAtK": 0.4025,
+            "recallAtK": 0.7648,
+            "averagePrecision": 0.5299,
+            "reciprocalRank": 0.7658,
+            "ndcgAtK": 0.5692
+          },
+          "averageRelevantCount": 5.7215,
+          "averageRelevantHitsAtK": 4.0253
+        },
+        {
+          "id": "late_first_relevant",
+          "label": "Relevant result ranked too late",
+          "description": "A relevant document appears in the top K, but below the first three positions.",
+          "queryCount": 38,
+          "averageMetrics": {
+            "precisionAtK": 0.15,
+            "recallAtK": 0.3672,
+            "averagePrecision": 0.0831,
+            "reciprocalRank": 0.1911,
+            "ndcgAtK": 0.1635
+          },
+          "averageRelevantCount": 5.2105,
+          "averageRelevantHitsAtK": 1.5
+        },
+        {
+          "id": "broad_need_low_recall",
+          "label": "Broad information need with low recall",
+          "description": "The query has many relevant judgments, but the top K captures only a small fraction.",
+          "queryCount": 29,
+          "averageMetrics": {
+            "precisionAtK": 0.3034,
+            "recallAtK": 0.1897,
+            "averagePrecision": 0.1166,
+            "reciprocalRank": 0.7759,
+            "ndcgAtK": 0.2282
+          },
+          "averageRelevantCount": 16.5172,
+          "averageRelevantHitsAtK": 3.0345
+        },
+        {
+          "id": "zero_relevant_at_k",
+          "label": "No relevant result in top K",
+          "description": "The query retrieved results, but none of the top K results are judged relevant.",
+          "queryCount": 24,
+          "averageMetrics": {
+            "precisionAtK": 0,
+            "recallAtK": 0,
+            "averagePrecision": 0,
+            "reciprocalRank": 0,
+            "ndcgAtK": 0
+          },
+          "averageRelevantCount": 4.0833,
+          "averageRelevantHitsAtK": 0
+        },
+        {
+          "id": "lexical_noise_low_precision",
+          "label": "Lexical noise dominates",
+          "description": "The query finds at least one relevant document, but most top K results are non-relevant.",
+          "queryCount": 23,
+          "averageMetrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.3072,
+            "averagePrecision": 0.1899,
+            "reciprocalRank": 0.6377,
+            "ndcgAtK": 0.2487
+          },
+          "averageRelevantCount": 4.2174,
+          "averageRelevantHitsAtK": 1
+        },
+        {
+          "id": "graded_ranking_loss",
+          "label": "Relevant results found but weak graded ranking",
+          "description": "Some relevant documents are found, but graded relevance remains low.",
+          "queryCount": 16,
+          "averageMetrics": {
+            "precisionAtK": 0.2438,
+            "recallAtK": 0.3633,
+            "averagePrecision": 0.1717,
+            "reciprocalRank": 0.5312,
+            "ndcgAtK": 0.1699
+          },
+          "averageRelevantCount": 7.0625,
+          "averageRelevantHitsAtK": 2.4375
+        },
+        {
+          "id": "partial_recall",
+          "label": "Partial recall",
+          "description": "The query has relevant hits, but leaves most judged relevant documents outside top K.",
+          "queryCount": 16,
+          "averageMetrics": {
+            "precisionAtK": 0.45,
+            "recallAtK": 0.4073,
+            "averagePrecision": 0.2925,
+            "reciprocalRank": 0.75,
+            "ndcgAtK": 0.3868
+          },
+          "averageRelevantCount": 10.9375,
+          "averageRelevantHitsAtK": 4.5
+        }
+      ],
+      "metricDeltas": {
+        "map": -0.0021,
+        "ndcgAtK": -0.0034,
+        "precisionAtK": -0.0023,
+        "recallAtK": -0.0054,
+        "mrr": -0.0045
+      },
+      "groupDeltas": [
+        {
+          "id": "passing_or_minor",
+          "baselineCount": 83,
+          "candidateCount": 79,
+          "delta": -4
+        },
+        {
+          "id": "graded_ranking_loss",
+          "baselineCount": 13,
+          "candidateCount": 16,
+          "delta": 3
+        },
+        {
+          "id": "late_first_relevant",
+          "baselineCount": 40,
+          "candidateCount": 38,
+          "delta": -2
+        },
+        {
+          "id": "lexical_noise_low_precision",
+          "baselineCount": 21,
+          "candidateCount": 23,
+          "delta": 2
+        },
+        {
+          "id": "zero_relevant_at_k",
+          "baselineCount": 23,
+          "candidateCount": 24,
+          "delta": 1
+        },
+        {
+          "id": "broad_need_low_recall",
+          "baselineCount": 29,
+          "candidateCount": 29,
+          "delta": 0
+        },
+        {
+          "id": "partial_recall",
+          "baselineCount": 16,
+          "candidateCount": 16,
+          "delta": 0
+        }
+      ],
+      "queryDeltas": {
+        "improvedCount": 58,
+        "worsenedCount": 58,
+        "unchangedCount": 109,
+        "topImproved": [
+          {
+            "queryId": "24",
+            "query": "what are the factors which influence the time required to invert large structural matrices .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": 0.2028,
+            "averagePrecisionDelta": 0.1111,
+            "reciprocalRankDelta": 0,
+            "recallDelta": 0.3333,
+            "baselineNdcgAtK": 0.3064,
+            "candidateNdcgAtK": 0.5092
+          },
+          {
+            "queryId": "129",
+            "query": "has anyone derived simplified pump design equation from the fundamental three-dimensional equations for incompressible nonviscous flow .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": 0.15,
+            "averagePrecisionDelta": 0.0985,
+            "reciprocalRankDelta": 0,
+            "recallDelta": 0.1429,
+            "baselineNdcgAtK": 0.3347,
+            "candidateNdcgAtK": 0.4847
+          },
+          {
+            "queryId": "173",
+            "query": "references on lyapunov's method on the stability of linear differential equations with periodic coefficients .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": 0.0803,
+            "averagePrecisionDelta": 0.1667,
+            "reciprocalRankDelta": 0,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.9197,
+            "candidateNdcgAtK": 1
+          },
+          {
+            "queryId": "25",
+            "query": "does a practical flow follow the theoretical concepts for the interaction between adjacent blade rows of a supersonic cascade .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": 0.0665,
+            "averagePrecisionDelta": 0.0567,
+            "reciprocalRankDelta": 0,
+            "recallDelta": 0.1111,
+            "baselineNdcgAtK": 0.589,
+            "candidateNdcgAtK": 0.6555
+          },
+          {
+            "queryId": "224",
+            "query": "in practice, how close to reality are the assumptions that the flow in a hypersonic shock tube using nitrogen is non-viscous and in thermodynamic equilibrium .",
+            "baselineGroup": "late_first_relevant",
+            "candidateGroup": "late_first_relevant",
+            "ndcgDelta": 0.0651,
+            "averagePrecisionDelta": 0.032,
+            "reciprocalRankDelta": 0.0333,
+            "recallDelta": 0.125,
+            "baselineNdcgAtK": 0.0699,
+            "candidateNdcgAtK": 0.135
+          },
+          {
+            "queryId": "125",
+            "query": "jet interference with supersonic flow -dash experimental papers .",
+            "baselineGroup": "broad_need_low_recall",
+            "candidateGroup": "partial_recall",
+            "ndcgDelta": 0.0645,
+            "averagePrecisionDelta": 0.0613,
+            "reciprocalRankDelta": 0,
+            "recallDelta": 0.0588,
+            "baselineNdcgAtK": 0.213,
+            "candidateNdcgAtK": 0.2775
+          },
+          {
+            "queryId": "133",
+            "query": "experimental studies of creep buckling .",
+            "baselineGroup": "graded_ranking_loss",
+            "candidateGroup": "graded_ranking_loss",
+            "ndcgDelta": 0.063,
+            "averagePrecisionDelta": 0.1013,
+            "reciprocalRankDelta": 0,
+            "recallDelta": 0.1428,
+            "baselineNdcgAtK": 0.0746,
+            "candidateNdcgAtK": 0.1376
+          },
+          {
+            "queryId": "171",
+            "query": "has a comparison been made between interference-free drag measurements using free-flight models and similar measurements made in a low-blockage wind tunnel .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": 0.0602,
+            "averagePrecisionDelta": 0,
+            "reciprocalRankDelta": 0,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.4706,
+            "candidateNdcgAtK": 0.5308
+          },
+          {
+            "queryId": "219",
+            "query": "what are the general effects on flow fields when the reynolds number is small .",
+            "baselineGroup": "late_first_relevant",
+            "candidateGroup": "broad_need_low_recall",
+            "ndcgDelta": 0.0558,
+            "averagePrecisionDelta": 0.0202,
+            "reciprocalRankDelta": 0.25,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.1682,
+            "candidateNdcgAtK": 0.224
+          },
+          {
+            "queryId": "107",
+            "query": "in summarizing theoretical and experimental work on the behaviour of a typical aircraft structure in a noise environment is it possible to develop a design procedure .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": 0.0509,
+            "averagePrecisionDelta": 0.0715,
+            "reciprocalRankDelta": 0,
+            "recallDelta": 0.1429,
+            "baselineNdcgAtK": 0.4379,
+            "candidateNdcgAtK": 0.4888
+          },
+          {
+            "queryId": "141",
+            "query": "what analytical solutions are available for stresses in edge-loaded shells of revolution .",
+            "baselineGroup": "late_first_relevant",
+            "candidateGroup": "graded_ranking_loss",
+            "ndcgDelta": 0.0402,
+            "averagePrecisionDelta": 0.0417,
+            "reciprocalRankDelta": 0.25,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.1276,
+            "candidateNdcgAtK": 0.1678
+          },
+          {
+            "queryId": "201",
+            "query": "what are the nonequilibrium chemical constituents in the viscous shock layer ahead of a blunt re-entry vehicle .",
+            "baselineGroup": "partial_recall",
+            "candidateGroup": "partial_recall",
+            "ndcgDelta": 0.0375,
+            "averagePrecisionDelta": 0.0596,
+            "reciprocalRankDelta": 0,
+            "recallDelta": 0.0625,
+            "baselineNdcgAtK": 0.3384,
+            "candidateNdcgAtK": 0.3759
+          }
+        ],
+        "topWorsened": [
+          {
+            "queryId": "121",
+            "query": "what papers are there dealing with circumferential buckling either thermal buckling or due to mechanical loading .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": -0.1875,
+            "averagePrecisionDelta": -0.1124,
+            "reciprocalRankDelta": 0,
+            "recallDelta": -0.1429,
+            "baselineNdcgAtK": 0.5179,
+            "candidateNdcgAtK": 0.3304
+          },
+          {
+            "queryId": "85",
+            "query": "what parameters can seriously influence natural transition from laminar to turbulent flow on a model in a wind tunnel .",
+            "baselineGroup": "late_first_relevant",
+            "candidateGroup": "zero_relevant_at_k",
+            "ndcgDelta": -0.1516,
+            "averagePrecisionDelta": -0.025,
+            "reciprocalRankDelta": -0.1,
+            "recallDelta": -0.25,
+            "baselineNdcgAtK": 0.1516,
+            "candidateNdcgAtK": 0
+          },
+          {
+            "queryId": "95",
+            "query": "what is the theoretical heat transfer distribution around a hemisphere .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": -0.1257,
+            "averagePrecisionDelta": -0.0834,
+            "reciprocalRankDelta": -0.1667,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.6283,
+            "candidateNdcgAtK": 0.5026
+          },
+          {
+            "queryId": "104",
+            "query": "can the load deformation characteristics of a beam be obtained with the material being inelastic and a non uniform temperature being present .",
+            "baselineGroup": "late_first_relevant",
+            "candidateGroup": "late_first_relevant",
+            "ndcgDelta": -0.1209,
+            "averagePrecisionDelta": -0.0533,
+            "reciprocalRankDelta": -0.0667,
+            "recallDelta": -0.2,
+            "baselineNdcgAtK": 0.2189,
+            "candidateNdcgAtK": 0.098
+          },
+          {
+            "queryId": "82",
+            "query": "how do kuchemann's and multhopp's methods for calculating lift distributions on swept wings in subsonic flow compare with each other and with experiment .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "graded_ranking_loss",
+            "ndcgDelta": -0.1204,
+            "averagePrecisionDelta": -0.0696,
+            "reciprocalRankDelta": 0,
+            "recallDelta": -0.2,
+            "baselineNdcgAtK": 0.3507,
+            "candidateNdcgAtK": 0.2303
+          },
+          {
+            "queryId": "167",
+            "query": "exact solution methods for calculating the ablative mass loss of a material ablating at high temperatures in a hypersonic flight environment .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "lexical_noise_low_precision",
+            "ndcgDelta": -0.1064,
+            "averagePrecisionDelta": -0.125,
+            "reciprocalRankDelta": 0,
+            "recallDelta": -0.5,
+            "baselineNdcgAtK": 0.5,
+            "candidateNdcgAtK": 0.3936
+          },
+          {
+            "queryId": "198",
+            "query": "is there any information available on the difference in the effects of various edge conditions on the buckling of cylindrical shells .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": -0.0948,
+            "averagePrecisionDelta": -0.125,
+            "reciprocalRankDelta": -0.5,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.5558,
+            "candidateNdcgAtK": 0.461
+          },
+          {
+            "queryId": "21",
+            "query": "why does the compressibility transformation fail to correlate the high speed data for helium and air .",
+            "baselineGroup": "late_first_relevant",
+            "candidateGroup": "late_first_relevant",
+            "ndcgDelta": -0.0886,
+            "averagePrecisionDelta": -0.0833,
+            "reciprocalRankDelta": -0.0333,
+            "recallDelta": -0.25,
+            "baselineNdcgAtK": 0.2181,
+            "candidateNdcgAtK": 0.1295
+          },
+          {
+            "queryId": "122",
+            "query": "what analytical investigations have been made of the stability of conical shells . how do the results compare with experiment .",
+            "baselineGroup": "partial_recall",
+            "candidateGroup": "partial_recall",
+            "ndcgDelta": -0.0698,
+            "averagePrecisionDelta": -0.023,
+            "reciprocalRankDelta": -0.1667,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.4551,
+            "candidateNdcgAtK": 0.3853
+          },
+          {
+            "queryId": "119",
+            "query": "what is the effect of initial axisymmetric deviations from circularity on the non linear (large-deflection) load-deflection response of cylinders under hydrostatic pressure .",
+            "baselineGroup": "lexical_noise_low_precision",
+            "candidateGroup": "late_first_relevant",
+            "ndcgDelta": -0.0693,
+            "averagePrecisionDelta": -0.0833,
+            "reciprocalRankDelta": -0.0833,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.5,
+            "candidateNdcgAtK": 0.4307
+          },
+          {
+            "queryId": "9",
+            "query": "papers on internal /slip flow/ heat transfer studies .",
+            "baselineGroup": "passing_or_minor",
+            "candidateGroup": "passing_or_minor",
+            "ndcgDelta": -0.0615,
+            "averagePrecisionDelta": -0.1111,
+            "reciprocalRankDelta": 0,
+            "recallDelta": 0,
+            "baselineNdcgAtK": 0.9675,
+            "candidateNdcgAtK": 0.906
+          },
+          {
+            "queryId": "189",
+            "query": "is there a design method for calculating thermal fatigue endurances of components of various types and sizes in a variety of circumstances .",
+            "baselineGroup": "partial_recall",
+            "candidateGroup": "graded_ranking_loss",
+            "ndcgDelta": -0.0596,
+            "averagePrecisionDelta": -0.0333,
+            "reciprocalRankDelta": 0,
+            "recallDelta": -0.1111,
+            "baselineNdcgAtK": 0.2513,
+            "candidateNdcgAtK": 0.1917
+          }
+        ]
+      },
+      "decision": "candidate_regressed_core_metrics"
+    }
+  ]
+}

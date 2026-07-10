@@ -1,0 +1,57 @@
+{
+  "run_id": "VAL-031",
+  "project_id": "retail-search",
+  "generation_id": "GEN-021",
+  "executed_at": "2026-07-08T10:38:00-04:00",
+  "validation_strategy_version": "VALSTRAT-006",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "41 node tests passed; MDE parser checked project JSON/JSONL files; traceability validator checked required IDs through GEN-021 and boosted-tree LTR artifacts; fixture index check passed; fixture evaluation passed."
+    },
+    {
+      "name": "node --test test/ltr.test.js",
+      "category": "Architecture Experiment Comparison / Learning-To-Rank",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Coordinate-ascent and boosted-tree LTR feature/training tests passed."
+    },
+    {
+      "name": "npm run eval:cranfield:ltr -- --model boosted-trees --max-depth 3",
+      "category": "Architecture Experiment Comparison / Learning-To-Rank",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "evaluation-ltr-boosted-trees-depth3-gen021.json records cross-validated nDCG@10 0.3216; evaluation-ltr-boosted-trees-depth3-k20-binary-gen021.json records binary nDCG@20 0.4457."
+    }
+  ],
+  "blocked_or_skipped": [
+    {
+      "name": "remote OpenSearch LTR plugin validation",
+      "reason": "Deferred because offline cross-validated boosted-tree LTR did not beat refined PRF."
+    },
+    {
+      "name": "Cloudflare deploy verification",
+      "reason": "No deployment was requested; GEN-021 leaves the public/default architecture unchanged."
+    }
+  ],
+  "critical_findings": [],
+  "high_findings": [
+    {
+      "id": "FIND-004",
+      "status": "deferred",
+      "summary": "ARCH-0.2-candidate refined prf-rerank remains candidate-only until BEIR transferability is measured."
+    }
+  ],
+  "medium_findings": [
+    {
+      "id": "FIND-009",
+      "status": "active",
+      "summary": "Boosted-tree LTR improves graded cross-validation but remains below refined PRF and regresses in binary cross-validation."
+    }
+  ],
+  "evidence_quality": "GEN-021 validates a stronger local LTR model and records that pointwise boosted trees are still not promotion-quality under query-grouped cross-validation."
+}

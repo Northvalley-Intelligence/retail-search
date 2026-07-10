@@ -1,0 +1,82 @@
+{
+  "generatedAt": "2026-07-07T21:45:57.039Z",
+  "dataset": "cranfield",
+  "retrievalSource": "experiments/cranfield-v0/retrieval-pools-field-sum-top50-gen017.json",
+  "sourceArchitecture": "field-sum",
+  "k": 10,
+  "retrieveSize": 50,
+  "queryCount": 225,
+  "configCount": 5,
+  "top": [
+    {
+      "feedbackDocuments": 4,
+      "feedbackTerms": 8,
+      "originalWeight": 0.06,
+      "expansionWeight": 0.14,
+      "phraseWeight": 0.01,
+      "metrics": {
+        "map": 0.2699,
+        "ndcgAtK": 0.326,
+        "precisionAtK": 0.268,
+        "recallAtK": 0.4469,
+        "mrr": 0.5622
+      }
+    },
+    {
+      "feedbackDocuments": 4,
+      "feedbackTerms": 8,
+      "originalWeight": 0.06,
+      "expansionWeight": 0.14,
+      "phraseWeight": 0.06,
+      "metrics": {
+        "map": 0.2707,
+        "ndcgAtK": 0.3258,
+        "precisionAtK": 0.2676,
+        "recallAtK": 0.4465,
+        "mrr": 0.5619
+      }
+    },
+    {
+      "feedbackDocuments": 4,
+      "feedbackTerms": 8,
+      "originalWeight": 0.06,
+      "expansionWeight": 0.14,
+      "phraseWeight": 0,
+      "metrics": {
+        "map": 0.2696,
+        "ndcgAtK": 0.3253,
+        "precisionAtK": 0.2676,
+        "recallAtK": 0.4466,
+        "mrr": 0.562
+      }
+    },
+    {
+      "feedbackDocuments": 4,
+      "feedbackTerms": 8,
+      "originalWeight": 0.06,
+      "expansionWeight": 0.14,
+      "phraseWeight": 0.04,
+      "metrics": {
+        "map": 0.2692,
+        "ndcgAtK": 0.3244,
+        "precisionAtK": 0.2671,
+        "recallAtK": 0.4466,
+        "mrr": 0.5592
+      }
+    },
+    {
+      "feedbackDocuments": 4,
+      "feedbackTerms": 8,
+      "originalWeight": 0.06,
+      "expansionWeight": 0.14,
+      "phraseWeight": 0.02,
+      "metrics": {
+        "map": 0.2683,
+        "ndcgAtK": 0.3239,
+        "precisionAtK": 0.2667,
+        "recallAtK": 0.4461,
+        "mrr": 0.5591
+      }
+    }
+  ]
+}

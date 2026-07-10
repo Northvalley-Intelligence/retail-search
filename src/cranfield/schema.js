@@ -5,6 +5,207 @@ export const DATASET_ID = "cranfield";
 export const DEFAULT_INDEX = "cranfield-v0";
 export const ARCHITECTURE_VERSION = "v0-cranfield-opensearch-baseline";
 export const SEARCH_FIELDS = ["title^3", "abstract^2", "text"];
+export const QUERY_RESCUE_SEARCH_FIELDS = ["title^8", "abstract^5", "text^2"];
+export const DEFAULT_SEARCH_ARCHITECTURE_ID = "baseline";
+
+export const SEARCH_ARCHITECTURES = {
+  baseline: {
+    id: "baseline",
+    label: "ARCH-0.1 OpenSearch BM25 baseline",
+    status: "accepted",
+    searchEvolutionId: "SE-0001",
+    architectureVersion: TRACEABILITY.architectureVersion,
+    architectureSlug: ARCHITECTURE_VERSION,
+    architectureDecisionIds: ["ADL-0001"],
+    queryStrategy: "Single OpenSearch multi_match best_fields query over title, abstract, and text.",
+    rankingLogic: [
+      "OpenSearch BM25 baseline over title, abstract, and text fields.",
+      "Title receives the highest field boost, abstract receives a moderate boost, and full text is unboosted.",
+      "No query-specific result overrides, runtime LLM calls, personalization, or learning-to-rank model are used in v0."
+    ],
+    techniquesApplied: [
+      "OpenSearch English analyzer",
+      "BM25 baseline scoring",
+      "field weighting for title and abstract",
+      "dataset filter for Cranfield documents"
+    ]
+  },
+  "query-rescue": {
+    id: "query-rescue",
+    label: "SE-0002 query-rescue candidate",
+    status: "candidate",
+    searchEvolutionId: "SE-0002",
+    architectureVersion: "ARCH-0.2-candidate",
+    architectureSlug: "v0.2-candidate-cranfield-query-rescue",
+    architectureDecisionIds: ["ADL-0002"],
+    queryStrategy:
+      "Baseline BM25 recall clause plus phrase/proximity and all-keyword boost clauses to rescue zero-relevant and late-relevant Cranfield queries.",
+    rankingLogic: [
+      "Keep the baseline best_fields OR multi_match clause as the recall floor.",
+      "Boost close phrase matches across title, abstract, and text to reward coherent concepts.",
+      "Boost cross-field matches where all analyzed query terms appear, improving rank for focused technical topics.",
+      "No query-specific result overrides, runtime LLM calls, personalization, or learning-to-rank model are used in the candidate."
+    ],
+    techniquesApplied: [
+      "OpenSearch English analyzer",
+      "BM25 baseline recall clause",
+      "phrase/proximity boost",
+      "cross-field all-keyword boost",
+      "dataset filter for Cranfield documents"
+    ],
+    targetedFailureGroups: ["zero_relevant_at_k", "late_first_relevant", "lexical_noise_low_precision"]
+  },
+  "field-sum": {
+    id: "field-sum",
+    label: "SE-0002 field-sum candidate",
+    status: "candidate",
+    searchEvolutionId: "SE-0002",
+    architectureVersion: "ARCH-0.2-candidate",
+    architectureSlug: "v0.2-candidate-cranfield-field-sum",
+    architectureDecisionIds: ["ADL-0002"],
+    queryStrategy:
+      "Separate boosted BM25 match clauses for title, abstract, and text so evidence spread across fields can add together instead of using only the best field.",
+    rankingLogic: [
+      "Replace the single best_fields multi_match query with summed field-specific BM25 match clauses.",
+      "Keep the same title, abstract, and text boosts as the baseline.",
+      "Require at least one field to match while allowing scores from multiple fields to accumulate.",
+      "No query-specific result overrides, runtime LLM calls, personalization, or learning-to-rank model are used in the candidate."
+    ],
+    techniquesApplied: [
+      "OpenSearch English analyzer",
+      "BM25 field-specific match scoring",
+      "summed title, abstract, and text evidence",
+      "dataset filter for Cranfield documents"
+    ],
+    targetedFailureGroups: ["late_first_relevant", "broad_need_low_recall", "partial_recall"]
+  },
+  "coverage-rerank": {
+    id: "coverage-rerank",
+    label: "SE-0002 coverage-rerank candidate",
+    status: "candidate",
+    searchEvolutionId: "SE-0002",
+    architectureVersion: "ARCH-0.2-candidate",
+    architectureSlug: "v0.2-candidate-cranfield-coverage-rerank",
+    architectureDecisionIds: ["ADL-0002"],
+    queryStrategy:
+      "Retrieve the top 50 with field-sum BM25, then apply a small deterministic title/abstract query-term coverage bonus before returning the requested results.",
+    rankingLogic: [
+      "Use the field-sum candidate as the OpenSearch retrieval floor.",
+      "Normalize the OpenSearch score within the retrieved set.",
+      "Add a small title and abstract coverage bonus for significant query terms.",
+      "Return the requested result count after reranking the top 50 candidates.",
+      "No query-specific result overrides, runtime LLM calls, personalization, or learning-to-rank model are used in the candidate."
+    ],
+    techniquesApplied: [
+      "OpenSearch English analyzer",
+      "BM25 field-specific match scoring",
+      "summed title, abstract, and text evidence",
+      "deterministic title/abstract coverage rerank",
+      "dataset filter for Cranfield documents"
+    ],
+    targetedFailureGroups: ["zero_relevant_at_k", "late_first_relevant", "lexical_noise_low_precision"]
+  },
+  "prf-rerank": {
+    id: "prf-rerank",
+    label: "SE-0002 pseudo-relevance-feedback rerank candidate",
+    status: "candidate",
+    searchEvolutionId: "SE-0002",
+    architectureVersion: "ARCH-0.2-candidate",
+    architectureSlug: "v0.2-candidate-cranfield-prf-rerank",
+    architectureDecisionIds: ["ADL-0002"],
+    queryStrategy:
+      "Retrieve the top 50 with field-sum BM25, derive feedback terms from the highest-ranked titles and abstracts, then rerank candidates with original-query and feedback-term coverage.",
+    rankingLogic: [
+      "Use the field-sum candidate as the OpenSearch retrieval floor.",
+      "Extract expansion terms from the top retrieved titles and abstracts using pseudo-relevance feedback.",
+      "Normalize the OpenSearch score within the retrieved set.",
+      "Add deterministic original-query and feedback-term title/abstract coverage bonuses.",
+      "Add a small original-query phrase coherence bonus for adjacent significant query terms in titles and abstracts.",
+      "Return the requested result count after reranking the top 50 candidates.",
+      "No query-specific result overrides, runtime LLM calls, personalization, or learning-to-rank model are used in the candidate."
+    ],
+    techniquesApplied: [
+      "OpenSearch English analyzer",
+      "BM25 field-specific match scoring",
+      "summed title, abstract, and text evidence",
+      "pseudo-relevance feedback over top titles and abstracts",
+      "deterministic title/abstract coverage rerank",
+      "deterministic phrase coherence rerank",
+      "dataset filter for Cranfield documents"
+    ],
+    targetedFailureGroups: ["zero_relevant_at_k", "late_first_relevant", "lexical_noise_low_precision", "partial_recall"]
+  },
+  "prf-expand-rerank": {
+    id: "prf-expand-rerank",
+    label: "SE-0002 PRF expanded-retrieval rerank candidate",
+    status: "candidate",
+    searchEvolutionId: "SE-0002",
+    architectureVersion: "ARCH-0.2-candidate",
+    architectureSlug: "v0.2-candidate-cranfield-prf-expand-rerank",
+    architectureDecisionIds: ["ADL-0002"],
+    queryStrategy:
+      "Retrieve top candidates with field-sum BM25, derive feedback terms, issue a second feedback-expanded OpenSearch retrieval, then rerank the merged pool.",
+    rankingLogic: [
+      "Use field-sum BM25 as the first-stage retrieval floor.",
+      "Extract expansion terms from the top retrieved titles and abstracts using pseudo-relevance feedback.",
+      "Run a second OpenSearch query that includes original query clauses and lower-weight feedback-term clauses.",
+      "Merge the original and expanded retrieval pools, preserving original and expanded ranks.",
+      "Rerank with normalized original score, normalized expanded score, and original-query plus feedback-term coverage.",
+      "Return the requested result count after reranking the merged candidates.",
+      "No query-specific result overrides, runtime LLM calls, personalization, or learning-to-rank model are used in the candidate."
+    ],
+    techniquesApplied: [
+      "OpenSearch English analyzer",
+      "BM25 field-specific match scoring",
+      "summed title, abstract, and text evidence",
+      "pseudo-relevance feedback over top titles and abstracts",
+      "feedback-expanded second-stage retrieval",
+      "deterministic merged-pool rerank",
+      "dataset filter for Cranfield documents"
+    ],
+    targetedFailureGroups: ["zero_relevant_at_k", "broad_need_low_recall", "partial_recall", "late_first_relevant"]
+  }
+};
+
+export function resolveSearchArchitecture(value = DEFAULT_SEARCH_ARCHITECTURE_ID) {
+  const normalized = String(value || DEFAULT_SEARCH_ARCHITECTURE_ID).trim().toLowerCase();
+  const aliases = {
+    default: "baseline",
+    v0: "baseline",
+    "v0.1": "baseline",
+    bm25: "baseline",
+    baseline: "baseline",
+    "query-rescue": "query-rescue",
+    query_rescue: "query-rescue",
+    rescue: "query-rescue",
+    "field-sum": "field-sum",
+    field_sum: "field-sum",
+    "summed-fields": "field-sum",
+    "coverage-rerank": "coverage-rerank",
+    coverage_rerank: "coverage-rerank",
+    rerank: "coverage-rerank",
+    "prf-rerank": "prf-rerank",
+    prf_rerank: "prf-rerank",
+    prf: "prf-rerank",
+    rm3: "prf-rerank",
+    "prf-expand-rerank": "prf-expand-rerank",
+    prf_expand_rerank: "prf-expand-rerank",
+    "prf-expanded-rerank": "prf-expand-rerank",
+    prf_expand: "prf-expand-rerank",
+    "rm3-expand": "prf-expand-rerank",
+    "v0.2-candidate": "field-sum"
+  };
+  const id = aliases[normalized];
+
+  if (!id || !SEARCH_ARCHITECTURES[id]) {
+    throw new ValidationError(
+      "architecture must be baseline, query-rescue, field-sum, coverage-rerank, prf-rerank, or prf-expand-rerank",
+      "invalid_architecture"
+    );
+  }
+
+  return SEARCH_ARCHITECTURES[id];
+}
 
 export const DATASET_PROFILE = {
   id: DATASET_ID,
@@ -80,11 +281,7 @@ export const DATASET_PROFILE = {
   ]
 };
 
-export const RANKING_LOGIC = [
-  "OpenSearch BM25 baseline over title, abstract, and text fields.",
-  "Title receives the highest field boost, abstract receives a moderate boost, and full text is unboosted.",
-  "No query-specific result overrides, runtime LLM calls, personalization, or learning-to-rank model are used in v0."
-];
+export const RANKING_LOGIC = SEARCH_ARCHITECTURES.baseline.rankingLogic;
 
 export const RETRIEVAL_FLOW = [
   {
@@ -161,6 +358,56 @@ export const CRANFIELD_INDEX_BODY = {
       text: {
         type: "text",
         analyzer: "cranfield_english"
+      },
+      source: { type: "keyword" },
+      indexed_at: { type: "date" }
+    }
+  }
+};
+
+export const CRANFIELD_PAPER_BM25_INDEX_BODY = {
+  settings: {
+    index: {
+      number_of_shards: 1,
+      number_of_replicas: 0,
+      similarity: {
+        paper_bm25: {
+          type: "BM25",
+          k1: 1.5,
+          b: 0.75
+        }
+      }
+    },
+    analysis: {
+      analyzer: {
+        cranfield_english: {
+          type: "english"
+        }
+      }
+    }
+  },
+  mappings: {
+    dynamic: "strict",
+    properties: {
+      id: { type: "keyword" },
+      dataset: { type: "keyword" },
+      title: {
+        type: "text",
+        analyzer: "cranfield_english",
+        similarity: "paper_bm25",
+        fields: {
+          keyword: { type: "keyword", ignore_above: 256 }
+        }
+      },
+      abstract: {
+        type: "text",
+        analyzer: "cranfield_english",
+        similarity: "paper_bm25"
+      },
+      text: {
+        type: "text",
+        analyzer: "cranfield_english",
+        similarity: "paper_bm25"
       },
       source: { type: "keyword" },
       indexed_at: { type: "date" }

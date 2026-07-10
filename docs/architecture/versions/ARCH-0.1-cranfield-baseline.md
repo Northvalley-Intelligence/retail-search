@@ -14,7 +14,7 @@
 
 ## Git Tag
 
-`v0.1.0` pending.
+`v0.1.0` at commit `baeae54`.
 
 ## Scope
 
@@ -37,4 +37,4 @@ None; this is the first accepted architecture version.
 
 ## Current Status
 
-Live and validated. Commit/tag and deployed `/api/v0.1/*` route rollout are pending.
+Live and validated. The tag exists; deployed `/api/v0.1/*` route rollout is still pending explicit deploy approval.

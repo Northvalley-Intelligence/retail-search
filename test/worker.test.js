@@ -34,6 +34,50 @@ function mockOpenSearchFetch(assertions = {}) {
   };
 }
 
+function mockOpenSearchFetchWithHits(hits, assertions = {}) {
+  return async (url, init) => {
+    const body = JSON.parse(init.body);
+    assertions.url?.(url);
+    assertions.body?.(body);
+
+    return new Response(
+      JSON.stringify({
+        took: 7,
+        hits: {
+          total: { value: hits.length, relation: "eq" },
+          hits
+        }
+      }),
+      { status: 200, headers: { "content-type": "application/json" } }
+    );
+  };
+}
+
+function mockOpenSearchFetchSequence(responses) {
+  let callIndex = 0;
+  return async (url, init) => {
+    const response = responses[callIndex];
+    callIndex += 1;
+    if (!response) {
+      throw new Error(`Unexpected OpenSearch call ${callIndex}`);
+    }
+    const body = JSON.parse(init.body);
+    response.assertions?.url?.(url);
+    response.assertions?.body?.(body, callIndex);
+
+    return new Response(
+      JSON.stringify({
+        took: response.took ?? 7,
+        hits: {
+          total: { value: response.hits.length, relation: "eq" },
+          hits: response.hits
+        }
+      }),
+      { status: 200, headers: { "content-type": "application/json" } }
+    );
+  };
+}
+
 function testEnv(fetchImpl) {
   return {
     OPENSEARCH_URL: "https://opensearch.example.test",
@@ -66,9 +110,220 @@ test("search endpoint calls the configured OpenSearch index and returns mapped h
   assert.equal(payload.traceability.searchEvolutionId, "SE-0001");
   assert.equal(payload.traceability.architectureVersion, "ARCH-0.1");
   assert.equal(payload.traceability.gitVersion, "working-tree");
+  assert.equal(payload.searchArchitecture.id, "baseline");
   assert.equal(payload.resultCount, 1);
   assert.equal(payload.results[0].id, "cranfield-sample-001");
   assert.equal(payload.latency.openSearchTookMs, 7);
+});
+
+test("query-rescue architecture adds targeted ranking clauses when requested", async () => {
+  const response = await worker.fetch(
+    new Request("https://retail-search.example/api/cranfield/search?q=transonic%20aileron%20buzz&architecture=query-rescue"),
+    testEnv(
+      mockOpenSearchFetch({
+        body: (body) => {
+          assert.equal(body.query.bool.must[0].multi_match.query, "transonic aileron buzz");
+          assert.equal(body.query.bool.should.length, 3);
+          assert.equal(body.query.bool.should[0].multi_match.type, "phrase");
+          assert.equal(body.query.bool.should[1].multi_match.type, "cross_fields");
+          assert.equal(body.query.bool.should[2].multi_match.minimum_should_match, "70%");
+        }
+      })
+    )
+  );
+
+  assert.equal(response.status, 200);
+  const payload = await response.json();
+  assert.equal(payload.searchArchitecture.id, "query-rescue");
+  assert.equal(payload.searchArchitecture.status, "candidate");
+  assert.equal(payload.searchArchitecture.searchEvolutionId, "SE-0002");
+});
+
+test("field-sum architecture adds field-specific scoring clauses when requested", async () => {
+  const response = await worker.fetch(
+    new Request("https://retail-search.example/api/cranfield/search?q=boundary%20layer%20flows&architecture=field-sum"),
+    testEnv(
+      mockOpenSearchFetch({
+        body: (body) => {
+          assert.equal(body.query.bool.must, undefined);
+          assert.equal(body.query.bool.minimum_should_match, 1);
+          assert.equal(body.query.bool.should.length, 3);
+          assert.equal(body.query.bool.should[0].match.title.boost, 3);
+          assert.equal(body.query.bool.should[1].match.abstract.boost, 2);
+          assert.equal(body.query.bool.should[2].match.text.boost, 1);
+        }
+      })
+    )
+  );
+
+  assert.equal(response.status, 200);
+  const payload = await response.json();
+  assert.equal(payload.searchArchitecture.id, "field-sum");
+  assert.equal(payload.searchArchitecture.architectureVersion, "ARCH-0.2-candidate");
+});
+
+test("coverage-rerank architecture retrieves field-sum candidates and returns rerank metadata", async () => {
+  const response = await worker.fetch(
+    new Request("https://retail-search.example/api/cranfield/search?q=transonic%20aileron%20buzz&size=3&architecture=coverage-rerank"),
+    testEnv(
+      mockOpenSearchFetch({
+        body: (body) => {
+          assert.equal(body.size, 50);
+          assert.equal(body.query.bool.must, undefined);
+          assert.equal(body.query.bool.minimum_should_match, 1);
+          assert.equal(body.query.bool.should.length, 3);
+          assert.equal(body.query.bool.should[0].match.title.query, "transonic aileron buzz");
+        }
+      })
+    )
+  );
+
+  assert.equal(response.status, 200);
+  const payload = await response.json();
+  assert.equal(payload.searchArchitecture.id, "coverage-rerank");
+  assert.equal(payload.searchArchitecture.status, "candidate");
+  assert.equal(payload.reranking.strategy, "title_abstract_coverage");
+  assert.equal(payload.reranking.retrieveSize, 50);
+  assert.equal(payload.reranking.returnedSize, 3);
+  assert.equal(payload.results[0].originalRank, 1);
+  assert.equal(typeof payload.results[0].rerankScore, "number");
+});
+
+test("prf-rerank architecture returns feedback term metadata", async () => {
+  const response = await worker.fetch(
+    new Request("https://retail-search.example/api/cranfield/search?q=hypersonic%20viscous%20interaction&size=2&architecture=prf-rerank"),
+    testEnv(
+      mockOpenSearchFetchWithHits(
+        [
+          {
+            _id: "a",
+            _score: 11,
+            _source: {
+              id: "a",
+              dataset: "cranfield",
+              title: "Hypersonic viscous interaction near blunt bodies",
+              abstract: "Boundary layer shock interaction and blunt body flow measurements.",
+              text: "",
+              source: "fixture"
+            }
+          },
+          {
+            _id: "b",
+            _score: 10,
+            _source: {
+              id: "b",
+              dataset: "cranfield",
+              title: "Shock boundary layer measurements",
+              abstract: "Viscous hypersonic flow interaction measurements over cones.",
+              text: "",
+              source: "fixture"
+            }
+          }
+        ],
+        {
+          body: (body) => {
+            assert.equal(body.size, 50);
+            assert.equal(body.query.bool.must, undefined);
+            assert.equal(body.query.bool.minimum_should_match, 1);
+          }
+        }
+      )
+    )
+  );
+
+  assert.equal(response.status, 200);
+  const payload = await response.json();
+  assert.equal(payload.searchArchitecture.id, "prf-rerank");
+  assert.equal(payload.reranking.strategy, "pseudo_relevance_feedback_title_abstract_coverage");
+  assert.equal(payload.reranking.feedbackDocuments, 4);
+  assert.equal(payload.reranking.feedbackTerms, 8);
+  assert.equal(payload.reranking.phraseWeight, 0.01);
+  assert.ok(payload.reranking.expansionTerms.includes("boundary"));
+  assert.equal(payload.results.length, 2);
+  assert.equal(typeof payload.results[0].rerankScore, "number");
+});
+
+test("prf-expand-rerank architecture runs expanded retrieval and returns merged metadata", async () => {
+  const initialHits = [
+    {
+      _id: "a",
+      _score: 11,
+      _source: {
+        id: "a",
+        dataset: "cranfield",
+        title: "Hypersonic viscous interaction near blunt bodies",
+        abstract: "Boundary layer shock interaction and blunt body flow measurements.",
+        text: "",
+        source: "fixture"
+      }
+    },
+    {
+      _id: "b",
+      _score: 10,
+      _source: {
+        id: "b",
+        dataset: "cranfield",
+        title: "Shock boundary layer measurements",
+        abstract: "Viscous hypersonic flow interaction measurements over cones.",
+        text: "",
+        source: "fixture"
+      }
+    }
+  ];
+  const expandedHits = [
+    initialHits[0],
+    {
+      _id: "c",
+      _score: 9,
+      _source: {
+        id: "c",
+        dataset: "cranfield",
+        title: "Blunt body shock layer flow",
+        abstract: "Boundary measurements in hypersonic viscous flow.",
+        text: "",
+        source: "fixture"
+      }
+    }
+  ];
+
+  const response = await worker.fetch(
+    new Request("https://retail-search.example/api/cranfield/search?q=hypersonic%20viscous%20interaction&size=3&architecture=prf-expand-rerank"),
+    testEnv(
+      mockOpenSearchFetchSequence([
+        {
+          hits: initialHits,
+          assertions: {
+            body: (body) => {
+              assert.equal(body.size, 50);
+              assert.equal(body.query.bool.should.length, 3);
+            }
+          }
+        },
+        {
+          hits: expandedHits,
+          assertions: {
+            body: (body) => {
+              assert.equal(body.size, 80);
+              assert.equal(body.query.bool.should.length, 6);
+              assert.match(body.query.bool.should[3].match.title.query, /boundary/);
+            }
+          }
+        }
+      ])
+    )
+  );
+
+  assert.equal(response.status, 200);
+  const payload = await response.json();
+  assert.equal(payload.searchArchitecture.id, "prf-expand-rerank");
+  assert.equal(payload.reranking.strategy, "pseudo_relevance_feedback_expanded_retrieval_rerank");
+  assert.equal(payload.reranking.retrieveSize, 50);
+  assert.equal(payload.reranking.expandedRetrieveSize, 80);
+  assert.equal(payload.reranking.mergedCandidateCount, 3);
+  assert.ok(payload.reranking.expansionTerms.includes("boundary"));
+  assert.equal(payload.results.length, 3);
+  assert.ok(payload.results.some((result) => result.id === "c" && result.retrievalSources.includes("expanded")));
+  assert.equal(typeof payload.results[0].rerankScore, "number");
 });
 
 test("root endpoint serves the project phase overview", async () => {
@@ -95,6 +350,8 @@ test("phase search page is focused on search without evaluation examples", async
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /Search Cranfield/);
+  assert.match(html, /Architecture milestones/);
+  assert.match(html, /ARCH-0.3 demo samples/);
   assert.match(html, /1,400 indexed Cranfield documents/);
   assert.match(html, /wing pressure distribution/);
   assert.doesNotMatch(html, /Evaluation Results/);
@@ -201,6 +458,137 @@ test("latest and versioned endpoint aliases route to the Cranfield baseline", as
     assert.equal(payload.traceability.endpointVersion, "v0.1");
     assert.equal(payload.traceability.architectureVersion, "ARCH-0.1");
   }
+});
+
+test("milestone baseline endpoint is a stable alias that ignores architecture overrides", async () => {
+  const response = await worker.fetch(
+    new Request("https://retail-search.example/api/milestones/arch-0.1/search?q=wing%20pressure&architecture=prf-rerank"),
+    testEnv(
+      mockOpenSearchFetch({
+        body: (body) => {
+          assert.equal(body.size, 10);
+          assert.equal(body.query.bool.must[0].multi_match.query, "wing pressure");
+        }
+      })
+    )
+  );
+
+  assert.equal(response.status, 200);
+  const payload = await response.json();
+  assert.equal(payload.milestone.id, "arch-0.1");
+  assert.equal(payload.milestone.architectureVersion, "ARCH-0.1");
+  assert.equal(payload.searchArchitecture.id, "baseline");
+});
+
+test("milestone PRF explain endpoint exposes the refined PRF candidate path", async () => {
+  const response = await worker.fetch(
+    new Request("https://retail-search.example/api/milestones/arch-0.2-prf/explain?q=hypersonic%20viscous%20interaction&size=2"),
+    testEnv(
+      mockOpenSearchFetchWithHits(
+        [
+          {
+            _id: "a",
+            _score: 11,
+            _source: {
+              id: "a",
+              dataset: "cranfield",
+              title: "Hypersonic viscous interaction near blunt bodies",
+              abstract: "Boundary layer shock interaction and blunt body flow measurements.",
+              text: "",
+              source: "fixture"
+            }
+          },
+          {
+            _id: "b",
+            _score: 10,
+            _source: {
+              id: "b",
+              dataset: "cranfield",
+              title: "Shock boundary layer measurements",
+              abstract: "Viscous hypersonic flow interaction measurements over cones.",
+              text: "",
+              source: "fixture"
+            }
+          }
+        ],
+        {
+          body: (body) => {
+            assert.equal(body.size, 50);
+            assert.equal(body.query.bool.minimum_should_match, 1);
+          }
+        }
+      )
+    )
+  );
+
+  assert.equal(response.status, 200);
+  const payload = await response.json();
+  assert.equal(payload.milestone.id, "arch-0.2-prf");
+  assert.equal(payload.milestone.architectureVersion, "ARCH-0.2-candidate");
+  assert.equal(payload.searchArchitecture.id, "prf-rerank");
+  assert.equal(payload.reranking.strategy, "pseudo_relevance_feedback_title_abstract_coverage");
+  assert.equal(payload.openSearch.query.size, 50);
+  assert.ok(payload.topResults[0].explanation.includes("pseudo-relevance-feedback"));
+});
+
+test("milestone BGE endpoints return an explicit candidate runtime limitation", async () => {
+  const failIfCalled = async () => {
+    throw new Error("OpenSearch should not be called for the disabled BGE runtime milestone");
+  };
+
+  for (const path of ["/api/milestones/arch-0.3-bge/search", "/api/milestones/arch-0.3-bge/explain"]) {
+    const response = await worker.fetch(new Request(`https://retail-search.example${path}?q=wing%20pressure`), testEnv(failIfCalled));
+    assert.equal(response.status, 501);
+    const payload = await response.json();
+    assert.equal(payload.error.code, "milestone_runtime_not_enabled");
+    assert.equal(payload.milestone.id, "arch-0.3-bge");
+    assert.equal(payload.milestone.architectureVersion, "ARCH-0.3-candidate");
+    assert.equal(payload.milestone.remoteIndex, "cranfield-v0-bge-base-en-v15-gen023");
+    assert.equal(payload.traceability.architectureVersion, "ARCH-0.1");
+  }
+});
+
+test("milestone BGE demo endpoint returns archived sample rows without runtime search", async () => {
+  const response = await worker.fetch(
+    new Request("https://retail-search.example/api/milestones/arch-0.3-bge/demo?sample=all"),
+    testEnv(async () => {
+      throw new Error("OpenSearch should not be called for archived ARCH-0.3 demo samples");
+    })
+  );
+
+  assert.equal(response.status, 200);
+  const payload = await response.json();
+  assert.equal(payload.demoMode, "archived_evaluation_samples");
+  assert.equal(payload.archivedValidation.generationId, "GEN-023");
+  assert.equal(payload.samples.length, 3);
+  assert.equal(payload.samples[0].queryId, "1");
+  assert.equal(payload.samples[2].queryId, "9");
+  assert.match(payload.samples[1].note, /archived remote OpenSearch BGE hybrid sample/i);
+});
+
+test("milestone BGE demo endpoint can return a single archived sample", async () => {
+  const response = await worker.fetch(
+    new Request("https://retail-search.example/api/milestones/arch-0.3-bge/demo?sample=3"),
+    testEnv(async () => {
+      throw new Error("OpenSearch should not be called for archived ARCH-0.3 demo samples");
+    })
+  );
+
+  assert.equal(response.status, 200);
+  const payload = await response.json();
+  assert.equal(payload.samples.length, 1);
+  assert.equal(payload.samples[0].queryId, "3");
+  assert.equal(payload.samples[0].metrics.ndcgAtK, 0.9021);
+});
+
+test("unknown milestone endpoint returns an explicit not found error", async () => {
+  const response = await worker.fetch(
+    new Request("https://retail-search.example/api/milestones/arch-9/search?q=wing"),
+    testEnv(mockOpenSearchFetch())
+  );
+
+  assert.equal(response.status, 404);
+  assert.equal((await response.json()).error.code, "unknown_milestone");
 });
 
 test("empty query and missing OpenSearch configuration return explicit errors", async () => {

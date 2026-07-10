@@ -1,6 +1,6 @@
 {
   "project_id": "retail-search",
-  "updated_at": "2026-07-05",
+  "updated_at": "2026-07-08",
   "findings": [
     {
       "id": "FIND-001",
@@ -22,10 +22,86 @@
       "status": "resolved",
       "category": "Deployment",
       "summary": "Cloudflare Workers write scope was proven by secret upload and Worker deployment."
+    },
+    {
+      "id": "FIND-004",
+      "severity": "High",
+      "status": "deferred",
+      "category": "Transferability",
+      "summary": "Refined prf-rerank is the best live Cranfield candidate, but cannot be promoted to a released architecture until BEIR transferability is measured."
+    },
+    {
+      "id": "FIND-005",
+      "severity": "Medium",
+      "status": "mitigated",
+      "category": "Evaluation Infrastructure",
+      "summary": "Repeated live OpenSearch calls slowed reranker tuning; GEN-017 mitigated this with cached field-sum retrieval pools and offline PRF tuning."
+    },
+    {
+      "id": "FIND-006",
+      "severity": "Medium",
+      "status": "resolved",
+      "category": "Embedding Evaluation",
+      "summary": "GEN-019 generated real local Ollama embeddings and evaluated vector/hybrid retrieval, resolving the missing real-embedding evidence gap."
+    },
+    {
+      "id": "FIND-007",
+      "severity": "Medium",
+      "status": "active",
+      "category": "Embedding Evaluation",
+      "summary": "Ollama llama3.1:8b chat-model embeddings are not strong enough for promotion: best hybrid nDCG@10 0.3035 and binary nDCG@20 0.4343 remain below refined PRF."
+    },
+    {
+      "id": "FIND-008",
+      "severity": "Medium",
+      "status": "active",
+      "category": "LTR Evaluation",
+      "summary": "GEN-020/GEN-021 LTR has ranking signal and high candidate-pool oracle headroom, but cross-validated metrics remain below refined PRF and in-sample gains must not be treated as promotion evidence."
+    },
+    {
+      "id": "FIND-009",
+      "severity": "Medium",
+      "status": "active",
+      "category": "LTR Evaluation",
+      "summary": "Pointwise boosted-tree LTR improves graded cross-validation to nDCG@10 0.3216 but still misses refined PRF 0.3260, and binary cross-validation regresses versus the lexical LTR ablation."
+    },
+    {
+      "id": "FIND-010",
+      "severity": "High",
+      "status": "resolved",
+      "category": "Embedding Evaluation",
+      "summary": "BGE BAAI/bge-base-en-v1.5 is the first embedding path to beat refined PRF offline and in remote OpenSearch: best remote hybrid nDCG@10 0.3533 and binary nDCG@20 0.4926."
+    },
+    {
+      "id": "FIND-011",
+      "severity": "Medium",
+      "status": "active",
+      "category": "LTR Evaluation",
+      "summary": "BGE-feature LTR beats refined PRF offline, with boosted-tree nDCG@10 0.3603, but the simpler BGE hybrid path is slightly better on binary nDCG@20 and easier to validate remotely."
+    },
+    {
+      "id": "FIND-012",
+      "severity": "High",
+      "status": "active",
+      "category": "Transferability",
+      "summary": "Remote OpenSearch BGE hybrid is the best production-shaped Cranfield candidate, but it remains candidate-only until transferability, latency/cost, and public/default promotion policy are addressed."
+    },
+    {
+      "id": "FIND-013",
+      "severity": "Medium",
+      "status": "resolved",
+      "category": "Traceability",
+      "summary": "GEN-024 added milestone search and explain endpoints so readers can compare key Cranfield architecture states through stable URLs without changing the public/default route."
     }
   ],
   "residual_risks": [
     "Public endpoint p95 latency needs a broader sampled run beyond point checks.",
-    "Provider cost depends on the selected managed OpenSearch service plan and usage."
+    "Provider cost depends on the selected managed OpenSearch service plan and usage.",
+    "Cranfield-specific query tuning can overfit unless Phase 2 confirms transferability.",
+    "Cached retrieval pools can become stale when the index, analyzer, first-stage architecture, query set, or retrieve depth changes.",
+    "Local chat-model embeddings can be mistaken for dedicated retrieval embeddings unless provider, model, and text-profile metadata are preserved.",
+    "LTR in-sample results can be mistaken for validated improvements unless query-grouped cross-validation remains the promotion gate.",
+    "Pointwise boosted-tree tuning can improve in-sample metrics sharply without delivering enough held-out nDCG gain for promotion.",
+    "Remote BGE vector/hybrid Cranfield gains can be mistaken for production readiness before transferability and latency/cost evidence are collected."
   ]
 }

@@ -1,0 +1,127 @@
+{
+  "generation_id": "GEN-023",
+  "project_id": "retail-search",
+  "started_at": "2026-07-08",
+  "ended_at": "2026-07-08",
+  "mission_phase": "Phase 1 - Cranfield Foundation",
+  "mission_version": "MISSION-2026-07-08-GEN-023",
+  "validation_strategy_version": "VALSTRAT-006",
+  "status": "remote_opensearch_bge_vector_hybrid_validated_above_refined_prf",
+  "focus": "Validate the GEN-022 BGE vector/hybrid winner in a separate remote OpenSearch kNN candidate index.",
+  "reason_started": "GEN-022 showed BGE hybrid retrieval beat refined PRF offline, but promotion-quality evidence required remote OpenSearch vector/hybrid validation.",
+  "reason_ended": "Remote OpenSearch BGE hybrid reproduced the graded offline gain and slightly improved binary k=20, while leaving the public/default architecture unchanged.",
+  "files_changed_by_category": {
+    "implementation_artifacts": [
+      "scripts/load-cranfield-bge-opensearch.mjs",
+      "scripts/evaluate-cranfield-opensearch-vector.mjs",
+      "package.json"
+    ],
+    "evaluation_artifacts": [
+      "experiments/cranfield-v0/load-opensearch-bge-base-en-v15-gen023.json",
+      "experiments/cranfield-v0/evaluation-live-opensearch-bge-base-en-v15-gen023.json",
+      "experiments/cranfield-v0/evaluation-live-opensearch-bge-base-en-v15-k20-binary-gen023.json"
+    ],
+    "human_artifacts": [
+      "README.md",
+      "MISSION_UPDATES.md",
+      "docs/evaluation/timeline.md",
+      "docs/evaluation/cranfield-vector-hybrid-research.md",
+      "docs/evolution/timeline.md",
+      "docs/evolution/experiments/SE-0003-cranfield-vector-hybrid.md",
+      "docs/architecture/timeline.md",
+      "docs/architecture/versions/ARCH-0.3-candidate-cranfield-vector-hybrid.md",
+      "docs/architecture/decisions/ADL-0003-cranfield-vector-hybrid-candidate.md",
+      "experiments/cranfield-v0/README.md"
+    ],
+    "agent_artifacts": [
+      ".mde/generations/GEN-023.json",
+      ".mde/validation-runs/VAL-033.json",
+      ".mde/generation-summary.md",
+      ".mde/traceability.json",
+      ".mde/state.json",
+      ".mde/progress.json",
+      ".mde/findings.json",
+      ".mde/risk-register.json",
+      ".mde/validator-effectiveness.json",
+      ".mde/bdd-index.json"
+    ]
+  },
+  "candidate_results": {
+    "current_refined_prf": {
+      "status": "prior_lexical_reference",
+      "ndcg_at_10": 0.326,
+      "binary_ndcg_at_20": 0.4563
+    },
+    "remote_bge_vector_only": {
+      "status": "above_refined_prf",
+      "ndcg_at_10": 0.3419,
+      "binary_ndcg_at_20": 0.4748
+    },
+    "remote_bge_hybrid_best": {
+      "status": "best_production_shaped_candidate",
+      "graded_name": "remote-hybrid-linear-vector-0.7",
+      "binary_name": "remote-hybrid-linear-vector-0.6",
+      "ndcg_at_10": 0.3533,
+      "binary_ndcg_at_20": 0.4926
+    }
+  },
+  "remote_index": {
+    "name": "cranfield-v0-bge-base-en-v15-gen023",
+    "status": "created",
+    "document_count": 1400,
+    "vector_field": "bge_embedding",
+    "embedding_model": "BAAI/bge-base-en-v1.5",
+    "embedding_dimension": 768,
+    "load_report": "experiments/cranfield-v0/load-opensearch-bge-base-en-v15-gen023.json"
+  },
+  "validators_executed": [
+    {
+      "name": "npm run opensearch:health",
+      "category": "Deployment / External",
+      "result": "pass",
+      "evidence": "Remote OpenSearch 3.3.2 cluster was green before index load."
+    },
+    {
+      "name": "npm run load:cranfield:bge",
+      "category": "Architecture Experiment Comparison / Vector Retrieval",
+      "result": "pass",
+      "evidence": "Created and loaded cranfield-v0-bge-base-en-v15-gen023 with 1,400 documents and 768-dimensional BGE vectors."
+    },
+    {
+      "name": "npm run eval:cranfield:opensearch-vector",
+      "category": "Architecture Experiment Comparison / Vector Retrieval",
+      "result": "pass",
+      "evidence": "Remote BGE hybrid reached graded nDCG@10 0.3533 and binary nDCG@20 0.4926."
+    },
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "result": "pass",
+      "evidence": "Node tests, MDE parser, traceability validation through GEN-023, fixture index check, and fixture evaluation passed. Final run is recorded in VAL-033."
+    }
+  ],
+  "validators_skipped": [
+    {
+      "name": "Cloudflare deploy verification",
+      "category": "Deployment / External",
+      "reason": "No deployment was requested; GEN-023 leaves the public/default architecture unchanged."
+    },
+    {
+      "name": "Phase 2 transferability validation",
+      "category": "Architecture Experiment Comparison / Transferability",
+      "reason": "Out of scope for this project-local Cranfield validation turn."
+    }
+  ],
+  "validation_gate": {
+    "result": "pass",
+    "pass_count": 1,
+    "failed_categories": [],
+    "blocking_findings": []
+  },
+  "evidence_quality_notes": [
+    "Remote OpenSearch kNN reproduces the graded offline BGE hybrid result.",
+    "Remote binary k=20 slightly improves the offline BGE hybrid result.",
+    "The separate candidate index did not change the public/default cranfield-v0 index or deployed Worker.",
+    "Transferability and runtime cost/latency remain required before public/default promotion."
+  ]
+}

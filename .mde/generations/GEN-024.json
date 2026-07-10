@@ -1,0 +1,105 @@
+{
+  "generation_id": "GEN-024",
+  "project_id": "retail-search",
+  "started_at": "2026-07-08",
+  "ended_at": "2026-07-08",
+  "mission_phase": "Phase 1 - Cranfield Foundation",
+  "mission_version": "MISSION-2026-07-08-GEN-024",
+  "validation_strategy_version": "VALSTRAT-006",
+  "status": "milestone_search_and_explain_endpoints_added",
+  "focus": "Expose stable comparison endpoints for key Cranfield architecture milestones without changing the public/default route behavior.",
+  "reason_started": "The operator requested search and explain endpoints for key milestones after GEN-023 validated the BGE vector/hybrid candidate remotely.",
+  "reason_ended": "Milestone routes now expose ARCH-0.1 baseline and ARCH-0.2 PRF live search/explain paths, while ARCH-0.3 BGE returns an explicit runtime-not-enabled response until query-vector support exists.",
+  "files_changed_by_category": {
+    "implementation_artifacts": [
+      "src/worker.js",
+      "test/worker.test.js"
+    ],
+    "human_artifacts": [
+      "README.md",
+      "MISSION_UPDATES.md",
+      "docs/endpoints/ARCH-0.1-endpoints.md",
+      "docs/endpoints/milestone-endpoints.md",
+      "docs/traceability.md"
+    ],
+    "agent_artifacts": [
+      ".mde/generations/GEN-024.json",
+      ".mde/validation-runs/VAL-034.json",
+      ".mde/generation-summary.md",
+      ".mde/traceability.json",
+      ".mde/state.json",
+      ".mde/progress.json",
+      ".mde/bdd-index.json",
+      ".mde/findings.json",
+      ".mde/risk-register.json",
+      ".mde/validation-strategy.json",
+      ".mde/validator-effectiveness.json",
+      "scripts/validate-traceability.mjs"
+    ]
+  },
+  "milestone_endpoints": {
+    "arch_0_1": {
+      "search": "/api/milestones/arch-0.1/search",
+      "explain": "/api/milestones/arch-0.1/explain",
+      "architecture": "baseline",
+      "status": "live_alias"
+    },
+    "arch_0_2_prf": {
+      "search": "/api/milestones/arch-0.2-prf/search",
+      "explain": "/api/milestones/arch-0.2-prf/explain",
+      "architecture": "prf-rerank",
+      "status": "live_candidate_alias"
+    },
+    "arch_0_3_bge": {
+      "search": "/api/milestones/arch-0.3-bge/search",
+      "explain": "/api/milestones/arch-0.3-bge/explain",
+      "architecture": "bge-vector-hybrid",
+      "status": "runtime_not_enabled",
+      "response_status": 501,
+      "error_code": "milestone_runtime_not_enabled"
+    }
+  },
+  "validators_executed": [
+    {
+      "name": "node --test test/worker.test.js",
+      "category": "Functional / Traceability",
+      "result": "pass",
+      "evidence": "Verified baseline and PRF milestone routing, BGE runtime limitation response, and unknown milestone error behavior."
+    },
+    {
+      "name": "node --test test/no-runtime-llm.test.js",
+      "category": "Security",
+      "result": "pass",
+      "evidence": "Verified live source still has no runtime generative provider dependency."
+    },
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "result": "pass",
+      "evidence": "Node tests, MDE parser, traceability validation through GEN-024, fixture index check, and fixture evaluation passed. Final run is recorded in VAL-034."
+    }
+  ],
+  "validators_skipped": [
+    {
+      "name": "Cloudflare deploy verification",
+      "category": "Deployment / External",
+      "reason": "No deployment was requested; GEN-024 is local until explicit deploy approval."
+    },
+    {
+      "name": "Remote BGE runtime query validation",
+      "category": "Architecture Experiment Comparison / Vector Retrieval",
+      "reason": "The BGE milestone endpoint intentionally returns 501 until runtime query-vector generation or a bounded known-query embedding cache is implemented."
+    }
+  ],
+  "validation_gate": {
+    "result": "pass",
+    "pass_count": 2,
+    "failed_categories": [],
+    "blocking_findings": []
+  },
+  "evidence_quality_notes": [
+    "The milestone endpoints make evolution comparison easier without changing /api/search or /api/explain.",
+    "Candidate routes include milestone metadata so readers can see whether a path is released, candidate, or runtime-limited.",
+    "The BGE endpoint does not fake vector search for arbitrary queries."
+  ]
+}

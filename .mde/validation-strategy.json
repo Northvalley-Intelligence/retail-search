@@ -1,5 +1,5 @@
 {
-  "strategy_id": "VALSTRAT-005",
+  "strategy_id": "VALSTRAT-006",
   "project_type": "mission-driven OpenSearch search platform",
   "artifact_profiles": [
     "mde_project",
@@ -14,7 +14,15 @@
     "public_content",
     "traceability",
     "artifact_versioning",
-    "versioned_api_contract"
+    "versioned_api_contract",
+    "milestone_api_contract",
+    "failure_behavior_analysis",
+    "architecture_experiment",
+    "embedding_cache",
+    "vector_retrieval",
+    "hybrid_search",
+    "learning_to_rank",
+    "opensearch_knn"
   ],
   "mission_phase": "Phase 1 - Cranfield Foundation",
   "selected_validations": [
@@ -36,6 +44,7 @@
       "tools_or_methods": [
         "node --test",
         "Worker endpoint contract tests",
+        "Milestone endpoint contract tests",
         "OpenSearch query generation tests",
         "explain endpoint tests"
       ],
@@ -122,6 +131,36 @@
         "Architecture timeline review"
       ],
       "reason": "Every mission, article, experiment, architecture version, decision, tag, and endpoint must be navigable through stable identifiers before Phase 2 adds more experiments."
+    },
+    {
+      "category": "Evaluation Behavior Analysis",
+      "required": true,
+      "priority": "High",
+      "tools_or_methods": [
+        "src/evaluation/failure-analysis.js",
+        "scripts/evaluate-cranfield.mjs --details",
+        "scripts/compare-cranfield-evaluations.mjs",
+        "live OpenSearch evaluation artifacts"
+      ],
+      "reason": "Architecture changes must be guided by specific query failure behaviors, not aggregate metric movement alone."
+    },
+    {
+      "category": "Architecture Experiment Comparison",
+      "required": true,
+      "priority": "High",
+      "tools_or_methods": [
+        "node --test",
+        "live baseline evaluation",
+        "live candidate evaluation",
+        "comparison artifact with metric and query deltas",
+        "architecture decision ledger",
+        "scripts/cache-cranfield-embeddings.mjs when embedding experiments are in scope",
+        "scripts/evaluate-cranfield-vector.mjs when vector or hybrid experiments are in scope",
+        "scripts/load-cranfield-bge-opensearch.mjs when remote vector index experiments are in scope",
+        "scripts/evaluate-cranfield-opensearch-vector.mjs when remote vector/hybrid experiments are in scope",
+        "scripts/evaluate-cranfield-ltr.mjs when LTR experiments are in scope"
+      ],
+      "reason": "Candidate query strategies must be accepted, rejected, or deferred using measured deltas and documented decision status."
     }
   ],
   "validation_gates": {

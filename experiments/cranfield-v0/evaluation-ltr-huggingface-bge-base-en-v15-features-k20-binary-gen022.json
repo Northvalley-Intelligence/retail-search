@@ -1,0 +1,368 @@
+{
+  "generatedAt": "2026-07-08T14:59:57.657Z",
+  "dataset": "cranfield",
+  "transport": "offline-ltr-evaluator",
+  "retrievalCache": "experiments/cranfield-v0/retrieval-pools-field-sum-top50-gen017.json",
+  "sourceArchitecture": "field-sum",
+  "embeddingSource": "experiments/cranfield-v0/embeddings-huggingface-bge-base-en-v15-title-abstract-gen022.json",
+  "embeddingProvider": "huggingface",
+  "embeddingModel": "BAAI/bge-base-en-v1.5",
+  "embeddingDimension": 768,
+  "k": 20,
+  "relevanceMode": "binary",
+  "ltrModel": "coordinate-ascent",
+  "modelOptions": {
+    "type": "coordinate-ascent"
+  },
+  "retrieveSize": 50,
+  "queryCount": 225,
+  "folds": 5,
+  "currentBestReference": {
+    "architecture": "ARCH-0.2-candidate refined prf-rerank",
+    "metric": "nDCG@20",
+    "value": 0.4563
+  },
+  "candidatePool": {
+    "relevantCount": 1612,
+    "relevantInPool": 974,
+    "recall": 0.604218,
+    "queriesWithRelevant": 225,
+    "queriesWithRelevantInPool": 217,
+    "queryCoverage": 0.964444,
+    "oracleMetrics": {
+      "map": 0.6621,
+      "ndcgAtK": 0.7482,
+      "precisionAtK": 0.2164,
+      "recallAtK": 0.6621,
+      "mrr": 0.9644
+    }
+  },
+  "fieldSum": {
+    "metrics": {
+      "map": 0.2766,
+      "ndcgAtK": 0.4319,
+      "precisionAtK": 0.1647,
+      "recallAtK": 0.5276,
+      "mrr": 0.5531
+    }
+  },
+  "crossValidation": {
+    "metrics": {
+      "map": 0.3311,
+      "ndcgAtK": 0.4857,
+      "precisionAtK": 0.1847,
+      "recallAtK": 0.5822,
+      "mrr": 0.5732
+    },
+    "averageWeights": {
+      "lexicalScore": 0.14,
+      "rankReciprocal": -0.51,
+      "rankPercentile": -0.044,
+      "titleCoverage": 0.104,
+      "abstractCoverage": 0.48,
+      "anyCoverage": 0,
+      "phraseCoverage": 0.3,
+      "feedbackCoverage": 1,
+      "prfScore": 0.9,
+      "vectorScore": 2.576,
+      "vectorRankReciprocal": 1.2,
+      "titleLength": 0.09,
+      "abstractLength": -0.29
+    },
+    "foldRuns": [
+      {
+        "fold": 0,
+        "trainQueryCount": 180,
+        "testQueryCount": 45,
+        "trainNdcgAtK": 0.493,
+        "testMetrics": {
+          "map": 0.3472,
+          "ndcgAtK": 0.5079,
+          "precisionAtK": 0.2044,
+          "recallAtK": 0.5979,
+          "mrr": 0.5907
+        },
+        "weights": {
+          "lexicalScore": 0,
+          "rankReciprocal": 0.05,
+          "rankPercentile": -0.02,
+          "titleCoverage": 0.02,
+          "abstractCoverage": 1,
+          "anyCoverage": 0,
+          "phraseCoverage": -0.4,
+          "feedbackCoverage": 1,
+          "prfScore": 1,
+          "vectorScore": 2.3,
+          "vectorRankReciprocal": 1,
+          "titleLength": 0.25,
+          "abstractLength": -0.95
+        }
+      },
+      {
+        "fold": 1,
+        "trainQueryCount": 180,
+        "testQueryCount": 45,
+        "trainNdcgAtK": 0.5066,
+        "testMetrics": {
+          "map": 0.3198,
+          "ndcgAtK": 0.4712,
+          "precisionAtK": 0.2,
+          "recallAtK": 0.5467,
+          "mrr": 0.5628
+        },
+        "weights": {
+          "lexicalScore": 0.05,
+          "rankReciprocal": -1,
+          "rankPercentile": 0,
+          "titleCoverage": 0,
+          "abstractCoverage": 0.5,
+          "anyCoverage": 0,
+          "phraseCoverage": 0.2,
+          "feedbackCoverage": 1,
+          "prfScore": 1,
+          "vectorScore": 2.25,
+          "vectorRankReciprocal": 1,
+          "titleLength": 0.25,
+          "abstractLength": -0.05
+        }
+      },
+      {
+        "fold": 2,
+        "trainQueryCount": 180,
+        "testQueryCount": 45,
+        "trainNdcgAtK": 0.4956,
+        "testMetrics": {
+          "map": 0.3499,
+          "ndcgAtK": 0.5078,
+          "precisionAtK": 0.1811,
+          "recallAtK": 0.613,
+          "mrr": 0.6036
+        },
+        "weights": {
+          "lexicalScore": 0,
+          "rankReciprocal": -1,
+          "rankPercentile": 0.05,
+          "titleCoverage": -0.55,
+          "abstractCoverage": 0,
+          "anyCoverage": 0,
+          "phraseCoverage": 1,
+          "feedbackCoverage": 1,
+          "prfScore": 1,
+          "vectorScore": 2.45,
+          "vectorRankReciprocal": 1.5,
+          "titleLength": 0.05,
+          "abstractLength": -0.1
+        }
+      },
+      {
+        "fold": 3,
+        "trainQueryCount": 180,
+        "testQueryCount": 45,
+        "trainNdcgAtK": 0.5115,
+        "testMetrics": {
+          "map": 0.3006,
+          "ndcgAtK": 0.4518,
+          "precisionAtK": 0.1533,
+          "recallAtK": 0.5669,
+          "mrr": 0.5344
+        },
+        "weights": {
+          "lexicalScore": 1.05,
+          "rankReciprocal": -0.1,
+          "rankPercentile": -0.05,
+          "titleCoverage": 0.15,
+          "abstractCoverage": -0.1,
+          "anyCoverage": 0,
+          "phraseCoverage": 0.1,
+          "feedbackCoverage": 1,
+          "prfScore": 0,
+          "vectorScore": 1.48,
+          "vectorRankReciprocal": 2,
+          "titleLength": 0,
+          "abstractLength": -0.35
+        }
+      },
+      {
+        "fold": 4,
+        "trainQueryCount": 180,
+        "testQueryCount": 45,
+        "trainNdcgAtK": 0.5027,
+        "testMetrics": {
+          "map": 0.3378,
+          "ndcgAtK": 0.4896,
+          "precisionAtK": 0.1844,
+          "recallAtK": 0.5864,
+          "mrr": 0.5745
+        },
+        "weights": {
+          "lexicalScore": -0.4,
+          "rankReciprocal": -0.5,
+          "rankPercentile": -0.2,
+          "titleCoverage": 0.9,
+          "abstractCoverage": 1,
+          "anyCoverage": 0,
+          "phraseCoverage": 0.6,
+          "feedbackCoverage": 1,
+          "prfScore": 1.5,
+          "vectorScore": 4.4,
+          "vectorRankReciprocal": 0.5,
+          "titleLength": -0.1,
+          "abstractLength": 0
+        }
+      }
+    ]
+  },
+  "allQueryModel": {
+    "warning": "In-sample training result; use crossValidation for promotion decisions.",
+    "metrics": {
+      "map": 0.3466,
+      "ndcgAtK": 0.5024,
+      "precisionAtK": 0.1876,
+      "recallAtK": 0.59,
+      "mrr": 0.6119
+    },
+    "weights": {
+      "lexicalScore": 0.5,
+      "rankReciprocal": 0.02,
+      "rankPercentile": 0,
+      "titleCoverage": 0.5,
+      "abstractCoverage": -0.5,
+      "anyCoverage": 0,
+      "phraseCoverage": 0.6,
+      "feedbackCoverage": 1,
+      "prfScore": 1,
+      "vectorScore": 4.4,
+      "vectorRankReciprocal": 1,
+      "titleLength": 0.4,
+      "abstractLength": 0
+    },
+    "trainMetric": 0.5024,
+    "history": [
+      {
+        "featureName": "abstractCoverage",
+        "step": 1,
+        "metric": 0.4362
+      },
+      {
+        "featureName": "phraseCoverage",
+        "step": 1,
+        "metric": 0.4369
+      },
+      {
+        "featureName": "feedbackCoverage",
+        "step": 1,
+        "metric": 0.4523
+      },
+      {
+        "featureName": "prfScore",
+        "step": 1,
+        "metric": 0.4556
+      },
+      {
+        "featureName": "vectorScore",
+        "step": 1,
+        "metric": 0.4709
+      },
+      {
+        "featureName": "vectorRankReciprocal",
+        "step": 1,
+        "metric": 0.4829
+      },
+      {
+        "featureName": "lexicalScore",
+        "step": 1,
+        "metric": 0.4888
+      },
+      {
+        "featureName": "rankReciprocal",
+        "step": 1,
+        "metric": 0.489
+      },
+      {
+        "featureName": "abstractCoverage",
+        "step": 1,
+        "metric": 0.4929
+      },
+      {
+        "featureName": "vectorScore",
+        "step": 1,
+        "metric": 0.4964
+      },
+      {
+        "featureName": "rankReciprocal",
+        "step": 1,
+        "metric": 0.4973
+      },
+      {
+        "featureName": "vectorScore",
+        "step": 1,
+        "metric": 0.4977
+      },
+      {
+        "featureName": "titleCoverage",
+        "step": 1,
+        "metric": 0.4978
+      },
+      {
+        "featureName": "abstractCoverage",
+        "step": 1,
+        "metric": 0.4985
+      },
+      {
+        "featureName": "vectorScore",
+        "step": 1,
+        "metric": 0.4993
+      },
+      {
+        "featureName": "lexicalScore",
+        "step": 0.5,
+        "metric": 0.5001
+      },
+      {
+        "featureName": "abstractCoverage",
+        "step": 0.5,
+        "metric": 0.5006
+      },
+      {
+        "featureName": "phraseCoverage",
+        "step": 0.5,
+        "metric": 0.5007
+      },
+      {
+        "featureName": "titleLength",
+        "step": 0.5,
+        "metric": 0.5008
+      },
+      {
+        "featureName": "titleCoverage",
+        "step": 0.5,
+        "metric": 0.5011
+      },
+      {
+        "featureName": "vectorScore",
+        "step": 0.5,
+        "metric": 0.5016
+      },
+      {
+        "featureName": "phraseCoverage",
+        "step": 0.1,
+        "metric": 0.5018
+      },
+      {
+        "featureName": "vectorScore",
+        "step": 0.1,
+        "metric": 0.5019
+      },
+      {
+        "featureName": "titleLength",
+        "step": 0.1,
+        "metric": 0.5022
+      },
+      {
+        "featureName": "rankReciprocal",
+        "step": 0.02,
+        "metric": 0.5024
+      }
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "run_id": "VAL-026",
+  "project_id": "retail-search",
+  "generation_id": "GEN-016",
+  "executed_at": "2026-07-07T16:55:00-04:00",
+  "validation_strategy_version": "VALSTRAT-006",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "32 node tests passed; MDE parser checked 65 files; traceability validator checked 19 files and required IDs through GEN-016/prf-rerank; fixture index check passed; fixture evaluation passed."
+    },
+    {
+      "name": "live refined prf-rerank evaluation",
+      "category": "Architecture Experiment Comparison",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "experiments/cranfield-v0/evaluation-live-prf-rerank-phrase-gen016.json records MAP 0.2699, nDCG@10 0.3260, Precision@10 0.2680, Recall@10 0.4469, MRR 0.5622 over 225 live Cranfield queries."
+    },
+    {
+      "name": "live prf-expand-rerank evaluation",
+      "category": "Architecture Experiment Comparison",
+      "priority": "High",
+      "result": "pass_rejected",
+      "evidence": "experiments/cranfield-v0/evaluation-live-prf-expand-rerank-gen016.json records nDCG@10 0.3219, so expanded retrieval is rejected."
+    },
+    {
+      "name": "paper-style binary NDCG@20 evaluation",
+      "category": "External Comparison",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "experiments/cranfield-v0/evaluation-live-paper-bm25-prf-phrase-k20-binary-gen016.json records binary NDCG@20 0.4563."
+    }
+  ],
+  "blocked_or_skipped": [
+    {
+      "name": "Cloudflare deploy verification",
+      "reason": "No deployment was requested; GEN-016 leaves the public default unchanged."
+    },
+    {
+      "name": "BEIR transferability gate",
+      "reason": "Deferred to Phase 2."
+    }
+  ],
+  "critical_findings": [],
+  "high_findings": [
+    {
+      "id": "FIND-004",
+      "status": "deferred",
+      "summary": "ARCH-0.2-candidate remains candidate-only until BEIR transferability is measured."
+    }
+  ],
+  "medium_findings": [],
+  "evidence_quality": "GEN-016 has live evaluation evidence for the improved candidate and rejected expanded-retrieval branch. The improvement is small and Cranfield-only, so promotion remains deferred."
+}

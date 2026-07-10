@@ -1,0 +1,111 @@
+{
+  "generation_id": "GEN-014",
+  "project_id": "retail-search",
+  "started_at": "2026-07-07",
+  "ended_at": "2026-07-07",
+  "mission_phase": "Phase 1 - Cranfield Foundation",
+  "mission_version": "MISSION-2026-07-07-GEN-014",
+  "validation_strategy_version": "VALSTRAT-006",
+  "status": "paper_bm25_comparison_recorded_transferability_pending",
+  "focus": "Make the local Cranfield results comparable to the Cranfield BERT paper's NDCG@20 table.",
+  "reason_started": "The operator pointed out that the paper reports scores above 0.4 and asked whether the local result was best or comparable to recorded evidence.",
+  "reason_ended": "Binary NDCG@20 evaluation and a separate paper-style BM25 index profile were added and measured without changing the public default.",
+  "files_changed_by_category": {
+    "implementation_artifacts": [
+      "src/evaluation/metrics.js",
+      "src/cranfield/schema.js",
+      "scripts/evaluate-cranfield.mjs",
+      "scripts/load-cranfield-opensearch.mjs"
+    ],
+    "evaluation_artifacts": [
+      "experiments/cranfield-v0/evaluation-live-baseline-k20-binary-gen014.json",
+      "experiments/cranfield-v0/evaluation-live-prf-rerank-k20-binary-gen014.json",
+      "experiments/cranfield-v0/evaluation-live-paper-bm25-baseline-k20-binary-gen014.json",
+      "experiments/cranfield-v0/evaluation-live-paper-bm25-prf-k20-binary-gen014.json",
+      "experiments/cranfield-v0/evaluation-comparison-k20-binary-gen014.json"
+    ],
+    "test_artifacts": [
+      "test/evaluation-metrics.test.js",
+      "test/opensearch-query.test.js"
+    ],
+    "human_artifacts": [
+      "MISSION_UPDATES.md",
+      "docs/evaluation/timeline.md",
+      "docs/evolution/experiments/SE-0002-cranfield-field-sum.md",
+      "docs/architecture/versions/ARCH-0.2-candidate-cranfield-field-sum.md"
+    ],
+    "agent_artifacts": [
+      ".mde/generations/GEN-014.json",
+      ".mde/generation-summary.md",
+      ".mde/traceability.json"
+    ]
+  },
+  "paper_comparable_results": {
+    "default_bm25_baseline": {
+      "index": "cranfield-v0",
+      "relevance_mode": "binary",
+      "k": 20,
+      "ndcg_at_20": 0.4187
+    },
+    "default_prf_rerank": {
+      "index": "cranfield-v0",
+      "relevance_mode": "binary",
+      "k": 20,
+      "ndcg_at_20": 0.4542
+    },
+    "paper_bm25_baseline": {
+      "index": "cranfield-v0-paper-bm25",
+      "relevance_mode": "binary",
+      "k": 20,
+      "ndcg_at_20": 0.4196
+    },
+    "paper_bm25_prf_rerank": {
+      "index": "cranfield-v0-paper-bm25",
+      "relevance_mode": "binary",
+      "k": 20,
+      "ndcg_at_20": 0.4547
+    },
+    "external_reference": {
+      "paper": "Ghasemi and Hiemstra, BERT meets Cranfield",
+      "bm25_ndcg_at_20": 0.4714,
+      "bert_reranker_ndcg_at_20": 0.5525,
+      "bert_full_ranker_ndcg_at_20": 0.567
+    }
+  },
+  "validators_executed": [
+    {
+      "name": "node --test",
+      "category": "Technical / Functional",
+      "result": "pass",
+      "evidence": "Local node tests passed after relevance-mode and paper-BM25 index-profile additions."
+    },
+    {
+      "name": "live binary NDCG@20 evaluations",
+      "category": "Architecture Experiment Comparison",
+      "result": "pass",
+      "evidence": "Default and paper-style BM25 binary NDCG@20 evaluations completed over 225 Cranfield queries."
+    }
+  ],
+  "validators_skipped": [
+    {
+      "name": "Cloudflare deploy verification",
+      "category": "Deployment / External",
+      "reason": "No deployment was requested; GEN-014 leaves the public default unchanged."
+    },
+    {
+      "name": "Supervised BERT reranker reproduction",
+      "category": "External / Model Training",
+      "reason": "Requires additional dependencies and a separate experiment."
+    }
+  ],
+  "validation_gate": {
+    "result": "pass_local_and_live_evaluation",
+    "pass_count": 1,
+    "failed_categories": [],
+    "blocking_findings": []
+  },
+  "evidence_quality_notes": [
+    "The paper-BM25 index parameter change barely moved local BM25, so the remaining gap is likely implementation, evaluation, document representation, or supervised neural ranking.",
+    "Candidate remains transferability-pending and unreleased."
+  ]
+}

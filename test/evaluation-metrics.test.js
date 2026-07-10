@@ -18,6 +18,15 @@ test("computes core relevance metrics for ranked search results", () => {
   assert.ok(ndcgAtK(results, qrels, 3) > 0);
 });
 
+test("computes binary nDCG when relevance mode matches paper-style evaluation", () => {
+  const results = ["doc-2", "doc-1"];
+  const binaryNdcg = ndcgAtK(results, qrels, 2, { relevanceMode: "binary" });
+  const gradedNdcg = ndcgAtK(results, qrels, 2);
+
+  assert.equal(binaryNdcg, 1);
+  assert.ok(gradedNdcg < 1);
+});
+
 test("aggregates MAP, nDCG, precision, recall, and MRR style metrics", () => {
   const run = evaluateRun(
     [
@@ -42,4 +51,3 @@ test("aggregates MAP, nDCG, precision, recall, and MRR style metrics", () => {
   assert.ok(run.aggregate.averagePrecision > 0);
   assert.ok(run.aggregate.reciprocalRank > 0);
 });
-

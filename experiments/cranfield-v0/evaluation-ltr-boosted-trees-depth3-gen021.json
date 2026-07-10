@@ -1,0 +1,4257 @@
+{
+  "generatedAt": "2026-07-08T14:29:49.607Z",
+  "dataset": "cranfield",
+  "transport": "offline-ltr-evaluator",
+  "retrievalCache": "experiments/cranfield-v0/retrieval-pools-field-sum-top50-gen017.json",
+  "sourceArchitecture": "field-sum",
+  "embeddingSource": null,
+  "embeddingProvider": null,
+  "embeddingModel": null,
+  "embeddingDimension": null,
+  "k": 10,
+  "relevanceMode": "graded",
+  "ltrModel": "boosted-trees",
+  "modelOptions": {
+    "treeCount": 60,
+    "learningRate": 0.05,
+    "maxDepth": 3,
+    "minLeafSize": 12,
+    "maxThresholds": 12
+  },
+  "retrieveSize": 50,
+  "queryCount": 225,
+  "folds": 5,
+  "currentBestReference": {
+    "architecture": "ARCH-0.2-candidate refined prf-rerank",
+    "metric": "nDCG@10",
+    "value": 0.326
+  },
+  "candidatePool": {
+    "relevantCount": 1612,
+    "relevantInPool": 974,
+    "recall": 0.604218,
+    "queriesWithRelevant": 225,
+    "queriesWithRelevantInPool": 217,
+    "queryCoverage": 0.964444,
+    "oracleMetrics": {
+      "map": 0.6578,
+      "ndcgAtK": 0.7033,
+      "precisionAtK": 0.4231,
+      "recallAtK": 0.6578,
+      "mrr": 0.9644
+    }
+  },
+  "fieldSum": {
+    "metrics": {
+      "map": 0.2452,
+      "ndcgAtK": 0.3022,
+      "precisionAtK": 0.2418,
+      "recallAtK": 0.4136,
+      "mrr": 0.5499
+    }
+  },
+  "crossValidation": {
+    "metrics": {
+      "map": 0.2631,
+      "ndcgAtK": 0.3216,
+      "precisionAtK": 0.2564,
+      "recallAtK": 0.4346,
+      "mrr": 0.5434
+    },
+    "averageWeights": null,
+    "foldRuns": [
+      {
+        "fold": 0,
+        "trainQueryCount": 180,
+        "testQueryCount": 45,
+        "testMetrics": {
+          "map": 0.2727,
+          "ndcgAtK": 0.3312,
+          "precisionAtK": 0.2889,
+          "recallAtK": 0.4471,
+          "mrr": 0.5508
+        },
+        "modelSummary": {
+          "modelType": "pointwise-gradient-boosted-regression-trees",
+          "baseScore": 0.232667,
+          "learningRate": 0.05,
+          "treeCount": 60,
+          "maxDepth": 3,
+          "minLeafSize": 12
+        }
+      },
+      {
+        "fold": 1,
+        "trainQueryCount": 180,
+        "testQueryCount": 45,
+        "testMetrics": {
+          "map": 0.2589,
+          "ndcgAtK": 0.3184,
+          "precisionAtK": 0.2644,
+          "recallAtK": 0.4074,
+          "mrr": 0.5965
+        },
+        "modelSummary": {
+          "modelType": "pointwise-gradient-boosted-regression-trees",
+          "baseScore": 0.228111,
+          "learningRate": 0.05,
+          "treeCount": 60,
+          "maxDepth": 3,
+          "minLeafSize": 12
+        }
+      },
+      {
+        "fold": 2,
+        "trainQueryCount": 180,
+        "testQueryCount": 45,
+        "testMetrics": {
+          "map": 0.2865,
+          "ndcgAtK": 0.3383,
+          "precisionAtK": 0.28,
+          "recallAtK": 0.4958,
+          "mrr": 0.5064
+        },
+        "modelSummary": {
+          "modelType": "pointwise-gradient-boosted-regression-trees",
+          "baseScore": 0.237667,
+          "learningRate": 0.05,
+          "treeCount": 60,
+          "maxDepth": 3,
+          "minLeafSize": 12
+        }
+      },
+      {
+        "fold": 3,
+        "trainQueryCount": 180,
+        "testQueryCount": 45,
+        "testMetrics": {
+          "map": 0.2173,
+          "ndcgAtK": 0.2765,
+          "precisionAtK": 0.1911,
+          "recallAtK": 0.3811,
+          "mrr": 0.5008
+        },
+        "modelSummary": {
+          "modelType": "pointwise-gradient-boosted-regression-trees",
+          "baseScore": 0.241667,
+          "learningRate": 0.05,
+          "treeCount": 60,
+          "maxDepth": 3,
+          "minLeafSize": 12
+        }
+      },
+      {
+        "fold": 4,
+        "trainQueryCount": 180,
+        "testQueryCount": 45,
+        "testMetrics": {
+          "map": 0.2801,
+          "ndcgAtK": 0.3438,
+          "precisionAtK": 0.2578,
+          "recallAtK": 0.4414,
+          "mrr": 0.5626
+        },
+        "modelSummary": {
+          "modelType": "pointwise-gradient-boosted-regression-trees",
+          "baseScore": 0.237667,
+          "learningRate": 0.05,
+          "treeCount": 60,
+          "maxDepth": 3,
+          "minLeafSize": 12
+        }
+      }
+    ]
+  },
+  "allQueryModel": {
+    "warning": "In-sample training result; use crossValidation for promotion decisions.",
+    "metrics": {
+      "map": 0.2969,
+      "ndcgAtK": 0.3564,
+      "precisionAtK": 0.268,
+      "recallAtK": 0.4453,
+      "mrr": 0.6242
+    },
+    "model": {
+      "modelType": "pointwise-gradient-boosted-regression-trees",
+      "baseScore": 0.235556,
+      "learningRate": 0.05,
+      "treeCount": 60,
+      "maxDepth": 3,
+      "minLeafSize": 12,
+      "maxThresholds": 12
+    },
+    "history": [
+      {
+        "iteration": 1,
+        "residualMse": 0.644991
+      },
+      {
+        "iteration": 10,
+        "residualMse": 0.604157
+      },
+      {
+        "iteration": 20,
+        "residualMse": 0.582526
+      },
+      {
+        "iteration": 30,
+        "residualMse": 0.571278
+      },
+      {
+        "iteration": 40,
+        "residualMse": 0.564994
+      },
+      {
+        "iteration": 50,
+        "residualMse": 0.560118
+      },
+      {
+        "iteration": 60,
+        "residualMse": 0.556579
+      }
+    ],
+    "fullModel": {
+      "modelType": "pointwise-gradient-boosted-regression-trees",
+      "baseScore": 0.235556,
+      "learningRate": 0.05,
+      "treeCount": 60,
+      "maxDepth": 3,
+      "minLeafSize": 12,
+      "maxThresholds": 12,
+      "trees": [
+        {
+          "leaf": false,
+          "featureName": "prfScore",
+          "threshold": 0.476268,
+          "left": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.259993,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.168296
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.063938
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.005775
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.224516
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.4375,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.057566,
+              "left": {
+                "leaf": true,
+                "value": 0.143232
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.477009
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.377976,
+              "left": {
+                "leaf": true,
+                "value": 0.372692
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.882512
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "prfScore",
+          "threshold": 0.476268,
+          "left": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.259993,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": -0.173804
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.092358
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.005486
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.21329
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.4375,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.303846,
+              "left": {
+                "leaf": true,
+                "value": 0.253028
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.679618
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.377976,
+              "left": {
+                "leaf": true,
+                "value": 0.354057
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.838387
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "prfScore",
+          "threshold": 0.476268,
+          "left": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.259993,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.152297
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.056124
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.005212
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.202626
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.4375,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.057566,
+              "left": {
+                "leaf": true,
+                "value": 0.123419
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.434486
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.377976,
+              "left": {
+                "leaf": true,
+                "value": 0.336354
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.796467
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "prfScore",
+          "threshold": 0.476268,
+          "left": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.259993,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": -0.157499
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.082474
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.004951
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.192494
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.4375,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.303846,
+              "left": {
+                "leaf": true,
+                "value": 0.226228
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.623913
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.377976,
+              "left": {
+                "leaf": true,
+                "value": 0.319537
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.756644
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "prfScore",
+          "threshold": 0.476268,
+          "left": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.259993,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.137826
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.049194
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.004704
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.18287
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.4375,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.057566,
+              "left": {
+                "leaf": true,
+                "value": 0.105937
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.395838
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.377976,
+              "left": {
+                "leaf": true,
+                "value": 0.30356
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.718812
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "prfScore",
+          "threshold": 0.476268,
+          "left": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.259993,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": -0.142733
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.073624
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.133929,
+              "left": {
+                "leaf": true,
+                "value": 0.027602
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.275038
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.4375,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.303846,
+              "left": {
+                "leaf": true,
+                "value": 0.202185
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.572926
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.229167,
+              "left": {
+                "leaf": true,
+                "value": 0.95428
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.500481
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "prfScore",
+          "threshold": 0.476268,
+          "left": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.259993,
+            "left": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.124501,
+              "left": {
+                "leaf": true,
+                "value": -0.138213
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.071592
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.007803
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.17065
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleCoverage",
+            "threshold": 0.343137,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.6875,
+              "left": {
+                "leaf": true,
+                "value": 0.214632
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.62224
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.154762,
+              "left": {
+                "leaf": true,
+                "value": 0.304921
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.725638
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.192861,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": -0.137089
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.08866
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.6875,
+              "left": {
+                "leaf": true,
+                "value": -0.029579
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.358962
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "rankReciprocal",
+            "threshold": 0.183334,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.630682,
+              "left": {
+                "leaf": true,
+                "value": 0.085909
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.525082
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.343137,
+              "left": {
+                "leaf": true,
+                "value": 0.356677
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.695784
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.3125,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.080128,
+              "left": {
+                "leaf": true,
+                "value": -0.12981
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.046702
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.040834,
+              "left": {
+                "leaf": true,
+                "value": -0.060857
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.098135
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.4375,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.577381,
+              "left": {
+                "leaf": true,
+                "value": 0.099681
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.393169
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": 1.163587
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.413833
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "prfScore",
+          "threshold": 0.476268,
+          "left": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.259993,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.108232
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.033638
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.133929,
+              "left": {
+                "leaf": true,
+                "value": 0.017887
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.245529
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.064584,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.6875,
+              "left": {
+                "leaf": true,
+                "value": 0.083465
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.597212
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.541959,
+              "left": {
+                "leaf": true,
+                "value": 0.2992
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.569449
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "prfScore",
+          "threshold": 0.476268,
+          "left": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.190663,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.0625,
+              "left": {
+                "leaf": true,
+                "value": -0.13813
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.087335
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.033422
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.1083
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.623207,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.479167,
+              "left": {
+                "leaf": true,
+                "value": 0.092849
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.535352
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.229167,
+              "left": {
+                "leaf": true,
+                "value": 0.723764
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.331326
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.6875,
+            "left": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.190612,
+              "left": {
+                "leaf": true,
+                "value": -0.098159
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.027371
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.458334,
+              "left": {
+                "leaf": true,
+                "value": 0.761536
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.101476
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.4375,
+            "left": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.133929,
+              "left": {
+                "leaf": true,
+                "value": 0.039093
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.252023
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": 1.057152
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.361737
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.6875,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": -0.101186
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.038355
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.458334,
+              "left": {
+                "leaf": true,
+                "value": 0.723459
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.096402
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "rankReciprocal",
+            "threshold": 0.183334,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.630682,
+              "left": {
+                "leaf": true,
+                "value": 0.054543
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.434931
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.343137,
+              "left": {
+                "leaf": true,
+                "value": 0.276868
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.580829
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "rankReciprocal",
+          "threshold": 0.118056,
+          "left": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.292857,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.082173
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.0092
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.6875,
+              "left": {
+                "leaf": true,
+                "value": 0.198067
+              },
+              "right": {
+                "leaf": true,
+                "value": 1.501232
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.4375,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.303846,
+              "left": {
+                "leaf": true,
+                "value": 0.114845
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.496421
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.247222,
+              "left": {
+                "leaf": true,
+                "value": 0.888373
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.386506
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.192861,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.0625,
+              "left": {
+                "leaf": true,
+                "value": -0.115783
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.073411
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.6875,
+              "left": {
+                "leaf": true,
+                "value": -0.019555
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.303304
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.4375,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.577381,
+              "left": {
+                "leaf": true,
+                "value": 0.067141
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.307607
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": 0.965186
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.310898
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "rankReciprocal",
+          "threshold": 0.118056,
+          "left": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.292857,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.0752
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.00865
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.6875,
+              "left": {
+                "leaf": true,
+                "value": 0.182413
+              },
+              "right": {
+                "leaf": true,
+                "value": 1.410135
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.4375,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.303846,
+              "left": {
+                "leaf": true,
+                "value": 0.105485
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.459556
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.247222,
+              "left": {
+                "leaf": true,
+                "value": 0.822338
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.349176
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.192861,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.0625,
+              "left": {
+                "leaf": true,
+                "value": -0.106336
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.067233
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.6875,
+              "left": {
+                "leaf": true,
+                "value": -0.017479
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.282892
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "rankReciprocal",
+            "threshold": 0.133929,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.630682,
+              "left": {
+                "leaf": true,
+                "value": 0.003938
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.431593
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.269697,
+              "left": {
+                "leaf": true,
+                "value": 0.012307
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.336783
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.192861,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.0625,
+              "left": {
+                "leaf": true,
+                "value": -0.10102
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.063871
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.6875,
+              "left": {
+                "leaf": true,
+                "value": -0.016605
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.268748
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "rankReciprocal",
+            "threshold": 0.183334,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.630682,
+              "left": {
+                "leaf": true,
+                "value": 0.039734
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.357235
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.186147,
+              "left": {
+                "leaf": true,
+                "value": -0.264195
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.33651
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.3125,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.080128,
+              "left": {
+                "leaf": true,
+                "value": -0.087634
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.014275
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.040834,
+              "left": {
+                "leaf": true,
+                "value": -0.044665
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.085177
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.4375,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.0625,
+              "left": {
+                "leaf": true,
+                "value": -0.101095
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.127359
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": 0.869595
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.255436
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "rankReciprocal",
+          "threshold": 0.118056,
+          "left": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.292857,
+            "left": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.039231,
+              "left": {
+                "leaf": true,
+                "value": -0.070467
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.006658
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.6875,
+              "left": {
+                "leaf": true,
+                "value": 0.157726
+              },
+              "right": {
+                "leaf": true,
+                "value": 1.309681
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleLength",
+            "threshold": 0.1875,
+            "left": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.729624,
+              "left": {
+                "leaf": true,
+                "value": 0.217683
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.911017
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.0625,
+              "left": {
+                "leaf": true,
+                "value": -0.195442
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.190367
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.6875,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": -0.072347
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.023517
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.519445,
+              "left": {
+                "leaf": true,
+                "value": 0.584013
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.025563
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "abstractCoverage",
+            "threshold": 0.568323,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.8125,
+              "left": {
+                "leaf": true,
+                "value": 0.06218
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.524838
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.133929,
+              "left": {
+                "leaf": true,
+                "value": 0.063451
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.379166
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "rankReciprocal",
+          "threshold": 0.118056,
+          "left": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.292857,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.05857
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.010392
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.6875,
+              "left": {
+                "leaf": true,
+                "value": 0.143313
+              },
+              "right": {
+                "leaf": true,
+                "value": 1.23602
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleLength",
+            "threshold": 0.1875,
+            "left": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.729624,
+              "left": {
+                "leaf": true,
+                "value": 0.203099
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.854036
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.0625,
+              "left": {
+                "leaf": true,
+                "value": -0.188832
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.173294
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.6875,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.069048,
+              "left": {
+                "leaf": true,
+                "value": -0.061256
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.012134
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.519445,
+              "left": {
+                "leaf": true,
+                "value": 0.552037
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.019042
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "abstractCoverage",
+            "threshold": 0.568323,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.8125,
+              "left": {
+                "leaf": true,
+                "value": 0.055009
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.488193
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.133929,
+              "left": {
+                "leaf": true,
+                "value": 0.054095
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.351566
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "rankReciprocal",
+          "threshold": 0.118056,
+          "left": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.292857,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.053865
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.010435
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.6875,
+              "left": {
+                "leaf": true,
+                "value": 0.129368
+              },
+              "right": {
+                "leaf": true,
+                "value": 1.166739
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleLength",
+            "threshold": 0.1875,
+            "left": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.729624,
+              "left": {
+                "leaf": true,
+                "value": 0.189723
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.800804
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.4375,
+              "left": {
+                "leaf": true,
+                "value": 0.048119
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.24586
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.192861,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.291667,
+              "left": {
+                "leaf": true,
+                "value": -0.022994
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.064045
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.414286,
+              "left": {
+                "leaf": true,
+                "value": -0.003591
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.666098
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.3125,
+            "left": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.133929,
+              "left": {
+                "leaf": true,
+                "value": -0.03295
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.139464
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.129167,
+              "left": {
+                "leaf": true,
+                "value": -0.033726
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.262559
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.5625,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.080128,
+              "left": {
+                "leaf": true,
+                "value": -0.055702
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.007862
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.069048,
+              "left": {
+                "leaf": true,
+                "value": 0.013219
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.418191
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "abstractCoverage",
+            "threshold": 0.568323,
+            "left": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.087121,
+              "left": {
+                "leaf": true,
+                "value": -0.079309
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.12261
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.291667,
+              "left": {
+                "leaf": true,
+                "value": 0.495804
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.201145
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "rankReciprocal",
+          "threshold": 0.225,
+          "left": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.292857,
+            "left": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.205217,
+              "left": {
+                "leaf": true,
+                "value": -0.049477
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.011952
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.645834,
+              "left": {
+                "leaf": true,
+                "value": 0.118574
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.612319
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.148352,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": 0.562694
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.031821
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.75,
+              "left": {
+                "leaf": true,
+                "value": 0.531946
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.004906
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "rankReciprocal",
+          "threshold": 0.118056,
+          "left": {
+            "leaf": false,
+            "featureName": "rankReciprocal",
+            "threshold": 0.039231,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.430556,
+              "left": {
+                "leaf": true,
+                "value": -0.028808
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.069476
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.02734
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.103802
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleLength",
+            "threshold": 0.1875,
+            "left": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.729624,
+              "left": {
+                "leaf": true,
+                "value": 0.161298
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.719166
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.0625,
+              "left": {
+                "leaf": true,
+                "value": -0.197438
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.13041
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.6875,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": -0.052959
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.013315
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.519445,
+              "left": {
+                "leaf": true,
+                "value": 0.515167
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.009835
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.4375,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.158334,
+              "left": {
+                "leaf": true,
+                "value": 0.445357
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.03321
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": 0.65538
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.167705
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "rankReciprocal",
+          "threshold": 0.225,
+          "left": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.292857,
+            "left": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.102014,
+              "left": {
+                "leaf": true,
+                "value": -0.060865
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.006044
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.4375,
+              "left": {
+                "leaf": true,
+                "value": 0.090327
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.506621
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.148352,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": 0.494336
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.019216
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.75,
+              "left": {
+                "leaf": true,
+                "value": 0.489764
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.015312
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "rankReciprocal",
+          "threshold": 0.118056,
+          "left": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.414286,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.074176,
+              "left": {
+                "leaf": true,
+                "value": -0.044127
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.013553
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.4375,
+              "left": {
+                "leaf": true,
+                "value": 0.114367
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.77431
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "abstractCoverage",
+            "threshold": 0.195238,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.057566,
+              "left": {
+                "leaf": true,
+                "value": -0.270695
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.863471
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.104167,
+              "left": {
+                "leaf": true,
+                "value": 1.229257
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.136423
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "rankReciprocal",
+          "threshold": 0.225,
+          "left": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.292857,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.8125,
+              "left": {
+                "leaf": true,
+                "value": -0.022897
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.376027
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.538382,
+              "left": {
+                "leaf": true,
+                "value": 0.040198
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.390519
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.057566,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.186147,
+              "left": {
+                "leaf": true,
+                "value": -0.422821
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.085572
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.75,
+              "left": {
+                "leaf": true,
+                "value": 0.343712
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.024791
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.6875,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": -0.046263
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.009977
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.458334,
+              "left": {
+                "leaf": true,
+                "value": 0.546285
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.023693
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.3125,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.152778,
+              "left": {
+                "leaf": true,
+                "value": 0.413383
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.000892
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.129167,
+              "left": {
+                "leaf": true,
+                "value": -0.061222
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.20297
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.5625,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.080128,
+              "left": {
+                "leaf": true,
+                "value": -0.041406
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.001532
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.069048,
+              "left": {
+                "leaf": true,
+                "value": 0.008945
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.378428
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.0625,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.016498
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.251577
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.639611,
+              "left": {
+                "leaf": true,
+                "value": 0.071389
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.27262
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "rankReciprocal",
+          "threshold": 0.225,
+          "left": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.292857,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.0625,
+              "left": {
+                "leaf": true,
+                "value": -0.059985
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.006302
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.4375,
+              "left": {
+                "leaf": true,
+                "value": 0.068966
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.44473
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleLength",
+            "threshold": 0.229167,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.190909,
+              "left": {
+                "leaf": true,
+                "value": -0.389471
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.430978
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.355042,
+              "left": {
+                "leaf": true,
+                "value": -0.01227
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.269699
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "feedbackCoverage",
+          "threshold": 0.6875,
+          "left": {
+            "leaf": false,
+            "featureName": "abstractCoverage",
+            "threshold": 0.788889,
+            "left": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.519231,
+              "left": {
+                "leaf": true,
+                "value": -0.016825
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.230015
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.542632,
+              "left": {
+                "leaf": true,
+                "value": 0.005549
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.558182
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleCoverage",
+            "threshold": 0.188988,
+            "left": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 1.08355,
+              "left": {
+                "leaf": true,
+                "value": 0.095628
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.239536
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 1.155362,
+              "left": {
+                "leaf": true,
+                "value": 0.414533
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.049533
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "rankReciprocal",
+          "threshold": 0.118056,
+          "left": {
+            "leaf": false,
+            "featureName": "rankReciprocal",
+            "threshold": 0.039231,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.430556,
+              "left": {
+                "leaf": true,
+                "value": -0.01601
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.056768
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.019799
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.090257
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleLength",
+            "threshold": 0.1875,
+            "left": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.613854,
+              "left": {
+                "leaf": true,
+                "value": 0.047542
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.520985
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.0625,
+              "left": {
+                "leaf": true,
+                "value": -0.191611
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.088242
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "feedbackCoverage",
+          "threshold": 0.6875,
+          "left": {
+            "leaf": false,
+            "featureName": "abstractCoverage",
+            "threshold": 0.788889,
+            "left": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.519231,
+              "left": {
+                "leaf": true,
+                "value": -0.015676
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.214042
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.542632,
+              "left": {
+                "leaf": true,
+                "value": 0.004585
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.525216
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleCoverage",
+            "threshold": 0.188988,
+            "left": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 1.08355,
+              "left": {
+                "leaf": true,
+                "value": 0.089285
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.23678
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 1.155362,
+              "left": {
+                "leaf": true,
+                "value": 0.389633
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.04089
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "lexicalScore",
+          "threshold": 0.29373,
+          "left": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.069048,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": -0.054566
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.006057
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.502778,
+              "left": {
+                "leaf": true,
+                "value": 0.052205
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.039467
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.0625,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.012447
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.233954
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.516666,
+              "left": {
+                "leaf": true,
+                "value": 0.046684
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.185787
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "rankReciprocal",
+          "threshold": 0.118056,
+          "left": {
+            "leaf": false,
+            "featureName": "rankReciprocal",
+            "threshold": 0.039231,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.363889,
+              "left": {
+                "leaf": true,
+                "value": -0.007368
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.048508
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.017827
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.083738
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleLength",
+            "threshold": 0.104167,
+            "left": {
+              "leaf": true,
+              "value": 0.910491
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.057566,
+              "left": {
+                "leaf": true,
+                "value": -0.005566
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.134124
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "feedbackCoverage",
+          "threshold": 0.6875,
+          "left": {
+            "leaf": false,
+            "featureName": "abstractCoverage",
+            "threshold": 0.788889,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.050126,
+              "left": {
+                "leaf": true,
+                "value": -0.030918
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.021988
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": -0.115324
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.445872
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleLength",
+            "threshold": 0.229167,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.374126,
+              "left": {
+                "leaf": true,
+                "value": 0.146961
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.74779
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 1.179108,
+              "left": {
+                "leaf": true,
+                "value": 0.172491
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.417758
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "feedbackCoverage",
+          "threshold": 0.6875,
+          "left": {
+            "leaf": false,
+            "featureName": "abstractCoverage",
+            "threshold": 0.788889,
+            "left": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.519231,
+              "left": {
+                "leaf": true,
+                "value": -0.013705
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.193178
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.133929,
+              "left": {
+                "leaf": true,
+                "value": 0.998589
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.212522
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleLength",
+            "threshold": 0.229167,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.021739,
+              "left": {
+                "leaf": true,
+                "value": 0.124164
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.704685
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.550506,
+              "left": {
+                "leaf": true,
+                "value": 0.183363
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.260221
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "rankReciprocal",
+          "threshold": 0.118056,
+          "left": {
+            "leaf": false,
+            "featureName": "rankReciprocal",
+            "threshold": 0.039231,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.363889,
+              "left": {
+                "leaf": true,
+                "value": -0.00568
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.045201
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": -0.016024
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.078097
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleLength",
+            "threshold": 0.1875,
+            "left": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.613854,
+              "left": {
+                "leaf": true,
+                "value": 0.039076
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.468039
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.0625,
+              "left": {
+                "leaf": true,
+                "value": -0.180022
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.069303
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "rankReciprocal",
+          "threshold": 0.118056,
+          "left": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.069048,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.0625,
+              "left": {
+                "leaf": true,
+                "value": -0.058749
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.016955
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.163889,
+              "left": {
+                "leaf": true,
+                "value": 0.323856
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.009184
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleLength",
+            "threshold": 0.104167,
+            "left": {
+              "leaf": true,
+              "value": 0.853693
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.195238,
+              "left": {
+                "leaf": true,
+                "value": -0.156953
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.084489
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "feedbackCoverage",
+          "threshold": 0.6875,
+          "left": {
+            "leaf": false,
+            "featureName": "abstractCoverage",
+            "threshold": 0.788889,
+            "left": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.519231,
+              "left": {
+                "leaf": true,
+                "value": -0.012577
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.177304
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.542632,
+              "left": {
+                "leaf": true,
+                "value": -0.031112
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.448934
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleCoverage",
+            "threshold": 0.188988,
+            "left": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 1.08355,
+              "left": {
+                "leaf": true,
+                "value": 0.06189
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.25882
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 1.155362,
+              "left": {
+                "leaf": true,
+                "value": 0.335988
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.00734
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "phraseCoverage",
+          "threshold": 0.057566,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.3125,
+            "left": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.183334,
+              "left": {
+                "leaf": true,
+                "value": -0.032881
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.153665
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.252778,
+              "left": {
+                "leaf": true,
+                "value": 0.217724
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.002739
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.499605,
+            "left": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.183334,
+              "left": {
+                "leaf": true,
+                "value": -0.000771
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.312735
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.226496,
+              "left": {
+                "leaf": true,
+                "value": 1.043706
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.112389
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "feedbackCoverage",
+          "threshold": 0.5625,
+          "left": {
+            "leaf": false,
+            "featureName": "abstractCoverage",
+            "threshold": 0.788889,
+            "left": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.422619,
+              "left": {
+                "leaf": true,
+                "value": -0.016341
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.082773
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 0.778077,
+              "left": {
+                "leaf": true,
+                "value": 0.063703
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.912493
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "abstractLength",
+            "threshold": 0.197222,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.169445,
+              "left": {
+                "leaf": true,
+                "value": 0.029849
+              },
+              "right": {
+                "leaf": true,
+                "value": 1.204794
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.179144,
+              "left": {
+                "leaf": true,
+                "value": -0.335144
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.103598
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "feedbackCoverage",
+          "threshold": 0.6875,
+          "left": {
+            "leaf": false,
+            "featureName": "abstractCoverage",
+            "threshold": 0.788889,
+            "left": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.519231,
+              "left": {
+                "leaf": true,
+                "value": -0.01122
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.159758
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.133929,
+              "left": {
+                "leaf": true,
+                "value": 0.933294
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.162746
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleLength",
+            "threshold": 0.229167,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.374126,
+              "left": {
+                "leaf": true,
+                "value": 0.111593
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.645715
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.550506,
+              "left": {
+                "leaf": true,
+                "value": 0.153013
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.271988
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "phraseCoverage",
+          "threshold": 0.057566,
+          "left": {
+            "leaf": false,
+            "featureName": "feedbackCoverage",
+            "threshold": 0.1875,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.449495,
+              "left": {
+                "leaf": true,
+                "value": -0.034288
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.121756
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.138095,
+              "left": {
+                "leaf": true,
+                "value": -0.037857
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.041246
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.499605,
+            "left": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.183334,
+              "left": {
+                "leaf": true,
+                "value": -0.000456
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.297068
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.226496,
+              "left": {
+                "leaf": true,
+                "value": 0.993297
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.10002
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "feedbackCoverage",
+          "threshold": 0.3125,
+          "left": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.069048,
+            "left": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.183334,
+              "left": {
+                "leaf": true,
+                "value": -0.028727
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.140784
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.219445,
+              "left": {
+                "leaf": true,
+                "value": 0.13321
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.002348
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleCoverage",
+            "threshold": 0.620192,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.809091,
+              "left": {
+                "leaf": true,
+                "value": 0.023858
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.523068
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 1.134622,
+              "left": {
+                "leaf": true,
+                "value": 0.682926
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.386431
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "feedbackCoverage",
+          "threshold": 0.6875,
+          "left": {
+            "leaf": false,
+            "featureName": "abstractCoverage",
+            "threshold": 0.788889,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.050126,
+              "left": {
+                "leaf": true,
+                "value": -0.022065
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.01594
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.133929,
+              "left": {
+                "leaf": true,
+                "value": 0.875123
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.140296
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleCoverage",
+            "threshold": 0.188988,
+            "left": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 1.08355,
+              "left": {
+                "leaf": true,
+                "value": 0.044437
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.265185
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 1.155362,
+              "left": {
+                "leaf": true,
+                "value": 0.295867
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.009887
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "rankReciprocal",
+          "threshold": 0.080128,
+          "left": {
+            "leaf": false,
+            "featureName": "abstractCoverage",
+            "threshold": 0.289916,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.080128,
+              "left": {
+                "leaf": true,
+                "value": -0.035188
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.035318
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.816667,
+              "left": {
+                "leaf": true,
+                "value": -0.000296
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.365819
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleLength",
+            "threshold": 0.229167,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.447222,
+              "left": {
+                "leaf": true,
+                "value": 0.270174
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.02306
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.5625,
+              "left": {
+                "leaf": true,
+                "value": -0.026287
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.119425
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "feedbackCoverage",
+          "threshold": 0.3125,
+          "left": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.069048,
+            "left": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.183334,
+              "left": {
+                "leaf": true,
+                "value": -0.025326
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.134568
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.219445,
+              "left": {
+                "leaf": true,
+                "value": 0.123823
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.003595
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleCoverage",
+            "threshold": 0.620192,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.809091,
+              "left": {
+                "leaf": true,
+                "value": 0.021372
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.476526
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "prfScore",
+              "threshold": 1.134622,
+              "left": {
+                "leaf": true,
+                "value": 0.640872
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.374842
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "feedbackCoverage",
+          "threshold": 0.6875,
+          "left": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.61264,
+            "left": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.183334,
+              "left": {
+                "leaf": true,
+                "value": -0.014347
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.095703
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.04881,
+              "left": {
+                "leaf": true,
+                "value": 1.121548
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.052926
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleLength",
+            "threshold": 0.229167,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.374126,
+              "left": {
+                "leaf": true,
+                "value": 0.09998
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.592029
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.550506,
+              "left": {
+                "leaf": true,
+                "value": 0.128176
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.268483
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "rankReciprocal",
+          "threshold": 0.080128,
+          "left": {
+            "leaf": false,
+            "featureName": "abstractCoverage",
+            "threshold": 0.289916,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.080128,
+              "left": {
+                "leaf": true,
+                "value": -0.03196
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.03311
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.816667,
+              "left": {
+                "leaf": true,
+                "value": -0.000087
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.333039
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleLength",
+            "threshold": 0.1875,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.430556,
+              "left": {
+                "leaf": true,
+                "value": 0.342245
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.024737
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.0625,
+              "left": {
+                "leaf": true,
+                "value": -0.123888
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.030677
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "feedbackCoverage",
+          "threshold": 0.6875,
+          "left": {
+            "leaf": false,
+            "featureName": "titleCoverage",
+            "threshold": 0.414216,
+            "left": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.289916,
+              "left": {
+                "leaf": true,
+                "value": -0.003038
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.057313
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.402778,
+              "left": {
+                "leaf": true,
+                "value": 0.208216
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.027455
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "abstractCoverage",
+            "threshold": 0.279221,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.8125,
+              "left": {
+                "leaf": true,
+                "value": -0.340979
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.102398
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.341667,
+              "left": {
+                "leaf": true,
+                "value": -0.15843
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.203193
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "feedbackCoverage",
+          "threshold": 0.3125,
+          "left": {
+            "leaf": false,
+            "featureName": "phraseCoverage",
+            "threshold": 0.069048,
+            "left": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.183334,
+              "left": {
+                "leaf": true,
+                "value": -0.022262
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.133056
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.219445,
+              "left": {
+                "leaf": true,
+                "value": 0.115127
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.003382
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "lexicalScore",
+            "threshold": 0.067169,
+            "left": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.286111,
+              "left": {
+                "leaf": true,
+                "value": 0.168871
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.072716
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleCoverage",
+              "threshold": 0.064584,
+              "left": {
+                "leaf": true,
+                "value": -0.06929
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.074218
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "rankReciprocal",
+          "threshold": 0.040834,
+          "left": {
+            "leaf": false,
+            "featureName": "abstractLength",
+            "threshold": 0.363889,
+            "left": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.5625,
+              "left": {
+                "leaf": true,
+                "value": 0.001334
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.361699
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.104167,
+              "left": {
+                "leaf": true,
+                "value": 0.238556
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.032212
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "titleCoverage",
+            "threshold": 0.064584,
+            "left": {
+              "leaf": false,
+              "featureName": "phraseCoverage",
+              "threshold": 0.309524,
+              "left": {
+                "leaf": true,
+                "value": -0.075005
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.238324
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.3125,
+              "left": {
+                "leaf": true,
+                "value": 0.002992
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.083524
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "phraseCoverage",
+          "threshold": 0.057566,
+          "left": {
+            "leaf": false,
+            "featureName": "titleLength",
+            "threshold": 0.104167,
+            "left": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.095455,
+              "left": {
+                "leaf": true,
+                "value": 0.011122
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.647588
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.0625,
+              "left": {
+                "leaf": true,
+                "value": -0.043525
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.007887
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "prfScore",
+            "threshold": 0.499605,
+            "left": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.183334,
+              "left": {
+                "leaf": true,
+                "value": -0.003606
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.270386
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractCoverage",
+              "threshold": 0.226496,
+              "left": {
+                "leaf": true,
+                "value": 0.927561
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.070679
+              }
+            }
+          }
+        },
+        {
+          "leaf": false,
+          "featureName": "feedbackCoverage",
+          "threshold": 0.6875,
+          "left": {
+            "leaf": false,
+            "featureName": "abstractCoverage",
+            "threshold": 0.788889,
+            "left": {
+              "leaf": false,
+              "featureName": "titleLength",
+              "threshold": 0.104167,
+              "left": {
+                "leaf": true,
+                "value": 0.160917
+              },
+              "right": {
+                "leaf": true,
+                "value": -0.007314
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "feedbackCoverage",
+              "threshold": 0.1875,
+              "left": {
+                "leaf": true,
+                "value": -0.185153
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.293884
+              }
+            }
+          },
+          "right": {
+            "leaf": false,
+            "featureName": "lexicalScore",
+            "threshold": 0.697636,
+            "left": {
+              "leaf": false,
+              "featureName": "rankReciprocal",
+              "threshold": 0.183334,
+              "left": {
+                "leaf": true,
+                "value": 0.023059
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.780282
+              }
+            },
+            "right": {
+              "leaf": false,
+              "featureName": "abstractLength",
+              "threshold": 0.402778,
+              "left": {
+                "leaf": true,
+                "value": -0.19698
+              },
+              "right": {
+                "leaf": true,
+                "value": 0.119399
+              }
+            }
+          }
+        }
+      ],
+      "history": [
+        {
+          "iteration": 1,
+          "residualMse": 0.644991
+        },
+        {
+          "iteration": 10,
+          "residualMse": 0.604157
+        },
+        {
+          "iteration": 20,
+          "residualMse": 0.582526
+        },
+        {
+          "iteration": 30,
+          "residualMse": 0.571278
+        },
+        {
+          "iteration": 40,
+          "residualMse": 0.564994
+        },
+        {
+          "iteration": 50,
+          "residualMse": 0.560118
+        },
+        {
+          "iteration": 60,
+          "residualMse": 0.556579
+        }
+      ]
+    }
+  }
+}

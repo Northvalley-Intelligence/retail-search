@@ -2,7 +2,31 @@
   "generatedAt": "2026-07-04T00:00:00.000Z",
   "dataset": "cranfield-sample",
   "architectureVersion": "v0-cranfield-opensearch-baseline",
+  "searchArchitecture": {
+    "id": "baseline",
+    "label": "ARCH-0.1 OpenSearch BM25 baseline",
+    "status": "accepted",
+    "searchEvolutionId": "SE-0001",
+    "architectureVersion": "ARCH-0.1",
+    "architectureSlug": "v0-cranfield-opensearch-baseline",
+    "architectureDecisionIds": [
+      "ADL-0001"
+    ],
+    "queryStrategy": "Single OpenSearch multi_match best_fields query over title, abstract, and text.",
+    "rankingLogic": [
+      "OpenSearch BM25 baseline over title, abstract, and text fields.",
+      "Title receives the highest field boost, abstract receives a moderate boost, and full text is unboosted.",
+      "No query-specific result overrides, runtime LLM calls, personalization, or learning-to-rank model are used in v0."
+    ],
+    "techniquesApplied": [
+      "OpenSearch English analyzer",
+      "BM25 baseline scoring",
+      "field weighting for title and abstract",
+      "dataset filter for Cranfield documents"
+    ]
+  },
   "transport": "fixture-validator",
+  "retrieveSize": 10,
   "acceptanceNote": "Fixture evaluator validates metric math and run artifact shape; final Phase 1 acceptance still requires live OpenSearch data and public endpoints.",
   "metrics": {
     "map": 1,
@@ -13,6 +37,7 @@
   },
   "evaluation": {
     "k": 10,
+    "relevanceMode": "graded",
     "queryCount": 3,
     "aggregate": {
       "precisionAtK": 0.8889,
@@ -56,5 +81,109 @@
         }
       }
     ]
+  },
+  "failureAnalysis": {
+    "k": 10,
+    "groupCount": 1,
+    "groups": [
+      {
+        "id": "passing_or_minor",
+        "label": "Passing or minor issue",
+        "description": "The top K behavior is not currently classified as a meaningful failure.",
+        "queryCount": 3,
+        "averageMetrics": {
+          "precisionAtK": 0.8889,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        },
+        "averageRelevantCount": 1.6667,
+        "averageRelevantHitsAtK": 1.6667
+      }
+    ],
+    "examplesByGroup": {
+      "passing_or_minor": [
+        {
+          "queryId": "q1",
+          "query": "wing pressure distribution",
+          "behaviorGroup": "passing_or_minor",
+          "behaviorLabel": "Passing or minor issue",
+          "metrics": {
+            "precisionAtK": 1,
+            "recallAtK": 1,
+            "averagePrecision": 1,
+            "reciprocalRank": 1,
+            "ndcgAtK": 1
+          },
+          "relevantCount": 2,
+          "hitCountAtK": 2,
+          "firstRelevantRank": 1,
+          "retrievedIdsAtK": [
+            "cranfield-sample-001",
+            "cranfield-sample-005"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "cranfield-sample-001",
+            "cranfield-sample-005"
+          ],
+          "topNonRelevantIdsAtK": [],
+          "missingRelevantIdsAtK": []
+        },
+        {
+          "queryId": "q2",
+          "query": "boundary layer transition",
+          "behaviorGroup": "passing_or_minor",
+          "behaviorLabel": "Passing or minor issue",
+          "metrics": {
+            "precisionAtK": 0.6667,
+            "recallAtK": 1,
+            "averagePrecision": 1,
+            "reciprocalRank": 1,
+            "ndcgAtK": 1
+          },
+          "relevantCount": 2,
+          "hitCountAtK": 2,
+          "firstRelevantRank": 1,
+          "retrievedIdsAtK": [
+            "cranfield-sample-002",
+            "cranfield-sample-001",
+            "cranfield-sample-004"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "cranfield-sample-002",
+            "cranfield-sample-001"
+          ],
+          "topNonRelevantIdsAtK": [
+            "cranfield-sample-004"
+          ],
+          "missingRelevantIdsAtK": []
+        },
+        {
+          "queryId": "q3",
+          "query": "hypersonic heat transfer",
+          "behaviorGroup": "passing_or_minor",
+          "behaviorLabel": "Passing or minor issue",
+          "metrics": {
+            "precisionAtK": 1,
+            "recallAtK": 1,
+            "averagePrecision": 1,
+            "reciprocalRank": 1,
+            "ndcgAtK": 1
+          },
+          "relevantCount": 1,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 1,
+          "retrievedIdsAtK": [
+            "cranfield-sample-003"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "cranfield-sample-003"
+          ],
+          "topNonRelevantIdsAtK": [],
+          "missingRelevantIdsAtK": []
+        }
+      ]
+    }
   }
 }

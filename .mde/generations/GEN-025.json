@@ -1,0 +1,84 @@
+{
+  "generation_id": "GEN-025",
+  "project_id": "retail-search",
+  "started_at": "2026-07-09",
+  "ended_at": "2026-07-09",
+  "mission_phase": "Phase 1 - Cranfield Foundation",
+  "mission_version": "MISSION-2026-07-09-GEN-025",
+  "validation_strategy_version": "VALSTRAT-006",
+  "status": "milestone_endpoint_deployment_complete",
+  "focus": "Deploy the approved GEN-024 milestone endpoint route bundle without changing the public/default accepted baseline behavior.",
+  "reason_started": "The operator explicitly approved deployment after GEN-024 added local milestone search and explain endpoints.",
+  "reason_ended": "The Cloudflare Worker deployment succeeded and public milestone/versioned endpoints were verified after propagation.",
+  "files_changed_by_category": {
+    "deploy_artifacts": [
+      "deploy/release-checks.json"
+    ],
+    "human_artifacts": [
+      "MISSION_UPDATES.md",
+      "docs/traceability.md"
+    ],
+    "agent_artifacts": [
+      ".mde/generations/GEN-025.json",
+      ".mde/validation-runs/VAL-035.json",
+      ".mde/generation-summary.md",
+      ".mde/traceability.json",
+      ".mde/state.json",
+      ".mde/progress.json"
+    ]
+  },
+  "deployment": {
+    "provider": "cloudflare_workers",
+    "public_url": "https://retail-search.feroshjacob.workers.dev",
+    "worker_version_id": "3e9597b9-f791-457f-805f-f1dbb8123a3c",
+    "public_default_behavior": "unchanged_arch_0_1_baseline",
+    "deployed_routes": [
+      "/api/v0.1/search",
+      "/api/v0.1/explain",
+      "/api/milestones/arch-0.1/search",
+      "/api/milestones/arch-0.1/explain",
+      "/api/milestones/arch-0.2-prf/search",
+      "/api/milestones/arch-0.2-prf/explain",
+      "/api/milestones/arch-0.3-bge/search",
+      "/api/milestones/arch-0.3-bge/explain"
+    ]
+  },
+  "validators_executed": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "result": "pass",
+      "evidence": "45 Node tests, MDE parser, traceability validator, fixture index check, and fixture evaluation passed before deployment."
+    },
+    {
+      "name": "npx wrangler deploy",
+      "category": "Deployment",
+      "result": "pass",
+      "evidence": "Cloudflare deployed Worker version 3e9597b9-f791-457f-805f-f1dbb8123a3c."
+    },
+    {
+      "name": "public endpoint verification",
+      "category": "Deployment / Functional",
+      "result": "pass",
+      "evidence": "After propagation, /health and /api/v0.1/search returned 200; /api/milestones/arch-0.1/search returned 200; /api/milestones/arch-0.2-prf/explain returned 200; /api/milestones/arch-0.3-bge/search returned the intended 501."
+    }
+  ],
+  "validators_skipped": [
+    {
+      "name": "Remote BGE runtime query validation",
+      "category": "Architecture Experiment Comparison / Vector Retrieval",
+      "reason": "The deployed BGE milestone endpoint intentionally returns milestone_runtime_not_enabled until runtime query-vector support exists."
+    }
+  ],
+  "validation_gate": {
+    "result": "pass",
+    "pass_count": 2,
+    "failed_categories": [],
+    "blocking_findings": []
+  },
+  "evidence_quality_notes": [
+    "A first public check saw one transient 404 for arch-0.1 during deployment propagation; repeated checks after propagation passed.",
+    "The public/default /api/search and /api/explain paths remain on the accepted ARCH-0.1 baseline.",
+    "The public BGE milestone reports its runtime limitation instead of faking vector search for arbitrary queries."
+  ]
+}

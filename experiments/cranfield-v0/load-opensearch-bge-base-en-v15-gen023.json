@@ -1,0 +1,77 @@
+{
+  "generatedAt": "2026-07-08T16:42:06.927Z",
+  "dataset": "cranfield",
+  "transport": "live-opensearch-bge-vector-load",
+  "index": "cranfield-v0-bge-base-en-v15-gen023",
+  "indexStatus": "created",
+  "vectorField": "bge_embedding",
+  "embeddingSource": "experiments/cranfield-v0/embeddings-huggingface-bge-base-en-v15-title-abstract-gen022.json",
+  "embeddingProvider": "huggingface",
+  "embeddingModel": "BAAI/bge-base-en-v1.5",
+  "embeddingDimension": 768,
+  "documentsSource": "/private/tmp/retail-search-cranfield-live/documents.jsonl",
+  "documentCount": 1400,
+  "indexed": 1400,
+  "liveCount": 1400,
+  "indexBody": {
+    "settings": {
+      "index": {
+        "number_of_shards": 1,
+        "number_of_replicas": 0,
+        "knn": true
+      },
+      "analysis": {
+        "analyzer": {
+          "cranfield_english": {
+            "type": "english"
+          }
+        }
+      }
+    },
+    "mappings": {
+      "dynamic": "strict",
+      "properties": {
+        "id": {
+          "type": "keyword"
+        },
+        "dataset": {
+          "type": "keyword"
+        },
+        "title": {
+          "type": "text",
+          "analyzer": "cranfield_english",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "abstract": {
+          "type": "text",
+          "analyzer": "cranfield_english"
+        },
+        "text": {
+          "type": "text",
+          "analyzer": "cranfield_english"
+        },
+        "source": {
+          "type": "keyword"
+        },
+        "indexed_at": {
+          "type": "date"
+        },
+        "bge_embedding": {
+          "type": "knn_vector",
+          "dimension": 768,
+          "method": {
+            "name": "hnsw",
+            "engine": "lucene",
+            "space_type": "cosinesimil"
+          }
+        }
+      }
+    }
+  },
+  "valuesPrinted": false
+}

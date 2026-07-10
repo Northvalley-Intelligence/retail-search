@@ -1,0 +1,217 @@
+{
+  "generatedAt": "2026-07-07T20:44:52.545Z",
+  "dataset": "cranfield",
+  "k": 10,
+  "retrieveSize": 50,
+  "configCount": 108,
+  "top": [
+    {
+      "feedbackDocuments": 4,
+      "feedbackTerms": 8,
+      "originalWeight": 0.06,
+      "expansionWeight": 0.14,
+      "metrics": {
+        "map": 0.2696,
+        "ndcgAtK": 0.3253,
+        "precisionAtK": 0.2676,
+        "recallAtK": 0.4466,
+        "mrr": 0.562
+      }
+    },
+    {
+      "feedbackDocuments": 4,
+      "feedbackTerms": 8,
+      "originalWeight": 0.08,
+      "expansionWeight": 0.16,
+      "metrics": {
+        "map": 0.2701,
+        "ndcgAtK": 0.3249,
+        "precisionAtK": 0.2671,
+        "recallAtK": 0.4466,
+        "mrr": 0.5589
+      }
+    },
+    {
+      "feedbackDocuments": 4,
+      "feedbackTerms": 10,
+      "originalWeight": 0.04,
+      "expansionWeight": 0.14,
+      "metrics": {
+        "map": 0.2693,
+        "ndcgAtK": 0.3239,
+        "precisionAtK": 0.2667,
+        "recallAtK": 0.4467,
+        "mrr": 0.5518
+      }
+    },
+    {
+      "feedbackDocuments": 4,
+      "feedbackTerms": 10,
+      "originalWeight": 0.08,
+      "expansionWeight": 0.16,
+      "metrics": {
+        "map": 0.2692,
+        "ndcgAtK": 0.3239,
+        "precisionAtK": 0.2662,
+        "recallAtK": 0.4474,
+        "mrr": 0.5531
+      }
+    },
+    {
+      "feedbackDocuments": 4,
+      "feedbackTerms": 8,
+      "originalWeight": 0.08,
+      "expansionWeight": 0.14,
+      "metrics": {
+        "map": 0.2683,
+        "ndcgAtK": 0.3233,
+        "precisionAtK": 0.2662,
+        "recallAtK": 0.4444,
+        "mrr": 0.5603
+      }
+    },
+    {
+      "feedbackDocuments": 4,
+      "feedbackTerms": 10,
+      "originalWeight": 0.06,
+      "expansionWeight": 0.16,
+      "metrics": {
+        "map": 0.2689,
+        "ndcgAtK": 0.323,
+        "precisionAtK": 0.2653,
+        "recallAtK": 0.4453,
+        "mrr": 0.5527
+      }
+    },
+    {
+      "feedbackDocuments": 4,
+      "feedbackTerms": 8,
+      "originalWeight": 0.04,
+      "expansionWeight": 0.14,
+      "metrics": {
+        "map": 0.2674,
+        "ndcgAtK": 0.323,
+        "precisionAtK": 0.2653,
+        "recallAtK": 0.4433,
+        "mrr": 0.558
+      }
+    },
+    {
+      "feedbackDocuments": 4,
+      "feedbackTerms": 8,
+      "originalWeight": 0.06,
+      "expansionWeight": 0.16,
+      "metrics": {
+        "map": 0.269,
+        "ndcgAtK": 0.3229,
+        "precisionAtK": 0.2649,
+        "recallAtK": 0.4421,
+        "mrr": 0.5604
+      }
+    },
+    {
+      "feedbackDocuments": 4,
+      "feedbackTerms": 8,
+      "originalWeight": 0.06,
+      "expansionWeight": 0.12,
+      "metrics": {
+        "map": 0.2673,
+        "ndcgAtK": 0.3229,
+        "precisionAtK": 0.2653,
+        "recallAtK": 0.4435,
+        "mrr": 0.561
+      }
+    },
+    {
+      "feedbackDocuments": 5,
+      "feedbackTerms": 8,
+      "originalWeight": 0.08,
+      "expansionWeight": 0.14,
+      "metrics": {
+        "map": 0.269,
+        "ndcgAtK": 0.3226,
+        "precisionAtK": 0.2658,
+        "recallAtK": 0.4444,
+        "mrr": 0.5585
+      }
+    },
+    {
+      "feedbackDocuments": 5,
+      "feedbackTerms": 8,
+      "originalWeight": 0.08,
+      "expansionWeight": 0.16,
+      "metrics": {
+        "map": 0.2697,
+        "ndcgAtK": 0.3224,
+        "precisionAtK": 0.2644,
+        "recallAtK": 0.4442,
+        "mrr": 0.5551
+      }
+    },
+    {
+      "feedbackDocuments": 5,
+      "feedbackTerms": 8,
+      "originalWeight": 0.06,
+      "expansionWeight": 0.14,
+      "metrics": {
+        "map": 0.2692,
+        "ndcgAtK": 0.3223,
+        "precisionAtK": 0.2662,
+        "recallAtK": 0.4456,
+        "mrr": 0.5561
+      }
+    },
+    {
+      "feedbackDocuments": 5,
+      "feedbackTerms": 10,
+      "originalWeight": 0.08,
+      "expansionWeight": 0.16,
+      "metrics": {
+        "map": 0.2682,
+        "ndcgAtK": 0.3223,
+        "precisionAtK": 0.2649,
+        "recallAtK": 0.4452,
+        "mrr": 0.5547
+      }
+    },
+    {
+      "feedbackDocuments": 4,
+      "feedbackTerms": 10,
+      "originalWeight": 0.04,
+      "expansionWeight": 0.16,
+      "metrics": {
+        "map": 0.2673,
+        "ndcgAtK": 0.3221,
+        "precisionAtK": 0.264,
+        "recallAtK": 0.4437,
+        "mrr": 0.5476
+      }
+    },
+    {
+      "feedbackDocuments": 4,
+      "feedbackTerms": 10,
+      "originalWeight": 0.06,
+      "expansionWeight": 0.14,
+      "metrics": {
+        "map": 0.2681,
+        "ndcgAtK": 0.3219,
+        "precisionAtK": 0.2653,
+        "recallAtK": 0.4438,
+        "mrr": 0.5526
+      }
+    },
+    {
+      "feedbackDocuments": 5,
+      "feedbackTerms": 8,
+      "originalWeight": 0.06,
+      "expansionWeight": 0.12,
+      "metrics": {
+        "map": 0.2679,
+        "ndcgAtK": 0.3219,
+        "precisionAtK": 0.2653,
+        "recallAtK": 0.4431,
+        "mrr": 0.5593
+      }
+    }
+  ]
+}

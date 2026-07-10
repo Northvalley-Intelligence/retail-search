@@ -1,0 +1,51 @@
+{
+  "run_id": "VAL-024",
+  "project_id": "retail-search",
+  "generation_id": "GEN-012",
+  "executed_at": "2026-07-07T08:10:00Z",
+  "validation_strategy_version": "VALSTRAT-006",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "GEN-012 validation pass: 26 node tests passed, MDE files parsed, 14 traceability files checked, fixture index check passed, and fixture evaluation passed."
+    },
+    {
+      "name": "live coverage-rerank evaluation",
+      "category": "Architecture Experiment Comparison",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "experiments/cranfield-v0/evaluation-live-coverage-rerank-gen012.json records MAP 0.2531, nDCG@10 0.3095, Precision@10 0.2502, Recall@10 0.4283, MRR 0.5520 over 225 live Cranfield queries."
+    },
+    {
+      "name": "experiments/cranfield-v0/evaluation-comparison-gen012.json",
+      "category": "Architecture Experiment Comparison",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Comparison artifact records coverage-rerank as candidate_improved_core_metrics with +0.0100 nDCG@10 over baseline and +0.0073 nDCG@10 over field-sum."
+    }
+  ],
+  "blocked_or_skipped": [
+    {
+      "name": "Cloudflare deploy verification",
+      "reason": "No deployment was requested; GEN-012 leaves the public default unchanged."
+    },
+    {
+      "name": "BEIR transferability gate",
+      "reason": "Deferred to Phase 2."
+    }
+  ],
+  "critical_findings": [],
+  "high_findings": [
+    {
+      "id": "FIND-004",
+      "status": "deferred",
+      "summary": "Coverage-rerank remains candidate-only until BEIR transferability is measured."
+    }
+  ],
+  "medium_findings": [],
+  "evidence_quality": "Live candidate evidence improved over baseline and field-sum, but remains Cranfield-only and must not be promoted without transferability evidence."
+}

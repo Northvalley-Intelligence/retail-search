@@ -1,6 +1,6 @@
 {
   "project_id": "retail-search",
-  "updated_at": "2026-07-05",
+  "updated_at": "2026-07-08",
   "risks": [
     {
       "id": "RISK-001",
@@ -15,6 +15,62 @@
       "status": "mitigated",
       "summary": "Phase 1 public acceptance depends on external OpenSearch and Cloudflare configuration.",
       "mitigation": "GEN-003 loaded and evaluated the live cranfield-v0 OpenSearch index; GEN-004 configured Worker secrets, deployed Cloudflare, and verified public endpoints."
+    },
+    {
+      "id": "RISK-003",
+      "severity": "high",
+      "status": "active",
+      "summary": "A candidate query architecture can overfit Cranfield if promoted before BEIR transferability evidence.",
+      "mitigation": "GEN-016 keeps refined prf-rerank candidate-only, records ADL-0002 as transferability-pending, and leaves the public default on ARCH-0.1."
+    },
+    {
+      "id": "RISK-004",
+      "severity": "medium",
+      "status": "mitigated",
+      "summary": "Repeated remote OpenSearch evaluation can slow tuning and increase the chance of confusing infrastructure latency with reranker quality.",
+      "mitigation": "GEN-017 caches first-stage field-sum top-50 retrieval pools and tunes deterministic rerankers offline before remote validation of winners."
+    },
+    {
+      "id": "RISK-005",
+      "severity": "medium",
+      "status": "mitigated",
+      "summary": "Vector/hybrid infrastructure can be mistaken for LLM embedding quality before a real embedding provider run exists.",
+      "mitigation": "GEN-018 labels local-hash artifacts as deterministic controls; GEN-019 adds real local Ollama evidence with provider/model/text-profile metadata and keeps ARCH-0.3-candidate unpromoted."
+    },
+    {
+      "id": "RISK-006",
+      "severity": "medium",
+      "status": "mitigated",
+      "summary": "Chat-model embeddings may underperform dedicated retrieval embeddings or neural rerankers on Cranfield.",
+      "mitigation": "GEN-019 records Ollama llama3.1:8b as below refined PRF; GEN-022 confirms dedicated BGE retrieval embeddings materially outperform chat-model embeddings."
+    },
+    {
+      "id": "RISK-007",
+      "severity": "high",
+      "status": "active",
+      "summary": "Supervised LTR can overfit Cranfield if in-sample gains are promoted as architecture improvements.",
+      "mitigation": "GEN-020 through GEN-022 record query-grouped 5-fold cross-validation as the promotion metric, label in-sample LTR as capacity evidence only, and keep ARCH-0.4-candidate unreleased until transferability and complexity comparison."
+    },
+    {
+      "id": "RISK-008",
+      "severity": "high",
+      "status": "mitigated",
+      "summary": "Offline BGE gains may not reproduce in remote OpenSearch vector/hybrid execution.",
+      "mitigation": "GEN-023 created a separate remote OpenSearch BGE candidate index and reproduced the graded gain with nDCG@10 0.3533 plus binary nDCG@20 0.4926, while keeping the public/default architecture unchanged."
+    },
+    {
+      "id": "RISK-009",
+      "severity": "high",
+      "status": "active",
+      "summary": "Remote BGE hybrid can overfit Cranfield or add runtime cost if promoted before transferability and latency/cost evidence.",
+      "mitigation": "GEN-023 keeps ARCH-0.3-candidate unreleased and requires transferability, latency/cost review, and explicit promotion approval before any public/default switch."
+    },
+    {
+      "id": "RISK-010",
+      "severity": "medium",
+      "status": "mitigated",
+      "summary": "Milestone endpoints can make candidate architectures look like accepted defaults or make BGE look runtime-ready before query-vector support exists.",
+      "mitigation": "GEN-024 milestone routes force explicit milestone metadata, keep /api/search unchanged, and return 501 milestone_runtime_not_enabled for ARCH-0.3 BGE until runtime query-vector support exists."
     }
   ]
 }

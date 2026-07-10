@@ -1,0 +1,48 @@
+{
+  "run_id": "VAL-035",
+  "project_id": "retail-search",
+  "generation_id": "GEN-025",
+  "executed_at": "2026-07-09T00:00:00-04:00",
+  "validation_strategy_version": "VALSTRAT-006",
+  "result": "pass",
+  "pass_count_after_run": 2,
+  "checks": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "45 Node tests passed; MDE parser checked 81 files; traceability validator checked 28 files including GEN-024 milestone endpoint docs; fixture index check and fixture evaluation passed."
+    },
+    {
+      "name": "npx wrangler deploy",
+      "category": "Deployment",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Cloudflare deployed retail-search Worker version 3e9597b9-f791-457f-805f-f1dbb8123a3c."
+    },
+    {
+      "name": "public endpoint verification",
+      "category": "Deployment / Functional",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Verified /health 200, /api/v0.1/search 200, /api/milestones/arch-0.1/search 200, /api/milestones/arch-0.2-prf/explain 200, and /api/milestones/arch-0.3-bge/search 501 milestone_runtime_not_enabled."
+    }
+  ],
+  "blocked_or_skipped": [
+    {
+      "name": "Remote BGE runtime query validation",
+      "reason": "The BGE milestone endpoint intentionally returns milestone_runtime_not_enabled until runtime query-vector support exists."
+    }
+  ],
+  "critical_findings": [],
+  "high_findings": [
+    {
+      "id": "FIND-012",
+      "status": "active",
+      "summary": "Remote OpenSearch BGE hybrid remains candidate-only until transferability, latency/cost, and promotion policy are addressed."
+    }
+  ],
+  "medium_findings": [],
+  "evidence_quality": "Deployment validation verifies the approved milestone and versioned endpoint routes are public while preserving the accepted baseline default."
+}

@@ -1,6 +1,6 @@
 {
   "project_id": "retail-search",
-  "updated_at": "2026-07-06",
+  "updated_at": "2026-07-08",
   "validators": [
     {
       "validator_id": "GEN0-CONTROL-CENTER-CREATION",
@@ -134,6 +134,139 @@
       "category": "Functional / Traceability",
       "usefulness": "high",
       "notes": "Verified local /api/v0.1/search aliases route to the Cranfield baseline and API payloads include traceability identifiers."
+    },
+    {
+      "validator_id": "GEN11-FAILURE-BEHAVIOR-GROUPING",
+      "status": "useful",
+      "category": "Evaluation Behavior Analysis",
+      "usefulness": "high",
+      "notes": "Grouped 225 live Cranfield queries into behavior classes and exposed relevant IDs, retrieved IDs, first relevant rank, and missing relevant IDs for each detailed run."
+    },
+    {
+      "validator_id": "GEN11-ARCHITECTURE-COMPARISON",
+      "status": "useful",
+      "category": "Architecture Experiment Comparison",
+      "usefulness": "high",
+      "notes": "Compared baseline, query-rescue, and field-sum live artifacts; rejected query-rescue and kept field-sum as a transferability-pending candidate based on measured deltas."
+    },
+    {
+      "validator_id": "GEN12-COVERAGE-RERANK-COMPARISON",
+      "status": "useful",
+      "category": "Architecture Experiment Comparison / Candidate Reranking",
+      "usefulness": "high",
+      "notes": "Compared coverage-rerank against the accepted baseline and field-sum; verified nDCG@10 0.3095 and improved all core live Cranfield metrics while keeping the public default unchanged."
+    },
+    {
+      "validator_id": "GEN17-RETRIEVAL-CACHE-GENERATION",
+      "status": "useful",
+      "category": "Architecture Experiment Comparison / Evaluation Infrastructure",
+      "usefulness": "high",
+      "notes": "Generated a reusable live OpenSearch field-sum top-50 retrieval cache for 225 Cranfield queries so reranker tuning can avoid repeated remote retrieval calls."
+    },
+    {
+      "validator_id": "GEN17-CACHED-PRF-TUNING",
+      "status": "useful",
+      "category": "Architecture Experiment Comparison / Evaluation Infrastructure",
+      "usefulness": "high",
+      "notes": "Verified offline PRF tuning from cached pools reproduces the refined PRF nDCG@10 0.3260 result before any future remote validation."
+    },
+    {
+      "validator_id": "GEN18-LOCAL-EMBEDDING-CACHE",
+      "status": "useful",
+      "category": "Architecture Experiment Comparison / Embedding Infrastructure",
+      "usefulness": "medium",
+      "notes": "Verified the embedding cache shape for 1,400 Cranfield documents and 225 queries. The local-hash provider is only a deterministic control, not an LLM embedding validator."
+    },
+    {
+      "validator_id": "GEN18-VECTOR-HYBRID-EVALUATION",
+      "status": "useful",
+      "category": "Architecture Experiment Comparison / Vector Retrieval",
+      "usefulness": "high",
+      "notes": "Compared vector-only and hybrid retrieval against cached field-sum pools; showed local vector-control evidence remains below refined PRF and should not be promoted."
+    },
+    {
+      "validator_id": "GEN19-LOCAL-OLLAMA-EMBEDDINGS",
+      "status": "useful",
+      "category": "Architecture Experiment Comparison / Embedding Infrastructure",
+      "usefulness": "high",
+      "notes": "Verified local Ollama can generate restartable real embedding caches for all 1,400 Cranfield documents and 225 queries with provider, model, host, dimension, and text-profile metadata."
+    },
+    {
+      "validator_id": "GEN19-VECTOR-HYBRID-COMPARISON",
+      "status": "useful",
+      "category": "Architecture Experiment Comparison / Vector Retrieval",
+      "usefulness": "high",
+      "notes": "Compared Ollama llama3.1:8b vector-only and hybrid retrieval against cached field-sum pools and refined PRF; showed best Ollama nDCG@10 0.3035 and binary nDCG@20 0.4343 remain below refined PRF."
+    },
+    {
+      "validator_id": "GEN20-LTR-FEATURE-TESTS",
+      "status": "useful",
+      "category": "Architecture Experiment Comparison / Learning-To-Rank",
+      "usefulness": "high",
+      "notes": "Verified LTR token filtering, feature extraction, learned reranking behavior, query-fold cross-validation, and candidate-pool recall calculations."
+    },
+    {
+      "validator_id": "GEN20-LTR-CROSS-VALIDATION",
+      "status": "useful",
+      "category": "Architecture Experiment Comparison / Learning-To-Rank",
+      "usefulness": "high",
+      "notes": "Compared LTR with Ollama features and lexical/PRF-only ablations using query-grouped 5-fold cross-validation; showed LTR improves field-sum but remains below refined PRF."
+    },
+    {
+      "validator_id": "GEN20-LTR-ORACLE-HEADROOM",
+      "status": "useful",
+      "category": "Evaluation Behavior Analysis",
+      "usefulness": "high",
+      "notes": "Measured candidate-pool recall and oracle metrics, showing top-50 ranking headroom is large while a smaller recall gap remains."
+    },
+    {
+      "validator_id": "GEN21-BOOSTED-TREE-LTR",
+      "status": "useful",
+      "category": "Architecture Experiment Comparison / Learning-To-Rank",
+      "usefulness": "high",
+      "notes": "Compared quick and depth-3 pointwise boosted-tree LTR under query-grouped cross-validation; showed graded CV improved to 0.3216 but remained below refined PRF, while binary CV regressed versus lexical LTR."
+    },
+    {
+      "validator_id": "GEN22-HUGGINGFACE-BGE-EMBEDDINGS",
+      "status": "useful",
+      "category": "Architecture Experiment Comparison / Embedding Infrastructure",
+      "usefulness": "high",
+      "notes": "Verified local SentenceTransformers BGE embedding generation for all Cranfield documents and queries with provider, model, dimension, text-profile, and query-prefix metadata."
+    },
+    {
+      "validator_id": "GEN22-BGE-VECTOR-HYBRID-COMPARISON",
+      "status": "useful",
+      "category": "Architecture Experiment Comparison / Vector Retrieval",
+      "usefulness": "high",
+      "notes": "Compared BGE vector-only and hybrid retrieval against cached field-sum pools and refined PRF; showed best BGE hybrid nDCG@10 0.3533 and binary nDCG@20 0.4915."
+    },
+    {
+      "validator_id": "GEN22-BGE-LTR-CROSS-VALIDATION",
+      "status": "useful",
+      "category": "Architecture Experiment Comparison / Learning-To-Rank",
+      "usefulness": "high",
+      "notes": "Compared coordinate and boosted-tree LTR with BGE features under query-grouped cross-validation; showed boosted-tree graded nDCG@10 0.3603 and binary nDCG@20 0.4910."
+    },
+    {
+      "validator_id": "GEN23-REMOTE-BGE-INDEX-LOAD",
+      "status": "useful",
+      "category": "Architecture Experiment Comparison / Vector Retrieval",
+      "usefulness": "high",
+      "notes": "Created a separate remote OpenSearch kNN index with 1,400 Cranfield documents and 768-dimensional BGE vectors without changing the public/default cranfield-v0 index."
+    },
+    {
+      "validator_id": "GEN23-REMOTE-BGE-VECTOR-HYBRID-COMPARISON",
+      "status": "useful",
+      "category": "Architecture Experiment Comparison / Vector Retrieval",
+      "usefulness": "high",
+      "notes": "Compared remote OpenSearch BGE vector-only, field-sum, and hybrid retrieval; showed best remote hybrid nDCG@10 0.3533 and binary nDCG@20 0.4926."
+    },
+    {
+      "validator_id": "GEN24-MILESTONE-ENDPOINT-CONTRACT",
+      "status": "useful",
+      "category": "Functional / Traceability",
+      "usefulness": "high",
+      "notes": "Verified milestone search and explain routes force the intended architecture for ARCH-0.1 and ARCH-0.2 PRF, expose an explicit ARCH-0.3 BGE runtime limitation, and reject unknown milestones."
     }
   ]
 }

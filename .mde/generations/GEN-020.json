@@ -1,0 +1,131 @@
+{
+  "generation_id": "GEN-020",
+  "project_id": "retail-search",
+  "started_at": "2026-07-08",
+  "ended_at": "2026-07-08",
+  "mission_phase": "Phase 1 - Cranfield Foundation",
+  "mission_version": "MISSION-2026-07-08-GEN-020",
+  "validation_strategy_version": "VALSTRAT-006",
+  "status": "ltr_evaluated_cross_validated_below_refined_prf",
+  "focus": "Evaluate learning-to-rank before neural reranking, using cached field-sum pools and cached Ollama similarities as optional features.",
+  "reason_started": "The operator asked whether LTR should be tried first for the ranking problem and whether local embeddings should be used as features.",
+  "reason_ended": "LTR completed with cross-validated evidence; it improved field-sum but did not beat refined PRF, so it was not promoted.",
+  "files_changed_by_category": {
+    "implementation_artifacts": [
+      "src/evaluation/ltr.js",
+      "scripts/evaluate-cranfield-ltr.mjs",
+      "package.json"
+    ],
+    "test_artifacts": [
+      "test/ltr.test.js"
+    ],
+    "evaluation_artifacts": [
+      "experiments/cranfield-v0/evaluation-ltr-ollama-features-gen020.json",
+      "experiments/cranfield-v0/evaluation-ltr-ollama-features-k20-binary-gen020.json",
+      "experiments/cranfield-v0/evaluation-ltr-lexical-features-gen020.json",
+      "experiments/cranfield-v0/evaluation-ltr-lexical-features-k20-binary-gen020.json"
+    ],
+    "human_artifacts": [
+      "README.md",
+      "MISSION_UPDATES.md",
+      "docs/evaluation/timeline.md",
+      "docs/evaluation/cranfield-ltr-research.md",
+      "docs/evolution/timeline.md",
+      "docs/evolution/experiments/SE-0004-cranfield-ltr.md",
+      "docs/architecture/timeline.md",
+      "docs/architecture/versions/ARCH-0.4-candidate-cranfield-ltr.md",
+      "docs/architecture/decisions/ADL-0004-cranfield-ltr-candidate.md",
+      "docs/traceability.md",
+      "experiments/cranfield-v0/README.md"
+    ],
+    "agent_artifacts": [
+      ".mde/generations/GEN-020.json",
+      ".mde/validation-runs/VAL-030.json",
+      ".mde/generation-summary.md",
+      ".mde/traceability.json",
+      ".mde/state.json",
+      ".mde/progress.json",
+      ".mde/findings.json",
+      ".mde/risk-register.json",
+      ".mde/validation-strategy.json",
+      ".mde/validator-effectiveness.json"
+    ]
+  },
+  "candidate_results": {
+    "current_refined_prf": {
+      "status": "current_best",
+      "ndcg_at_10": 0.326,
+      "binary_ndcg_at_20": 0.4563
+    },
+    "candidate_pool": {
+      "relevant_document_recall": 0.6042,
+      "query_coverage": 0.9644,
+      "oracle_ndcg_at_10": 0.7033,
+      "oracle_binary_ndcg_at_20": 0.7482
+    },
+    "ltr_ollama_features_cv": {
+      "status": "below_current_best",
+      "ndcg_at_10": 0.3164,
+      "binary_ndcg_at_20": 0.4467
+    },
+    "ltr_lexical_features_cv": {
+      "status": "best_ltr_cross_validated_below_current_best",
+      "ndcg_at_10": 0.3166,
+      "binary_ndcg_at_20": 0.4529
+    },
+    "ltr_lexical_features_in_sample": {
+      "status": "capacity_evidence_only",
+      "ndcg_at_10": 0.3338,
+      "binary_ndcg_at_20": 0.4607
+    }
+  },
+  "validators_executed": [
+    {
+      "name": "node --test test/ltr.test.js",
+      "category": "Architecture Experiment Comparison / Learning-To-Rank",
+      "result": "pass",
+      "evidence": "Validated LTR feature extraction, learned reranking behavior, query-fold cross-validation, and candidate-pool recall."
+    },
+    {
+      "name": "npm run eval:cranfield:ltr with Ollama features",
+      "category": "Architecture Experiment Comparison / Learning-To-Rank",
+      "result": "pass",
+      "evidence": "Graded and binary LTR runs with cached Ollama similarities completed; both stayed below refined PRF under cross-validation."
+    },
+    {
+      "name": "npm run eval:cranfield:ltr lexical feature ablation",
+      "category": "Architecture Experiment Comparison / Learning-To-Rank",
+      "result": "pass",
+      "evidence": "Lexical/PRF-only LTR ablation completed and beat the Ollama-feature variant under cross-validation."
+    },
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "result": "pass",
+      "evidence": "40 node tests passed; MDE parser, traceability validation through GEN-020, fixture index check, and fixture evaluation passed. Final run is recorded in VAL-030."
+    }
+  ],
+  "validators_skipped": [
+    {
+      "name": "remote OpenSearch LTR plugin validation",
+      "category": "Deployment / External",
+      "reason": "Deferred because offline cross-validated LTR did not beat refined PRF."
+    },
+    {
+      "name": "Cloudflare deploy verification",
+      "category": "Deployment / External",
+      "reason": "No deployment was requested; GEN-020 leaves the public/default architecture unchanged."
+    }
+  ],
+  "validation_gate": {
+    "result": "pass",
+    "pass_count": 1,
+    "failed_categories": [],
+    "blocking_findings": []
+  },
+  "evidence_quality_notes": [
+    "Cross-validation is the promotion metric for LTR; in-sample gains are capacity evidence only.",
+    "Candidate-pool oracle evidence confirms large ranking headroom, but relevant-document pool recall is still incomplete.",
+    "Cached Ollama llama3.1:8b similarities did not help the LTR ablation."
+  ]
+}

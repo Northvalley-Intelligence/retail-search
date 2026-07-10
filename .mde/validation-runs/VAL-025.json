@@ -1,0 +1,44 @@
+{
+  "run_id": "VAL-025",
+  "project_id": "retail-search",
+  "generation_id": "GEN-015",
+  "executed_at": "2026-07-07T13:30:00-04:00",
+  "validation_strategy_version": "VALSTRAT-006",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "30 node tests passed; MDE parser checked 63 files; traceability validator checked 19 files and required IDs through GEN-015/prf-rerank; fixture index check passed; fixture evaluation passed."
+    },
+    {
+      "name": "traceability stale-current-best scan",
+      "category": "Traceability / Human Artifact Consistency",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Repository docs consistently identify prf-rerank as the current best Cranfield candidate and keep coverage-rerank as an earlier candidate."
+    }
+  ],
+  "blocked_or_skipped": [
+    {
+      "name": "Cloudflare deploy verification",
+      "reason": "No deployment was requested; GEN-015 changes local documentation and traceability artifacts only."
+    },
+    {
+      "name": "Live OpenSearch re-evaluation",
+      "reason": "GEN-015 did not change retrieval behavior; it records existing GEN-013/GEN-014 live evidence."
+    }
+  ],
+  "critical_findings": [],
+  "high_findings": [
+    {
+      "id": "FIND-004",
+      "status": "deferred",
+      "summary": "ARCH-0.2-candidate remains candidate-only until BEIR transferability is measured."
+    }
+  ],
+  "medium_findings": [],
+  "evidence_quality": "Traceability evidence is now aligned across human timelines, MDE registry, generation records, and validation. Candidate Git tags remain intentionally unassigned until architecture promotion."
+}

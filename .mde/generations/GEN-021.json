@@ -1,0 +1,116 @@
+{
+  "generation_id": "GEN-021",
+  "project_id": "retail-search",
+  "started_at": "2026-07-08",
+  "ended_at": "2026-07-08",
+  "mission_phase": "Phase 1 - Cranfield Foundation",
+  "mission_version": "MISSION-2026-07-08-GEN-021",
+  "validation_strategy_version": "VALSTRAT-006",
+  "status": "boosted_tree_ltr_evaluated_below_refined_prf",
+  "focus": "Evaluate a stronger dependency-free boosted-tree LTR model before moving to neural reranking or external embedding models.",
+  "reason_started": "GEN-020 coordinate-ascent LTR showed ranking signal and in-sample capacity but remained below refined PRF under cross-validation.",
+  "reason_ended": "Boosted-tree LTR improved graded cross-validation but did not beat refined PRF and regressed on binary cross-validation.",
+  "files_changed_by_category": {
+    "implementation_artifacts": [
+      "src/evaluation/ltr.js",
+      "scripts/evaluate-cranfield-ltr.mjs"
+    ],
+    "test_artifacts": [
+      "test/ltr.test.js"
+    ],
+    "evaluation_artifacts": [
+      "experiments/cranfield-v0/evaluation-ltr-boosted-trees-gen021.json",
+      "experiments/cranfield-v0/evaluation-ltr-boosted-trees-k20-binary-gen021.json",
+      "experiments/cranfield-v0/evaluation-ltr-boosted-trees-depth3-gen021.json",
+      "experiments/cranfield-v0/evaluation-ltr-boosted-trees-depth3-k20-binary-gen021.json"
+    ],
+    "human_artifacts": [
+      "README.md",
+      "MISSION_UPDATES.md",
+      "docs/evaluation/timeline.md",
+      "docs/evaluation/cranfield-ltr-research.md",
+      "docs/evolution/timeline.md",
+      "docs/evolution/experiments/SE-0004-cranfield-ltr.md",
+      "docs/architecture/timeline.md",
+      "docs/architecture/versions/ARCH-0.4-candidate-cranfield-ltr.md",
+      "docs/architecture/decisions/ADL-0004-cranfield-ltr-candidate.md",
+      "experiments/cranfield-v0/README.md"
+    ],
+    "agent_artifacts": [
+      ".mde/generations/GEN-021.json",
+      ".mde/validation-runs/VAL-031.json",
+      ".mde/generation-summary.md",
+      ".mde/traceability.json",
+      ".mde/state.json",
+      ".mde/progress.json",
+      ".mde/findings.json",
+      ".mde/risk-register.json",
+      ".mde/validator-effectiveness.json"
+    ]
+  },
+  "candidate_results": {
+    "current_refined_prf": {
+      "status": "current_best",
+      "ndcg_at_10": 0.326,
+      "binary_ndcg_at_20": 0.4563
+    },
+    "boosted_tree_quick_cv": {
+      "status": "below_current_best",
+      "ndcg_at_10": 0.3136,
+      "binary_ndcg_at_20": 0.445
+    },
+    "boosted_tree_depth3_cv": {
+      "status": "best_ltr_graded_cv_below_current_best",
+      "ndcg_at_10": 0.3216,
+      "binary_ndcg_at_20": 0.4457
+    },
+    "boosted_tree_depth3_in_sample": {
+      "status": "capacity_evidence_only",
+      "ndcg_at_10": 0.3564,
+      "binary_ndcg_at_20": 0.484
+    }
+  },
+  "validators_executed": [
+    {
+      "name": "node --test test/ltr.test.js",
+      "category": "Architecture Experiment Comparison / Learning-To-Rank",
+      "result": "pass",
+      "evidence": "Validated coordinate-ascent and boosted-tree LTR paths."
+    },
+    {
+      "name": "npm run eval:cranfield:ltr -- --model boosted-trees",
+      "category": "Architecture Experiment Comparison / Learning-To-Rank",
+      "result": "pass",
+      "evidence": "Quick and depth-3 boosted-tree runs completed for graded nDCG@10 and binary nDCG@20."
+    },
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "result": "pass",
+      "evidence": "41 node tests passed; MDE parser, traceability validation through GEN-021, fixture index check, and fixture evaluation passed. Final run is recorded in VAL-031."
+    }
+  ],
+  "validators_skipped": [
+    {
+      "name": "remote OpenSearch LTR plugin validation",
+      "category": "Deployment / External",
+      "reason": "Deferred because offline cross-validated boosted-tree LTR did not beat refined PRF."
+    },
+    {
+      "name": "Cloudflare deploy verification",
+      "category": "Deployment / External",
+      "reason": "No deployment was requested; GEN-021 leaves the public/default architecture unchanged."
+    }
+  ],
+  "validation_gate": {
+    "result": "pass",
+    "pass_count": 1,
+    "failed_categories": [],
+    "blocking_findings": []
+  },
+  "evidence_quality_notes": [
+    "Boosted-tree LTR improves graded held-out metrics versus coordinate-ascent LTR, but still remains below refined PRF.",
+    "Binary boosted-tree LTR is worse than the GEN-020 lexical LTR ablation.",
+    "In-sample boosted-tree metrics are high and reinforce the overfit risk; they are not promotion evidence."
+  ]
+}

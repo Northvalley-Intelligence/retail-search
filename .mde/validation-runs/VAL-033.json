@@ -1,0 +1,76 @@
+{
+  "run_id": "VAL-033",
+  "project_id": "retail-search",
+  "generation_id": "GEN-023",
+  "executed_at": "2026-07-08T12:55:00-04:00",
+  "validation_strategy_version": "VALSTRAT-006",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "npm run opensearch:health",
+      "category": "Deployment / External",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Remote OpenSearch 3.3.2 cluster returned green health before the BGE candidate index load."
+    },
+    {
+      "name": "npm run load:cranfield:bge",
+      "category": "Architecture Experiment Comparison / Vector Retrieval",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Created cranfield-v0-bge-base-en-v15-gen023 and loaded 1,400 Cranfield documents with 768-dimensional BGE vectors."
+    },
+    {
+      "name": "npm run eval:cranfield:opensearch-vector",
+      "category": "Architecture Experiment Comparison / Vector Retrieval",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Remote OpenSearch BGE hybrid reached graded nDCG@10 0.3533 and binary nDCG@20 0.4926."
+    },
+    {
+      "name": "node --check scripts/load-cranfield-bge-opensearch.mjs && node --check scripts/evaluate-cranfield-opensearch-vector.mjs",
+      "category": "Technical",
+      "priority": "High",
+      "result": "pass",
+      "evidence": "Remote BGE loader and evaluator scripts parsed successfully."
+    },
+    {
+      "name": "npm run validate",
+      "category": "Technical / Functional / Traceability / Evaluation Behavior",
+      "priority": "Critical",
+      "result": "pass",
+      "evidence": "Node tests passed; MDE parser checked project JSON/JSONL files; traceability validator checked required IDs through GEN-023 and remote BGE artifacts; fixture index check passed; fixture evaluation passed."
+    }
+  ],
+  "blocked_or_skipped": [
+    {
+      "name": "Cloudflare deploy verification",
+      "reason": "No deployment was requested; GEN-023 leaves the public/default architecture unchanged."
+    },
+    {
+      "name": "Phase 2 transferability validation",
+      "reason": "Not part of this project-local Cranfield remote validation turn."
+    }
+  ],
+  "critical_findings": [],
+  "high_findings": [
+    {
+      "id": "FIND-004",
+      "status": "deferred",
+      "summary": "Candidate architecture promotion still requires transferability policy to be addressed."
+    },
+    {
+      "id": "FIND-010",
+      "status": "resolved",
+      "summary": "BGE vector/hybrid now has both offline and remote OpenSearch evidence above refined PRF."
+    }
+  ],
+  "medium_findings": [
+    {
+      "id": "FIND-011",
+      "status": "active",
+      "summary": "BGE-feature LTR has the best graded offline nDCG@10 but may not justify complexity versus simpler remote BGE hybrid retrieval."
+    }
+  ],
+  "evidence_quality": "GEN-023 validates that BGE vector/hybrid gains reproduce in remote OpenSearch while preserving the promotion boundary."
+}
