@@ -1,6 +1,6 @@
 # A-0003 — SLAB-RS, Part 3: The Agent Climbs Keyword Search to Its Ceiling
 
-Status: publish PR open — https://github.com/feroshjacob/feroshjacob.github.io/pull/20 (LinkedIn promo staged, publishes only after the live URL exists)
+Status: PUBLISHED 2026-07-10 — https://feroshjacob.github.io/posts/2026/07/10/self-learning-agent-based-retail-search-part-3-failure-driven-bm25-and-the-lexical-ceiling (PR #20 merged; LinkedIn post urn:li:share:7481415703259058177)
 Series: SLAB-RS (Self-Learning Agent-Based Retail Search), Phase 1 advances part 1 of 2 (next: `A-0004`)
 Source handoff: `.mde/handoffs/control-center-stream_mreep6je_ab6e2bd9-phase1-article-source.md`
 
