@@ -1,4 +1,4 @@
-# A-0004 — SLAB-RS, Part 4: When Embeddings Finally Earned Their Place
+# A-0004 — SLAB-RS, Part 4: The Agent Breaks Its Ceiling with Embeddings
 
 Status: draft ready for publishing handoff (target: feroshjacob.github.io, series part 4)
 Series: SLAB-RS (Self-Learning Agent-Based Retail Search), Phase 1 advances part 2 of 2 (previous: `A-0003`)

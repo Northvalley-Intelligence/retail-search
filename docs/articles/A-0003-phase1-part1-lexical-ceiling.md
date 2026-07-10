@@ -1,4 +1,4 @@
-# A-0003 — SLAB-RS, Part 3: Failure-Driven BM25 and the Lexical Ceiling
+# A-0003 — SLAB-RS, Part 3: The Agent Climbs Keyword Search to Its Ceiling
 
 Status: draft ready for publishing handoff (target: feroshjacob.github.io, series part 3)
 Series: SLAB-RS (Self-Learning Agent-Based Retail Search), Phase 1 advances part 1 of 2 (next: `A-0004`)
