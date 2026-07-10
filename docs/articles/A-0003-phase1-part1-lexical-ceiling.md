@@ -1,6 +1,6 @@
 # A-0003 — A Quarter of Search Engineering in Six Days, Part 1: Failure-Driven BM25 and the Lexical Ceiling
 
-Status: draft ready for publishing handoff (target: feroshjacob.github.io)
+Status: draft ready for publishing handoff (target: feroshjacob.github.io, series part 3)
 Series: Phase 1 advances, part 1 of 2 (part 2: `A-0004`)
 Source handoff: `.mde/handoffs/control-center-stream_mreep6je_ab6e2bd9-phase1-article-source.md`
 
@@ -10,114 +10,110 @@ Cross references:
 - Search Evolution: `SE-0001`, `SE-0002`
 - Architecture: `ARCH-0.1` (released), `ARCH-0.2-candidate`
 - Decisions: `ADL-0001`, `ADL-0002`
-- Git Tag: `v0.1.0` · Git Commit: `baeae54` (baseline), `73714a4` (latest)
+- Git Tag: `v0.1.0` · Git Commit: `baeae54` (baseline)
 - Live system: https://retail-search.feroshjacob.workers.dev
-- Milestone endpoints: `/api/milestones/arch-0.1/search`, `/api/milestones/arch-0.2-prf/explain`
+- Reference paper: Ghasemi & Hiemstra, "BERT meets Cranfield", EACL 2021 — https://aclanthology.org/2021.eacl-srw.9/
 - Experiment artifacts: `experiments/cranfield-v0/`
 
 ---
 
 ## Draft
 
-A few years ago, the work in this article would have been a quarter's roadmap for a core search team of ten to fifteen people: corpus pipeline, managed cluster setup, a public API layer, an evaluation harness, a failure taxonomy, five ranking experiments, and a public deployment with full traceability. Not because any single piece is hard — but because in a real organization those pieces belong to different specialists, and every handoff between infra, relevance, API, and evaluation costs weeks.
+In my experience, the work in this article would have been a quarter's roadmap for a core search team of ten to fifteen people a few years ago. Data pipeline, cluster setup, a public API, an evaluation harness, a failure analysis, five ranking experiments, and a public deployment. Not because any single piece is hard — but because in a real organization those pieces belong to different specialists, and every handoff between them costs weeks of coordination.
 
-An AI agent did all of it in six calendar days, and this two-part series is the evidence trail. Part 1 covers everything before neural networks: building a production-shaped [BM25](https://en.wikipedia.org/wiki/Okapi_BM25) baseline, instrumenting it so failures are inspectable, and then climbing a ladder of lexical improvements until the ladder ran out. Part 2 covers what happened when embeddings entered the picture.
+An AI agent did all of it in six calendar days. This article and the next one are the evidence trail.
 
-One rule shaped everything: **architecture is the result of validated missions, not the starting point.** No query understanding, no learning-to-rank, no semantic search was assumed. Every component had to earn its place with measured evidence — and everything, including the failures, is public.
+[Part 2 of this series](https://feroshjacob.github.io/posts/2026/07/06/self-learning-agent-based-retail-search-part-2-the-baseline-before-the-agents) set up the baseline before the agents. This article covers what the agent tried next, before any neural networks: a series of improvements to plain keyword search, climbing until the improvements ran out. Part 4 covers what happened when embeddings entered the picture.
 
-### The setup: a real engine, a real API, a historic dataset
+One rule shaped everything: **architecture is the result of validated missions, not the starting point.** Nothing was assumed upfront — no query understanding, no machine-learned ranking, no semantic search. Every component had to earn its place with measured evidence. And everything, including the failures, is public.
 
-The stack is deliberately production-shaped rather than notebook-shaped: a managed [OpenSearch](https://opensearch.org/) cluster does retrieval, a Cloudflare Worker serves the public API, and every experiment ships as a versioned JSON artifact in the open [GitHub repository](https://github.com/Northvalley-Intelligence/retail-search).
+## The Setup
 
-The dataset is a deliberate wink at history: [Cranfield](https://en.wikipedia.org/wiki/Cranfield_experiments), the 1960s aeronautics collection that invented modern retrieval evaluation — 1,400 documents, 225 queries, and 1,837 graded relevance judgments. The field's oldest test collection, evaluating its newest tooling.
+The stack looks like something you would actually run in production, not a research notebook. A managed [OpenSearch](https://opensearch.org/) cluster does the searching. A Cloudflare Worker serves the public API. Every experiment is saved as a versioned file in the open [GitHub repository](https://github.com/Northvalley-Intelligence/retail-search).
 
-Day one and two produced the foundation: a reproducible corpus export, an OpenSearch index with an English analyzer and field boosts (title ×3, abstract ×2, body ×1), public search and explain endpoints, and a first live evaluation over all 225 queries:
+The dataset is a wink at history: [Cranfield](https://en.wikipedia.org/wiki/Cranfield_experiments), the 1960s aeronautics collection that basically invented search evaluation — 1,400 documents, 225 test queries, and 1,837 human relevance judgments that say which documents actually answer which queries. The field's oldest test collection, evaluating its newest tooling.
 
-| Metric | ARCH-0.1 baseline |
+The first two days produced the foundation: the corpus loaded into OpenSearch, public search and explain endpoints, and a first live evaluation over all 225 queries. The score I will use throughout this article is **nDCG@10** — think of it as a 0-to-1 grade for how good the top ten results are, where 1.0 means perfect. (If you want the formal definitions: [nDCG](https://en.wikipedia.org/wiki/Discounted_cumulative_gain), [the other standard IR measures](https://en.wikipedia.org/wiki/Evaluation_measures_(information_retrieval)).)
+
+The out-of-box [BM25](https://en.wikipedia.org/wiki/Okapi_BM25) baseline — the classic keyword-ranking formula behind most search engines — scored **nDCG@10 0.2995**. Plenty of room to improve.
+
+Two things make this baseline more than a demo. First, it is live — you can query it right now at [retail-search.feroshjacob.workers.dev](https://retail-search.feroshjacob.workers.dev). Second, every response explains itself: the exact OpenSearch query that was generated, which ranking decisions were involved, and why each result is there. Transparency was a deliverable, not an afterthought.
+
+## The Process: How Every Experiment Was Run
+
+Before I list what the agent tried, here is the loop every experiment followed — because the loop is what makes the results trustworthy, and it is also exactly the coordination work that normally needs a team:
+
+1. **Start from observed failures, not ideas.** Every one of the 225 test queries gets sorted into a failure category first. Experiments target categories, not hunches.
+2. **State the hypothesis** before writing code: what should improve, and why.
+3. **Implement behind an opt-in flag.** The public search never changes mid-experiment, so no experiment can break the live system.
+4. **Evaluate live, on all queries, the same way every time.** Never a hand-picked sample.
+5. **Compare against the current best, then decide.** Winners become candidates. Losers are kept, permanently, as rejected evidence.
+6. **Write everything down in the same session:** the results file, the decision record, the mission update. A validator fails the build if the paper trail is incomplete.
+7. **Run the full validation twice** before calling anything done.
+
+The failure analysis plays the relevance analyst. The opt-in flags play the release manager. The decision ledger plays the design review. That is where the team-quarter compression comes from.
+
+## Step One: Stop Staring at Averages
+
+The most valuable move of the whole phase was not a ranking trick. It was sorting every failing query into a named bucket:
+
+| What goes wrong | Queries |
 | --- | ---: |
-| MAP | 0.2402 |
-| nDCG@10 | 0.2995 |
-| Precision@10 | 0.2316 |
-| Recall@10 | 0.3994 |
-| MRR | 0.5350 |
+| Nothing meaningful wrong | 64 |
+| First good result ranks too low | 42 |
+| Nothing relevant in the top 10 at all | 28 |
+| Top 10 mostly noise | 27 |
+| Broad question, too few of the many good docs found | 25 |
+| Some hits, but most good docs missed | 23 |
+| Good docs found but ordered badly | 16 |
 
-(If those acronyms are new: [evaluation measures in IR](https://en.wikipedia.org/wiki/Evaluation_measures_(information_retrieval)), [nDCG](https://en.wikipedia.org/wiki/Discounted_cumulative_gain), [MRR](https://en.wikipedia.org/wiki/Mean_reciprocal_rank), [precision and recall](https://en.wikipedia.org/wiki/Precision_and_recall).)
+"Make the average better" is not actionable. "42 queries rank their first good result too low" and "28 queries find nothing relevant at all" are hypotheses waiting to happen.
 
-Two things make this baseline more than a demo. First, it is live — you can query it right now at [retail-search.feroshjacob.workers.dev](https://retail-search.feroshjacob.workers.dev). Second, every response carries an explain payload: the generated OpenSearch query, the active architecture version, the ranking decisions involved, and per-result rationale. Transparency was a deliverable, not an afterthought.
+## The Ladder: Five Experiments, Two Rejections
 
-### The process: how every experiment was run
+**Experiment 1: query-rescue — rejected.** The first, most intuitive idea: add bonus scoring for phrase matches and for results that contain every query word, to rescue the worst queries. It made *every* metric worse. The results stay in the repo as permanent rejected evidence — the first proof the process was honest.
 
-Before listing what was tried, here is the loop that every experiment followed — because the loop is what makes the results trustworthy, and it is also exactly the coordination work that normally requires a team:
+**Experiment 2: field-sum — accepted.** The boring counterpart won. Instead of scoring a document by its single best field (title *or* abstract *or* body), let evidence from all fields add up. nDCG@10: 0.2995 → **0.3022**. Small, but everything moved in the right direction.
 
-1. **Start from observed failures, not ideas.** The evaluator classifies all 225 queries by retrieval behavior, so experiments target named problems.
-2. **State the hypothesis and its mechanism** before writing code.
-3. **Implement behind an opt-in flag.** Every candidate is selectable via a query parameter; the public default never changes mid-experiment. No experiment can regress the live system.
-4. **Evaluate live, all queries, fixed protocol.** Never a subsample, always against the real cluster.
-5. **Compare against the current best, then decide** — accept as a candidate, or record as *rejected evidence* with its artifacts kept permanently.
-6. **Write the evidence trail in the same generation:** evaluation JSON, a Search Evolution entry, an Architecture Decision Ledger entry, and a mission update, enforced by a validator that fails the build if the chain breaks.
-7. **Gate twice** before reporting: the validation suite must pass twice with no code changes in between.
+**Experiment 3: coverage-rerank — accepted.** Digging into the 28 worst queries showed something useful: for 19 of them, a good document *was* being found — it was just sitting at rank 11–50 where nobody looks. That is a ranking problem, not a "search can't find it" problem. So: retrieve the top 50, give a small bonus to results whose title and abstract cover more of the query words, and re-order. nDCG@10 **0.3095**. But the worst-query count only moved from 28 to 27. The stubborn remainder is a vocabulary problem — the query and its answers use different words entirely. Remember that; it is the cliffhanger.
 
-The failure taxonomy plays the relevance analyst, the opt-in flags play the release manager, the ledger plays the design-review trail. That is where the team-quarter compression comes from.
+**Experiment 4: pseudo-relevance feedback — the surprise winner.** This is a decades-old idea from the IR textbooks (formally: [relevance feedback](https://en.wikipedia.org/wiki/Relevance_feedback), from the [Rocchio](https://en.wikipedia.org/wiki/Rocchio_algorithm) lineage). In plain words: assume your top few results are probably decent, look at what words *they* use, and use those extra words to re-score everything else. The query says "wing pressure distribution"; the top results also talk about "aerofoil" and "spanwise" — so results using those words are probably relevant too.
 
-### Step one: stop staring at averages
+Here is the part I find genuinely interesting: **I have never seen pseudo-relevance feedback actually shipped in a production search system.** It usually dies in review for two reasons — a second scoring pass adds latency, and if the top results are bad, the borrowed vocabulary drags the query further off-target.
 
-The single most valuable move of the whole phase was not a ranking technique. It was reworking the evaluator so that every failing query lands in a behavior group:
+The agent's version dodges the latency objection: it reranks *inside* the already-retrieved top-50 pool. Take the top 4 hits, pull 8 useful words from their titles and abstracts, re-score the pool. No second trip to OpenSearch, no model call, and the explain endpoint shows exactly which words were borrowed. Result: nDCG@10 **0.3253** — the biggest single jump of the phase.
 
-| Behavior group | Queries |
-| --- | ---: |
-| passing_or_minor | 64 |
-| late_first_relevant (first hit exists but below rank 3) | 42 |
-| zero_relevant_at_k (nothing relevant in the top 10) | 28 |
-| lexical_noise_low_precision | 27 |
-| broad_need_low_recall | 25 |
-| partial_recall | 23 |
-| graded_ranking_loss | 16 |
+**Experiment 5a: expanding the search with feedback words — rejected.** The obvious next step, actually running a second OpenSearch query with the borrowed words added, made things *worse* (0.3219). The cheap version of the idea was the right version.
 
-"Make MAP better" is not actionable. "42 queries rank their first relevant hit too low" and "28 queries retrieve nothing relevant at all" are hypotheses waiting to happen.
+**Experiment 5b: a phrase bonus — the last +0.2%.** A small tuned bonus for results where the query words appear next to each other as a phrase nudged the score to **0.3260**. All of this tuning ran offline against cached result pools, so trying a parameter cost nothing but CPU.
 
-### The ladder: five experiments, two rejections
+## Reality Check Against a Published Paper
 
-**query-rescue — rejected.** The first, most intuitive idea: add phrase-proximity and all-keyword boost clauses ([query expansion](https://en.wikipedia.org/wiki/Query_expansion) thinking) to rescue the zero-relevant group. It regressed every core metric. The artifacts stay in the repo as permanent rejected evidence — the first proof the process was honest.
+To avoid grading its own homework, the project also compared itself against a published study: [Ghasemi and Hiemstra, "BERT meets Cranfield" (EACL 2021)](https://aclanthology.org/2021.eacl-srw.9/), which evaluated BM25 and BERT-based rankers on this same collection. Matching their setup (binary relevance, their BM25 settings, nDCG@20), our keyword ladder reaches **0.4563**, versus their BM25 at **0.4714** and their BERT re-ranker at **0.5525**.
 
-**field-sum — accepted as candidate.** The boring counterpart won: replace the single best-field query with summed per-field BM25 clauses, so evidence spread across title, abstract, and text accumulates instead of competing. nDCG@10: 0.2995 → **0.3022**, everything else up too.
+Honest position: the keyword ladder closed most of the gap to their BM25, and stayed well below their neural rankers. The gap is quantified, not hand-waved — and it sets up Part 4.
 
-**coverage-rerank — accepted as candidate.** Drilling into the 28 zero-relevant queries showed 19 of them had a judged-relevant document sitting at ranks 11–50 — a *ranking* problem, not a recall problem. So: retrieve the top 50, apply a small deterministic title/abstract term-coverage bonus, return the reordered top results. nDCG@10 **0.3095**. But the zero-relevant count only moved from 28 to 27 — the residue is vocabulary mismatch, and no amount of term counting fixes words that never co-occur. Remember that number; it is the cliffhanger.
-
-**prf-rerank — the surprise winner.** [Pseudo-relevance feedback](https://en.wikipedia.org/wiki/Relevance_feedback) is textbook IR from the [Rocchio](https://en.wikipedia.org/wiki/Rocchio_algorithm) lineage: assume the top few results are probably relevant, mine them for vocabulary, and use that vocabulary to re-score. It is also a technique that production search teams almost never ship — a second scoring pass adds tail latency, and bad top results can drift the query off-target.
-
-Here it was implemented as a deterministic rerank *within* the already-retrieved top-50 pool: take the top 4 hits, extract 8 feedback terms from their titles and abstracts, then re-score the pool on normalized BM25 plus original-term and feedback-term coverage. No second OpenSearch round trip, no model call, fully explainable. Result: nDCG@10 **0.3253**, with every other metric up (MAP 0.2696, MRR 0.5620).
-
-That a decades-old, rarely-productionized technique became the strongest lexical move of the phase — with the usual latency objection engineered away — is one of the most interesting outcomes of Part 1.
-
-**PRF-expanded retrieval — rejected.** The obvious next step, issuing a second OpenSearch query expanded with the feedback terms, *regressed* (0.3219 vs 0.3253). Kept as rejected evidence. The cheap version of the idea was the right version.
-
-**Phrase coherence — the last +0.2%.** A grid-tuned bonus for adjacent query terms appearing as phrases nudged the refined PRF candidate to nDCG@10 **0.3260**. Tuning ran offline against cached top-50 retrieval pools — after day four, iterating on rerankers cost nothing but CPU.
-
-### Reality check against the literature
-
-To avoid grading its own homework, the project also built a comparability profile matching a published Cranfield BERT study (binary relevance, BM25 k1=1.5/b=0.75, nDCG@20). On that scale the refined PRF stack reaches **0.4563**, versus the paper's BM25 at 0.4714 and its BERT re-ranker at 0.5525. Honest position: our lexical ladder closed most of the gap to reference BM25 but stayed well below neural rerankers. The gap is quantified, not hand-waved — and it sets up Part 2.
-
-### Where Part 1 ends
+## Where the Keyword Road Ends
 
 | Stage | nDCG@10 | vs baseline |
 | --- | ---: | ---: |
-| BM25 baseline (ARCH-0.1, released) | 0.2995 | — |
+| BM25 baseline (released) | 0.2995 | — |
 | field-sum | 0.3022 | +0.9% |
 | coverage-rerank | 0.3095 | +3.3% |
-| prf-rerank | 0.3253 | +8.6% |
-| refined PRF (lexical ceiling) | 0.3260 | +8.8% |
+| pseudo-relevance feedback | 0.3253 | +8.6% |
+| + phrase bonus (the ceiling) | 0.3260 | +8.8% |
 
-Look at the increments: each lexical layer bought less than the last, and the final refinement was worth two tenths of a percent. That is what hitting a ceiling looks like in data. And 27 queries still retrieve nothing relevant in the top 10, because their vocabulary simply does not overlap with their relevant documents.
+Look at the increments: each layer bought less than the one before, and the last refinement was worth two tenths of a percent. That is what hitting a ceiling looks like in data. And 27 queries still find nothing relevant in their top 10, because their vocabulary simply does not overlap with the documents that answer them.
 
-Every stage above is live and comparable side by side on the [explain page](https://retail-search.feroshjacob.workers.dev/phases/cranfield/explain), which runs your query through each architecture milestone and shows the flow, the feedback terms PRF discovered, and which results the rerank moved.
+Every stage above is live. The [explain page](https://retail-search.feroshjacob.workers.dev/phases/cranfield/explain) runs your query through each architecture side by side and shows the borrowed feedback words and which results the rerank moved.
 
-The released architecture at the end of Part 1 is still the baseline — deliberately. Nothing is promoted to the public default without transferability evidence on a second dataset (that gate is Phase 2). The candidates wait, tagged and reproducible.
+One more thing worth noticing: the public default search is *still the plain baseline*. Deliberately. Nothing gets promoted until it proves itself on a second dataset — that is the next phase's transferability gate. Improving on one benchmark is easy to fake; improving everywhere is the real test. The candidates wait, recorded and reproducible.
 
-**Takeaways:**
+## Takeaways
 
 1. Ship the baseline publicly first — a live, explainable system is the measuring stick that keeps every later claim honest.
-2. Classify failures by behavior before proposing fixes; the taxonomy, not the metric, tells you what to build.
+2. Sort failures into categories before proposing fixes. The categories, not the average, tell you what to build.
 3. Keep rejected experiments as first-class artifacts — the rejection record is what makes the accepted decisions credible.
-4. Lexical reranking has a ceiling, and you can measure yourself hitting it.
+4. Keyword-based ranking has a ceiling, and you can measure yourself hitting it.
 
-Part 2: what happened when embeddings tried to break that ceiling — including two expensive-looking failures before the breakthrough.
+Part 4: what happened when embeddings tried to break that ceiling — including two expensive-looking failures before the breakthrough.

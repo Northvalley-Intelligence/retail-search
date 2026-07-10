@@ -1,6 +1,6 @@
 # A-0004 — A Quarter of Search Engineering in Six Days, Part 2: When Embeddings Finally Earned Their Place
 
-Status: draft ready for publishing handoff (target: feroshjacob.github.io)
+Status: draft ready for publishing handoff (target: feroshjacob.github.io, series part 4)
 Series: Phase 1 advances, part 2 of 2 (part 1: `A-0003`)
 Source handoff: `.mde/handoffs/control-center-stream_mreep6je_ab6e2bd9-phase1-article-source.md`
 
@@ -10,99 +10,101 @@ Cross references:
 - Search Evolution: `SE-0003`, `SE-0004`
 - Architecture: `ARCH-0.3-candidate`, `ARCH-0.4-candidate`
 - Decisions: `ADL-0003`, `ADL-0004`
-- Git Commit: `73714a4` (latest) · Git Tag: not assigned (candidates are untagged by policy)
+- Git Tag: not assigned (candidates are untagged by policy)
 - Live system: https://retail-search.feroshjacob.workers.dev
-- Milestone endpoint: `/api/milestones/arch-0.3-bge/search` (returns explicit 501 + evidence)
+- Reference paper: Ghasemi & Hiemstra, "BERT meets Cranfield", EACL 2021 — https://aclanthology.org/2021.eacl-srw.9/
 - Experiment artifacts: `experiments/cranfield-v0/`
 
 ---
 
 ## Draft
 
-[Part 1](./A-0003-phase1-part1-lexical-ceiling.md) ended at a measured lexical ceiling: five ranking experiments lifted a Cranfield BM25 baseline from nDCG@10 0.2995 to **0.3260**, the final refinement was worth +0.2%, and 27 of 225 queries still retrieved nothing relevant in the top 10 because their vocabulary never overlaps their relevant documents. You cannot term-match your way out of a vocabulary mismatch.
+[Part 3](./A-0003-phase1-part1-lexical-ceiling.md) ended at a measured ceiling. Five experiments improved keyword search from nDCG@10 0.2995 to **0.3260**, the last improvement was worth two tenths of a percent, and 27 of the 225 test queries still found nothing relevant in their top 10 — because they ask for things using words their answer documents never use. You cannot keyword-match your way out of a vocabulary mismatch.
 
-This is the problem [embeddings](https://en.wikipedia.org/wiki/Sentence_embedding) exist to solve — representing meaning as vectors so "high-speed aircraft heating" can find documents about "thermal effects at supersonic velocities." Part 2 is the story of making that actually work on a production engine, which took three attempts, one instructive detour into learning-to-rank, and a lot of discipline about negative results.
+This is the problem [embeddings](https://en.wikipedia.org/wiki/Sentence_embedding) exist to solve. An embedding turns text into a list of numbers — a vector — placed so that texts with similar *meaning* end up near each other, even when they share no words. "High-speed aircraft heating" can find a document about "thermal effects at supersonic velocities."
 
-The number to beat throughout: **refined PRF, nDCG@10 0.3260**.
+That is the promise. This article is the story of making it actually work on a production search engine, which took three attempts, one instructive detour, and a lot of discipline about negative results.
 
-### Attempt zero: controls before models
+The number to beat throughout: **0.3260**, the keyword ceiling from Part 3.
 
-The agent's first move was *not* to grab a fancy model. It built the vector infrastructure — an embedding cache, a vector/hybrid evaluator, [k-nearest-neighbor](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm) retrieval — and ran it with deterministic **hash vectors**: embeddings with no semantics at all, as a control group.
+## Attempt Zero: Test the Plumbing With Fake Vectors
 
-Result: vector-only nDCG@10 **0.1453**; best hybrid with BM25, 0.3054. Both well below PRF, exactly as they should be. The harness worked; any future gain would have to come from the model, not the plumbing. Cheap controls first is a habit worth stealing.
+The agent's first move was *not* to grab a fancy model. It built the machinery first — a place to store embeddings, a way to search by vector similarity, a way to score the results — and tested it with deliberately meaningless vectors generated from text hashes. A control group.
 
-### Attempt one: chat-model embeddings fail, loudly
+Result: vector-only search scored **0.1453**. Mixed with keyword scores, 0.3054. Both well below the keyword ceiling — exactly as they should be, because these vectors carry no meaning. The machinery worked; any future gain would have to come from the model, not the plumbing. Cheap controls first is a habit worth stealing.
 
-Next, real embeddings from a real LLM — a local Ollama `llama3.1:8b`, producing 4,096-dimensional vectors from each document's title and abstract.
+## Attempt One: Embeddings From a Chat Model Fail, Loudly
 
-Result: vector-only nDCG@10 **0.0282**.
+Next, real embeddings from a real LLM — a locally-running `llama3.1:8b`, the kind of model you would chat with, producing 4,096 numbers per document.
 
-Not a typo. An 8-billion-parameter language model's embeddings performed *five times worse than random hash vectors* at retrieval. The lesson is fundamental: embedding quality is a property of the training objective, not model size. Chat models are trained to generate text; their internal representations are not organized so that "query near relevant document" holds under cosine distance. Retrieval encoders are trained for exactly that. "Semantic search" is not one thing.
+Result: vector-only search scored **0.0282**.
 
-Blending the Ollama vectors with BM25 clawed back to 0.3035 — still below PRF. Rejected, with all artifacts kept public. This negative result is what makes the eventual win believable.
+Not a typo. An 8-billion-parameter language model's embeddings performed *five times worse than the random hash vectors*. The lesson is fundamental: what makes embeddings good for search is not the model's size — it is what the model was trained to do. Chat models are trained to generate text. Nothing in that training pushes "query" and "document that answers it" to be near each other in vector space. Models trained specifically for retrieval do exactly that. **"Semantic search" is not one thing.**
 
-### The detour: is this a ranking problem or a recall problem?
+Blending the chat-model vectors with keyword scores clawed back to 0.3035 — still below the ceiling. Rejected, with all the results kept public. This negative result is what makes the eventual win believable.
 
-Before paying for better embeddings, the agent quantified the headroom with an oracle analysis: if a perfect re-ranker reordered the existing top-50 candidate pools, how good could results get?
+## The Detour: How Much Better Could Ranking Even Get?
 
-Answer: **oracle nDCG@10 of 0.7033** — against an achieved 0.3260. Coverage was high (96% of queries had at least one relevant document in the pool), though pool recall (0.6042) capped the ceiling. Conclusion: enormous reordering headroom. That justified trying [learning to rank](https://en.wikipedia.org/wiki/Learning_to_rank).
+Before paying for better embeddings, the agent asked a question I wish more teams asked: *if we re-ordered what we already retrieve absolutely perfectly, how good would the results be?*
 
-Two trainers were built: coordinate-ascent (via [coordinate descent](https://en.wikipedia.org/wiki/Coordinate_descent)) and dependency-free [gradient-boosted](https://en.wikipedia.org/wiki/Gradient_boosting) regression trees, both evaluated with query-grouped [5-fold cross-validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)) — essential on a 225-query dataset where [overfitting](https://en.wikipedia.org/wiki/Overfitting) is the default outcome.
+The answer: **0.7033** — against an achieved 0.3260. In other words, for most queries the good documents are already being fetched in the top 50; they are just ordered badly. Huge headroom. That justified trying [learning to rank](https://en.wikipedia.org/wiki/Learning_to_rank) — training a small model to re-order results using signals like keyword scores and word overlap.
 
-With lexical and Ollama-embedding features: coordinate ascent reached CV nDCG@10 **0.3166**, boosted trees **0.3216**. Both below PRF. In-sample numbers looked much better (up to 0.3564) — and were recorded strictly as capacity evidence, because a model that memorizes 225 queries is worthless. The honest conclusion at this point: the ranking machinery works, but the features carry no signal the lexical ladder didn't already have.
+Two trainers were built and tested carefully — with [cross-validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)), meaning the model is always scored on queries it never saw during training. On a dataset of only 225 queries, skipping that step produces numbers that look great and mean nothing (the classic [overfitting](https://en.wikipedia.org/wiki/Overfitting) trap).
 
-### The breakthrough: a retrieval-tuned encoder
+The honest result: with keyword-based signals, the best learned ranker scored **0.3216** — below the ceiling. The training-set scores looked much better (up to 0.3564), and were recorded strictly as "the machinery has capacity" evidence, nothing more. Conclusion at this point: the ranking machinery works, but its input signals carry nothing the keyword ladder didn't already have.
 
-Attempt three used a model built for the job: **BAAI/bge-base-en-v1.5**, a 768-dimensional retrieval encoder run through a local SentenceTransformers bridge, with the model's retrieval query prefix and title+abstract document text.
+## The Breakthrough: A Model Built for Retrieval
+
+Attempt three used a model trained for exactly this job: **BGE** ([`BAAI/bge-base-en-v1.5`](https://huggingface.co/BAAI/bge-base-en-v1.5)), a compact open-source retrieval model producing 768 numbers per text.
 
 Everything changed at once:
 
-| Approach | nDCG@10 | vs PRF (0.3260) |
+| Approach | nDCG@10 | vs keyword ceiling (0.3260) |
 | --- | ---: | --- |
-| BGE vector-only | 0.3419 | **+4.9%** |
-| BGE hybrid (BM25 + dense) | 0.3533 | **+8.4%** |
-| LTR boosted trees + BGE features (CV) | 0.3603 | **+10.5%** |
+| BGE vectors alone | 0.3419 | **+4.9%** |
+| BGE + keyword scores together | 0.3533 | **+8.4%** |
+| Learned ranker with BGE signals added | 0.3603 | **+10.5%** |
 
-Three observations worth an article on their own:
+Three observations worth articles of their own:
 
-1. **The 768-dimensional retrieval encoder beat the 4,096-dimensional chat model by 12× on vector-only retrieval** (0.3419 vs 0.0282). Dimensions and parameters are not the story; the training objective is.
-2. **Hybrid beats pure-vector everywhere.** BM25 and dense retrieval fail on different queries; fusing them added another +0.011 over BGE alone.
-3. **The LTR that failed suddenly worked.** The identical boosted-tree trainer that lost to PRF with lexical features became the best result of the phase once BGE similarities entered the feature set. LTR is only as good as its features.
+1. **The purpose-built 768-number model beat the 4,096-number chat model by 12×** (0.3419 vs 0.0282). Size is not the story. Training objective is the story.
+2. **Vectors plus keywords beat vectors alone.** The two approaches fail on different queries, so combining them wins. This matches what most production teams find.
+3. **The learned ranker that failed suddenly worked.** Same trainer, same process — but once BGE similarity was added as an input signal, it went from below the ceiling to the best score of the entire phase. A ranking model is only as good as what you feed it.
 
-### Making it production-shaped
+## Making It Production-Shaped
 
-An offline win in an evaluation harness is a notebook result, not an architecture. So the embeddings were loaded into a separate remote **OpenSearch kNN index** (768-dim vector field, [HNSW](https://en.wikipedia.org/wiki/Hierarchical_navigable_small_world)-backed [approximate nearest neighbor](https://en.wikipedia.org/wiki/Nearest_neighbor_search) search) — leaving the public index untouched — and the full 225-query evaluation was re-run live against the real engine.
+A win in an offline evaluation script is a notebook result, not an architecture. So the embeddings were loaded into a real OpenSearch [vector index](https://en.wikipedia.org/wiki/Nearest_neighbor_search) — a separate one, leaving the public index untouched — and the full 225-query evaluation was re-run live against the actual engine.
 
-The remote hybrid reproduced the offline number exactly: **nDCG@10 0.3533**, with the paper-comparable binary nDCG@20 coming in at **0.4926** — slightly above offline, and the first configuration in the project to beat the reference paper's BM25 (0.4714). The neural rerankers from that paper (0.5525–0.5670) remain ahead, which is the honest gap to chase next.
+The live result matched the offline number exactly: **0.3533**. On the comparison scale from Part 3, the live hybrid scored **0.4926** — which finally beats the BM25 result (0.4714) from [Ghasemi and Hiemstra's "BERT meets Cranfield" paper](https://aclanthology.org/2021.eacl-srw.9/), though their BERT rankers (0.5525–0.5670) remain ahead. That is the honest gap to chase next.
 
 When the offline and live numbers agree to four decimal places, you can start calling it a candidate architecture.
 
-### Shipping honesty: the 501 milestone
+## Shipping Honesty: The 501
 
-Here is an unusual production decision. The public site exposes every architecture milestone as a stable endpoint — baseline, PRF, and BGE. But live BGE search needs query vectors computed at request time, and the Cloudflare Worker has no embedding runtime yet. The usual demo move is to fake it.
+Here is an unusual production decision, and my favorite detail of the phase. The public site exposes every architecture milestone as a stable endpoint — baseline, feedback rerank, and BGE. But live BGE search needs the *query* turned into a vector at request time, and the public API layer has no embedding model running in it yet. The usual demo move is to fake it.
 
-Instead, `/api/milestones/arch-0.3-bge/search` returns an explicit **501 `milestone_runtime_not_enabled`** with the validated evidence artifacts, the remote index name, and the stated next implementation step — and the [explain page](https://retail-search.feroshjacob.workers.dev/phases/cranfield/explain) renders it as an honest status card next to the two live milestones, alongside archived query-level demo evidence. A 501 with evidence is a better public artifact than a demo that pretends to do live inference.
+Instead, the BGE endpoint returns an explicit **"501 — runtime not enabled"** along with the validated evidence, the index name, and the stated next step. The [explain page](https://retail-search.feroshjacob.workers.dev/phases/cranfield/explain) shows it as an honest status card next to the two live architectures, with archived sample results you can replay. A 501 with evidence is a better public artifact than a demo that pretends.
 
-The BGE hybrid also remains — deliberately — *not* the public default. The same gate that held back every lexical candidate holds here: no promotion without transferability evidence on a second dataset (Phase 2, [BEIR](https://github.com/beir-cellar/beir)), plus a latency/cost policy and the runtime query-vector work.
+And the BGE hybrid is still — deliberately — not the public default. The same gate that held back every keyword candidate holds here: nothing is promoted until it proves itself on a second dataset ([BEIR](https://github.com/beir-cellar/beir) is the next phase), and until the latency, cost, and runtime pieces are real.
 
-### The full picture
+## The Full Picture
 
 Phase 1 in one table — sixteen experiments, four explicit rejections, six days:
 
 | Milestone | nDCG@10 | vs baseline |
 | --- | ---: | ---: |
-| ARCH-0.1 BM25 baseline (released) | 0.2995 | — |
-| Lexical ceiling: refined PRF (candidate) | 0.3260 | +8.8% |
-| ARCH-0.3 BGE hybrid, live on OpenSearch kNN (candidate) | 0.3533 | +18.0% |
-| BGE-feature LTR, cross-validated (candidate-adjacent) | 0.3603 | +20.3% |
+| BM25 baseline (released, public default) | 0.2995 | — |
+| Keyword ceiling: feedback rerank (candidate) | 0.3260 | +8.8% |
+| BGE + keywords, live on OpenSearch (candidate) | 0.3533 | +18.0% |
+| Learned ranker with BGE signals (cross-validated) | 0.3603 | +20.3% |
 
-Along the way: query-rescue (regressed), PRF-expanded retrieval (regressed), hash-vector control (as expected), chat-model embeddings (catastrophic), lexical-feature LTR (below PRF twice) — all preserved as public artifacts, because the rejections are what give the accepted numbers their meaning.
+Along the way: a boost-clause idea that regressed, a query-expansion idea that regressed, fake vectors that behaved exactly as fake vectors should, chat-model embeddings that failed spectacularly, and a learned ranker that lost twice before the right signals arrived — all preserved as public artifacts, because the rejections are what give the accepted numbers their meaning.
 
-**Takeaways:**
+## Takeaways
 
 1. Run cheap controls before paying for real models — and publish the negative results; they are what make the win believable.
-2. "Semantic search" is not one thing: the gap between a chat LLM's embeddings and a retrieval-tuned encoder was the entire difference between failure and breakthrough.
-3. Validate vector wins on the production engine, not just offline — and be suspicious until the numbers agree.
+2. "Semantic search" is not one thing. The gap between a chat model's embeddings and a retrieval-trained model's embeddings was the entire difference between failure and breakthrough.
+3. Validate vector wins on the production engine, not just offline — and stay suspicious until the numbers agree.
 4. Ship honesty: an explicit 501 with evidence beats a faked demo, and a promotion gate you actually enforce beats a leaderboard.
 
-Next mission: Phase 2 — BEIR transferability, where every candidate that won on Cranfield has to prove it wasn't just memorizing aeronautics.
+Next mission: transferability. Every candidate that won on Cranfield now has to prove it was not just memorizing aeronautics.
