@@ -3,7 +3,7 @@ import {
   ARCHITECTURE_VERSION,
   DATASET_ID,
   RANKING_LOGIC,
-  RETRIEVAL_FLOW,
+  architectureRetrievalFlow,
   normalizeQuery,
   DEFAULT_SEARCH_ARCHITECTURE_ID,
   resolveSearchArchitecture
@@ -50,7 +50,7 @@ export async function explainCranfield({ query, size = 10, env = {}, fetchImpl, 
       expandedQuery: searchResponse.expandedOpenSearchQuery
     },
     reranking: searchResponse.reranking,
-    retrievalFlow: RETRIEVAL_FLOW,
+    retrievalFlow: architectureRetrievalFlow(searchArchitecture.id),
     retrievalStrategy: searchArchitecture.queryStrategy || "OpenSearch multi_match over Cranfield title, abstract, and text fields.",
     rankingLogic: searchArchitecture.rankingLogic || RANKING_LOGIC,
     acceptedArchitectureDecisions: ACCEPTED_ARCHITECTURE_DECISIONS,

@@ -10,7 +10,7 @@
     "status": "deployed_verified",
     "required_before_public_phase_1_acceptance": true,
     "public_url": "https://retail-search.feroshjacob.workers.dev",
-    "version_id": "2abf1e8a-b99e-4434-bbd9-a9c51ed94643",
+    "version_id": "a6f07104-f4a1-4bef-91bd-5b397d0b0160",
     "blockers": [],
     "verified_without_secret_exposure": [
       "Wrangler auth succeeded with Workers write scope.",
@@ -126,7 +126,7 @@
       },
       "milestone_endpoints": {
         "status": "pass",
-        "deployed_worker_version_id": "2abf1e8a-b99e-4434-bbd9-a9c51ed94643",
+        "deployed_worker_version_id": "a6f07104-f4a1-4bef-91bd-5b397d0b0160",
         "search_page_milestone_ui": {
           "status": "pass",
           "url": "https://retail-search.feroshjacob.workers.dev/phases/cranfield/search",
@@ -135,7 +135,7 @@
         "explain_page_milestone_ui": {
           "status": "pass",
           "url": "https://retail-search.feroshjacob.workers.dev/phases/cranfield/explain",
-          "evidence": "Live explain page renders an Architecture milestones section linking ARCH-0.1 explain, ARCH-0.2 PRF explain, and ARCH-0.3 BGE explain status after redeploy on 2026-07-09."
+          "evidence": "Live explain page runs the same query through ARCH-0.1, ARCH-0.2 PRF, and ARCH-0.3 BGE with a compare-all default, milestone selector chips, architecture-specific retrieval flows, rerank movement, and PRF feedback terms. The milestone explain API returns architecture-specific retrievalFlow steps (PRF: query, normalize, build, retrieve, rank, feedback, rerank, explain). Verified live on 2026-07-09."
         },
         "arch_0_1_search": {
           "status": "pass",

@@ -316,6 +316,148 @@ export const RETRIEVAL_FLOW = [
   }
 ];
 
+const FLOW_QUERY = RETRIEVAL_FLOW[0];
+const FLOW_NORMALIZE = RETRIEVAL_FLOW[1];
+const FLOW_EXPLAIN = RETRIEVAL_FLOW[RETRIEVAL_FLOW.length - 1];
+
+export const ARCHITECTURE_RETRIEVAL_FLOWS = {
+  baseline: RETRIEVAL_FLOW,
+  "query-rescue": [
+    FLOW_QUERY,
+    FLOW_NORMALIZE,
+    {
+      id: "build",
+      title: "OpenSearch Query",
+      detail: "The baseline multi_match recall clause is combined with phrase-proximity and all-keyword boost clauses."
+    },
+    {
+      id: "retrieve",
+      title: "Retrieve",
+      detail: "OpenSearch searches the live cranfield-v0 index."
+    },
+    {
+      id: "rank",
+      title: "Rank",
+      detail: "BM25 scores documents; phrase and cross-field boosts lift focused technical matches."
+    },
+    FLOW_EXPLAIN
+  ],
+  "field-sum": [
+    FLOW_QUERY,
+    FLOW_NORMALIZE,
+    {
+      id: "build",
+      title: "OpenSearch Query",
+      detail: "Separate boosted BM25 match clauses target title, abstract, and text so field evidence adds together."
+    },
+    {
+      id: "retrieve",
+      title: "Retrieve",
+      detail: "OpenSearch searches the live cranfield-v0 index."
+    },
+    {
+      id: "rank",
+      title: "Rank",
+      detail: "Summed field-specific BM25 scores rank documents with the baseline title and abstract boosts."
+    },
+    FLOW_EXPLAIN
+  ],
+  "coverage-rerank": [
+    FLOW_QUERY,
+    FLOW_NORMALIZE,
+    {
+      id: "build",
+      title: "OpenSearch Query",
+      detail: "Summed field-specific BM25 match clauses target title, abstract, and text."
+    },
+    {
+      id: "retrieve",
+      title: "Retrieve",
+      detail: "OpenSearch retrieves the top 50 candidates from the live cranfield-v0 index."
+    },
+    {
+      id: "rank",
+      title: "Rank",
+      detail: "Summed field-specific BM25 scores order the candidate pool."
+    },
+    {
+      id: "rerank",
+      title: "Rerank",
+      detail: "A deterministic title/abstract query-term coverage bonus reorders the candidates before returning results."
+    },
+    FLOW_EXPLAIN
+  ],
+  "prf-rerank": [
+    FLOW_QUERY,
+    FLOW_NORMALIZE,
+    {
+      id: "build",
+      title: "OpenSearch Query",
+      detail: "Summed field-specific BM25 match clauses target title, abstract, and text."
+    },
+    {
+      id: "retrieve",
+      title: "Retrieve",
+      detail: "OpenSearch retrieves the top 50 candidates from the live cranfield-v0 index."
+    },
+    {
+      id: "rank",
+      title: "Rank",
+      detail: "Summed field-specific BM25 scores order the candidate pool."
+    },
+    {
+      id: "feedback",
+      title: "Feedback",
+      detail: "Pseudo-relevance feedback extracts expansion terms from the top-ranked titles and abstracts."
+    },
+    {
+      id: "rerank",
+      title: "Rerank",
+      detail: "Candidates are reranked with normalized BM25 plus original-term, feedback-term, and phrase-coherence coverage bonuses."
+    },
+    FLOW_EXPLAIN
+  ],
+  "prf-expand-rerank": [
+    FLOW_QUERY,
+    FLOW_NORMALIZE,
+    {
+      id: "build",
+      title: "OpenSearch Query",
+      detail: "Summed field-specific BM25 match clauses target title, abstract, and text."
+    },
+    {
+      id: "retrieve",
+      title: "Retrieve",
+      detail: "OpenSearch retrieves the first-stage candidate pool from the live cranfield-v0 index."
+    },
+    {
+      id: "rank",
+      title: "Rank",
+      detail: "Summed field-specific BM25 scores order the first-stage pool."
+    },
+    {
+      id: "feedback",
+      title: "Feedback",
+      detail: "Pseudo-relevance feedback extracts expansion terms from the top-ranked titles and abstracts."
+    },
+    {
+      id: "expand",
+      title: "Expanded Retrieve",
+      detail: "A second OpenSearch query adds lower-weight feedback-term clauses and the retrieval pools are merged."
+    },
+    {
+      id: "rerank",
+      title: "Rerank",
+      detail: "The merged pool is reranked with normalized original and expanded scores plus coverage bonuses."
+    },
+    FLOW_EXPLAIN
+  ]
+};
+
+export function architectureRetrievalFlow(architectureId) {
+  return ARCHITECTURE_RETRIEVAL_FLOWS[architectureId] || RETRIEVAL_FLOW;
+}
+
 export const ACCEPTED_ARCHITECTURE_DECISIONS = [
   {
     id: "ADL-0001",

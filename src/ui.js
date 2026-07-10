@@ -1,5 +1,5 @@
 import { CRANFIELD_EVALUATION_PROFILE } from "./cranfield/evaluation-profile.js";
-import { ARCHITECTURE_VERSION, DATASET_PROFILE, RETRIEVAL_FLOW } from "./cranfield/schema.js";
+import { ARCHITECTURE_VERSION, DATASET_PROFILE } from "./cranfield/schema.js";
 
 const DATASET_PROFILE_JSON = JSON.stringify(DATASET_PROFILE);
 const EVALUATION_PROFILE_JSON = JSON.stringify(CRANFIELD_EVALUATION_PROFILE);
@@ -598,6 +598,79 @@ function pageShell({ title, body, currentSection = "" }) {
       line-height: 1.35;
     }
 
+    .flow-diagram.stacked {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .flow-diagram.stacked .flow-step {
+      min-height: 0;
+      padding: 10px 12px;
+    }
+
+    .chip.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #ffffff;
+    }
+
+    .milestone-compare {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      align-items: start;
+    }
+
+    .milestone-card {
+      padding: 14px;
+      border: 1px solid #dbe1dc;
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .milestone-card h4 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+    }
+
+    .milestone-card h5 {
+      margin: 12px 0 6px;
+      font-size: 0.86rem;
+    }
+
+    .milestone-status {
+      display: inline-flex;
+      margin-bottom: 10px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: #e7f2ee;
+      color: var(--accent-strong);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .milestone-note {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.4;
+    }
+
+    .milestone-results {
+      margin: 0;
+      padding-left: 20px;
+      font-size: 0.9rem;
+    }
+
+    .milestone-results li {
+      margin-bottom: 8px;
+    }
+
+    .rank-shift {
+      color: var(--accent-strong);
+      font-weight: 700;
+    }
+
     .query-box {
       overflow: auto;
       max-height: 340px;
@@ -1033,41 +1106,16 @@ function renderDataSection() {
   </div>`;
 }
 
-function renderFlowDiagram(flow = RETRIEVAL_FLOW) {
-  return `<ol class="flow-diagram" aria-label="Search explain flow">
-    ${flow
-      .map(
-        (step, index) => `<li class="flow-step">
-          <span class="flow-number">${index + 1}</span>
-          <strong>${step.title}</strong>
-          <span>${step.detail}</span>
-        </li>`
-      )
-      .join("")}
-  </ol>`;
-}
-
 function renderExplainSection() {
   return `<div class="content-band">
     ${sectionHead({
       title: "Explain",
-      description: "Inspect how a query becomes an OpenSearch request, how BM25 ranks documents, and what the system returns as explanation evidence.",
+      description: "This project evolves one search system through validated architecture milestones. Run the same query through each milestone and watch how the retrieval flow, ranking evidence, and results change as the architecture evolves.",
       links: '<a class="button-link secondary" href="/api/cranfield/explain?q=wing%20pressure%20distribution">JSON</a>'
     })}
     <section class="tool-surface">
-      ${renderFlowDiagram()}
-    </section>
-    <section class="tool-surface">
-      <h3>Architecture milestones</h3>
-      <p class="evaluation-note" style="margin-top:8px;">Compare explain output across milestones: the ARCH-0.2 PRF candidate adds pseudo-relevance-feedback reranking metadata on top of the ARCH-0.1 baseline, and ARCH-0.3 BGE reports its runtime status.</p>
-      <div class="quick-links" style="margin-top:12px;">
-        <a class="button-link secondary" href="/api/milestones/arch-0.1/explain?q=wing%20pressure%20distribution&size=2">ARCH-0.1 explain</a>
-        <a class="button-link secondary" href="/api/milestones/arch-0.2-prf/explain?q=wing%20pressure%20distribution&size=2">ARCH-0.2 PRF explain</a>
-        <a class="button-link secondary" href="/api/milestones/arch-0.3-bge/explain?q=wing%20pressure%20distribution&size=2">ARCH-0.3 explain status</a>
-      </div>
-    </section>
-    <section class="tool-surface">
-      <h3>Run explain</h3>
+      <h3>Run explain across architectures</h3>
+      <p class="evaluation-note" style="margin-top:8px;">Compare all milestones side by side or focus on one. ARCH-0.1 ranks with plain BM25, ARCH-0.2 PRF reranks the same candidate pool with pseudo-relevance feedback, and ARCH-0.3 BGE reports its validated remote evidence because live vector runtime is not enabled yet.</p>
       <form id="explain-form" class="search-form" style="margin-top:12px;">
         <div>
           <label for="explain-query">Query</label>
@@ -1076,14 +1124,31 @@ function renderExplainSection() {
         <div>
           <label for="explain-size">Results</label>
           <select id="explain-size" name="size">
-            <option selected>2</option>
-            <option>5</option>
+            <option>2</option>
+            <option selected>5</option>
             <option>10</option>
           </select>
         </div>
         <button id="explain-button" type="submit">Explain</button>
       </form>
-      <div id="explain-output" class="query-box">Run explain to see the generated OpenSearch query.</div>
+      <div class="quick-links" id="explain-milestones" style="margin-top:12px;" role="group" aria-label="Architecture milestone selection">
+        <button class="chip active" type="button" data-explain-milestone="compare">Compare all</button>
+        <button class="chip" type="button" data-explain-milestone="arch-0.1">ARCH-0.1 baseline</button>
+        <button class="chip" type="button" data-explain-milestone="arch-0.2-prf">ARCH-0.2 PRF rerank</button>
+        <button class="chip" type="button" data-explain-milestone="arch-0.3-bge">ARCH-0.3 BGE vector</button>
+      </div>
+      <div id="explain-output" style="margin-top:14px;">
+        <div class="empty-state">Run explain to see how each architecture milestone processes the same query.</div>
+      </div>
+    </section>
+    <section class="tool-surface">
+      <h3>Milestone JSON endpoints</h3>
+      <p class="evaluation-note" style="margin-top:8px;">The same comparison is available as raw JSON from the stable milestone endpoints.</p>
+      <div class="quick-links" style="margin-top:12px;">
+        <a class="button-link secondary" href="/api/milestones/arch-0.1/explain?q=wing%20pressure%20distribution&size=2">ARCH-0.1 explain</a>
+        <a class="button-link secondary" href="/api/milestones/arch-0.2-prf/explain?q=wing%20pressure%20distribution&size=2">ARCH-0.2 PRF explain</a>
+        <a class="button-link secondary" href="/api/milestones/arch-0.3-bge/explain?q=wing%20pressure%20distribution&size=2">ARCH-0.3 explain status</a>
+      </div>
     </section>
   </div>`;
 }
@@ -1254,8 +1319,8 @@ function clientScript(currentSection) {
       })[char]);
     }
 
-    function renderFlow(flow) {
-      return '<ol class="flow-diagram" aria-label="Search explain flow">' + flow.map((step, index) => (
+    function renderFlow(flow, variant) {
+      return '<ol class="flow-diagram' + (variant ? ' ' + variant : '') + '" aria-label="Search explain flow">' + flow.map((step, index) => (
         '<li class="flow-step">' +
           '<span class="flow-number">' + escapeHtml(index + 1) + '</span>' +
           '<strong>' + escapeHtml(step.title) + '</strong>' +
@@ -1264,10 +1329,13 @@ function clientScript(currentSection) {
       )).join("") + '</ol>';
     }
 
-    function setUrlQuery(query, size) {
+    function setUrlQuery(query, size, milestone) {
       const url = new URL(window.location.href);
       url.searchParams.set("q", query);
       url.searchParams.set("size", size);
+      if (milestone) {
+        url.searchParams.set("milestone", milestone);
+      }
       window.history.replaceState({}, "", url);
     }
 
@@ -1360,20 +1428,88 @@ function clientScript(currentSection) {
       const sizeInput = document.querySelector("#explain-size");
       const button = document.querySelector("#explain-button");
       const output = document.querySelector("#explain-output");
+      const milestoneControls = document.querySelector("#explain-milestones");
+      const EXPLAIN_MILESTONES = ["arch-0.1", "arch-0.2-prf", "arch-0.3-bge"];
+      let selectedMilestone = "compare";
+
+      function milestoneSummaryFoot(summary) {
+        if (!summary) return "";
+        return '<div class="result-foot" style="margin:0 0 10px;">' +
+          '<span>validated nDCG@10 ' + escapeHtml(Number(summary.ndcgAt10).toFixed(4)) + '</span>' +
+          (summary.binaryNdcgAt20 ? '<span>binary nDCG@20 ' + escapeHtml(Number(summary.binaryNdcgAt20).toFixed(4)) + '</span>' : '') +
+        '</div>';
+      }
+
+      function renderUnavailableCard(payload) {
+        const m = payload.milestone;
+        return '<article class="milestone-card">' +
+          '<h4>' + escapeHtml(m.label) + '</h4>' +
+          '<span class="milestone-status">' + escapeHtml(String(m.status).replace(/-/g, " ")) + '</span>' +
+          milestoneSummaryFoot(m.resultSummary) +
+          '<p class="milestone-note">' + escapeHtml(payload.error?.message || "Milestone runtime is not enabled.") + '</p>' +
+          (m.remoteIndex ? '<p class="milestone-note">Its nDCG gains were validated against the remote index ' + escapeHtml(m.remoteIndex) + '. Replay the archived query-level evidence with the ARCH-0.3 demo on the <a href="/phases/cranfield/search">search page</a>.</p>' : '') +
+          (payload.nextImplementationStep ? '<p class="milestone-note">Next step: ' + escapeHtml(payload.nextImplementationStep) + '</p>' : '') +
+        '</article>';
+      }
+
+      function renderMilestoneCard(milestoneId, response, payload) {
+        if (!payload) {
+          return '<article class="milestone-card"><h4>' + escapeHtml(milestoneId) + '</h4><p class="milestone-note">Explain failed.</p></article>';
+        }
+        if (!response.ok) {
+          if (payload.milestone) return renderUnavailableCard(payload);
+          return '<article class="milestone-card"><h4>' + escapeHtml(milestoneId) + '</h4><p class="milestone-note">' + escapeHtml(payload.error?.message || "Explain failed") + '</p></article>';
+        }
+        const m = payload.milestone;
+        const rerank = payload.reranking;
+        const rerankNote = rerank
+          ? '<p class="milestone-note">Rerank strategy: ' + escapeHtml(rerank.strategy) +
+            (rerank.expansionTerms && rerank.expansionTerms.length ? '. Feedback terms discovered for this query: ' + escapeHtml(rerank.expansionTerms.join(", ")) + '.' : '.') + '</p>'
+          : '<p class="milestone-note">No rerank stage: results are returned in BM25 order.</p>';
+        const results = (payload.topResults || []).map((result) => {
+          const moved = result.originalRank && result.originalRank !== result.rank;
+          const score = result.rerankScore ?? result.score;
+          return '<li>' + escapeHtml(result.title || result.id) +
+            '<span class="result-foot"><span>score ' + escapeHtml(Number(score).toFixed(3)) + '</span>' +
+            (moved ? '<span class="rank-shift">moved from #' + escapeHtml(result.originalRank) + ' by rerank</span>' : '') +
+            '</span></li>';
+        }).join("");
+        return '<article class="milestone-card">' +
+          '<h4>' + escapeHtml(m.label) + '</h4>' +
+          '<span class="milestone-status">' + escapeHtml(String(m.status).replace(/-/g, " ")) + '</span>' +
+          milestoneSummaryFoot(m.resultSummary) +
+          renderFlow(payload.retrievalFlow, "stacked") +
+          rerankNote +
+          '<h5>Top results</h5>' +
+          '<ol class="milestone-results">' + results + '</ol>' +
+          '<details style="margin-top:10px;"><summary>Generated OpenSearch query</summary><div class="query-box">' + escapeHtml(JSON.stringify(payload.openSearch.query, null, 2)) + '</div></details>' +
+        '</article>';
+      }
+
+      async function fetchMilestoneCard(milestoneId, query, size) {
+        const response = await fetch('/api/milestones/' + milestoneId + '/explain?' + new URLSearchParams({ q: query, size }).toString());
+        let payload = null;
+        try {
+          payload = await response.json();
+        } catch (error) {
+          payload = null;
+        }
+        return renderMilestoneCard(milestoneId, response, payload);
+      }
 
       async function runExplain(query, size) {
         const cleanQuery = query.trim();
         if (!cleanQuery) return;
         button.disabled = true;
         button.textContent = "Explaining";
-        setUrlQuery(cleanQuery, size);
+        setUrlQuery(cleanQuery, size, selectedMilestone);
+        output.innerHTML = '<div class="empty-state">Running the query through ' + (selectedMilestone === "compare" ? "every architecture milestone" : selectedMilestone) + '...</div>';
         try {
-          const response = await fetch('/api/explain?' + new URLSearchParams({ q: cleanQuery, size }).toString());
-          const payload = await response.json();
-          if (!response.ok) throw new Error(payload.error?.message || "Explain failed");
-          output.innerHTML = renderFlow(payload.retrievalFlow) + '<div class="query-box">' + escapeHtml(JSON.stringify(payload.openSearch.query, null, 2)) + '</div>';
+          const ids = selectedMilestone === "compare" ? EXPLAIN_MILESTONES : [selectedMilestone];
+          const cards = await Promise.all(ids.map((id) => fetchMilestoneCard(id, cleanQuery, size)));
+          output.innerHTML = '<div class="milestone-compare">' + cards.join("") + '</div>';
         } catch (error) {
-          output.textContent = error.message || "Explain failed";
+          output.innerHTML = '<div class="empty-state">' + escapeHtml(error.message || "Explain failed") + '</div>';
         } finally {
           button.disabled = false;
           button.textContent = "Explain";
@@ -1385,9 +1521,31 @@ function clientScript(currentSection) {
         runExplain(queryInput.value, sizeInput.value);
       });
 
+      if (milestoneControls) {
+        milestoneControls.addEventListener("click", (event) => {
+          const target = event.target;
+          if (!(target instanceof HTMLElement) || !target.dataset.explainMilestone) return;
+          selectedMilestone = target.dataset.explainMilestone;
+          milestoneControls.querySelectorAll(".chip").forEach((chip) => chip.classList.toggle("active", chip === target));
+          runExplain(queryInput.value, sizeInput.value);
+        });
+      }
+
       const initial = new URLSearchParams(window.location.search);
       queryInput.value = initial.get("q") || "wing pressure distribution";
-      sizeInput.value = initial.get("size") || "2";
+      sizeInput.value = initial.get("size") || "5";
+      const initialMilestone = initial.get("milestone");
+      if (initialMilestone && (initialMilestone === "compare" || EXPLAIN_MILESTONES.includes(initialMilestone))) {
+        selectedMilestone = initialMilestone;
+        if (milestoneControls) {
+          milestoneControls.querySelectorAll(".chip").forEach((chip) => {
+            chip.classList.toggle("active", chip.dataset.explainMilestone === selectedMilestone);
+          });
+        }
+      }
+      if (CURRENT_SECTION === "explain") {
+        runExplain(queryInput.value, sizeInput.value);
+      }
     }
 
     initializeSearch();

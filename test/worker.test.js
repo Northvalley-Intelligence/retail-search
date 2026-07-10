@@ -380,10 +380,12 @@ test("phase explain page is focused on the explain flow", async () => {
 
   assert.equal(response.status, 200);
   const html = await response.text();
-  assert.match(html, /Search explain flow/);
-  assert.match(html, /OpenSearch Query/);
-  assert.match(html, /Run explain/);
-  assert.match(html, /Architecture milestones/);
+  assert.match(html, /Run explain across architectures/);
+  assert.match(html, /data-explain-milestone="compare"/);
+  assert.match(html, /data-explain-milestone="arch-0\.1"/);
+  assert.match(html, /data-explain-milestone="arch-0\.2-prf"/);
+  assert.match(html, /data-explain-milestone="arch-0\.3-bge"/);
+  assert.match(html, /architecture milestones/i);
   assert.match(html, /\/api\/milestones\/arch-0\.1\/explain/);
   assert.match(html, /\/api\/milestones\/arch-0\.2-prf\/explain/);
   assert.match(html, /\/api\/milestones\/arch-0\.3-bge\/explain/);
@@ -533,6 +535,9 @@ test("milestone PRF explain endpoint exposes the refined PRF candidate path", as
   assert.equal(payload.reranking.strategy, "pseudo_relevance_feedback_title_abstract_coverage");
   assert.equal(payload.openSearch.query.size, 50);
   assert.ok(payload.topResults[0].explanation.includes("pseudo-relevance-feedback"));
+  assert.equal(payload.retrievalFlow[0].id, "query");
+  assert.ok(payload.retrievalFlow.some((step) => step.id === "feedback"));
+  assert.ok(payload.retrievalFlow.some((step) => step.id === "rerank"));
 });
 
 test("milestone BGE endpoints return an explicit candidate runtime limitation", async () => {
