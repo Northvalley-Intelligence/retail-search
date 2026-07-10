@@ -1,7 +1,7 @@
-# A-0003 — A Quarter of Search Engineering in Six Days, Part 1: Failure-Driven BM25 and the Lexical Ceiling
+# A-0003 — SLAB-RS, Part 3: Failure-Driven BM25 and the Lexical Ceiling
 
 Status: draft ready for publishing handoff (target: feroshjacob.github.io, series part 3)
-Series: Phase 1 advances, part 1 of 2 (part 2: `A-0004`)
+Series: SLAB-RS (Self-Learning Agent-Based Retail Search), Phase 1 advances part 1 of 2 (next: `A-0004`)
 Source handoff: `.mde/handoffs/control-center-stream_mreep6je_ab6e2bd9-phase1-article-source.md`
 
 Cross references:
@@ -22,6 +22,8 @@ Cross references:
 In my experience, the work in this article would have been a quarter's roadmap for a core search team of ten to fifteen people a few years ago. Data pipeline, cluster setup, a public API, an evaluation harness, a failure analysis, five ranking experiments, and a public deployment. Not because any single piece is hard — but because in a real organization those pieces belong to different specialists, and every handoff between them costs weeks of coordination.
 
 An AI agent did all of it in six calendar days. This article and the next one are the evidence trail.
+
+Since this series is about making an agent do the search work (SLAB-RS: Self-Learning Agent-Based Retail Search), I want to be precise about the division of labor up front. Across the two articles — sixteen experiments in total — my interventions were exactly two: **I pointed the agent at a recent evaluation paper** to compare against (this article), and **I proposed trying learning-to-rank** (Part 4). Everything else — the hypotheses, the implementations, the evaluations, the accept/reject decisions, and the documentation — was the agent running its loop. I will flag both interventions where they happen.
 
 [Part 2 of this series](https://feroshjacob.github.io/posts/2026/07/06/self-learning-agent-based-retail-search-part-2-the-baseline-before-the-agents) set up the baseline before the agents. This article covers what the agent tried next, before any neural networks: a series of improvements to plain keyword search, climbing until the improvements ran out. Part 4 covers what happened when embeddings entered the picture.
 
@@ -89,7 +91,7 @@ The agent's version dodges the latency objection: it reranks *inside* the alread
 
 ## Reality Check Against a Published Paper
 
-To avoid grading its own homework, the project also compared itself against a published study: [Ghasemi and Hiemstra, "BERT meets Cranfield" (EACL 2021)](https://aclanthology.org/2021.eacl-srw.9/), which evaluated BM25 and BERT-based rankers on this same collection. Matching their setup (binary relevance, their BM25 settings, nDCG@20), our keyword ladder reaches **0.4563**, versus their BM25 at **0.4714** and their BERT re-ranker at **0.5525**.
+This is where my first intervention happened. Watching the numbers climb, I wanted an external yardstick, so I pointed the agent at a published study: [Ghasemi and Hiemstra, "BERT meets Cranfield" (EACL 2021)](https://aclanthology.org/2021.eacl-srw.9/), which evaluated BM25 and BERT-based rankers on this same collection. The agent took it from there — it rebuilt the paper's evaluation conditions on its own so the numbers would be comparable. Matching their setup (binary relevance, their BM25 settings, nDCG@20), our keyword ladder reaches **0.4563**, versus their BM25 at **0.4714** and their BERT re-ranker at **0.5525**.
 
 Honest position: the keyword ladder closed most of the gap to their BM25, and stayed well below their neural rankers. The gap is quantified, not hand-waved — and it sets up Part 4.
 
@@ -108,6 +110,19 @@ Look at the increments: each layer bought less than the one before, and the last
 Every stage above is live. The [explain page](https://retail-search.feroshjacob.workers.dev/phases/cranfield/explain) runs your query through each architecture side by side and shows the borrowed feedback words and which results the rerank moved.
 
 One more thing worth noticing: the public default search is *still the plain baseline*. Deliberately. Nothing gets promoted until it proves itself on a second dataset — that is the next phase's transferability gate. Improving on one benchmark is easy to fake; improving everywhere is the real test. The candidates wait, recorded and reproducible.
+
+## The Chain So Far: Eight Experiments, One Human Intervention
+
+Nothing in this article was a random walk — each step was reached from the evidence of the previous one:
+
+1. **Baseline evaluation** (agent) → produced the failure buckets.
+2. **Failure buckets** → two targeted candidates: **query-rescue** (agent, rejected) and **field-sum** (agent, accepted).
+3. **Drilling into the worst bucket** — good docs found but buried at rank 11–50 → **coverage-rerank** (agent, accepted).
+4. **Coverage-rerank's leftover failures** — results that share too few words with the query → **pseudo-relevance feedback** (agent, accepted; the big jump).
+5. **PRF's success** → two refinements tested: **feedback-expanded search** (agent, rejected) and the **phrase bonus** (agent, accepted).
+6. **My paper pointer** → the **comparability check** against Ghasemi and Hiemstra (built by the agent).
+
+Running total: eight experiments, two rejections, one human intervention. The score went 0.2995 → 0.3260.
 
 ## Takeaways
 

@@ -1,7 +1,7 @@
-# A-0004 — A Quarter of Search Engineering in Six Days, Part 2: When Embeddings Finally Earned Their Place
+# A-0004 — SLAB-RS, Part 4: When Embeddings Finally Earned Their Place
 
 Status: draft ready for publishing handoff (target: feroshjacob.github.io, series part 4)
-Series: Phase 1 advances, part 2 of 2 (part 1: `A-0003`)
+Series: SLAB-RS (Self-Learning Agent-Based Retail Search), Phase 1 advances part 2 of 2 (previous: `A-0003`)
 Source handoff: `.mde/handoffs/control-center-stream_mreep6je_ab6e2bd9-phase1-article-source.md`
 
 Cross references:
@@ -27,6 +27,8 @@ That is the promise. This article is the story of making it actually work on a p
 
 The number to beat throughout: **0.3260**, the keyword ceiling from Part 3.
 
+Division of labor, as in Part 3: this article covers eight more experiments, and my only intervention among them was **proposing learning-to-rank**. Everything else — including every accept and reject decision — was the agent's loop.
+
 ## Attempt Zero: Test the Plumbing With Fake Vectors
 
 The agent's first move was *not* to grab a fancy model. It built the machinery first — a place to store embeddings, a way to search by vector similarity, a way to score the results — and tested it with deliberately meaningless vectors generated from text hashes. A control group.
@@ -45,9 +47,11 @@ Blending the chat-model vectors with keyword scores clawed back to 0.3035 — st
 
 ## The Detour: How Much Better Could Ranking Even Get?
 
-Before paying for better embeddings, the agent asked a question I wish more teams asked: *if we re-ordered what we already retrieve absolutely perfectly, how good would the results be?*
+This is where my second — and final — intervention of the phase happened: I proposed trying [learning to rank](https://en.wikipedia.org/wiki/Learning_to_rank), training a model to re-order results instead of hand-tuning bonuses.
 
-The answer: **0.7033** — against an achieved 0.3260. In other words, for most queries the good documents are already being fetched in the top 50; they are just ordered badly. Huge headroom. That justified trying [learning to rank](https://en.wikipedia.org/wiki/Learning_to_rank) — training a small model to re-order results using signals like keyword scores and word overlap.
+What the agent did with the proposal is the interesting part. Before training anything, it asked a question I wish more teams asked: *if we re-ordered what we already retrieve absolutely perfectly, how good would the results be?*
+
+The answer: **0.7033** — against an achieved 0.3260. In other words, for most queries the good documents are already being fetched in the top 50; they are just ordered badly. Huge headroom — so the proposal was worth pursuing, and the agent could say *why* before spending anything on training.
 
 Two trainers were built and tested carefully — with [cross-validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)), meaning the model is always scored on queries it never saw during training. On a dataset of only 225 queries, skipping that step produces numbers that look great and mean nothing (the classic [overfitting](https://en.wikipedia.org/wiki/Overfitting) trap).
 
@@ -87,9 +91,19 @@ Instead, the BGE endpoint returns an explicit **"501 — runtime not enabled"** 
 
 And the BGE hybrid is still — deliberately — not the public default. The same gate that held back every keyword candidate holds here: nothing is promoted until it proves itself on a second dataset ([BEIR](https://github.com/beir-cellar/beir) is the next phase), and until the latency, cost, and runtime pieces are real.
 
-## The Full Picture
+## The Full Picture: Sixteen Experiments, Two Human Interventions
 
-Phase 1 in one table — sixteen experiments, four explicit rejections, six days:
+The chain for this article, each step reached from the previous one's evidence:
+
+1. **The keyword ceiling and the 27 vocabulary-mismatch queries** (Part 3) → try embeddings.
+2. **Build the vector machinery first** → the **fake-vector control** (agent) proved the plumbing without a model.
+3. **First real model** → **chat-model embeddings** (agent, rejected — 0.0282).
+4. **My LTR proposal** → the agent's **headroom analysis** (0.7033 possible), then **two learned rankers** with keyword signals (agent, both below the ceiling — honest cross-validated scores).
+5. **"The features are the problem, not the machinery"** → a **retrieval-trained model, BGE** (agent) — first to beat the ceiling.
+6. **BGE works offline** → **BGE signals into the learned ranker** (agent) — best score of the phase.
+7. **Offline is not production** → **live OpenSearch vector index** (agent) — the offline number reproduced exactly.
+
+Phase 1 in one table — sixteen experiments across the two articles, four explicit rejections, two human interventions (the paper pointer and the LTR proposal), six days:
 
 | Milestone | nDCG@10 | vs baseline |
 | --- | ---: | ---: |
