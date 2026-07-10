@@ -7,3 +7,6 @@ node_modules/
 coverage/
 dist/
 *.log
+
+# Embedding caches too large for GitHub (regenerate with npm scripts)
+experiments/cranfield-v0/embeddings-ollama-llama31-8b-title-abstract-gen019.json
