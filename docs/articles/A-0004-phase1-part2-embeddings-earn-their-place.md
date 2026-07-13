@@ -82,7 +82,7 @@ Three observations worth articles of their own:
 
 A win in an offline evaluation script is a notebook result, not an architecture. So the embeddings were loaded into a real OpenSearch [vector index](https://en.wikipedia.org/wiki/Nearest_neighbor_search) — a separate one, leaving the public index untouched — and the full 225-query evaluation was re-run live against the actual engine.
 
-The live result matched the offline number exactly: **0.3533**. On the comparison scale from Part 3, the live hybrid scored **0.4926** — which finally beats the BM25 result (0.4714) from [Ghasemi and Hiemstra's "BERT meets Cranfield" paper](https://aclanthology.org/2021.eacl-srw.9/), though their BERT rankers (0.5525–0.5670) remain ahead. That is the honest gap to chase next.
+The live result matched the offline number exactly: **0.3533**. On the comparison scale from Part 3, the live hybrid scored **0.4926** — which finally beats the BM25 result (0.4714) from [Ghasemi and Hiemstra's "BERT meets Cranfield" paper](https://aclanthology.org/2021.eacl-srw.9/), though their BERT rankers (0.5525–0.5670) remain ahead. That gap is real — and, as I explain below, one I am deliberately not chasing on this dataset.
 
 When the offline and live numbers agree to four decimal places, you can start calling it a candidate architecture.
 
@@ -124,4 +124,12 @@ Along the way: a boost-clause idea that regressed, a query-expansion idea that r
 3. Validate vector wins on the production engine, not just offline — and stay suspicious until the numbers agree.
 4. Ship honesty: an explicit 501 with evidence beats a faked demo, and a promotion gate you actually enforce beats a leaderboard.
 
-Next mission: transferability. Every candidate that won on Cranfield now has to prove it was not just memorizing aeronautics.
+## Closing Phase 1: Why I Am Not Chasing the Cranfield Leaderboard
+
+To be clear, this is not a victory declaration on Cranfield. The paper's BERT rankers still score higher, and with enough Cranfield-specific tuning we could probably close more of that gap. But the system now stands on the same state-of-the-art retrieval technology behind modern results — retrieval-tuned dense embeddings, hybrid scoring, learned ranking, all validated on a production engine — and reaching that standard, not topping a leaderboard, was the point.
+
+I am deliberately not spending more time on Cranfield, for two reasons. First, Cranfield is not retail data: each document is flat text, not a product with structured fields like title, brand, color, attributes, and price. Second, whatever more we squeeze out of Cranfield-specific optimization may not transfer — and non-transferable wins are exactly what this project is designed to reject.
+
+Cranfield's job was different, and it is done: prove the IR fundamentals — a measured baseline, honest evaluation, failure-driven experiments, evidence-gated promotion — before any product-specific tuning. With this article, Phase 1 closes.
+
+Phase 2 is about transferability: the candidates that won here go to [BEIR](https://github.com/beir-cellar/beir), a benchmark suite spanning many different domains, and only the techniques that prove they generalize beyond aeronautics keep their place in the architecture. That gate decides what travels with us toward real retail product search.
