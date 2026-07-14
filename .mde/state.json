@@ -22,7 +22,10 @@
     "required_before_phase_exit": 2
   },
   "active_blockers": [],
-  "pending_approvals": [],
+  "pending_approvals": [
+    "Phase 2 BEIR dataset scope: recommended SciFact + NFCorpus + FiQA-2018; alternatives are small-only (SciFact + NFCorpus) or broad (add TREC-COVID). Ferosh to decide.",
+    "Phase 2 transferability gate policy: recommended frozen-config majority rule (Cranfield-frozen hyperparameters, must beat BM25 field-sum baseline on majority of BEIR datasets); alternatives are strict all-datasets or per-dataset tuning. Ferosh to decide."
+  ],
   "next_recommended_actions": [
     "Before or during Phase 2 planning, refresh the Phase 1 story ledger: update the evolution timeline and .mde/traceability.json article columns (SE-0002 -> A-0003, SE-0003/SE-0004 -> A-0004), mark A-0004 as PUBLISHED with its live URL like A-0003, record published URLs for A-0002/Part 2, and decide whether Part 1 gets a repo artifact ID (A-0001 is unused).",
     "Run Phase 2 Generation 0-style planning: select BEIR datasets, define the transferability gate, and update the validation strategy for BEIR evaluation; extend the SE/ADL/ARCH ledger convention to BEIR experiments so Phase 2 articles can be told from the ledger.",
