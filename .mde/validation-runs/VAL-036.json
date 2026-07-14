@@ -1,0 +1,52 @@
+{
+  "run_id": "VAL-036",
+  "date": "2026-07-14",
+  "generation_id": "GEN-027",
+  "mission": "M-0002 Phase 2 - Cross-Domain Validation with BEIR",
+  "focus": "M-0002.1 dataset-agnostic harness, BEIR BM25 baselines, Cranfield migration",
+  "passes": [
+    {
+      "pass": 1,
+      "result": "pass",
+      "checks": [
+        "node --test: 53 tests passed (6 new harness tests: BEIR parsing, qrels split restriction, index/bulk/search bodies, registry tiers, zip extraction)",
+        "validate-mde and validate-traceability passed",
+        "Cranfield fixture evaluation artifact regenerated"
+      ]
+    },
+    {
+      "pass": 2,
+      "result": "pass",
+      "checks": ["Full npm run validate rerun with no code changes between passes"]
+    }
+  ],
+  "functional_validation": [
+    {
+      "check": "SciFact BM25 baseline reproduces published reference",
+      "result": "pass",
+      "evidence": "experiments/beir/scifact/evaluation-bm25-gen027.json",
+      "detail": "nDCG@10 0.6906 vs published 0.665 (+3.9% relative); 300 test queries; corpus 5183 docs as expected"
+    },
+    {
+      "check": "NFCorpus BM25 baseline reproduces published reference",
+      "result": "pass",
+      "evidence": "experiments/beir/nfcorpus/evaluation-bm25-gen027.json",
+      "detail": "nDCG@10 0.3273 vs published 0.325 (+0.7% relative); 323 test queries; corpus 3633 docs as expected"
+    },
+    {
+      "check": "Cranfield migrated to shared harness with exact parity",
+      "result": "pass",
+      "evidence": "experiments/cranfield-v0/evaluation-shared-harness-baseline-gen027.json",
+      "detail": "Baseline nDCG@10 0.2995 and prf-rerank nDCG@10 0.3260 through the shared evaluator match Phase 1 numbers exactly"
+    }
+  ],
+  "anti_demo_note": "All three baselines ran live against the existing OpenSearch backend over full test query sets; no fixture or mocked search paths were used for acceptance.",
+  "skipped": [
+    {
+      "check": "Public endpoint verification",
+      "reason": "M-0002.1 is local harness and baseline work only; no Worker routes changed and deployment is out of scope for this generation."
+    }
+  ],
+  "result": "pass",
+  "pass_count": 2
+}

@@ -1,0 +1,5921 @@
+{
+  "generatedAt": "2026-07-14T00:00:00.000Z",
+  "dataset": "beir/nfcorpus",
+  "datasetTier": 1,
+  "harness": "dataset-agnostic-v1",
+  "technique": "bm25-multi-match",
+  "transport": "live-opensearch",
+  "index": "beir-nfcorpus-v0",
+  "retrieveSize": 10,
+  "metrics": {
+    "map": 0.1238,
+    "ndcgAtK": 0.3273,
+    "precisionAtK": 0.302,
+    "recallAtK": 0.1583,
+    "mrr": 0.5295
+  },
+  "referenceComparison": {
+    "metric": "ndcgAt10",
+    "published": 0.325,
+    "measured": 0.3273,
+    "delta": 0.0023,
+    "relativeDelta": 0.0071,
+    "source": "BEIR published BM25 baseline (see Mission Update 002 reference table)"
+  },
+  "evaluation": {
+    "k": 10,
+    "relevanceMode": "linear",
+    "queryCount": 323,
+    "aggregate": {
+      "precisionAtK": 0.302,
+      "recallAtK": 0.1583,
+      "averagePrecision": 0.1238,
+      "reciprocalRank": 0.5295,
+      "ndcgAtK": 0.3273
+    },
+    "perQuery": [
+      {
+        "queryId": "PLAIN-2",
+        "query": "Do Cholesterol Statin Drugs Cause Breast Cancer?",
+        "metrics": {
+          "precisionAtK": 0.7,
+          "recallAtK": 0.2917,
+          "averagePrecision": 0.2732,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.7849
+        }
+      },
+      {
+        "queryId": "PLAIN-12",
+        "query": "Exploiting Autophagy to Live Longer",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0333,
+          "averagePrecision": 0.0037,
+          "reciprocalRank": 0.1111,
+          "ndcgAtK": 0.0736
+        }
+      },
+      {
+        "queryId": "PLAIN-23",
+        "query": "How to Reduce Exposure to Alkylphenols Through Your Diet",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.0444,
+          "averagePrecision": 0.0233,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.2415
+        }
+      },
+      {
+        "queryId": "PLAIN-33",
+        "query": "What’s Driving America’s Obesity Problem?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.0625,
+          "averagePrecision": 0.0167,
+          "reciprocalRank": 0.2,
+          "ndcgAtK": 0.1689
+        }
+      },
+      {
+        "queryId": "PLAIN-44",
+        "query": "Who Should be Careful About Curcumin?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0172,
+          "averagePrecision": 0.0022,
+          "reciprocalRank": 0.125,
+          "ndcgAtK": 0.0804
+        }
+      },
+      {
+        "queryId": "PLAIN-56",
+        "query": "Foods for Glaucoma",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.1,
+          "averagePrecision": 0.0943,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6792
+        }
+      },
+      {
+        "queryId": "PLAIN-68",
+        "query": "What is Actually in Chicken Nuggets?",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.0545,
+          "averagePrecision": 0.0424,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.5289
+        }
+      },
+      {
+        "queryId": "PLAIN-78",
+        "query": "What Do Meat Purge and Cola Have in Common?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0161,
+          "averagePrecision": 0.0054,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.0637
+        }
+      },
+      {
+        "queryId": "PLAIN-91",
+        "query": "Chronic Headaches and Pork Parasites",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.0625,
+          "averagePrecision": 0.046,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.3855
+        }
+      },
+      {
+        "queryId": "PLAIN-102",
+        "query": "Stopping Heart Disease in Childhood",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0417,
+          "averagePrecision": 0.0046,
+          "reciprocalRank": 0.1111,
+          "ndcgAtK": 0.0975
+        }
+      },
+      {
+        "queryId": "PLAIN-112",
+        "query": "Food Dyes and ADHD",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.0357,
+          "averagePrecision": 0.0268,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.4027
+        }
+      },
+      {
+        "queryId": "PLAIN-123",
+        "query": "How Citrus Might Help Keep Your Hands Warm",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0196,
+          "averagePrecision": 0.0049,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.0549
+        }
+      },
+      {
+        "queryId": "PLAIN-133",
+        "query": "Starving Tumors of Their Blood Supply",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-143",
+        "query": "Are Dental X-Rays Safe?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.0392,
+          "averagePrecision": 0.0275,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.4492
+        }
+      },
+      {
+        "queryId": "PLAIN-153",
+        "query": "How Should I Take Probiotics?",
+        "metrics": {
+          "precisionAtK": 0.6,
+          "recallAtK": 0.1277,
+          "averagePrecision": 0.0882,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.5842
+        }
+      },
+      {
+        "queryId": "PLAIN-165",
+        "query": "Breast Cancer & Alcohol: How Much is Safe?",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.1111,
+          "averagePrecision": 0.0894,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.4117
+        }
+      },
+      {
+        "queryId": "PLAIN-175",
+        "query": "Diet and Cellulite",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.0811,
+          "averagePrecision": 0.0811,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.3686
+        }
+      },
+      {
+        "queryId": "PLAIN-186",
+        "query": "Best Treatment for Constipation",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0417,
+          "averagePrecision": 0.0139,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.11
+        }
+      },
+      {
+        "queryId": "PLAIN-196",
+        "query": "Should We Avoid Titanium Dioxide?",
+        "metrics": {
+          "precisionAtK": 0.6,
+          "recallAtK": 0.087,
+          "averagePrecision": 0.0579,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6185
+        }
+      },
+      {
+        "queryId": "PLAIN-207",
+        "query": "Avoiding Cooked Meat Carcinogens",
+        "metrics": {
+          "precisionAtK": 0.6,
+          "recallAtK": 0.1091,
+          "averagePrecision": 0.0665,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.5455
+        }
+      },
+      {
+        "queryId": "PLAIN-217",
+        "query": "Plant-Based Diets for Psoriasis",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-227",
+        "query": "Increasing Muscle Strength with Fenugreek",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.025,
+          "averagePrecision": 0.025,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.2201
+        }
+      },
+      {
+        "queryId": "PLAIN-238",
+        "query": "How Chemically Contaminated Are We?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-248",
+        "query": "Treating an Enlarged Prostate With Diet",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.0645,
+          "averagePrecision": 0.0484,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.3149
+        }
+      },
+      {
+        "queryId": "PLAIN-259",
+        "query": "Optimal Phytosterol Dose and Source",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.1429,
+          "averagePrecision": 0.1429,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.359
+        }
+      },
+      {
+        "queryId": "PLAIN-270",
+        "query": "Is Caffeinated Tea Really Dehydrating?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0192,
+          "averagePrecision": 0.0024,
+          "reciprocalRank": 0.125,
+          "ndcgAtK": 0.0694
+        }
+      },
+      {
+        "queryId": "PLAIN-280",
+        "query": "Mercury Testing Recommended Before Pregnancy",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.2,
+          "averagePrecision": 0.125,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.4636
+        }
+      },
+      {
+        "queryId": "PLAIN-291",
+        "query": "Stool Size and Breast Cancer Risk",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.1538,
+          "averagePrecision": 0.05,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.1799
+        }
+      },
+      {
+        "queryId": "PLAIN-307",
+        "query": "Vitamin D: Shedding some light on the new recommendations",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 1,
+          "averagePrecision": 0.5873,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.7929
+        }
+      },
+      {
+        "queryId": "PLAIN-320",
+        "query": "Breast Cancer and Diet",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-332",
+        "query": "Can antioxidant-rich spices counteract the effects of a high-fat meal?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.25,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.3869
+        }
+      },
+      {
+        "queryId": "PLAIN-344",
+        "query": "Dioxins Stored in Our Own Fat May Increase Diabetes Risk",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.0492,
+          "averagePrecision": 0.03,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.3257
+        }
+      },
+      {
+        "queryId": "PLAIN-358",
+        "query": "Didn't another study show carnitine was good for the heart?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-371",
+        "query": "Any update on the scary in vitro avocado data?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.1667,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.19
+        }
+      },
+      {
+        "queryId": "PLAIN-383",
+        "query": "What do you think of Dr. Jenkins' take on paleolithic diets?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.2,
+          "averagePrecision": 0.0333,
+          "reciprocalRank": 0.1667,
+          "ndcgAtK": 0.1208
+        }
+      },
+      {
+        "queryId": "PLAIN-395",
+        "query": "What about pepper plus turmeric in V8 juice?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-407",
+        "query": "Is annatto food coloring safe?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.3333,
+          "averagePrecision": 0.3333,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6388
+        }
+      },
+      {
+        "queryId": "PLAIN-418",
+        "query": "Fresh fruit versus frozen--which is better?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.6667,
+          "averagePrecision": 0.5556,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.7975
+        }
+      },
+      {
+        "queryId": "PLAIN-430",
+        "query": "Are krill oil supplements better than fish oil capsules?",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.375,
+          "averagePrecision": 0.3438,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.5974
+        }
+      },
+      {
+        "queryId": "PLAIN-441",
+        "query": "Is apple cider vinegar good for you?",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 1,
+          "averagePrecision": 0.7893,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.948
+        }
+      },
+      {
+        "queryId": "PLAIN-457",
+        "query": "How can you believe in any scientific study?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-468",
+        "query": "Is vitamin D3 (cholecalciferol) preferable to D2 (ergocalciferol)?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.2,
+          "averagePrecision": 0.0533,
+          "reciprocalRank": 0.2,
+          "ndcgAtK": 0.2407
+        }
+      },
+      {
+        "queryId": "PLAIN-478",
+        "query": "accidents",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-488",
+        "query": "adenovirus 36",
+        "metrics": {
+          "precisionAtK": 0.9,
+          "recallAtK": 0.6,
+          "averagePrecision": 0.5933,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.9337
+        }
+      },
+      {
+        "queryId": "PLAIN-499",
+        "query": "African-American",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.1176,
+          "averagePrecision": 0.0456,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.322
+        }
+      },
+      {
+        "queryId": "PLAIN-510",
+        "query": "airport scanners",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-520",
+        "query": "Alli",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-531",
+        "query": "alternative medicine",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.0097,
+          "averagePrecision": 0.0023,
+          "reciprocalRank": 0.2,
+          "ndcgAtK": 0.215
+        }
+      },
+      {
+        "queryId": "PLAIN-541",
+        "query": "American Dental Association",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.3333,
+          "averagePrecision": 0.0754,
+          "reciprocalRank": 0.1667,
+          "ndcgAtK": 0.2087
+        }
+      },
+      {
+        "queryId": "PLAIN-551",
+        "query": "amnesia",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-561",
+        "query": "aneurysm",
+        "metrics": {
+          "precisionAtK": 0.6667,
+          "recallAtK": 0.08,
+          "averagePrecision": 0.08,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.359
+        }
+      },
+      {
+        "queryId": "PLAIN-571",
+        "query": "anisakis",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.2857,
+          "averagePrecision": 0.119,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.2558
+        }
+      },
+      {
+        "queryId": "PLAIN-583",
+        "query": "antinutrients",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.0227,
+          "averagePrecision": 0.0227,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.2201
+        }
+      },
+      {
+        "queryId": "PLAIN-593",
+        "query": "apnea",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.3333,
+          "averagePrecision": 0.3333,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.4693
+        }
+      },
+      {
+        "queryId": "PLAIN-603",
+        "query": "Arkansas",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-613",
+        "query": "ascorbic acid",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.1,
+          "averagePrecision": 0.0167,
+          "reciprocalRank": 0.1667,
+          "ndcgAtK": 0.0784
+        }
+      },
+      {
+        "queryId": "PLAIN-623",
+        "query": "Atkins diet",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.0488,
+          "averagePrecision": 0.0285,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.2489
+        }
+      },
+      {
+        "queryId": "PLAIN-634",
+        "query": "avocados",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.1429,
+          "averagePrecision": 0.1079,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.4153
+        }
+      },
+      {
+        "queryId": "PLAIN-645",
+        "query": "bagels",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-660",
+        "query": "beans",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.0211,
+          "averagePrecision": 0.0211,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "PLAIN-671",
+        "query": "benzene",
+        "metrics": {
+          "precisionAtK": 0.25,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "PLAIN-681",
+        "query": "betel nuts",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "PLAIN-691",
+        "query": "bioavailability",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-701",
+        "query": "black raspberries",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.375,
+          "averagePrecision": 0.3438,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.5215
+        }
+      },
+      {
+        "queryId": "PLAIN-711",
+        "query": "blood clots",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.0351,
+          "averagePrecision": 0.0351,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.359
+        }
+      },
+      {
+        "queryId": "PLAIN-721",
+        "query": "BMAA",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.4,
+          "averagePrecision": 0.4,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "PLAIN-731",
+        "query": "bone fractures",
+        "metrics": {
+          "precisionAtK": 0.8,
+          "recallAtK": 0.1481,
+          "averagePrecision": 0.1395,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.8553
+        }
+      },
+      {
+        "queryId": "PLAIN-741",
+        "query": "BPH",
+        "metrics": {
+          "precisionAtK": 0.8,
+          "recallAtK": 0.4211,
+          "averagePrecision": 0.3877,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.8486
+        }
+      },
+      {
+        "queryId": "PLAIN-751",
+        "query": "BRCA genes",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-761",
+        "query": "breast pain",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.1667,
+          "averagePrecision": 0.0208,
+          "reciprocalRank": 0.125,
+          "ndcgAtK": 0.0955
+        }
+      },
+      {
+        "queryId": "PLAIN-771",
+        "query": "bronchiolitis obliterans",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "PLAIN-782",
+        "query": "Bush administration",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-792",
+        "query": "cadaverine",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6448
+        }
+      },
+      {
+        "queryId": "PLAIN-806",
+        "query": "caloric restriction",
+        "metrics": {
+          "precisionAtK": 0.9,
+          "recallAtK": 0.0938,
+          "averagePrecision": 0.0916,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.9306
+        }
+      },
+      {
+        "queryId": "PLAIN-817",
+        "query": "canker sores",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-827",
+        "query": "carcinogens",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.041,
+          "averagePrecision": 0.041,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "PLAIN-838",
+        "query": "carrageenan",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.7778,
+          "averagePrecision": 0.7778,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.8551
+        }
+      },
+      {
+        "queryId": "PLAIN-850",
+        "query": "cauliflower",
+        "metrics": {
+          "precisionAtK": 0.7143,
+          "recallAtK": 0.0877,
+          "averagePrecision": 0.0877,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6489
+        }
+      },
+      {
+        "queryId": "PLAIN-872",
+        "query": "chanterelle mushrooms",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-882",
+        "query": "Chernobyl",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.1333,
+          "averagePrecision": 0.1333,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.359
+        }
+      },
+      {
+        "queryId": "PLAIN-892",
+        "query": "chickpeas",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.087,
+          "averagePrecision": 0.087,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.8701
+        }
+      },
+      {
+        "queryId": "PLAIN-902",
+        "query": "chlorophyll",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6367
+        }
+      },
+      {
+        "queryId": "PLAIN-913",
+        "query": "cinnamon",
+        "metrics": {
+          "precisionAtK": 0.9,
+          "recallAtK": 0.2647,
+          "averagePrecision": 0.2618,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.9337
+        }
+      },
+      {
+        "queryId": "PLAIN-924",
+        "query": "cocaine",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.0313,
+          "averagePrecision": 0.0313,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.2201
+        }
+      },
+      {
+        "queryId": "PLAIN-934",
+        "query": "coffee",
+        "metrics": {
+          "precisionAtK": 0.8,
+          "recallAtK": 0.0792,
+          "averagePrecision": 0.0592,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.7663
+        }
+      },
+      {
+        "queryId": "PLAIN-946",
+        "query": "coma",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.0645,
+          "averagePrecision": 0.0538,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.3301
+        }
+      },
+      {
+        "queryId": "PLAIN-956",
+        "query": "cooking methods",
+        "metrics": {
+          "precisionAtK": 0.6,
+          "recallAtK": 0.0291,
+          "averagePrecision": 0.0165,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.5252
+        }
+      },
+      {
+        "queryId": "PLAIN-966",
+        "query": "cortisol",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.3333,
+          "averagePrecision": 0.0333,
+          "reciprocalRank": 0.1,
+          "ndcgAtK": 0.1357
+        }
+      },
+      {
+        "queryId": "PLAIN-977",
+        "query": "crib death",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.3333,
+          "averagePrecision": 0.0417,
+          "reciprocalRank": 0.125,
+          "ndcgAtK": 0.148
+        }
+      },
+      {
+        "queryId": "PLAIN-987",
+        "query": "cumin",
+        "metrics": {
+          "precisionAtK": 0.3333,
+          "recallAtK": 0.3333,
+          "averagePrecision": 0.1111,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.2346
+        }
+      },
+      {
+        "queryId": "PLAIN-997",
+        "query": "Czechoslovakia",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1008",
+        "query": "deafness",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1018",
+        "query": "DHA",
+        "metrics": {
+          "precisionAtK": 0.6,
+          "recallAtK": 0.1,
+          "averagePrecision": 0.0502,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.4674
+        }
+      },
+      {
+        "queryId": "PLAIN-1028",
+        "query": "dietary scoring",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1039",
+        "query": "domoic acid",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "PLAIN-1050",
+        "query": "Dr. Dean Ornish",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0106,
+          "averagePrecision": 0.0011,
+          "reciprocalRank": 0.1,
+          "ndcgAtK": 0.0636
+        }
+      },
+      {
+        "queryId": "PLAIN-1066",
+        "query": "Dr. Walter Willett",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1088",
+        "query": "ECMO",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.4,
+          "averagePrecision": 0.4,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.5531
+        }
+      },
+      {
+        "queryId": "PLAIN-1098",
+        "query": "eggnog",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1109",
+        "query": "endocrine disruptors",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.0408,
+          "averagePrecision": 0.0333,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.5225
+        }
+      },
+      {
+        "queryId": "PLAIN-1119",
+        "query": "energy drinks",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1130",
+        "query": "ergothioneine",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "PLAIN-1141",
+        "query": "Evidence-based medicine",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0625,
+          "averagePrecision": 0.0625,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.2201
+        }
+      },
+      {
+        "queryId": "PLAIN-1151",
+        "query": "factory farming practices",
+        "metrics": {
+          "precisionAtK": 0.7,
+          "recallAtK": 0.0458,
+          "averagePrecision": 0.0339,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6469
+        }
+      },
+      {
+        "queryId": "PLAIN-1161",
+        "query": "fava beans",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1172",
+        "query": "fenugreek",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.0526,
+          "averagePrecision": 0.0526,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.2201
+        }
+      },
+      {
+        "queryId": "PLAIN-1183",
+        "query": "Finland",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.08,
+          "averagePrecision": 0.0514,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.2935
+        }
+      },
+      {
+        "queryId": "PLAIN-1193",
+        "query": "flax oil",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0556,
+          "averagePrecision": 0.0062,
+          "reciprocalRank": 0.1111,
+          "ndcgAtK": 0.0663
+        }
+      },
+      {
+        "queryId": "PLAIN-1203",
+        "query": "folic acid",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.1667,
+          "averagePrecision": 0.1667,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.359
+        }
+      },
+      {
+        "queryId": "PLAIN-1214",
+        "query": "Fosamax",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1225",
+        "query": "fructose",
+        "metrics": {
+          "precisionAtK": 0.6,
+          "recallAtK": 0.2222,
+          "averagePrecision": 0.157,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6332
+        }
+      },
+      {
+        "queryId": "PLAIN-1236",
+        "query": "galactosemia",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.2,
+          "averagePrecision": 0.2,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.3392
+        }
+      },
+      {
+        "queryId": "PLAIN-1249",
+        "query": "genetic manipulation",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1262",
+        "query": "Global Burden of Disease Study",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.3,
+          "averagePrecision": 0.1667,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.3273
+        }
+      },
+      {
+        "queryId": "PLAIN-1275",
+        "query": "goji berries",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.0727,
+          "averagePrecision": 0.0691,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.5541
+        }
+      },
+      {
+        "queryId": "PLAIN-1288",
+        "query": "grapes",
+        "metrics": {
+          "precisionAtK": 0.8,
+          "recallAtK": 0.0408,
+          "averagePrecision": 0.0331,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.7917
+        }
+      },
+      {
+        "queryId": "PLAIN-1299",
+        "query": "growth promoters",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.0328,
+          "averagePrecision": 0.0246,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.3149
+        }
+      },
+      {
+        "queryId": "PLAIN-1309",
+        "query": "halibut",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1320",
+        "query": "Harvard Physicians’ Study II",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.3778,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.571
+        }
+      },
+      {
+        "queryId": "PLAIN-1331",
+        "query": "hearing",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1342",
+        "query": "heme iron",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.25,
+          "averagePrecision": 0.1476,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.41
+        }
+      },
+      {
+        "queryId": "PLAIN-1353",
+        "query": "hernia",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1363",
+        "query": "Hiroshima",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.0909,
+          "averagePrecision": 0.0909,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.2201
+        }
+      },
+      {
+        "queryId": "PLAIN-1374",
+        "query": "hormonal dysfunction",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0385,
+          "averagePrecision": 0.0077,
+          "reciprocalRank": 0.2,
+          "ndcgAtK": 0.0851
+        }
+      },
+      {
+        "queryId": "PLAIN-1387",
+        "query": "hyperactivity",
+        "metrics": {
+          "precisionAtK": 0.6,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.4361,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6962
+        }
+      },
+      {
+        "queryId": "PLAIN-1398",
+        "query": "IGF-1",
+        "metrics": {
+          "precisionAtK": 0.9,
+          "recallAtK": 0.0874,
+          "averagePrecision": 0.0874,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.9364
+        }
+      },
+      {
+        "queryId": "PLAIN-1409",
+        "query": "industrial toxins",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1419",
+        "query": "insects",
+        "metrics": {
+          "precisionAtK": 0.375,
+          "recallAtK": 0.0462,
+          "averagePrecision": 0.0374,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.4323
+        }
+      },
+      {
+        "queryId": "PLAIN-1429",
+        "query": "Iowa Women’s Health Study",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1441",
+        "query": "Japan",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.0269,
+          "averagePrecision": 0.0182,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.5479
+        }
+      },
+      {
+        "queryId": "PLAIN-1453",
+        "query": "junk food",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.0163,
+          "averagePrecision": 0.0102,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.4627
+        }
+      },
+      {
+        "queryId": "PLAIN-1463",
+        "query": "kidney beans",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.125,
+          "averagePrecision": 0.0944,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.4153
+        }
+      },
+      {
+        "queryId": "PLAIN-1473",
+        "query": "kohlrabi",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "PLAIN-1485",
+        "query": "lard",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1496",
+        "query": "leeks",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1506",
+        "query": "leucine",
+        "metrics": {
+          "precisionAtK": 0.2857,
+          "recallAtK": 0.1333,
+          "averagePrecision": 0.0889,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.2985
+        }
+      },
+      {
+        "queryId": "PLAIN-1516",
+        "query": "Lindane",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1527",
+        "query": "liver disease",
+        "metrics": {
+          "precisionAtK": 0.7,
+          "recallAtK": 0.0347,
+          "averagePrecision": 0.0328,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.7885
+        }
+      },
+      {
+        "queryId": "PLAIN-1537",
+        "query": "low-carb diets",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0222,
+          "averagePrecision": 0.0028,
+          "reciprocalRank": 0.125,
+          "ndcgAtK": 0.0694
+        }
+      },
+      {
+        "queryId": "PLAIN-1547",
+        "query": "lyme disease",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1557",
+        "query": "magnesium",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.1154,
+          "averagePrecision": 0.0577,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.312
+        }
+      },
+      {
+        "queryId": "PLAIN-1568",
+        "query": "maple syrup",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "PLAIN-1579",
+        "query": "mastitis",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.2,
+          "averagePrecision": 0.2,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.3392
+        }
+      },
+      {
+        "queryId": "PLAIN-1590",
+        "query": "medical ethics",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0556,
+          "averagePrecision": 0.0278,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.1389
+        }
+      },
+      {
+        "queryId": "PLAIN-1601",
+        "query": "memory",
+        "metrics": {
+          "precisionAtK": 0.6,
+          "recallAtK": 0.0811,
+          "averagePrecision": 0.0777,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.7184
+        }
+      },
+      {
+        "queryId": "PLAIN-1611",
+        "query": "mesquite",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1621",
+        "query": "Mevacor",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1635",
+        "query": "milk",
+        "metrics": {
+          "precisionAtK": 0.6,
+          "recallAtK": 0.0139,
+          "averagePrecision": 0.0079,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.5054
+        }
+      },
+      {
+        "queryId": "PLAIN-1645",
+        "query": "molasses",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.1667,
+          "averagePrecision": 0.1667,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.3026
+        }
+      },
+      {
+        "queryId": "PLAIN-1656",
+        "query": "mouth cancer",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0357,
+          "averagePrecision": 0.0179,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.1389
+        }
+      },
+      {
+        "queryId": "PLAIN-1667",
+        "query": "muscle health",
+        "metrics": {
+          "precisionAtK": 0.6,
+          "recallAtK": 0.0377,
+          "averagePrecision": 0.0313,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6844
+        }
+      },
+      {
+        "queryId": "PLAIN-1679",
+        "query": "myelopathy",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1690",
+        "query": "National Academy of Sciences",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1700",
+        "query": "Native Americans",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1710",
+        "query": "neurocysticercosis",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.625,
+          "averagePrecision": 0.625,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "PLAIN-1721",
+        "query": "NIH-AARP study",
+        "metrics": {
+          "precisionAtK": 0.6,
+          "recallAtK": 0.1935,
+          "averagePrecision": 0.1419,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6365
+        }
+      },
+      {
+        "queryId": "PLAIN-1731",
+        "query": "norovirus",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.6667,
+          "averagePrecision": 0.6667,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.7654
+        }
+      },
+      {
+        "queryId": "PLAIN-1741",
+        "query": "nuts",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.0238,
+          "averagePrecision": 0.0238,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "PLAIN-1752",
+        "query": "okra",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1762",
+        "query": "oral intraepithelial neoplasia",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.25,
+          "averagePrecision": 0.1042,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.2354
+        }
+      },
+      {
+        "queryId": "PLAIN-1772",
+        "query": "organotins",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "PLAIN-1784",
+        "query": "oxen meat",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1794",
+        "query": "Panama",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "PLAIN-1805",
+        "query": "Parkinson's disease",
+        "metrics": {
+          "precisionAtK": 0.9,
+          "recallAtK": 0.0776,
+          "averagePrecision": 0.0767,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.9337
+        }
+      },
+      {
+        "queryId": "PLAIN-1817",
+        "query": "peanut butter",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.1481,
+          "averagePrecision": 0.1296,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.5384
+        }
+      },
+      {
+        "queryId": "PLAIN-1827",
+        "query": "Peoria",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1837",
+        "query": "pesticides",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.051,
+          "averagePrecision": 0.051,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "PLAIN-1847",
+        "query": "philippines",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.1818,
+          "averagePrecision": 0.1061,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.2489
+        }
+      },
+      {
+        "queryId": "PLAIN-1857",
+        "query": "phytic acid",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.1515,
+          "averagePrecision": 0.1227,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6025
+        }
+      },
+      {
+        "queryId": "PLAIN-1867",
+        "query": "pineapples",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.1429,
+          "averagePrecision": 0.1429,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.2749
+        }
+      },
+      {
+        "queryId": "PLAIN-1877",
+        "query": "plant-based diet",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1887",
+        "query": "poisonous plants",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1897",
+        "query": "polypropylene plastic",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1909",
+        "query": "pork",
+        "metrics": {
+          "precisionAtK": 0.9,
+          "recallAtK": 0.0194,
+          "averagePrecision": 0.0192,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.9337
+        }
+      },
+      {
+        "queryId": "PLAIN-1919",
+        "query": "poultry workers",
+        "metrics": {
+          "precisionAtK": 0.8,
+          "recallAtK": 0.2963,
+          "averagePrecision": 0.2807,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.8572
+        }
+      },
+      {
+        "queryId": "PLAIN-1929",
+        "query": "prenatal vitamins",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1940",
+        "query": "prolactin",
+        "metrics": {
+          "precisionAtK": 0.2857,
+          "recallAtK": 0.1667,
+          "averagePrecision": 0.1667,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.359
+        }
+      },
+      {
+        "queryId": "PLAIN-1950",
+        "query": "prunes",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.1538,
+          "averagePrecision": 0.0897,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.2489
+        }
+      },
+      {
+        "queryId": "PLAIN-1962",
+        "query": "pumpkin",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1972",
+        "query": "quinine",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-1983",
+        "query": "rapamycin",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.3125,
+          "averagePrecision": 0.3125,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "PLAIN-1995",
+        "query": "red tea",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2009",
+        "query": "rhabdomyolysis",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.125,
+          "averagePrecision": 0.0417,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.1265
+        }
+      },
+      {
+        "queryId": "PLAIN-2019",
+        "query": "rickets",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.3333,
+          "averagePrecision": 0.3333,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.4693
+        }
+      },
+      {
+        "queryId": "PLAIN-2030",
+        "query": "Rutin",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.1667,
+          "averagePrecision": 0.0833,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.1909
+        }
+      },
+      {
+        "queryId": "PLAIN-2040",
+        "query": "salmon",
+        "metrics": {
+          "precisionAtK": 0.7,
+          "recallAtK": 0.053,
+          "averagePrecision": 0.0461,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.767
+        }
+      },
+      {
+        "queryId": "PLAIN-2051",
+        "query": "saturated fat",
+        "metrics": {
+          "precisionAtK": 0.6,
+          "recallAtK": 0.0169,
+          "averagePrecision": 0.0143,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6898
+        }
+      },
+      {
+        "queryId": "PLAIN-2061",
+        "query": "seafood",
+        "metrics": {
+          "precisionAtK": 0.9,
+          "recallAtK": 0.022,
+          "averagePrecision": 0.0185,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.8611
+        }
+      },
+      {
+        "queryId": "PLAIN-2071",
+        "query": "serotonin",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.1111,
+          "averagePrecision": 0.0759,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.558
+        }
+      },
+      {
+        "queryId": "PLAIN-2081",
+        "query": "shelf life",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "PLAIN-2092",
+        "query": "sirtuins",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6489
+        }
+      },
+      {
+        "queryId": "PLAIN-2102",
+        "query": "smoking",
+        "metrics": {
+          "precisionAtK": 0.9,
+          "recallAtK": 0.0214,
+          "averagePrecision": 0.0206,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.9266
+        }
+      },
+      {
+        "queryId": "PLAIN-2113",
+        "query": "soil health",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2124",
+        "query": "spearmint",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.1176,
+          "averagePrecision": 0.1176,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.359
+        }
+      },
+      {
+        "queryId": "PLAIN-2134",
+        "query": "Splenda",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2145",
+        "query": "St. John's wort",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.1111,
+          "averagePrecision": 0.0556,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.1483
+        }
+      },
+      {
+        "queryId": "PLAIN-2156",
+        "query": "stevia",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6448
+        }
+      },
+      {
+        "queryId": "PLAIN-2167",
+        "query": "subsidies",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2177",
+        "query": "sulfur",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.125,
+          "averagePrecision": 0.05,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.2876
+        }
+      },
+      {
+        "queryId": "PLAIN-2187",
+        "query": "suppositories",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.2222,
+          "averagePrecision": 0.2222,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.3833
+        }
+      },
+      {
+        "queryId": "PLAIN-2197",
+        "query": "sweeteners",
+        "metrics": {
+          "precisionAtK": 0.6,
+          "recallAtK": 0.1034,
+          "averagePrecision": 0.0916,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.7008
+        }
+      },
+      {
+        "queryId": "PLAIN-2209",
+        "query": "taro",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2220",
+        "query": "tempeh",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.1111,
+          "averagePrecision": 0.1111,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.235
+        }
+      },
+      {
+        "queryId": "PLAIN-2230",
+        "query": "thiamine",
+        "metrics": {
+          "precisionAtK": 0.1667,
+          "recallAtK": 0.1429,
+          "averagePrecision": 0.0286,
+          "reciprocalRank": 0.2,
+          "ndcgAtK": 0.1063
+        }
+      },
+      {
+        "queryId": "PLAIN-2240",
+        "query": "titanium dioxide",
+        "metrics": {
+          "precisionAtK": 0.5556,
+          "recallAtK": 0.4545,
+          "averagePrecision": 0.3316,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.567
+        }
+      },
+      {
+        "queryId": "PLAIN-2250",
+        "query": "tongue worm",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2261",
+        "query": "trans fats",
+        "metrics": {
+          "precisionAtK": 0.6,
+          "recallAtK": 0.1,
+          "averagePrecision": 0.0841,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.687
+        }
+      },
+      {
+        "queryId": "PLAIN-2271",
+        "query": "Tufts",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2281",
+        "query": "turnips",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2291",
+        "query": "ultra-processed foods",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.2,
+          "averagePrecision": 0.2,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.3392
+        }
+      },
+      {
+        "queryId": "PLAIN-2301",
+        "query": "uterine health",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2311",
+        "query": "veal",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2321",
+        "query": "veggie chicken",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2332",
+        "query": "viral infections",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.0412,
+          "averagePrecision": 0.029,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.4885
+        }
+      },
+      {
+        "queryId": "PLAIN-2343",
+        "query": "vitamin K",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2354",
+        "query": "walnut oil",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.4,
+          "averagePrecision": 0.1467,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.3008
+        }
+      },
+      {
+        "queryId": "PLAIN-2364",
+        "query": "weight gain",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2375",
+        "query": "whiting",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2386",
+        "query": "worms",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2396",
+        "query": "Yale",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2408",
+        "query": "Zoloft",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2430",
+        "query": "Preventing Brain Loss with B Vitamins?",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.087,
+          "averagePrecision": 0.0749,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.4471
+        }
+      },
+      {
+        "queryId": "PLAIN-2440",
+        "query": "More Than an Apple a Day: Combating Common Diseases",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2450",
+        "query": "Are Organic Foods Safer?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.0526,
+          "averagePrecision": 0.0329,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.2895
+        }
+      },
+      {
+        "queryId": "PLAIN-2460",
+        "query": "Diabetes as a Disease of Fat Toxicity",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0323,
+          "averagePrecision": 0.0036,
+          "reciprocalRank": 0.1111,
+          "ndcgAtK": 0.0804
+        }
+      },
+      {
+        "queryId": "PLAIN-2470",
+        "query": "Is Milk Good for Our Bones?",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.0411,
+          "averagePrecision": 0.0228,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.3303
+        }
+      },
+      {
+        "queryId": "PLAIN-2480",
+        "query": "Preventing Ulcerative Colitis with Diet",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.1111,
+          "averagePrecision": 0.0344,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.1515
+        }
+      },
+      {
+        "queryId": "PLAIN-2490",
+        "query": "The Actual Benefit of Diet vs. Drugs",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.087,
+          "averagePrecision": 0.087,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.4354
+        }
+      },
+      {
+        "queryId": "PLAIN-2500",
+        "query": "The Saturated Fat Studies: Buttering Up the Public",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.1429,
+          "averagePrecision": 0.0159,
+          "reciprocalRank": 0.1111,
+          "ndcgAtK": 0.0571
+        }
+      },
+      {
+        "queryId": "PLAIN-2510",
+        "query": "Coffee and Artery Function",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.1087,
+          "averagePrecision": 0.0952,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6208
+        }
+      },
+      {
+        "queryId": "PLAIN-2520",
+        "query": "Caloric Restriction vs. Plant-Based Diets",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.0548,
+          "averagePrecision": 0.0274,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.1912
+        }
+      },
+      {
+        "queryId": "PLAIN-2530",
+        "query": "Infectobesity: Adenovirus 36 and Childhood Obesity",
+        "metrics": {
+          "precisionAtK": 1,
+          "recallAtK": 0.1389,
+          "averagePrecision": 0.1389,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.9277
+        }
+      },
+      {
+        "queryId": "PLAIN-2540",
+        "query": "Does Cholesterol Size Matter?",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.1429,
+          "averagePrecision": 0.041,
+          "reciprocalRank": 0.2,
+          "ndcgAtK": 0.1975
+        }
+      },
+      {
+        "queryId": "PLAIN-2550",
+        "query": "Barriers to Heart Disease Prevention",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2560",
+        "query": "Childhood Constipation and Cow’s Milk",
+        "metrics": {
+          "precisionAtK": 0.7,
+          "recallAtK": 0.3333,
+          "averagePrecision": 0.3228,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.7936
+        }
+      },
+      {
+        "queryId": "PLAIN-2570",
+        "query": "Diabetics Should Take Their Pulses",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.025,
+          "averagePrecision": 0.0125,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.1542
+        }
+      },
+      {
+        "queryId": "PLAIN-2580",
+        "query": "Academy of Nutrition and Dietetics Conflicts of Interest",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.087,
+          "averagePrecision": 0.0652,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.3642
+        }
+      },
+      {
+        "queryId": "PLAIN-2590",
+        "query": "Do Vegetarians Get Enough Protein?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2600",
+        "query": "Eggs and Arterial Function",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.3,
+          "averagePrecision": 0.2417,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.5435
+        }
+      },
+      {
+        "queryId": "PLAIN-2610",
+        "query": "Treating Asthma With Plants vs. Supplements?",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.0492,
+          "averagePrecision": 0.0343,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.3485
+        }
+      },
+      {
+        "queryId": "PLAIN-2620",
+        "query": "Phytates for the Treatment of Cancer",
+        "metrics": {
+          "precisionAtK": 0.8,
+          "recallAtK": 0.1455,
+          "averagePrecision": 0.1455,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.566
+        }
+      },
+      {
+        "queryId": "PLAIN-2630",
+        "query": "Alkylphenol Endocrine Disruptors and Allergies",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.1042,
+          "averagePrecision": 0.086,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6086
+        }
+      },
+      {
+        "queryId": "PLAIN-2640",
+        "query": "Chicken Salmonella Thanks to Meat Industry Lawsuit",
+        "metrics": {
+          "precisionAtK": 0.9,
+          "recallAtK": 0.1875,
+          "averagePrecision": 0.1775,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6613
+        }
+      },
+      {
+        "queryId": "PLAIN-2650",
+        "query": "Turmeric Curcumin and Osteoarthritis",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.1379,
+          "averagePrecision": 0.0842,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.4632
+        }
+      },
+      {
+        "queryId": "PLAIN-2660",
+        "query": "How Long to Detox From Fish Before Pregnancy?",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.1111,
+          "averagePrecision": 0.041,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.2646
+        }
+      },
+      {
+        "queryId": "PLAIN-2670",
+        "query": "Is Caramel Color Carcinogenic?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.0571,
+          "averagePrecision": 0.0357,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.3469
+        }
+      },
+      {
+        "queryId": "PLAIN-2680",
+        "query": "Counteracting the Effects of Dioxins Through Diet",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.1429,
+          "averagePrecision": 0.0833,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.2882
+        }
+      },
+      {
+        "queryId": "PLAIN-2690",
+        "query": "Chronic Headaches and Pork Tapeworms",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.0465,
+          "averagePrecision": 0.0349,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.3149
+        }
+      },
+      {
+        "queryId": "PLAIN-2700",
+        "query": "Heart Disease Starts in Childhood",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.1,
+          "averagePrecision": 0.0167,
+          "reciprocalRank": 0.1667,
+          "ndcgAtK": 0.1067
+        }
+      },
+      {
+        "queryId": "PLAIN-2710",
+        "query": "Artificial Food Colors and ADHD",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.1429,
+          "averagePrecision": 0.1238,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.5386
+        }
+      },
+      {
+        "queryId": "PLAIN-2720",
+        "query": "Keeping Your Hands Warm With Citrus",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.0556,
+          "averagePrecision": 0.0324,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.1795
+        }
+      },
+      {
+        "queryId": "PLAIN-2730",
+        "query": "Anti-Angiogenesis: Cutting Off Tumor Supply Lines",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.1034,
+          "averagePrecision": 0.0425,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.3104
+        }
+      },
+      {
+        "queryId": "PLAIN-2740",
+        "query": "Cancer Risk From CT Scan Radiation",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.08,
+          "averagePrecision": 0.0463,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.4555
+        }
+      },
+      {
+        "queryId": "PLAIN-2750",
+        "query": "Preventing the Common Cold with Probiotics?",
+        "metrics": {
+          "precisionAtK": 0.7,
+          "recallAtK": 0.1186,
+          "averagePrecision": 0.1037,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6119
+        }
+      },
+      {
+        "queryId": "PLAIN-2760",
+        "query": "Eating Healthy on a Budget",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2770",
+        "query": "Flaxseeds & Breast Cancer Survival: Clinical Evidence",
+        "metrics": {
+          "precisionAtK": 0.6,
+          "recallAtK": 0.1463,
+          "averagePrecision": 0.0875,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.4833
+        }
+      },
+      {
+        "queryId": "PLAIN-2780",
+        "query": "Do Fruit & Nut Bars Cause Weight Gain?",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.1818,
+          "averagePrecision": 0.1667,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.4104
+        }
+      },
+      {
+        "queryId": "PLAIN-2790",
+        "query": "Titanium Dioxide & Inflammatory Bowel Disease",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.0847,
+          "averagePrecision": 0.0727,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.5821
+        }
+      },
+      {
+        "queryId": "PLAIN-2800",
+        "query": "Prolonged Liver Function Enhancement From Broccoli",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2810",
+        "query": "Apple Juice May Be Worse Than Sugar Water",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.125,
+          "averagePrecision": 0.0125,
+          "reciprocalRank": 0.1,
+          "ndcgAtK": 0.0475
+        }
+      },
+      {
+        "queryId": "PLAIN-2820",
+        "query": "Preventing Strokes with Diet",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.125,
+          "averagePrecision": 0.0125,
+          "reciprocalRank": 0.1,
+          "ndcgAtK": 0.1167
+        }
+      },
+      {
+        "queryId": "PLAIN-2830",
+        "query": "Neurobiology of Artificial Sweeteners",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.3333,
+          "averagePrecision": 0.1667,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.403
+        }
+      },
+      {
+        "queryId": "PLAIN-2840",
+        "query": "Benefits of Fenugreek Seeds",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2850",
+        "query": "More Antibiotics In White Meat or Dark Meat?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2860",
+        "query": "BPA Plastic and Male Sexual Dysfunction",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "PLAIN-2870",
+        "query": "Filled Full of Lead",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2880",
+        "query": "The Answer to the Pritikin Puzzle",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2890",
+        "query": "To Snack or Not to Snack?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0345,
+          "averagePrecision": 0.0049,
+          "reciprocalRank": 0.1429,
+          "ndcgAtK": 0.1203
+        }
+      },
+      {
+        "queryId": "PLAIN-2900",
+        "query": "Boosting Good Bacteria in the Colon Without Probiotics",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2910",
+        "query": "Optimal Phytosterol Dose",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0667,
+          "averagePrecision": 0.0333,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.2044
+        }
+      },
+      {
+        "queryId": "PLAIN-2920",
+        "query": "Human Neurotransmitters in Plants",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2930",
+        "query": "Kiwifruit for Irritable Bowel Syndrome",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0714,
+          "averagePrecision": 0.0714,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.3608
+        }
+      },
+      {
+        "queryId": "PLAIN-2940",
+        "query": "Dietary Treatment of Crohn's Disease",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2950",
+        "query": "Unsafe at Any Feed",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-2960",
+        "query": "Pharmacists Versus Health Food Store Employees: Who Gives Better Advice?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.125,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.3274
+        }
+      },
+      {
+        "queryId": "PLAIN-2970",
+        "query": "Preventing Cataracts with Diet",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.1111,
+          "averagePrecision": 0.1111,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.3806
+        }
+      },
+      {
+        "queryId": "PLAIN-2981",
+        "query": "Cheese Mites and Maggots",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.2857,
+          "averagePrecision": 0.2143,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.5241
+        }
+      },
+      {
+        "queryId": "PLAIN-2991",
+        "query": "Cholesterol and Lower Back Pain",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.1667,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.3066
+        }
+      },
+      {
+        "queryId": "PLAIN-3001",
+        "query": "EPIC Findings on Lymphoma",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.1667,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.3066
+        }
+      },
+      {
+        "queryId": "PLAIN-3014",
+        "query": "Sometimes the Enzyme Myth Is True",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-3026",
+        "query": "Vitamin C-Enriched Bacon",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "PLAIN-3037",
+        "query": "Out of the Lab Onto the Track",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-3053",
+        "query": "Dragon's Blood",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.6667,
+          "averagePrecision": 0.6667,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.7654
+        }
+      },
+      {
+        "queryId": "PLAIN-3063",
+        "query": "Better Than Goji Berries",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-3074",
+        "query": "How to Help Prevent Abdominal Aortic Aneurysms",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "PLAIN-3085",
+        "query": "The Difficulty of Arriving at a Vitamin D Recommendation",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.0625,
+          "reciprocalRank": 0.125,
+          "ndcgAtK": 0.1934
+        }
+      },
+      {
+        "queryId": "PLAIN-3097",
+        "query": "Amyloid and Apple Juice",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.25,
+          "averagePrecision": 0.25,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.477
+        }
+      },
+      {
+        "queryId": "PLAIN-3116",
+        "query": "Dietary Guidelines: From Dairies to Berries",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-3131",
+        "query": "Are Avocados Good for You?",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.3056,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.5818
+        }
+      },
+      {
+        "queryId": "PLAIN-3141",
+        "query": "Relieving Yourself of Excess Estrogen",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0294,
+          "averagePrecision": 0.0037,
+          "reciprocalRank": 0.125,
+          "ndcgAtK": 0.0945
+        }
+      },
+      {
+        "queryId": "PLAIN-3151",
+        "query": "Too Much Iodine Can Be as Bad as Too Little",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0556,
+          "averagePrecision": 0.0056,
+          "reciprocalRank": 0.1,
+          "ndcgAtK": 0.0772
+        }
+      },
+      {
+        "queryId": "PLAIN-3161",
+        "query": "Is Milk and Mucus a Myth?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.0465,
+          "averagePrecision": 0.0279,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.4129
+        }
+      },
+      {
+        "queryId": "PLAIN-3171",
+        "query": "Convergence of Evidence",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.0588,
+          "averagePrecision": 0.0343,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.204
+        }
+      },
+      {
+        "queryId": "PLAIN-3181",
+        "query": "Is Dragon Fruit Good For You?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-3191",
+        "query": "Is Distilled Fish Oil Toxin-Free?",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.25,
+          "averagePrecision": 0.1762,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.5015
+        }
+      },
+      {
+        "queryId": "PLAIN-3201",
+        "query": "Acne & Cancer Connection",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.0938,
+          "averagePrecision": 0.0298,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.2948
+        }
+      },
+      {
+        "queryId": "PLAIN-3211",
+        "query": "Overdosing on Greens",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-3221",
+        "query": "Dietary Theory of Alzheimer's",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-3231",
+        "query": "Meat & Multiple Myeloma",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-3241",
+        "query": "Apthous Ulcer Mystery Solved",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0345,
+          "averagePrecision": 0.0086,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.1554
+        }
+      },
+      {
+        "queryId": "PLAIN-3251",
+        "query": "EPIC Study",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-3261",
+        "query": "Update on Herbalife®",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0769,
+          "averagePrecision": 0.0096,
+          "reciprocalRank": 0.125,
+          "ndcgAtK": 0.0945
+        }
+      },
+      {
+        "queryId": "PLAIN-3271",
+        "query": "Saturated Fat & Cancer Progression",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-3281",
+        "query": "Aluminum in Vaccines vs. Food",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0385,
+          "averagePrecision": 0.0385,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.3239
+        }
+      },
+      {
+        "queryId": "PLAIN-3292",
+        "query": "Are Multivitamins Good For You?",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.7143,
+          "averagePrecision": 0.5539,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6462
+        }
+      },
+      {
+        "queryId": "PLAIN-3302",
+        "query": "Fish Fog",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.0541,
+          "averagePrecision": 0.0541,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.2942
+        }
+      },
+      {
+        "queryId": "PLAIN-3312",
+        "query": "Sexually Transmitted Fish Toxin",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.2308,
+          "averagePrecision": 0.0853,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.147
+        }
+      },
+      {
+        "queryId": "PLAIN-3322",
+        "query": "Veggies vs. Cancer",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0127,
+          "averagePrecision": 0.0018,
+          "reciprocalRank": 0.1429,
+          "ndcgAtK": 0.0734
+        }
+      },
+      {
+        "queryId": "PLAIN-3332",
+        "query": "Alcohol Risks vs. Benefits",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.3571,
+          "averagePrecision": 0.278,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.599
+        }
+      },
+      {
+        "queryId": "PLAIN-3342",
+        "query": "Is Coconut Milk Good For You?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.6667,
+          "averagePrecision": 0.6667,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.7654
+        }
+      },
+      {
+        "queryId": "PLAIN-3352",
+        "query": "Boosting Heart Nerve Control",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-3362",
+        "query": "Kuna Indian Secret",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.2727,
+          "averagePrecision": 0.2364,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.5514
+        }
+      },
+      {
+        "queryId": "PLAIN-3372",
+        "query": "The Healthiest Sweetener",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-3382",
+        "query": "Are Artificial Colors Bad for You?",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.2143,
+          "averagePrecision": 0.0744,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.1898
+        }
+      },
+      {
+        "queryId": "PLAIN-3392",
+        "query": "Healthiest Airplane Beverage",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-3402",
+        "query": "Antioxidant Content of 300 Foods",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-3412",
+        "query": "Plant vs. Cow Calcium",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.0408,
+          "averagePrecision": 0.0306,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.2317
+        }
+      },
+      {
+        "queryId": "PLAIN-3422",
+        "query": "Vitamin Supplements Worth Taking",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.129,
+          "averagePrecision": 0.064,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.2243
+        }
+      },
+      {
+        "queryId": "PLAIN-3432",
+        "query": "Healthy Chocolate Milkshakes",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.0714,
+          "averagePrecision": 0.0317,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.2999
+        }
+      },
+      {
+        "queryId": "PLAIN-3442",
+        "query": "The Healthiest Vegetables",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "PLAIN-3452",
+        "query": "Bowel Movement Frequency",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.2353,
+          "averagePrecision": 0.2088,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.5585
+        }
+      },
+      {
+        "queryId": "PLAIN-3462",
+        "query": "Olive Oil and Artery Function",
+        "metrics": {
+          "precisionAtK": 0.7,
+          "recallAtK": 0.1094,
+          "averagePrecision": 0.0677,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6067
+        }
+      },
+      {
+        "queryId": "PLAIN-3472",
+        "query": "How Doctors Responded to Being Named a Leading Killer",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      }
+    ]
+  },
+  "failureAnalysis": {
+    "k": 10,
+    "groupCount": 7,
+    "groups": [
+      {
+        "id": "broad_need_low_recall",
+        "label": "Broad information need with low recall",
+        "description": "The query has many relevant judgments, but the top K captures only a small fraction.",
+        "queryCount": 129,
+        "averageMetrics": {
+          "precisionAtK": 0.4816,
+          "recallAtK": 0.102,
+          "averagePrecision": 0.0788,
+          "reciprocalRank": 0.8618,
+          "ndcgAtK": 0.485
+        },
+        "averageRelevantCount": 72.8992,
+        "averageRelevantHitsAtK": 4.2713
+      },
+      {
+        "id": "zero_relevant_at_k",
+        "label": "No relevant result in top K",
+        "description": "The query retrieved results, but none of the top K results are judged relevant.",
+        "queryCount": 96,
+        "averageMetrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        },
+        "averageRelevantCount": 14.4271,
+        "averageRelevantHitsAtK": 0
+      },
+      {
+        "id": "late_first_relevant",
+        "label": "Relevant result ranked too late",
+        "description": "A relevant document appears in the top K, but below the first three positions.",
+        "queryCount": 36,
+        "averageMetrics": {
+          "precisionAtK": 0.1463,
+          "recallAtK": 0.1229,
+          "averagePrecision": 0.023,
+          "reciprocalRank": 0.1586,
+          "ndcgAtK": 0.1358
+        },
+        "averageRelevantCount": 32.9444,
+        "averageRelevantHitsAtK": 1.4444
+      },
+      {
+        "id": "passing_or_minor",
+        "label": "Passing or minor issue",
+        "description": "The top K behavior is not currently classified as a meaningful failure.",
+        "queryCount": 26,
+        "averageMetrics": {
+          "precisionAtK": 0.6058,
+          "recallAtK": 0.7648,
+          "averagePrecision": 0.7155,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.8344
+        },
+        "averageRelevantCount": 5.1154,
+        "averageRelevantHitsAtK": 3.3846
+      },
+      {
+        "id": "partial_recall",
+        "label": "Partial recall",
+        "description": "The query has relevant hits, but leaves most judged relevant documents outside top K.",
+        "queryCount": 17,
+        "averageMetrics": {
+          "precisionAtK": 0.6327,
+          "recallAtK": 0.3149,
+          "averagePrecision": 0.2684,
+          "reciprocalRank": 0.9216,
+          "ndcgAtK": 0.4909
+        },
+        "averageRelevantCount": 8.6471,
+        "averageRelevantHitsAtK": 2.9412
+      },
+      {
+        "id": "lexical_noise_low_precision",
+        "label": "Lexical noise dominates",
+        "description": "The query finds at least one relevant document, but most top K results are non-relevant.",
+        "queryCount": 14,
+        "averageMetrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5242,
+          "averagePrecision": 0.3833,
+          "reciprocalRank": 0.7143,
+          "ndcgAtK": 0.5149
+        },
+        "averageRelevantCount": 3.2143,
+        "averageRelevantHitsAtK": 1
+      },
+      {
+        "id": "graded_ranking_loss",
+        "label": "Relevant results found but weak graded ranking",
+        "description": "Some relevant documents are found, but graded relevance remains low.",
+        "queryCount": 5,
+        "averageMetrics": {
+          "precisionAtK": 0.4467,
+          "recallAtK": 0.1972,
+          "averagePrecision": 0.0903,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.2045
+        },
+        "averageRelevantCount": 6.8,
+        "averageRelevantHitsAtK": 1.2
+      }
+    ],
+    "examplesByGroup": {
+      "broad_need_low_recall": [
+        {
+          "queryId": "PLAIN-78",
+          "query": "What Do Meat Purge and Cola Have in Common?",
+          "behaviorGroup": "broad_need_low_recall",
+          "behaviorLabel": "Broad information need with low recall",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.0161,
+            "averagePrecision": 0.0054,
+            "reciprocalRank": 0.3333,
+            "ndcgAtK": 0.0637
+          },
+          "relevantCount": 62,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 3,
+          "retrievedIdsAtK": [
+            "MED-1540",
+            "MED-4087",
+            "MED-4318",
+            "MED-3585",
+            "MED-4834",
+            "MED-2219",
+            "MED-1488",
+            "MED-1366",
+            "MED-1817",
+            "MED-5032"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-4318"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-1540",
+            "MED-4087",
+            "MED-3585",
+            "MED-4834",
+            "MED-2219",
+            "MED-1488",
+            "MED-1366",
+            "MED-1817",
+            "MED-5032"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-3090",
+              "grade": 2
+            },
+            {
+              "id": "MED-3092",
+              "grade": 2
+            },
+            {
+              "id": "MED-3094",
+              "grade": 2
+            },
+            {
+              "id": "MED-332",
+              "grade": 2
+            },
+            {
+              "id": "MED-334",
+              "grade": 2
+            },
+            {
+              "id": "MED-335",
+              "grade": 2
+            },
+            {
+              "id": "MED-3085",
+              "grade": 1
+            },
+            {
+              "id": "MED-3086",
+              "grade": 1
+            },
+            {
+              "id": "MED-3087",
+              "grade": 1
+            },
+            {
+              "id": "MED-3088",
+              "grade": 1
+            },
+            {
+              "id": "MED-3089",
+              "grade": 1
+            },
+            {
+              "id": "MED-3091",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-186",
+          "query": "Best Treatment for Constipation",
+          "behaviorGroup": "broad_need_low_recall",
+          "behaviorLabel": "Broad information need with low recall",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.0417,
+            "averagePrecision": 0.0139,
+            "reciprocalRank": 0.3333,
+            "ndcgAtK": 0.11
+          },
+          "relevantCount": 24,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 3,
+          "retrievedIdsAtK": [
+            "MED-2054",
+            "MED-2059",
+            "MED-3904",
+            "MED-2057",
+            "MED-949",
+            "MED-2203",
+            "MED-1016",
+            "MED-3510",
+            "MED-2063",
+            "MED-2055"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-3904"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-2054",
+            "MED-2059",
+            "MED-2057",
+            "MED-949",
+            "MED-2203",
+            "MED-1016",
+            "MED-3510",
+            "MED-2063",
+            "MED-2055"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-4810",
+              "grade": 1
+            },
+            {
+              "id": "MED-5175",
+              "grade": 1
+            },
+            {
+              "id": "MED-5322",
+              "grade": 1
+            },
+            {
+              "id": "MED-5323",
+              "grade": 1
+            },
+            {
+              "id": "MED-5324",
+              "grade": 1
+            },
+            {
+              "id": "MED-5325",
+              "grade": 1
+            },
+            {
+              "id": "MED-5326",
+              "grade": 1
+            },
+            {
+              "id": "MED-5327",
+              "grade": 1
+            },
+            {
+              "id": "MED-5328",
+              "grade": 1
+            },
+            {
+              "id": "MED-5329",
+              "grade": 1
+            },
+            {
+              "id": "MED-5330",
+              "grade": 1
+            },
+            {
+              "id": "MED-5331",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-1590",
+          "query": "medical ethics",
+          "behaviorGroup": "broad_need_low_recall",
+          "behaviorLabel": "Broad information need with low recall",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.0556,
+            "averagePrecision": 0.0278,
+            "reciprocalRank": 0.5,
+            "ndcgAtK": 0.1389
+          },
+          "relevantCount": 18,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 2,
+          "retrievedIdsAtK": [
+            "MED-748",
+            "MED-3604",
+            "MED-1344",
+            "MED-3757",
+            "MED-3754",
+            "MED-3760",
+            "MED-3749",
+            "MED-1744",
+            "MED-1014",
+            "MED-3759"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-3604"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-748",
+            "MED-1344",
+            "MED-3757",
+            "MED-3754",
+            "MED-3760",
+            "MED-3749",
+            "MED-1744",
+            "MED-1014",
+            "MED-3759"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-2524",
+              "grade": 1
+            },
+            {
+              "id": "MED-2525",
+              "grade": 1
+            },
+            {
+              "id": "MED-2526",
+              "grade": 1
+            },
+            {
+              "id": "MED-2527",
+              "grade": 1
+            },
+            {
+              "id": "MED-2528",
+              "grade": 1
+            },
+            {
+              "id": "MED-2529",
+              "grade": 1
+            },
+            {
+              "id": "MED-2530",
+              "grade": 1
+            },
+            {
+              "id": "MED-3601",
+              "grade": 1
+            },
+            {
+              "id": "MED-3602",
+              "grade": 1
+            },
+            {
+              "id": "MED-3603",
+              "grade": 1
+            },
+            {
+              "id": "MED-3606",
+              "grade": 1
+            },
+            {
+              "id": "MED-3607",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-1656",
+          "query": "mouth cancer",
+          "behaviorGroup": "broad_need_low_recall",
+          "behaviorLabel": "Broad information need with low recall",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.0357,
+            "averagePrecision": 0.0179,
+            "reciprocalRank": 0.5,
+            "ndcgAtK": 0.1389
+          },
+          "relevantCount": 28,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 2,
+          "retrievedIdsAtK": [
+            "MED-4470",
+            "MED-4819",
+            "MED-1813",
+            "MED-3764",
+            "MED-4479",
+            "MED-1248",
+            "MED-4036",
+            "MED-2092",
+            "MED-2095",
+            "MED-2101"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-4819"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-4470",
+            "MED-1813",
+            "MED-3764",
+            "MED-4479",
+            "MED-1248",
+            "MED-4036",
+            "MED-2092",
+            "MED-2095",
+            "MED-2101"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-2200",
+              "grade": 1
+            },
+            {
+              "id": "MED-2201",
+              "grade": 1
+            },
+            {
+              "id": "MED-2202",
+              "grade": 1
+            },
+            {
+              "id": "MED-2203",
+              "grade": 1
+            },
+            {
+              "id": "MED-2204",
+              "grade": 1
+            },
+            {
+              "id": "MED-2205",
+              "grade": 1
+            },
+            {
+              "id": "MED-2206",
+              "grade": 1
+            },
+            {
+              "id": "MED-2207",
+              "grade": 1
+            },
+            {
+              "id": "MED-2208",
+              "grade": 1
+            },
+            {
+              "id": "MED-2209",
+              "grade": 1
+            },
+            {
+              "id": "MED-2210",
+              "grade": 1
+            },
+            {
+              "id": "MED-2239",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-3312",
+          "query": "Sexually Transmitted Fish Toxin",
+          "behaviorGroup": "broad_need_low_recall",
+          "behaviorLabel": "Broad information need with low recall",
+          "metrics": {
+            "precisionAtK": 0.3,
+            "recallAtK": 0.2308,
+            "averagePrecision": 0.0853,
+            "reciprocalRank": 0.3333,
+            "ndcgAtK": 0.147
+          },
+          "relevantCount": 13,
+          "hitCountAtK": 3,
+          "firstRelevantRank": 3,
+          "retrievedIdsAtK": [
+            "MED-4360",
+            "MED-3561",
+            "MED-1569",
+            "MED-3655",
+            "MED-1572",
+            "MED-4328",
+            "MED-3717",
+            "MED-1570",
+            "MED-4961",
+            "MED-4959"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-1569",
+            "MED-1572",
+            "MED-1570"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-4360",
+            "MED-3561",
+            "MED-3655",
+            "MED-4328",
+            "MED-3717",
+            "MED-4961",
+            "MED-4959"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-4962",
+              "grade": 2
+            },
+            {
+              "id": "MED-4963",
+              "grade": 2
+            },
+            {
+              "id": "MED-4964",
+              "grade": 2
+            },
+            {
+              "id": "MED-4966",
+              "grade": 2
+            },
+            {
+              "id": "MED-4967",
+              "grade": 2
+            },
+            {
+              "id": "MED-4968",
+              "grade": 2
+            },
+            {
+              "id": "MED-4969",
+              "grade": 2
+            },
+            {
+              "id": "MED-1568",
+              "grade": 1
+            },
+            {
+              "id": "MED-1571",
+              "grade": 1
+            },
+            {
+              "id": "MED-1573",
+              "grade": 1
+            }
+          ]
+        }
+      ],
+      "late_first_relevant": [
+        {
+          "queryId": "PLAIN-2810",
+          "query": "Apple Juice May Be Worse Than Sugar Water",
+          "behaviorGroup": "late_first_relevant",
+          "behaviorLabel": "Relevant result ranked too late",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.125,
+            "averagePrecision": 0.0125,
+            "reciprocalRank": 0.1,
+            "ndcgAtK": 0.0475
+          },
+          "relevantCount": 8,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 10,
+          "retrievedIdsAtK": [
+            "MED-2491",
+            "MED-1792",
+            "MED-5019",
+            "MED-4029",
+            "MED-4267",
+            "MED-1846",
+            "MED-4580",
+            "MED-4590",
+            "MED-3945",
+            "MED-4090"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-4090"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-2491",
+            "MED-1792",
+            "MED-5019",
+            "MED-4029",
+            "MED-4267",
+            "MED-1846",
+            "MED-4580",
+            "MED-4590",
+            "MED-3945"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-4089",
+              "grade": 2
+            },
+            {
+              "id": "MED-4091",
+              "grade": 2
+            },
+            {
+              "id": "MED-5071",
+              "grade": 2
+            },
+            {
+              "id": "MED-4413",
+              "grade": 1
+            },
+            {
+              "id": "MED-4585",
+              "grade": 1
+            },
+            {
+              "id": "MED-4687",
+              "grade": 1
+            },
+            {
+              "id": "MED-4689",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-123",
+          "query": "How Citrus Might Help Keep Your Hands Warm",
+          "behaviorGroup": "late_first_relevant",
+          "behaviorLabel": "Relevant result ranked too late",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.0196,
+            "averagePrecision": 0.0049,
+            "reciprocalRank": 0.25,
+            "ndcgAtK": 0.0549
+          },
+          "relevantCount": 51,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 4,
+          "retrievedIdsAtK": [
+            "MED-4256",
+            "MED-4969",
+            "MED-4392",
+            "MED-3483",
+            "MED-4804",
+            "MED-3436",
+            "MED-2491",
+            "MED-1482",
+            "MED-4429",
+            "MED-2292"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-3483"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-4256",
+            "MED-4969",
+            "MED-4392",
+            "MED-4804",
+            "MED-3436",
+            "MED-2491",
+            "MED-1482",
+            "MED-4429",
+            "MED-2292"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-3474",
+              "grade": 2
+            },
+            {
+              "id": "MED-3477",
+              "grade": 2
+            },
+            {
+              "id": "MED-3479",
+              "grade": 2
+            },
+            {
+              "id": "MED-3482",
+              "grade": 2
+            },
+            {
+              "id": "MED-3484",
+              "grade": 2
+            },
+            {
+              "id": "MED-3485",
+              "grade": 2
+            },
+            {
+              "id": "MED-3467",
+              "grade": 1
+            },
+            {
+              "id": "MED-3469",
+              "grade": 1
+            },
+            {
+              "id": "MED-3471",
+              "grade": 1
+            },
+            {
+              "id": "MED-3473",
+              "grade": 1
+            },
+            {
+              "id": "MED-3475",
+              "grade": 1
+            },
+            {
+              "id": "MED-3476",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-2500",
+          "query": "The Saturated Fat Studies: Buttering Up the Public",
+          "behaviorGroup": "late_first_relevant",
+          "behaviorLabel": "Relevant result ranked too late",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.1429,
+            "averagePrecision": 0.0159,
+            "reciprocalRank": 0.1111,
+            "ndcgAtK": 0.0571
+          },
+          "relevantCount": 7,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 9,
+          "retrievedIdsAtK": [
+            "MED-3198",
+            "MED-4709",
+            "MED-1556",
+            "MED-1781",
+            "MED-5016",
+            "MED-3358",
+            "MED-2150",
+            "MED-1873",
+            "MED-4556",
+            "MED-1454"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-4556"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-3198",
+            "MED-4709",
+            "MED-1556",
+            "MED-1781",
+            "MED-5016",
+            "MED-3358",
+            "MED-2150",
+            "MED-1873",
+            "MED-1454"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-1557",
+              "grade": 2
+            },
+            {
+              "id": "MED-1558",
+              "grade": 2
+            },
+            {
+              "id": "MED-3597",
+              "grade": 1
+            },
+            {
+              "id": "MED-3598",
+              "grade": 1
+            },
+            {
+              "id": "MED-3599",
+              "grade": 1
+            },
+            {
+              "id": "MED-4559",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-1050",
+          "query": "Dr. Dean Ornish",
+          "behaviorGroup": "late_first_relevant",
+          "behaviorLabel": "Relevant result ranked too late",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.0106,
+            "averagePrecision": 0.0011,
+            "reciprocalRank": 0.1,
+            "ndcgAtK": 0.0636
+          },
+          "relevantCount": 94,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 10,
+          "retrievedIdsAtK": [
+            "MED-1712",
+            "MED-2510",
+            "MED-2324",
+            "MED-2498",
+            "MED-1021",
+            "MED-3283",
+            "MED-2509",
+            "MED-2502",
+            "MED-2603",
+            "MED-2763"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-2763"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-1712",
+            "MED-2510",
+            "MED-2324",
+            "MED-2498",
+            "MED-1021",
+            "MED-3283",
+            "MED-2509",
+            "MED-2502",
+            "MED-2603"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-1393",
+              "grade": 1
+            },
+            {
+              "id": "MED-1394",
+              "grade": 1
+            },
+            {
+              "id": "MED-1395",
+              "grade": 1
+            },
+            {
+              "id": "MED-1397",
+              "grade": 1
+            },
+            {
+              "id": "MED-1398",
+              "grade": 1
+            },
+            {
+              "id": "MED-1399",
+              "grade": 1
+            },
+            {
+              "id": "MED-1400",
+              "grade": 1
+            },
+            {
+              "id": "MED-1476",
+              "grade": 1
+            },
+            {
+              "id": "MED-1478",
+              "grade": 1
+            },
+            {
+              "id": "MED-1479",
+              "grade": 1
+            },
+            {
+              "id": "MED-1486",
+              "grade": 1
+            },
+            {
+              "id": "MED-1487",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-1193",
+          "query": "flax oil",
+          "behaviorGroup": "late_first_relevant",
+          "behaviorLabel": "Relevant result ranked too late",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.0556,
+            "averagePrecision": 0.0062,
+            "reciprocalRank": 0.1111,
+            "ndcgAtK": 0.0663
+          },
+          "relevantCount": 18,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 9,
+          "retrievedIdsAtK": [
+            "MED-2378",
+            "MED-1825",
+            "MED-3796",
+            "MED-839",
+            "MED-3868",
+            "MED-1826",
+            "MED-4303",
+            "MED-3869",
+            "MED-4004",
+            "MED-3662"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-4004"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-2378",
+            "MED-1825",
+            "MED-3796",
+            "MED-839",
+            "MED-3868",
+            "MED-1826",
+            "MED-4303",
+            "MED-3869",
+            "MED-3662"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-4000",
+              "grade": 1
+            },
+            {
+              "id": "MED-4001",
+              "grade": 1
+            },
+            {
+              "id": "MED-4002",
+              "grade": 1
+            },
+            {
+              "id": "MED-4005",
+              "grade": 1
+            },
+            {
+              "id": "MED-4006",
+              "grade": 1
+            },
+            {
+              "id": "MED-4007",
+              "grade": 1
+            },
+            {
+              "id": "MED-4832",
+              "grade": 1
+            },
+            {
+              "id": "MED-4833",
+              "grade": 1
+            },
+            {
+              "id": "MED-4834",
+              "grade": 1
+            },
+            {
+              "id": "MED-4835",
+              "grade": 1
+            },
+            {
+              "id": "MED-5016",
+              "grade": 1
+            },
+            {
+              "id": "MED-5090",
+              "grade": 1
+            }
+          ]
+        }
+      ],
+      "zero_relevant_at_k": [
+        {
+          "queryId": "PLAIN-1008",
+          "query": "deafness",
+          "behaviorGroup": "zero_relevant_at_k",
+          "behaviorLabel": "No relevant result in top K",
+          "metrics": {
+            "precisionAtK": 0,
+            "recallAtK": 0,
+            "averagePrecision": 0,
+            "reciprocalRank": 0,
+            "ndcgAtK": 0
+          },
+          "relevantCount": 5,
+          "hitCountAtK": 0,
+          "firstRelevantRank": null,
+          "retrievedIdsAtK": [
+            "MED-4668"
+          ],
+          "relevantRetrievedIdsAtK": [],
+          "topNonRelevantIdsAtK": [
+            "MED-4668"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-4532",
+              "grade": 1
+            },
+            {
+              "id": "MED-4533",
+              "grade": 1
+            },
+            {
+              "id": "MED-4534",
+              "grade": 1
+            },
+            {
+              "id": "MED-4535",
+              "grade": 1
+            },
+            {
+              "id": "MED-4536",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-1028",
+          "query": "dietary scoring",
+          "behaviorGroup": "zero_relevant_at_k",
+          "behaviorLabel": "No relevant result in top K",
+          "metrics": {
+            "precisionAtK": 0,
+            "recallAtK": 0,
+            "averagePrecision": 0,
+            "reciprocalRank": 0,
+            "ndcgAtK": 0
+          },
+          "relevantCount": 1,
+          "hitCountAtK": 0,
+          "firstRelevantRank": null,
+          "retrievedIdsAtK": [
+            "MED-1402",
+            "MED-1323",
+            "MED-3253",
+            "MED-4480",
+            "MED-3622",
+            "MED-1242",
+            "MED-4163",
+            "MED-3723",
+            "MED-5327",
+            "MED-1779"
+          ],
+          "relevantRetrievedIdsAtK": [],
+          "topNonRelevantIdsAtK": [
+            "MED-1402",
+            "MED-1323",
+            "MED-3253",
+            "MED-4480",
+            "MED-3622",
+            "MED-1242",
+            "MED-4163",
+            "MED-3723",
+            "MED-5327",
+            "MED-1779"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-4686",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-1066",
+          "query": "Dr. Walter Willett",
+          "behaviorGroup": "zero_relevant_at_k",
+          "behaviorLabel": "No relevant result in top K",
+          "metrics": {
+            "precisionAtK": 0,
+            "recallAtK": 0,
+            "averagePrecision": 0,
+            "reciprocalRank": 0,
+            "ndcgAtK": 0
+          },
+          "relevantCount": 9,
+          "hitCountAtK": 0,
+          "firstRelevantRank": null,
+          "retrievedIdsAtK": [
+            "MED-1712",
+            "MED-2510",
+            "MED-2324",
+            "MED-2498",
+            "MED-1021",
+            "MED-3283",
+            "MED-2509",
+            "MED-4476",
+            "MED-2502",
+            "MED-2603"
+          ],
+          "relevantRetrievedIdsAtK": [],
+          "topNonRelevantIdsAtK": [
+            "MED-1712",
+            "MED-2510",
+            "MED-2324",
+            "MED-2498",
+            "MED-1021",
+            "MED-3283",
+            "MED-2509",
+            "MED-4476",
+            "MED-2502",
+            "MED-2603"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-4000",
+              "grade": 1
+            },
+            {
+              "id": "MED-4001",
+              "grade": 1
+            },
+            {
+              "id": "MED-4002",
+              "grade": 1
+            },
+            {
+              "id": "MED-4004",
+              "grade": 1
+            },
+            {
+              "id": "MED-4005",
+              "grade": 1
+            },
+            {
+              "id": "MED-4006",
+              "grade": 1
+            },
+            {
+              "id": "MED-4007",
+              "grade": 1
+            },
+            {
+              "id": "MED-4600",
+              "grade": 1
+            },
+            {
+              "id": "MED-5016",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-1098",
+          "query": "eggnog",
+          "behaviorGroup": "zero_relevant_at_k",
+          "behaviorLabel": "No relevant result in top K",
+          "metrics": {
+            "precisionAtK": 0,
+            "recallAtK": 0,
+            "averagePrecision": 0,
+            "reciprocalRank": 0,
+            "ndcgAtK": 0
+          },
+          "relevantCount": 5,
+          "hitCountAtK": 0,
+          "firstRelevantRank": null,
+          "retrievedIdsAtK": [],
+          "relevantRetrievedIdsAtK": [],
+          "topNonRelevantIdsAtK": [],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-3806",
+              "grade": 1
+            },
+            {
+              "id": "MED-3807",
+              "grade": 1
+            },
+            {
+              "id": "MED-3808",
+              "grade": 1
+            },
+            {
+              "id": "MED-3809",
+              "grade": 1
+            },
+            {
+              "id": "MED-3810",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-1119",
+          "query": "energy drinks",
+          "behaviorGroup": "zero_relevant_at_k",
+          "behaviorLabel": "No relevant result in top K",
+          "metrics": {
+            "precisionAtK": 0,
+            "recallAtK": 0,
+            "averagePrecision": 0,
+            "reciprocalRank": 0,
+            "ndcgAtK": 0
+          },
+          "relevantCount": 11,
+          "hitCountAtK": 0,
+          "firstRelevantRank": null,
+          "retrievedIdsAtK": [
+            "MED-877",
+            "MED-2115",
+            "MED-2718",
+            "MED-5310",
+            "MED-3208",
+            "MED-898",
+            "MED-1597",
+            "MED-3767",
+            "MED-1628",
+            "MED-2715"
+          ],
+          "relevantRetrievedIdsAtK": [],
+          "topNonRelevantIdsAtK": [
+            "MED-877",
+            "MED-2115",
+            "MED-2718",
+            "MED-5310",
+            "MED-3208",
+            "MED-898",
+            "MED-1597",
+            "MED-3767",
+            "MED-1628",
+            "MED-2715"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-3780",
+              "grade": 1
+            },
+            {
+              "id": "MED-3781",
+              "grade": 1
+            },
+            {
+              "id": "MED-3782",
+              "grade": 1
+            },
+            {
+              "id": "MED-3783",
+              "grade": 1
+            },
+            {
+              "id": "MED-3784",
+              "grade": 1
+            },
+            {
+              "id": "MED-3785",
+              "grade": 1
+            },
+            {
+              "id": "MED-3786",
+              "grade": 1
+            },
+            {
+              "id": "MED-3787",
+              "grade": 1
+            },
+            {
+              "id": "MED-3788",
+              "grade": 1
+            },
+            {
+              "id": "MED-3789",
+              "grade": 1
+            },
+            {
+              "id": "MED-3790",
+              "grade": 1
+            }
+          ]
+        }
+      ],
+      "passing_or_minor": [
+        {
+          "queryId": "PLAIN-1320",
+          "query": "Harvard Physicians’ Study II",
+          "behaviorGroup": "passing_or_minor",
+          "behaviorLabel": "Passing or minor issue",
+          "metrics": {
+            "precisionAtK": 0.3,
+            "recallAtK": 0.5,
+            "averagePrecision": 0.3778,
+            "reciprocalRank": 1,
+            "ndcgAtK": 0.571
+          },
+          "relevantCount": 6,
+          "hitCountAtK": 3,
+          "firstRelevantRank": 1,
+          "retrievedIdsAtK": [
+            "MED-2760",
+            "MED-4929",
+            "MED-2758",
+            "MED-1986",
+            "MED-2761",
+            "MED-2525",
+            "MED-5124",
+            "MED-1053",
+            "MED-1549",
+            "MED-1097"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-2760",
+            "MED-2758",
+            "MED-2761"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-4929",
+            "MED-1986",
+            "MED-2525",
+            "MED-5124",
+            "MED-1053",
+            "MED-1549",
+            "MED-1097"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-2757",
+              "grade": 1
+            },
+            {
+              "id": "MED-2759",
+              "grade": 1
+            },
+            {
+              "id": "MED-2762",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-3131",
+          "query": "Are Avocados Good for You?",
+          "behaviorGroup": "passing_or_minor",
+          "behaviorLabel": "Passing or minor issue",
+          "metrics": {
+            "precisionAtK": 0.3,
+            "recallAtK": 0.5,
+            "averagePrecision": 0.3056,
+            "reciprocalRank": 1,
+            "ndcgAtK": 0.5818
+          },
+          "relevantCount": 6,
+          "hitCountAtK": 3,
+          "firstRelevantRank": 1,
+          "retrievedIdsAtK": [
+            "MED-4620",
+            "MED-5010",
+            "MED-2291",
+            "MED-4619",
+            "MED-3108",
+            "MED-3109",
+            "MED-5011",
+            "MED-1786",
+            "MED-4618",
+            "MED-5009"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-4620",
+            "MED-4619",
+            "MED-4618"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-5010",
+            "MED-2291",
+            "MED-3108",
+            "MED-3109",
+            "MED-5011",
+            "MED-1786",
+            "MED-5009"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-4621",
+              "grade": 2
+            },
+            {
+              "id": "MED-4514",
+              "grade": 1
+            },
+            {
+              "id": "MED-4515",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-902",
+          "query": "chlorophyll",
+          "behaviorGroup": "passing_or_minor",
+          "behaviorLabel": "Passing or minor issue",
+          "metrics": {
+            "precisionAtK": 0.5,
+            "recallAtK": 0.5,
+            "averagePrecision": 0.5,
+            "reciprocalRank": 1,
+            "ndcgAtK": 0.6367
+          },
+          "relevantCount": 4,
+          "hitCountAtK": 2,
+          "firstRelevantRank": 1,
+          "retrievedIdsAtK": [
+            "MED-4195",
+            "MED-4197",
+            "MED-4849",
+            "MED-3555"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-4195",
+            "MED-4197"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-4849",
+            "MED-3555"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-4194",
+              "grade": 1
+            },
+            {
+              "id": "MED-4196",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-2156",
+          "query": "stevia",
+          "behaviorGroup": "passing_or_minor",
+          "behaviorLabel": "Passing or minor issue",
+          "metrics": {
+            "precisionAtK": 1,
+            "recallAtK": 0.5,
+            "averagePrecision": 0.5,
+            "reciprocalRank": 1,
+            "ndcgAtK": 0.6448
+          },
+          "relevantCount": 6,
+          "hitCountAtK": 3,
+          "firstRelevantRank": 1,
+          "retrievedIdsAtK": [
+            "MED-4868",
+            "MED-5055",
+            "MED-4867"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-4868",
+            "MED-5055",
+            "MED-4867"
+          ],
+          "topNonRelevantIdsAtK": [],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-4869",
+              "grade": 1
+            },
+            {
+              "id": "MED-5053",
+              "grade": 1
+            },
+            {
+              "id": "MED-5054",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-792",
+          "query": "cadaverine",
+          "behaviorGroup": "passing_or_minor",
+          "behaviorLabel": "Passing or minor issue",
+          "metrics": {
+            "precisionAtK": 1,
+            "recallAtK": 0.5,
+            "averagePrecision": 0.5,
+            "reciprocalRank": 1,
+            "ndcgAtK": 0.6448
+          },
+          "relevantCount": 6,
+          "hitCountAtK": 3,
+          "firstRelevantRank": 1,
+          "retrievedIdsAtK": [
+            "MED-4546",
+            "MED-4958",
+            "MED-4547"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-4546",
+            "MED-4958",
+            "MED-4547"
+          ],
+          "topNonRelevantIdsAtK": [],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-4959",
+              "grade": 1
+            },
+            {
+              "id": "MED-4960",
+              "grade": 1
+            },
+            {
+              "id": "MED-4961",
+              "grade": 1
+            }
+          ]
+        }
+      ],
+      "lexical_noise_low_precision": [
+        {
+          "queryId": "PLAIN-2145",
+          "query": "St. John's wort",
+          "behaviorGroup": "lexical_noise_low_precision",
+          "behaviorLabel": "Lexical noise dominates",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.1111,
+            "averagePrecision": 0.0556,
+            "reciprocalRank": 0.5,
+            "ndcgAtK": 0.1483
+          },
+          "relevantCount": 9,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 2,
+          "retrievedIdsAtK": [
+            "MED-743",
+            "MED-3918",
+            "MED-1293",
+            "MED-2891",
+            "MED-1860",
+            "MED-1867",
+            "MED-3882",
+            "MED-3145",
+            "MED-1359",
+            "MED-1744"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-3918"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-743",
+            "MED-1293",
+            "MED-2891",
+            "MED-1860",
+            "MED-1867",
+            "MED-3882",
+            "MED-3145",
+            "MED-1359",
+            "MED-1744"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-3919",
+              "grade": 1
+            },
+            {
+              "id": "MED-3920",
+              "grade": 1
+            },
+            {
+              "id": "MED-3921",
+              "grade": 1
+            },
+            {
+              "id": "MED-3922",
+              "grade": 1
+            },
+            {
+              "id": "MED-3923",
+              "grade": 1
+            },
+            {
+              "id": "MED-3924",
+              "grade": 1
+            },
+            {
+              "id": "MED-4371",
+              "grade": 1
+            },
+            {
+              "id": "MED-4372",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-371",
+          "query": "Any update on the scary in vitro avocado data?",
+          "behaviorGroup": "lexical_noise_low_precision",
+          "behaviorLabel": "Lexical noise dominates",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.5,
+            "averagePrecision": 0.1667,
+            "reciprocalRank": 0.3333,
+            "ndcgAtK": 0.19
+          },
+          "relevantCount": 2,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 3,
+          "retrievedIdsAtK": [
+            "MED-4620",
+            "MED-5010",
+            "MED-4618",
+            "MED-4619",
+            "MED-2161",
+            "MED-1402",
+            "MED-5009",
+            "MED-3618",
+            "MED-3766",
+            "MED-4328"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-4618"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-4620",
+            "MED-5010",
+            "MED-4619",
+            "MED-2161",
+            "MED-1402",
+            "MED-5009",
+            "MED-3618",
+            "MED-3766",
+            "MED-4328"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-861",
+              "grade": 2
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-2991",
+          "query": "Cholesterol and Lower Back Pain",
+          "behaviorGroup": "lexical_noise_low_precision",
+          "behaviorLabel": "Lexical noise dominates",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.5,
+            "averagePrecision": 0.1667,
+            "reciprocalRank": 0.3333,
+            "ndcgAtK": 0.3066
+          },
+          "relevantCount": 2,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 3,
+          "retrievedIdsAtK": [
+            "MED-1663",
+            "MED-1667",
+            "MED-4424",
+            "MED-1656",
+            "MED-1657",
+            "MED-4833",
+            "MED-5012",
+            "MED-1664",
+            "MED-3231",
+            "MED-2528"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-4424"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-1663",
+            "MED-1667",
+            "MED-1656",
+            "MED-1657",
+            "MED-4833",
+            "MED-5012",
+            "MED-1664",
+            "MED-3231",
+            "MED-2528"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-4423",
+              "grade": 2
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-3001",
+          "query": "EPIC Findings on Lymphoma",
+          "behaviorGroup": "lexical_noise_low_precision",
+          "behaviorLabel": "Lexical noise dominates",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.5,
+            "averagePrecision": 0.1667,
+            "reciprocalRank": 0.3333,
+            "ndcgAtK": 0.3066
+          },
+          "relevantCount": 2,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 3,
+          "retrievedIdsAtK": [
+            "MED-3314",
+            "MED-1114",
+            "MED-4436",
+            "MED-5145",
+            "MED-1817",
+            "MED-5236",
+            "MED-1108",
+            "MED-2304",
+            "MED-1529",
+            "MED-4278"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-4436"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-3314",
+            "MED-1114",
+            "MED-5145",
+            "MED-1817",
+            "MED-5236",
+            "MED-1108",
+            "MED-2304",
+            "MED-1529",
+            "MED-4278"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-4437",
+              "grade": 2
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-2291",
+          "query": "ultra-processed foods",
+          "behaviorGroup": "lexical_noise_low_precision",
+          "behaviorLabel": "Lexical noise dominates",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.2,
+            "averagePrecision": 0.2,
+            "reciprocalRank": 1,
+            "ndcgAtK": 0.3392
+          },
+          "relevantCount": 5,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 1,
+          "retrievedIdsAtK": [
+            "MED-2726",
+            "MED-1161",
+            "MED-4319",
+            "MED-5025",
+            "MED-2020",
+            "MED-3091",
+            "MED-3892",
+            "MED-3144",
+            "MED-2704",
+            "MED-3086"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-2726"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-1161",
+            "MED-4319",
+            "MED-5025",
+            "MED-2020",
+            "MED-3091",
+            "MED-3892",
+            "MED-3144",
+            "MED-2704",
+            "MED-3086"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-1650",
+              "grade": 1
+            },
+            {
+              "id": "MED-1651",
+              "grade": 1
+            },
+            {
+              "id": "MED-2221",
+              "grade": 1
+            },
+            {
+              "id": "MED-4602",
+              "grade": 1
+            }
+          ]
+        }
+      ],
+      "partial_recall": [
+        {
+          "queryId": "PLAIN-571",
+          "query": "anisakis",
+          "behaviorGroup": "partial_recall",
+          "behaviorLabel": "Partial recall",
+          "metrics": {
+            "precisionAtK": 0.4,
+            "recallAtK": 0.2857,
+            "averagePrecision": 0.119,
+            "reciprocalRank": 0.3333,
+            "ndcgAtK": 0.2558
+          },
+          "relevantCount": 7,
+          "hitCountAtK": 2,
+          "firstRelevantRank": 3,
+          "retrievedIdsAtK": [
+            "MED-2346",
+            "MED-2339",
+            "MED-2338",
+            "MED-4742",
+            "MED-2345"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-2338",
+            "MED-4742"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-2346",
+            "MED-2339",
+            "MED-2345"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-2337",
+              "grade": 1
+            },
+            {
+              "id": "MED-2340",
+              "grade": 1
+            },
+            {
+              "id": "MED-2349",
+              "grade": 1
+            },
+            {
+              "id": "MED-2355",
+              "grade": 1
+            },
+            {
+              "id": "MED-4743",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-1867",
+          "query": "pineapples",
+          "behaviorGroup": "partial_recall",
+          "behaviorLabel": "Partial recall",
+          "metrics": {
+            "precisionAtK": 0.5,
+            "recallAtK": 0.1429,
+            "averagePrecision": 0.1429,
+            "reciprocalRank": 1,
+            "ndcgAtK": 0.2749
+          },
+          "relevantCount": 7,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 1,
+          "retrievedIdsAtK": [
+            "MED-3744",
+            "MED-1846"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-3744"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-1846"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-3742",
+              "grade": 1
+            },
+            {
+              "id": "MED-3743",
+              "grade": 1
+            },
+            {
+              "id": "MED-3745",
+              "grade": 1
+            },
+            {
+              "id": "MED-3746",
+              "grade": 1
+            },
+            {
+              "id": "MED-3747",
+              "grade": 1
+            },
+            {
+              "id": "MED-3748",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-2354",
+          "query": "walnut oil",
+          "behaviorGroup": "partial_recall",
+          "behaviorLabel": "Partial recall",
+          "metrics": {
+            "precisionAtK": 0.2,
+            "recallAtK": 0.4,
+            "averagePrecision": 0.1467,
+            "reciprocalRank": 0.3333,
+            "ndcgAtK": 0.3008
+          },
+          "relevantCount": 5,
+          "hitCountAtK": 2,
+          "firstRelevantRank": 3,
+          "retrievedIdsAtK": [
+            "MED-5153",
+            "MED-2378",
+            "MED-2152",
+            "MED-4709",
+            "MED-4303",
+            "MED-4249",
+            "MED-4302",
+            "MED-2379",
+            "MED-1386",
+            "MED-4708"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-2152",
+            "MED-4303"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-5153",
+            "MED-2378",
+            "MED-4709",
+            "MED-4249",
+            "MED-4302",
+            "MED-2379",
+            "MED-1386",
+            "MED-4708"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-2150",
+              "grade": 1
+            },
+            {
+              "id": "MED-2153",
+              "grade": 1
+            },
+            {
+              "id": "MED-4646",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-1645",
+          "query": "molasses",
+          "behaviorGroup": "partial_recall",
+          "behaviorLabel": "Partial recall",
+          "metrics": {
+            "precisionAtK": 1,
+            "recallAtK": 0.1667,
+            "averagePrecision": 0.1667,
+            "reciprocalRank": 1,
+            "ndcgAtK": 0.3026
+          },
+          "relevantCount": 6,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 1,
+          "retrievedIdsAtK": [
+            "MED-5056"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-5056"
+          ],
+          "topNonRelevantIdsAtK": [],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-1491",
+              "grade": 1
+            },
+            {
+              "id": "MED-1492",
+              "grade": 1
+            },
+            {
+              "id": "MED-1493",
+              "grade": 1
+            },
+            {
+              "id": "MED-1494",
+              "grade": 1
+            },
+            {
+              "id": "MED-1495",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-1236",
+          "query": "galactosemia",
+          "behaviorGroup": "partial_recall",
+          "behaviorLabel": "Partial recall",
+          "metrics": {
+            "precisionAtK": 1,
+            "recallAtK": 0.2,
+            "averagePrecision": 0.2,
+            "reciprocalRank": 1,
+            "ndcgAtK": 0.3392
+          },
+          "relevantCount": 5,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 1,
+          "retrievedIdsAtK": [
+            "MED-1341"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-1341"
+          ],
+          "topNonRelevantIdsAtK": [],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-1337",
+              "grade": 1
+            },
+            {
+              "id": "MED-1338",
+              "grade": 1
+            },
+            {
+              "id": "MED-1339",
+              "grade": 1
+            },
+            {
+              "id": "MED-1340",
+              "grade": 1
+            }
+          ]
+        }
+      ],
+      "graded_ranking_loss": [
+        {
+          "queryId": "PLAIN-2009",
+          "query": "rhabdomyolysis",
+          "behaviorGroup": "graded_ranking_loss",
+          "behaviorLabel": "Relevant results found but weak graded ranking",
+          "metrics": {
+            "precisionAtK": 0.2,
+            "recallAtK": 0.125,
+            "averagePrecision": 0.0417,
+            "reciprocalRank": 0.3333,
+            "ndcgAtK": 0.1265
+          },
+          "relevantCount": 8,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 3,
+          "retrievedIdsAtK": [
+            "MED-5173",
+            "MED-3951",
+            "MED-4961",
+            "MED-1733",
+            "MED-4439"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-4961"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-5173",
+            "MED-3951",
+            "MED-1733",
+            "MED-4439"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-4828",
+              "grade": 1
+            },
+            {
+              "id": "MED-4829",
+              "grade": 1
+            },
+            {
+              "id": "MED-4830",
+              "grade": 1
+            },
+            {
+              "id": "MED-4958",
+              "grade": 1
+            },
+            {
+              "id": "MED-4959",
+              "grade": 1
+            },
+            {
+              "id": "MED-4960",
+              "grade": 1
+            },
+            {
+              "id": "MED-5025",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-2030",
+          "query": "Rutin",
+          "behaviorGroup": "graded_ranking_loss",
+          "behaviorLabel": "Relevant results found but weak graded ranking",
+          "metrics": {
+            "precisionAtK": 0.5,
+            "recallAtK": 0.1667,
+            "averagePrecision": 0.0833,
+            "reciprocalRank": 0.5,
+            "ndcgAtK": 0.1909
+          },
+          "relevantCount": 6,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 2,
+          "retrievedIdsAtK": [
+            "MED-2816",
+            "MED-4051"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-4051"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-2816"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-4047",
+              "grade": 1
+            },
+            {
+              "id": "MED-4049",
+              "grade": 1
+            },
+            {
+              "id": "MED-4053",
+              "grade": 1
+            },
+            {
+              "id": "MED-4055",
+              "grade": 1
+            },
+            {
+              "id": "MED-5116",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-987",
+          "query": "cumin",
+          "behaviorGroup": "graded_ranking_loss",
+          "behaviorLabel": "Relevant results found but weak graded ranking",
+          "metrics": {
+            "precisionAtK": 0.3333,
+            "recallAtK": 0.3333,
+            "averagePrecision": 0.1111,
+            "reciprocalRank": 0.3333,
+            "ndcgAtK": 0.2346
+          },
+          "relevantCount": 3,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 3,
+          "retrievedIdsAtK": [
+            "MED-2780",
+            "MED-1293",
+            "MED-2830"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-2830"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-2780",
+            "MED-1293"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-2831",
+              "grade": 1
+            },
+            {
+              "id": "MED-735",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-2220",
+          "query": "tempeh",
+          "behaviorGroup": "graded_ranking_loss",
+          "behaviorLabel": "Relevant results found but weak graded ranking",
+          "metrics": {
+            "precisionAtK": 1,
+            "recallAtK": 0.1111,
+            "averagePrecision": 0.1111,
+            "reciprocalRank": 1,
+            "ndcgAtK": 0.235
+          },
+          "relevantCount": 9,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 1,
+          "retrievedIdsAtK": [
+            "MED-4976"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-4976"
+          ],
+          "topNonRelevantIdsAtK": [],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-4440",
+              "grade": 1
+            },
+            {
+              "id": "MED-4471",
+              "grade": 1
+            },
+            {
+              "id": "MED-4472",
+              "grade": 1
+            },
+            {
+              "id": "MED-4546",
+              "grade": 1
+            },
+            {
+              "id": "MED-4547",
+              "grade": 1
+            },
+            {
+              "id": "MED-4785",
+              "grade": 1
+            },
+            {
+              "id": "MED-5002",
+              "grade": 1
+            },
+            {
+              "id": "MED-5078",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "PLAIN-1762",
+          "query": "oral intraepithelial neoplasia",
+          "behaviorGroup": "graded_ranking_loss",
+          "behaviorLabel": "Relevant results found but weak graded ranking",
+          "metrics": {
+            "precisionAtK": 0.2,
+            "recallAtK": 0.25,
+            "averagePrecision": 0.1042,
+            "reciprocalRank": 0.3333,
+            "ndcgAtK": 0.2354
+          },
+          "relevantCount": 8,
+          "hitCountAtK": 2,
+          "firstRelevantRank": 3,
+          "retrievedIdsAtK": [
+            "MED-865",
+            "MED-759",
+            "MED-3721",
+            "MED-3716",
+            "MED-3103",
+            "MED-3111",
+            "MED-3558",
+            "MED-4512",
+            "MED-4030",
+            "MED-4024"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "MED-3721",
+            "MED-3716"
+          ],
+          "topNonRelevantIdsAtK": [
+            "MED-865",
+            "MED-759",
+            "MED-3103",
+            "MED-3111",
+            "MED-3558",
+            "MED-4512",
+            "MED-4030",
+            "MED-4024"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "MED-3714",
+              "grade": 1
+            },
+            {
+              "id": "MED-3715",
+              "grade": 1
+            },
+            {
+              "id": "MED-3717",
+              "grade": 1
+            },
+            {
+              "id": "MED-3718",
+              "grade": 1
+            },
+            {
+              "id": "MED-3719",
+              "grade": 1
+            },
+            {
+              "id": "MED-3720",
+              "grade": 1
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

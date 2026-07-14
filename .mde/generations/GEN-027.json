@@ -1,0 +1,81 @@
+{
+  "generation_id": "GEN-027",
+  "project_id": "retail-search",
+  "started_at": "2026-07-14",
+  "ended_at": "2026-07-14",
+  "mission_phase": "Phase 2 - Cross-Domain Validation with BEIR (M-0002)",
+  "mission_version": "MISSION-UPDATE-002-2026-07-14",
+  "validation_strategy_version": "VALSTRAT-006",
+  "status": "m_0002_1_complete",
+  "focus": "Record Mission Updates 002 and 003; build the dataset-agnostic loader/evaluator harness; run BM25 baselines on SciFact and NFCorpus against published references; migrate Cranfield onto the shared interface.",
+  "reason_started": "Operator approved Phase 2 via MDE Control Center (stream stream_mrk72yep_804934e1) and delegated Mission Update recording plus M-0002.1 execution.",
+  "reason_ended": "Both delegated tasks completed: mission updates recorded and M-0002.1 baselines reproduce published reference numbers with Cranfield parity proven on the shared harness.",
+  "files_changed_by_category": {
+    "human_artifacts": [
+      "MISSION.md",
+      "MISSION_UPDATES.md"
+    ],
+    "implementation": [
+      "src/datasets/beir.js",
+      "src/datasets/registry.js",
+      "src/datasets/zip.js",
+      "scripts/lib/datasets.mjs",
+      "scripts/fetch-beir-dataset.mjs",
+      "scripts/load-dataset-opensearch.mjs",
+      "scripts/evaluate-dataset.mjs",
+      "package.json",
+      ".gitignore"
+    ],
+    "tests": [
+      "test/beir-datasets.test.js"
+    ],
+    "experiment_artifacts": [
+      "experiments/beir/scifact/evaluation-bm25-gen027.json",
+      "experiments/beir/nfcorpus/evaluation-bm25-gen027.json",
+      "experiments/cranfield-v0/evaluation-shared-harness-baseline-gen027.json",
+      "experiments/cranfield-v0/evaluation-shared-harness-prf-rerank-gen027.json"
+    ],
+    "agent_artifacts": [
+      ".mde/state.json",
+      ".mde/progress.json",
+      ".mde/generation-summary.md",
+      ".mde/validation-runs/VAL-036.json",
+      ".mde/generations/GEN-027.json",
+      ".mde/outbox/events.jsonl",
+      ".mde/control-center-report.jsonl"
+    ]
+  },
+  "validators_executed": [
+    {
+      "validator": "node --test (53 tests incl. 6 new harness tests)",
+      "useful": true
+    },
+    {
+      "validator": "published-reference comparison embedded in evaluate-dataset output",
+      "useful": true,
+      "note": "SciFact +3.9% and NFCorpus +0.7% relative vs published BM25 references; both within sanity range, no harness bug indicated."
+    },
+    {
+      "validator": "Cranfield parity check on shared harness",
+      "useful": true,
+      "note": "Baseline 0.2995 and prf-rerank 0.3260 match Phase 1 values exactly."
+    }
+  ],
+  "findings": [],
+  "validation_gate": {
+    "result": "pass",
+    "pass_count": 2,
+    "run_id": "VAL-036"
+  },
+  "reusable_lessons": [
+    "The original Cranfield source host (ir.dcs.gla.ac.uk) can time out; the GEN-017 retrieval-pool cache doubles as a full query/qrels backup for reconstruction.",
+    "BEIR published BM25 numbers reproduce within a few percent using an english-analyzer index and best_fields multi_match over title/text with tie_breaker 0.5 and pytrec_eval-style linear-gain nDCG."
+  ],
+  "downstream_impacts": [
+    "M-0002.2 can extend baselines to the remaining tiers by adding registry fetch/load/eval runs with no new harness code for single-corpus datasets; CQADupStack needs sub-forum loader support."
+  ],
+  "content_seeds": [],
+  "skill_update_candidates": [],
+  "evidence_quality_notes": "All acceptance evidence is live-OpenSearch over full test query sets with exact parity checks; the only non-live path (Cranfield query reconstruction from the pool cache) is provenance-recorded inside the artifact set.",
+  "loc_note": "Roughly 900 lines added across harness modules, scripts, and tests; net growth is new capability (BEIR support), not duplication - the evaluator supersedes per-dataset copies going forward."
+}

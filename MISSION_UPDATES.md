@@ -221,3 +221,29 @@
 - Part 4 closes Phase 1 explicitly: Cranfield work stops deliberately at state-of-the-art retrieval standards, with the Phase 2 BEIR transferability teaser in place.
 - The final Phase 1 deliverable (article linked to commit and endpoint) is fulfilled; the Validation Gate had already passed twice (VAL-035), so Phase 1 - Cranfield Foundation is complete.
 - Phase 2 - Transferability with BEIR is now the active phase, starting with planning: BEIR-compatible indexing pipeline, BEIR search/explain endpoints, transferability gate, and the refined PRF and remote BGE hybrid candidates as the first techniques to test.
+
+## 2026-07-14 - Mission Update 002: Phase 2 Approved - Cross-Domain Validation with BEIR (M-0002)
+
+- Delivered by operator Ferosh via MDE Control Center (stream stream_mrk72yep_804934e1); the authoritative mission text is the control-center handoff `stream_mrk72yep_804934e1-mission-update-002-retail-search.md`.
+- Resolves both pending Phase 2 approvals:
+  - Dataset scope: ALL public BEIR datasets (~14), tiered execution (Tier 1 full treatment for <=~60K-doc corpora; Tier 2 live BM25 with offline vectors; Tier 3 sequential/offline lexical with vectors via subsampling or published references). Supersedes the SciFact+NFCorpus+FiQA recommendation.
+  - Gate policy: superseded by the "Superset, Not Filter" scope-classification policy - no technique is discarded; BEIR evidence classifies each technique as Universal (>=70% of datasets improved, no >5% relative regression, latency in budget), Domain-conditional (>=2 datasets improved), or Dormant (<2), and everything travels to Phase 3 with its evidence map.
+- Key objectives: dataset-agnostic evaluation harness with Cranfield migrated onto it; BM25 baselines on all public BEIR datasets sanity-checked against published numbers; Technique x Dataset evidence matrix for the full Phase 1 portfolio; runtime query embedding via Cloudflare Workers AI (pending parity validation) to unblock the arch-0.3-bge 501; generalized embedding pipeline; public /api/beir/* endpoints; ARCH-0.5 cross-domain core plus documented portfolio.
+- Infrastructure constraints recorded: single free-tier OpenSearch instance (4 GB RAM / 20 GB storage), sequential index -> evaluate -> cache pools -> drop pattern; corpora above ~500K docs cannot hold live kNN indexes.
+- Mission sequence starts with M-0002.1: dataset-agnostic harness, BM25 baselines on SciFact and NFCorpus verified against published references (SciFact ~0.67, NFCorpus ~0.33 nDCG@10), Cranfield migration.
+
+## 2026-07-14 - Mission Update 003: Article Series Requirement Amended
+
+- Delivered by operator Ferosh via MDE Control Center (stream stream_mrk72yep_804934e1).
+- Articles are authored by Ferosh personally, and only AFTER a phase implementation is complete and validated.
+- Agents and the planner must never initiate or draft article work for this project unless Ferosh explicitly asks; the same applies to posting content anywhere.
+- For delegation purposes this supersedes the article-per-mission mandate in MISSION.md (Article Series Requirement) and the "one article per accepted mission" deliverable in Mission Update 002.
+- The Article Series Requirement section in MISSION.md remains as the content template for articles Ferosh writes; agents' role is limited to keeping the evidence (ledgers, experiment artifacts, traceability) article-ready.
+
+## 2026-07-14 - GEN-027 M-0002.1 Dataset-Agnostic Harness And First BEIR Baselines
+
+- Built the dataset-agnostic evaluation harness: a dataset registry covering Cranfield plus all fourteen public BEIR datasets (with tiers, splits, and published BM25 reference numbers), a BEIR-format parser, a dependency-free zip extractor, and generic fetch/load/evaluate scripts (`npm run fetch:beir`, `npm run load:dataset`, `npm run eval:dataset`).
+- Ran live BM25 baselines on the existing OpenSearch backend and reproduced the published reference numbers: SciFact nDCG@10 0.6906 versus published 0.665 (+3.9% relative) and NFCorpus nDCG@10 0.3273 versus published 0.325 (+0.7% relative). No harness bug indicated; no blocker.
+- Migrated Cranfield onto the shared interface with exact parity: baseline nDCG@10 0.2995 and refined PRF nDCG@10 0.3260 through the shared evaluator match the Phase 1 numbers to four decimals.
+- Validation Gate passed twice (VAL-036, 53 tests). The original Cranfield source host was unreachable; the full query set was reconstructed from the GEN-017 retrieval-pool cache with provenance recorded.
+- Next: M-0002.2 extends BM25 baselines across Tier 1-2 and then Tier 3 sequentially (CQADupStack needs sub-forum loader support).

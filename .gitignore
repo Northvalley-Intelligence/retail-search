@@ -10,3 +10,8 @@ dist/
 
 # Embedding caches too large for GitHub (regenerate with npm scripts)
 experiments/cranfield-v0/embeddings-ollama-llama31-8b-title-abstract-gen019.json
+
+# BEIR corpora are fetched locally and never committed (licenses; size)
+data/beir/
+# Full Cranfield export is regenerated locally (npm run export:cranfield)
+data/cranfield/full/

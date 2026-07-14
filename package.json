@@ -7,6 +7,9 @@
   "scripts": {
     "dev": "node scripts/local-server.mjs",
     "eval:cranfield": "node scripts/evaluate-cranfield.mjs --live",
+    "fetch:beir": "node scripts/fetch-beir-dataset.mjs",
+    "load:dataset": "node scripts/load-dataset-opensearch.mjs",
+    "eval:dataset": "node scripts/evaluate-dataset.mjs",
     "compare:cranfield": "node scripts/compare-cranfield-evaluations.mjs",
     "cache:cranfield": "node scripts/cache-cranfield-retrieval-pools.mjs",
     "embed:cranfield": "node scripts/cache-cranfield-embeddings.mjs",

@@ -215,6 +215,14 @@
 - Validation: no code changes; Validation Gate had already passed twice (VAL-035); all four series articles verified live at https://feroshjacob.github.io/series/self-learning-agent-based-retail-search/ including Part 4 (A-0004), which was previously held for operator edits
 - Result: the final Phase 1 deliverable (article linked to commit and endpoint) is fulfilled; Phase 2 - Transferability with BEIR is now the active phase, starting with planning
 
+## GEN-027 - M-0002.1 Dataset-Agnostic Harness And First BEIR Baselines
+
+- Date: 2026-07-14
+- Status: M-0002.1 complete; Mission Updates 002 and 003 recorded
+- Focus: dataset-agnostic loader/evaluator harness, BM25 baselines on SciFact and NFCorpus against published references, Cranfield migration to the shared interface
+- Validation: Validation Gate passed twice (VAL-036, 53 tests); SciFact nDCG@10 0.6906 vs published 0.665 and NFCorpus 0.3273 vs published 0.325; Cranfield shared-harness parity exact (baseline 0.2995, prf-rerank 0.3260)
+- Result: the harness is trustworthy per the Mission Update 002 sanity policy; every future dataset plugs in through the registry, and Cranfield plus BEIR are uniformly testable for every technique
+
 ## Next Action
 
-Plan Phase 2 BEIR transferability: select BEIR datasets, define the transferability gate, update the validation strategy, then test refined PRF and remote BGE hybrid candidates for transferability. Only enable live BGE milestone results after runtime query-vector generation or bounded known-query embeddings are implemented.
+M-0002.2: extend BM25 baselines across Tier 1-2 (FiQA-2018, ArguAna, SCIDOCS, then TREC-COVID, Touche-2020, CQADupStack, Quora) and Tier 3 sequentially, recording infra limits per dataset. Update the validation strategy to a Phase 2 version (VALSTRAT-007) covering BEIR evaluation. Per Mission Update 003, no article work unless Ferosh explicitly asks.

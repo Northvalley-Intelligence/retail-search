@@ -297,7 +297,7 @@ Agents may:
 * enrich documents offline
 * create evaluation reports
 * update the architecture ledger
-* prepare article artifacts
+* prepare article artifacts only when Ferosh explicitly asks (see Mission Update 003)
 
 Agents may not:
 
@@ -349,6 +349,8 @@ Ask:
 ---
 
 ## Article Series Requirement
+
+> Amended by Mission Update 003 (2026-07-14): articles are authored by Ferosh personally, and only after a phase implementation is complete and validated. Agents and planners must never initiate or draft article work, or post content anywhere, unless Ferosh explicitly asks. This section remains as the content template for those articles; agents keep the evidence ledgers article-ready.
 
 Every article should map to one mission.
 

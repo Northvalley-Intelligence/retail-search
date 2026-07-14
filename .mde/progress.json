@@ -1,7 +1,7 @@
 {
   "project_id": "retail-search",
   "updated_at": "2026-07-14",
-  "current_generation": "GEN-026",
+  "current_generation": "GEN-027",
   "completed": [
     "Captured mission.",
     "Initialized local MDE artifacts.",
@@ -85,14 +85,20 @@
     "Deployed Cloudflare Worker version 3e9597b9-f791-457f-805f-f1dbb8123a3c with public /api/v0.1 and milestone endpoint routes.",
     "Verified public milestone endpoints: ARCH-0.1 and ARCH-0.2-prf return live Cranfield responses, and ARCH-0.3-bge returns the intended 501 runtime limitation.",
     "Published the full SLAB-RS Phase 1 article series (Parts 1-4) at https://feroshjacob.github.io/series/self-learning-agent-based-retail-search/, including A-0003 (Part 3) and A-0004 (Part 4).",
-    "Closed Phase 1 - Cranfield Foundation: Validation Gate passed twice (VAL-035) and the article-series deliverable is fulfilled."
+    "Closed Phase 1 - Cranfield Foundation: Validation Gate passed twice (VAL-035) and the article-series deliverable is fulfilled.",
+    "Recorded Mission Update 002 (Phase 2 approved: Cross-Domain Validation with BEIR, all ~14 public datasets tiered, Superset-Not-Filter scope classification) and Mission Update 003 (articles authored by Ferosh personally after validated implementation; agents never initiate article work).",
+    "Built the dataset-agnostic evaluation harness: registry for Cranfield plus all fourteen public BEIR datasets, BEIR-format parser, dependency-free zip extractor, and generic fetch/load/evaluate scripts.",
+    "Ran live BM25 baselines that reproduce published references: SciFact nDCG@10 0.6906 vs 0.665 and NFCorpus 0.3273 vs 0.325.",
+    "Migrated Cranfield onto the shared harness with exact parity: baseline nDCG@10 0.2995 and refined PRF 0.3260.",
+    "Passed the Validation Gate twice for GEN-027 (VAL-036, 53 tests)."
   ],
   "in_progress": [],
   "next": [
-    "Plan Phase 2 BEIR transferability: dataset selection, transferability gate definition, and validation strategy update.",
-    "Build the BEIR-compatible indexing pipeline and BEIR search/explain endpoints.",
-    "Test refined prf-rerank (ARCH-0.2-candidate) and remote BGE hybrid (ARCH-0.3-candidate) for transferability before any promotion.",
-    "Compare the simpler remote BGE hybrid path against BGE-feature LTR before accepting LTR complexity.",
-    "Add runtime query-vector generation or bounded known-query embeddings before enabling live BGE milestone search results."
+    "M-0002.2: extend BM25 baselines across Tier 1-2, then Tier 3 sequentially; record infra limits per dataset; CQADupStack sub-forum loader.",
+    "Update validation strategy to Phase 2 VALSTRAT-007 covering BEIR evaluation.",
+    "M-0002.3: run the Phase 1 portfolio across tiers into the Technique x Dataset evidence matrix.",
+    "M-0002.4: Workers AI runtime query embedding with parity validation (needs operator approval before any deploy or spend).",
+    "M-0002.5: BEIR failure analysis and new-technique backlog experiments (Doc2Query-- first).",
+    "M-0002.6: scope classification, ARCH-0.5 core plus portfolio, release tag."
   ]
 }
