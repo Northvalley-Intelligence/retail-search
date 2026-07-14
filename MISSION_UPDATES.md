@@ -210,3 +210,14 @@
 - Verified public `/health`, `/api/v0.1/search`, `/api/milestones/arch-0.1/search`, `/api/milestones/arch-0.2-prf/explain`, and `/api/milestones/arch-0.3-bge/search`.
 - Confirmed public `ARCH-0.1` and `ARCH-0.2-prf` milestone endpoints return live Cranfield responses, while public `ARCH-0.3-bge` returns the intended `501 milestone_runtime_not_enabled`.
 - Public/default `/api/search` and `/api/explain` remain unchanged on the accepted `ARCH-0.1` baseline.
+
+## 2026-07-14 - GEN-026 Phase 1 Complete: Article Series Published
+
+- All four SLAB-RS Phase 1 articles are now live at https://feroshjacob.github.io/series/self-learning-agent-based-retail-search/:
+  - Part 1: Why Retail Search Is Harder Than It Looks (2026-07-02)
+  - Part 2: The Baseline Before the Agents (A-0002, 2026-07-06)
+  - Part 3: The Agent Climbs Keyword Search to Its Ceiling (A-0003, 2026-07-10)
+  - Part 4: The Agent Breaks Its Ceiling with Embeddings (A-0004, 2026-07-10)
+- Part 4 closes Phase 1 explicitly: Cranfield work stops deliberately at state-of-the-art retrieval standards, with the Phase 2 BEIR transferability teaser in place.
+- The final Phase 1 deliverable (article linked to commit and endpoint) is fulfilled; the Validation Gate had already passed twice (VAL-035), so Phase 1 - Cranfield Foundation is complete.
+- Phase 2 - Transferability with BEIR is now the active phase, starting with planning: BEIR-compatible indexing pipeline, BEIR search/explain endpoints, transferability gate, and the refined PRF and remote BGE hybrid candidates as the first techniques to test.

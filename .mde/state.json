@@ -1,11 +1,20 @@
 {
   "project_id": "retail-search",
-  "updated_at": "2026-07-09",
-  "current_phase": "Phase 1 - Cranfield Foundation",
-  "active_generation": "GEN-025",
-  "phase_goal": "Build the smallest production-shaped Cranfield/OpenSearch baseline with search, explain, evaluation, and public-readiness evidence.",
-  "mission_status": "phase_1_public_baseline_live",
-  "implementation_status": "milestone_and_versioned_endpoints_deployed_publicly_verified_candidate_bge_runtime_limited",
+  "updated_at": "2026-07-14",
+  "current_phase": "Phase 2 - Transferability with BEIR",
+  "active_generation": "GEN-026",
+  "phase_goal": "Prevent Cranfield-specific overfitting: build a BEIR-compatible indexing pipeline, BEIR search/explain endpoints, an evaluation comparison against Cranfield, and a transferability gate that accepts or rejects Phase 1 candidate techniques.",
+  "completed_phases": [
+    {
+      "phase": "Phase 1 - Cranfield Foundation",
+      "completed_at": "2026-07-14",
+      "closing_generation": "GEN-026",
+      "validation_gate": "passed twice (VAL-035)",
+      "final_deliverable": "SLAB-RS article series published at https://feroshjacob.github.io/series/self-learning-agent-based-retail-search/ (Parts 1-4, A-0002/A-0003/A-0004)"
+    }
+  ],
+  "mission_status": "phase_1_complete_phase_2_planning",
+  "implementation_status": "phase_1_closed_article_series_published_phase_2_beir_not_started",
   "validation_gate": {
     "latest_result": "pass",
     "pass_count": 2,
@@ -15,13 +24,13 @@
   "active_blockers": [],
   "pending_approvals": [],
   "next_recommended_actions": [
-    "Keep ARCH-0.2-candidate refined prf-rerank out of the public default until Phase 2 BEIR transferability evidence exists.",
-    "Keep ARCH-0.3-candidate remote BGE hybrid out of the public default until transferability, latency/cost, and promotion policy are addressed.",
-    "Add runtime query-vector generation or a bounded known-query embedding cache before enabling live BGE milestone search results.",
+    "Before or during Phase 2 planning, refresh the Phase 1 story ledger: update the evolution timeline and .mde/traceability.json article columns (SE-0002 -> A-0003, SE-0003/SE-0004 -> A-0004), mark A-0004 as PUBLISHED with its live URL like A-0003, record published URLs for A-0002/Part 2, and decide whether Part 1 gets a repo artifact ID (A-0001 is unused).",
+    "Run Phase 2 Generation 0-style planning: select BEIR datasets, define the transferability gate, and update the validation strategy for BEIR evaluation; extend the SE/ADL/ARCH ledger convention to BEIR experiments so Phase 2 articles can be told from the ledger.",
+    "Build the BEIR-compatible indexing pipeline and BEIR search/explain endpoints.",
+    "Test ARCH-0.2-candidate refined prf-rerank and ARCH-0.3-candidate remote BGE hybrid for transferability before any public/default promotion.",
     "Compare the simpler remote BGE hybrid path against BGE-feature LTR before accepting LTR complexity.",
-    "Use cached Cranfield retrieval pools for reranker tuning, and refresh remote OpenSearch pools only when the first-stage setup or query set changes.",
-    "Prepare the Phase 1 article linked to the public endpoint and repository commit.",
-    "Start Phase 2 BEIR transferability planning."
+    "Add runtime query-vector generation or a bounded known-query embedding cache before enabling live BGE milestone search results.",
+    "Tag or record the Phase 1 closing repository state so the article series links to a stable commit."
   ],
   "applicable_learning_check": {
     "performed_at": "2026-07-05",

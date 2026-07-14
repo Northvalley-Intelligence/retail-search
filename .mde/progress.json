@@ -1,7 +1,7 @@
 {
   "project_id": "retail-search",
-  "updated_at": "2026-07-09",
-  "current_generation": "GEN-025",
+  "updated_at": "2026-07-14",
+  "current_generation": "GEN-026",
   "completed": [
     "Captured mission.",
     "Initialized local MDE artifacts.",
@@ -83,15 +83,16 @@
     "Added explicit candidate-runtime-limited ARCH-0.3 BGE milestone search and explain endpoints returning 501 until live query-vector generation or bounded known-query embeddings are implemented.",
     "Documented milestone endpoints and added traceability validation for the new endpoint contract.",
     "Deployed Cloudflare Worker version 3e9597b9-f791-457f-805f-f1dbb8123a3c with public /api/v0.1 and milestone endpoint routes.",
-    "Verified public milestone endpoints: ARCH-0.1 and ARCH-0.2-prf return live Cranfield responses, and ARCH-0.3-bge returns the intended 501 runtime limitation."
+    "Verified public milestone endpoints: ARCH-0.1 and ARCH-0.2-prf return live Cranfield responses, and ARCH-0.3-bge returns the intended 501 runtime limitation.",
+    "Published the full SLAB-RS Phase 1 article series (Parts 1-4) at https://feroshjacob.github.io/series/self-learning-agent-based-retail-search/, including A-0003 (Part 3) and A-0004 (Part 4).",
+    "Closed Phase 1 - Cranfield Foundation: Validation Gate passed twice (VAL-035) and the article-series deliverable is fulfilled."
   ],
   "in_progress": [],
   "next": [
-    "Validate transferability before promoting remote BGE hybrid beyond Cranfield.",
-    "Add runtime query-vector generation or bounded known-query embeddings before enabling live BGE milestone search results.",
+    "Plan Phase 2 BEIR transferability: dataset selection, transferability gate definition, and validation strategy update.",
+    "Build the BEIR-compatible indexing pipeline and BEIR search/explain endpoints.",
+    "Test refined prf-rerank (ARCH-0.2-candidate) and remote BGE hybrid (ARCH-0.3-candidate) for transferability before any promotion.",
     "Compare the simpler remote BGE hybrid path against BGE-feature LTR before accepting LTR complexity.",
-    "Commit and push GEN-011 through GEN-021 failure grouping, candidate architecture, paper comparison, fast-loop cache, vector infrastructure, local Ollama evidence, LTR evidence, boosted-tree evidence, and traceability evidence when ready.",
-    "Prepare Phase 1 public article.",
-    "Plan Phase 2 BEIR transferability for the refined prf-rerank candidate."
+    "Add runtime query-vector generation or bounded known-query embeddings before enabling live BGE milestone search results."
   ]
 }

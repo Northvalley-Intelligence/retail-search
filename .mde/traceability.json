@@ -1,6 +1,6 @@
 {
   "project_id": "retail-search",
-  "updated_at": "2026-07-09",
+  "updated_at": "2026-07-14",
   "standard_version": "TRACE-2026-07-06",
   "current_chain": {
     "mission_id": "M-0001",
@@ -22,7 +22,8 @@
     "deployed_worker_version_id": "3e9597b9-f791-457f-805f-f1dbb8123a3c",
     "dataset": "cranfield",
     "benchmark_report": "experiments/cranfield-v0/evaluation-live.json",
-    "article_handoff": ".mde/handoffs/stream_mr88ju6f_8ca1315d_article2_evidence.md"
+    "article_handoff": ".mde/handoffs/stream_mr88ju6f_8ca1315d_article2_evidence.md",
+    "article_series_url": "https://feroshjacob.github.io/series/self-learning-agent-based-retail-search/"
   },
   "experiments": {
     "SE-0001": {
@@ -36,7 +37,7 @@
     },
     "SE-0002": {
       "mission_id": "M-0001",
-      "article_id": "A-0002",
+      "article_id": "A-0003",
       "architecture_version": "ARCH-0.2-candidate",
       "architecture_decision_id": "ADL-0002",
       "git_tag": null,
@@ -52,7 +53,7 @@
     },
     "SE-0003": {
       "mission_id": "M-0001",
-      "article_id": "A-0002",
+      "article_id": "A-0004",
       "architecture_version": "ARCH-0.3-candidate",
       "architecture_decision_id": "ADL-0003",
       "git_tag": null,
@@ -77,7 +78,7 @@
     },
     "SE-0004": {
       "mission_id": "M-0001",
-      "article_id": "A-0002",
+      "article_id": "A-0004",
       "architecture_version": "ARCH-0.4-candidate",
       "architecture_decision_id": "ADL-0004",
       "git_tag": null,

@@ -1,6 +1,6 @@
 # A-0004 — SLAB-RS, Part 4: The Agent Breaks Its Ceiling with Embeddings
 
-Status: draft ready for publishing handoff (target: feroshjacob.github.io, series part 4)
+Status: PUBLISHED 2026-07-10 — https://feroshjacob.github.io/posts/2026/07/10/self-learning-agent-based-retail-search-part-4-when-embeddings-finally-earned-their-place
 Series: SLAB-RS (Self-Learning Agent-Based Retail Search), Phase 1 advances part 2 of 2 (previous: `A-0003`)
 Source handoff: `.mde/handoffs/control-center-stream_mreep6je_ab6e2bd9-phase1-article-source.md`
 

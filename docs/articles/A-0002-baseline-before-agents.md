@@ -2,7 +2,7 @@
 
 ## Status
 
-Evidence handoff complete. Public article artifact is owned by the separate `feroshjacob` publishing flow.
+PUBLISHED 2026-07-06 — https://feroshjacob.github.io/posts/2026/07/06/self-learning-agent-based-retail-search-part-2-the-baseline-before-the-agents (SLAB-RS Part 2). Evidence handoff complete; the public article artifact is owned by the separate `feroshjacob` publishing flow.
 
 ## Source Handoff
 

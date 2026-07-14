@@ -207,6 +207,14 @@
 - Validation: local `npm run validate` passed with 45 tests; Cloudflare deployed Worker version `3e9597b9-f791-457f-805f-f1dbb8123a3c`; public `/health`, `/api/v0.1/search`, `/api/milestones/arch-0.1/search`, `/api/milestones/arch-0.2-prf/explain`, and `/api/milestones/arch-0.3-bge/search` passed verification after propagation
 - Result: milestone comparison URLs are now public; `ARCH-0.3-bge` still honestly returns `501 milestone_runtime_not_enabled` until runtime query-vector generation or bounded known-query embeddings are implemented
 
+## GEN-026 - Phase 1 Closure: Article Series Published
+
+- Date: 2026-07-14
+- Status: Phase 1 - Cranfield Foundation complete
+- Focus: record publication of the full SLAB-RS Phase 1 article series and close the phase
+- Validation: no code changes; Validation Gate had already passed twice (VAL-035); all four series articles verified live at https://feroshjacob.github.io/series/self-learning-agent-based-retail-search/ including Part 4 (A-0004), which was previously held for operator edits
+- Result: the final Phase 1 deliverable (article linked to commit and endpoint) is fulfilled; Phase 2 - Transferability with BEIR is now the active phase, starting with planning
+
 ## Next Action
 
-Validate transferability before promoting remote BGE hybrid beyond Cranfield; only enable live BGE milestone results after runtime query-vector generation or bounded known-query embeddings are implemented.
+Plan Phase 2 BEIR transferability: select BEIR datasets, define the transferability gate, update the validation strategy, then test refined PRF and remote BGE hybrid candidates for transferability. Only enable live BGE milestone results after runtime query-vector generation or bounded known-query embeddings are implemented.
