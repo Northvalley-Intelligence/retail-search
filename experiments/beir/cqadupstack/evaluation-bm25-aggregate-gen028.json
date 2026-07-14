@@ -1,0 +1,82 @@
+{
+  "generatedAt": "2026-07-14T00:00:00.000Z",
+  "dataset": "beir/cqadupstack",
+  "datasetTier": 2,
+  "harness": "dataset-agnostic-v1",
+  "technique": "bm25-multi-match",
+  "aggregate": "mean of twelve sub-forum nDCG@10 values, per published practice",
+  "metrics": {
+    "ndcgAt10Average": 0.3253
+  },
+  "referenceComparison": {
+    "metric": "ndcgAt10Average",
+    "published": 0.299,
+    "measured": 0.3253,
+    "delta": 0.0263,
+    "relativeDelta": 0.088,
+    "source": "BEIR published BM25 baseline (see Mission Update 002 reference table)"
+  },
+  "forums": {
+    "android": {
+      "ndcgAt10": 0.4019,
+      "queryCount": 699,
+      "artifact": "experiments/beir/cqadupstack/android/evaluation-bm25-gen028.json"
+    },
+    "english": {
+      "ndcgAt10": 0.3575,
+      "queryCount": 1570,
+      "artifact": "experiments/beir/cqadupstack/english/evaluation-bm25-gen028.json"
+    },
+    "gaming": {
+      "ndcgAt10": 0.4644,
+      "queryCount": 1595,
+      "artifact": "experiments/beir/cqadupstack/gaming/evaluation-bm25-gen028.json"
+    },
+    "gis": {
+      "ndcgAt10": 0.3109,
+      "queryCount": 885,
+      "artifact": "experiments/beir/cqadupstack/gis/evaluation-bm25-gen028.json"
+    },
+    "mathematica": {
+      "ndcgAt10": 0.2212,
+      "queryCount": 804,
+      "artifact": "experiments/beir/cqadupstack/mathematica/evaluation-bm25-gen028.json"
+    },
+    "physics": {
+      "ndcgAt10": 0.3525,
+      "queryCount": 1039,
+      "artifact": "experiments/beir/cqadupstack/physics/evaluation-bm25-gen028.json"
+    },
+    "programmers": {
+      "ndcgAt10": 0.3161,
+      "queryCount": 876,
+      "artifact": "experiments/beir/cqadupstack/programmers/evaluation-bm25-gen028.json"
+    },
+    "stats": {
+      "ndcgAt10": 0.308,
+      "queryCount": 652,
+      "artifact": "experiments/beir/cqadupstack/stats/evaluation-bm25-gen028.json"
+    },
+    "tex": {
+      "ndcgAt10": 0.2443,
+      "queryCount": 2906,
+      "artifact": "experiments/beir/cqadupstack/tex/evaluation-bm25-gen028.json"
+    },
+    "unix": {
+      "ndcgAt10": 0.3074,
+      "queryCount": 1072,
+      "artifact": "experiments/beir/cqadupstack/unix/evaluation-bm25-gen028.json"
+    },
+    "webmasters": {
+      "ndcgAt10": 0.3279,
+      "queryCount": 506,
+      "artifact": "experiments/beir/cqadupstack/webmasters/evaluation-bm25-gen028.json"
+    },
+    "wordpress": {
+      "ndcgAt10": 0.2919,
+      "queryCount": 541,
+      "artifact": "experiments/beir/cqadupstack/wordpress/evaluation-bm25-gen028.json"
+    }
+  },
+  "totalQueries": 13145
+}

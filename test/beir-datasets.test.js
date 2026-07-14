@@ -127,6 +127,22 @@ test("registry exposes the tiered BEIR scope plus Cranfield", () => {
   assert.throws(() => getDataset("beir/unknown"), /Unknown dataset/u);
 });
 
+test("registry models self-hit exclusion and CQADupStack sub-forums", () => {
+  assert.equal(getDataset("beir/arguana").ignoreIdenticalIds, true);
+  assert.equal(getDataset("beir/quora").ignoreIdenticalIds, true);
+  assert.equal(getDataset("beir/scifact").ignoreIdenticalIds, false);
+
+  const aggregate = getDataset("beir/cqadupstack");
+  assert.equal(aggregate.aggregateOnly, true);
+  assert.equal(aggregate.subDatasets.length, 12);
+
+  const forum = getDataset("beir/cqadupstack/android");
+  assert.equal(forum.fetchVia, "beir/cqadupstack");
+  assert.equal(forum.downloadUrl, null);
+  assert.equal(forum.dataDir, "data/beir/cqadupstack/android");
+  assert.equal(forum.defaultIndex, "beir-cqadupstack-android-v0");
+});
+
 test("extracts deflated zip entries via the central directory", () => {
   const archive = buildZip([
     ["scifact/corpus.jsonl", '{"_id":"d1","title":"T","text":"B"}\n'],

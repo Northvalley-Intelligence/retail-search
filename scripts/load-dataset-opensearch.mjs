@@ -1,7 +1,9 @@
-import { buildBeirBulkPayload, buildBeirIndexBody } from "../src/datasets/beir.js";
+import { createReadStream } from "node:fs";
+import { join } from "node:path";
+import { createInterface } from "node:readline";
+import { buildBeirBulkPayload, buildBeirIndexBody, parseBeirCorpus } from "../src/datasets/beir.js";
 import { getDataset } from "../src/datasets/registry.js";
 import { buildOpenSearchHeaders } from "../src/opensearch.js";
-import { loadBeirCorpusDocuments } from "./lib/datasets.mjs";
 import { mergedEnv } from "./lib/local-env.mjs";
 
 function parseArgs(argv) {
@@ -60,17 +62,50 @@ async function request(env, pathname, init = {}) {
   return { response, payload };
 }
 
-function chunk(values, size) {
-  const chunks = [];
-  for (let index = 0; index < values.length; index += size) {
-    chunks.push(values.slice(index, index + size));
+// Streams the corpus file and bulk-indexes in chunks; Tier 3 corpora hold
+// millions of documents and must never be materialized in memory at once.
+async function streamBulkLoad(env, dataset, index, chunkSize, onProgress) {
+  let pending = [];
+  let indexed = 0;
+  const flush = async () => {
+    if (!pending.length) {
+      return;
+    }
+    const loaded = await request(env, "/_bulk", {
+      method: "POST",
+      body: buildBeirBulkPayload(pending, { index, datasetId: dataset.id })
+    });
+    if (!loaded.response.ok || loaded.payload.errors) {
+      throw new Error(`Bulk load failed: ${loaded.response.status}`);
+    }
+    indexed += pending.length;
+    pending = [];
+    onProgress(indexed);
+  };
+
+  const lines = createInterface({
+    input: createReadStream(join(dataset.dataDir, "corpus.jsonl")),
+    crlfDelay: Infinity
+  });
+  for await (const line of lines) {
+    if (!line) {
+      continue;
+    }
+    pending.push(...parseBeirCorpus(line));
+    if (pending.length >= chunkSize) {
+      await flush();
+    }
   }
-  return chunks;
+  await flush();
+  return indexed;
 }
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const dataset = getDataset(args.dataset);
+  if (dataset.aggregateOnly) {
+    throw new Error(`Dataset ${dataset.id} is an aggregate; load its sub-datasets: ${dataset.subDatasets.join(", ")}`);
+  }
   const env = mergedEnv();
   requireConfig(env);
   const index = args.index || dataset.defaultIndex;
@@ -93,8 +128,6 @@ async function main() {
     return;
   }
 
-  const documents = await loadBeirCorpusDocuments(dataset);
-
   const exists = await fetch(buildUrl(env, `/${encodeURIComponent(index)}`), {
     method: "HEAD",
     headers: buildOpenSearchHeaders(env)
@@ -113,17 +146,13 @@ async function main() {
     throw new Error(`Index existence check failed: ${exists.status}`);
   }
 
-  let indexed = 0;
-  for (const documentsChunk of chunk(documents, args.chunkSize)) {
-    const loaded = await request(env, "/_bulk", {
-      method: "POST",
-      body: buildBeirBulkPayload(documentsChunk, { index, datasetId: dataset.id })
-    });
-    if (!loaded.response.ok || loaded.payload.errors) {
-      throw new Error(`Bulk load failed: ${loaded.response.status}`);
+  let lastLogged = 0;
+  const indexed = await streamBulkLoad(env, dataset, index, args.chunkSize, (count) => {
+    if (count - lastLogged >= 100000) {
+      lastLogged = count;
+      console.error(`indexed ${count} documents into ${index}`);
     }
-    indexed += documentsChunk.length;
-  }
+  });
 
   const refresh = await request(env, `/${encodeURIComponent(index)}/_refresh`, { method: "POST" });
   if (!refresh.response.ok) {
@@ -138,6 +167,9 @@ async function main() {
     throw new Error(`Document count failed: ${counted.response.status}`);
   }
 
+  const stats = await request(env, `/${encodeURIComponent(index)}/_stats/store`, { method: "GET" });
+  const storeBytes = stats.response.ok ? stats.payload?._all?.total?.store?.size_in_bytes ?? null : null;
+
   console.log(
     JSON.stringify(
       {
@@ -146,9 +178,10 @@ async function main() {
         action: "loaded",
         index,
         indexStatus,
-        documents: documents.length,
         indexed,
         liveCount: counted.payload.count,
+        storeBytes,
+        storeMb: storeBytes === null ? null : Math.round((storeBytes / 1048576) * 10) / 10,
         valuesPrinted: false
       },
       null,

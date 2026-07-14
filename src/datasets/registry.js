@@ -11,17 +11,41 @@ function beirDataset(name, options = {}) {
     family: "beir",
     beirName: name,
     tier: options.tier,
-    defaultIndex: `beir-${name}-v0`,
+    defaultIndex: `beir-${name.replace(/\//gu, "-")}-v0`,
     dataDir: `data/beir/${name}`,
-    downloadUrl: `${BEIR_DOWNLOAD_BASE}/${name}.zip`,
+    downloadUrl: options.fetchVia ? null : `${BEIR_DOWNLOAD_BASE}/${name}.zip`,
+    fetchVia: options.fetchVia || null,
+    aggregateOnly: options.aggregateOnly || false,
+    subDatasets: options.subDatasets || null,
     qrelsSplit: options.qrelsSplit || "test",
+    // HEAD-checked archive size (GB) from the BEIR mirror; check before downloading,
+    // and use curl-to-disk plus system unzip for anything near Node's buffer limits.
+    downloadSizeGb: options.downloadSizeGb ?? null,
     relevanceMode: "linear",
+    // BEIR's official evaluation drops results whose document id equals the
+    // query id (matters for ArguAna and Quora, where queries live in the corpus).
+    ignoreIdenticalIds: options.ignoreIdenticalIds || false,
     expectedCounts: options.expectedCounts || null,
     publishedBm25NdcgAt10: options.publishedBm25NdcgAt10 ?? null,
     licenseRestricted: false,
     notes: options.notes || null
   };
 }
+
+export const CQADUPSTACK_FORUMS = [
+  "android",
+  "english",
+  "gaming",
+  "gis",
+  "mathematica",
+  "physics",
+  "programmers",
+  "stats",
+  "tex",
+  "unix",
+  "webmasters",
+  "wordpress"
+];
 
 export const DATASETS = {
   cranfield: {
@@ -54,8 +78,11 @@ export const DATASETS = {
   }),
   "beir/arguana": beirDataset("arguana", {
     tier: 1,
+    ignoreIdenticalIds: true,
     expectedCounts: { documents: 8674, queries: 1406 },
-    publishedBm25NdcgAt10: 0.315
+    publishedBm25NdcgAt10: 0.472,
+    notes:
+      "Reference 0.472 is the Lucene-class BM25 reproduction with self-hits excluded (bm25s, 2024); the BEIR-paper 0.315 kept self-hits (our measured equivalent: 0.3521 via --include-identical-ids, GEN-028). 1298 of 1406 test queries exist as corpus documents."
   }),
   "beir/scidocs": beirDataset("scidocs", {
     tier: 1,
@@ -73,42 +100,63 @@ export const DATASETS = {
     publishedBm25NdcgAt10: 0.367
   }),
   "beir/cqadupstack": beirDataset("cqadupstack", {
+    downloadSizeGb: 4.98,
     tier: 2,
+    aggregateOnly: true,
+    subDatasets: CQADUPSTACK_FORUMS.map((forum) => `beir/cqadupstack/${forum}`),
     expectedCounts: null,
     publishedBm25NdcgAt10: 0.299,
-    notes: "Twelve sub-forums evaluated separately and averaged; loader support lands in M-0002.2."
+    notes: "Aggregate of twelve sub-forums; the published number is the sub-forum average. Fetch this id, then load/evaluate the sub-datasets."
   }),
+  ...Object.fromEntries(
+    CQADUPSTACK_FORUMS.map((forum) => [
+      `beir/cqadupstack/${forum}`,
+      beirDataset(`cqadupstack/${forum}`, {
+        tier: 2,
+        fetchVia: "beir/cqadupstack",
+        publishedBm25NdcgAt10: null,
+        notes: "CQADupStack sub-forum; compare the twelve-forum average against the aggregate reference 0.299."
+      })
+    ])
+  ),
   "beir/quora": beirDataset("quora", {
     tier: 2,
+    ignoreIdenticalIds: true,
     expectedCounts: { documents: 522931, queries: 10000 },
     publishedBm25NdcgAt10: 0.789
   }),
   "beir/nq": beirDataset("nq", {
+    downloadSizeGb: 0.46,
     tier: 3,
     expectedCounts: { documents: 2681468, queries: 3452 },
     publishedBm25NdcgAt10: 0.329
   }),
   "beir/hotpotqa": beirDataset("hotpotqa", {
+    downloadSizeGb: 0.61,
     tier: 3,
     expectedCounts: { documents: 5233329, queries: 7405 },
     publishedBm25NdcgAt10: 0.603
   }),
   "beir/fever": beirDataset("fever", {
+    downloadSizeGb: 1.15,
     tier: 3,
     expectedCounts: { documents: 5416568, queries: 6666 },
     publishedBm25NdcgAt10: 0.753
   }),
   "beir/climate-fever": beirDataset("climate-fever", {
+    downloadSizeGb: 1.14,
     tier: 3,
     expectedCounts: { documents: 5416593, queries: 1535 },
     publishedBm25NdcgAt10: 0.213
   }),
   "beir/dbpedia-entity": beirDataset("dbpedia-entity", {
+    downloadSizeGb: 0.60,
     tier: 3,
     expectedCounts: { documents: 4635922, queries: 400 },
     publishedBm25NdcgAt10: 0.313
   }),
   "beir/msmarco": beirDataset("msmarco", {
+    downloadSizeGb: 1.01,
     tier: 3,
     qrelsSplit: "dev",
     expectedCounts: { documents: 8841823, queries: 6980 },

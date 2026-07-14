@@ -1,0 +1,2618 @@
+{
+  "generatedAt": "2026-07-14T00:00:00.000Z",
+  "dataset": "beir/webis-touche2020",
+  "datasetTier": 2,
+  "harness": "dataset-agnostic-v1",
+  "technique": "bm25-multi-match",
+  "transport": "live-opensearch",
+  "index": "beir-webis-touche2020-v0",
+  "retrieveSize": 10,
+  "metrics": {
+    "map": 0.1388,
+    "ndcgAtK": 0.3472,
+    "precisionAtK": 0.3306,
+    "recallAtK": 0.2122,
+    "mrr": 0.5601
+  },
+  "referenceComparison": {
+    "metric": "ndcgAt10",
+    "published": 0.367,
+    "measured": 0.3472,
+    "delta": -0.0198,
+    "relativeDelta": -0.054,
+    "source": "BEIR published BM25 baseline (see Mission Update 002 reference table)"
+  },
+  "evaluation": {
+    "k": 10,
+    "relevanceMode": "linear",
+    "queryCount": 49,
+    "aggregate": {
+      "precisionAtK": 0.3306,
+      "recallAtK": 0.2122,
+      "averagePrecision": 0.1388,
+      "reciprocalRank": 0.5601,
+      "ndcgAtK": 0.3472
+    },
+    "perQuery": [
+      {
+        "queryId": "1",
+        "query": "Should teachers get tenure?",
+        "metrics": {
+          "precisionAtK": 0.6,
+          "recallAtK": 0.5455,
+          "averagePrecision": 0.5455,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.8421
+        }
+      },
+      {
+        "queryId": "2",
+        "query": "Is vaping with e-cigarettes safe?",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.3333,
+          "averagePrecision": 0.2958,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.5985
+        }
+      },
+      {
+        "queryId": "3",
+        "query": "Should insider trading be allowed?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "4",
+        "query": "Should corporal punishment be used in schools?",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.25,
+          "averagePrecision": 0.1422,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.5135
+        }
+      },
+      {
+        "queryId": "5",
+        "query": "Should social security be privatized?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "6",
+        "query": "Is a college education worth it?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.1538,
+          "averagePrecision": 0.0577,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.1041
+        }
+      },
+      {
+        "queryId": "7",
+        "query": "Should felons who have completed their sentence be allowed to vote?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.087,
+          "averagePrecision": 0.0254,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.1795
+        }
+      },
+      {
+        "queryId": "8",
+        "query": "Should abortion be legal?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "9",
+        "query": "Should students have to wear school uniforms?",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.0938,
+          "averagePrecision": 0.0333,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.2614
+        }
+      },
+      {
+        "queryId": "10",
+        "query": "Should any vaccines be required for children?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0385,
+          "averagePrecision": 0.0048,
+          "reciprocalRank": 0.125,
+          "ndcgAtK": 0.0694
+        }
+      },
+      {
+        "queryId": "11",
+        "query": "Should performance-enhancing drugs be accepted in sports?",
+        "metrics": {
+          "precisionAtK": 0.6,
+          "recallAtK": 0.2727,
+          "averagePrecision": 0.2382,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6906
+        }
+      },
+      {
+        "queryId": "12",
+        "query": "Should birth control pills be available over the counter?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.0769,
+          "averagePrecision": 0.0385,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.0771
+        }
+      },
+      {
+        "queryId": "13",
+        "query": "Can alternative energy effectively replace fossil fuels?",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.2222,
+          "averagePrecision": 0.1386,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.4671
+        }
+      },
+      {
+        "queryId": "14",
+        "query": "Is sexual orientation determined at birth?",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.2105,
+          "averagePrecision": 0.155,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.408
+        }
+      },
+      {
+        "queryId": "15",
+        "query": "Should animals be used for scientific or commercial testing?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.0741,
+          "averagePrecision": 0.0309,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.2048
+        }
+      },
+      {
+        "queryId": "16",
+        "query": "Should prescription drugs be advertised directly to consumers?",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.3571,
+          "averagePrecision": 0.1504,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.4401
+        }
+      },
+      {
+        "queryId": "17",
+        "query": "Should recreational marijuana be legal?",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.1154,
+          "averagePrecision": 0.0249,
+          "reciprocalRank": 0.125,
+          "ndcgAtK": 0.1993
+        }
+      },
+      {
+        "queryId": "18",
+        "query": "Should churches remain tax-exempt?",
+        "metrics": {
+          "precisionAtK": 0.6,
+          "recallAtK": 0.375,
+          "averagePrecision": 0.2436,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.4858
+        }
+      },
+      {
+        "queryId": "19",
+        "query": "Should gay marriage be legal?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "20",
+        "query": "Is drinking milk healthy for humans?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.1176,
+          "averagePrecision": 0.0425,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.1059
+        }
+      },
+      {
+        "queryId": "21",
+        "query": "Is human activity primarily responsible for global climate change?",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.2174,
+          "averagePrecision": 0.1324,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.4068
+        }
+      },
+      {
+        "queryId": "22",
+        "query": "Is a two-state solution an acceptable solution to the Israeli-Palestinian conflict?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.1333,
+          "averagePrecision": 0.0262,
+          "reciprocalRank": 0.1429,
+          "ndcgAtK": 0.1428
+        }
+      },
+      {
+        "queryId": "23",
+        "query": "Should euthanasia or physician-assisted suicide be legal?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.0741,
+          "averagePrecision": 0.0148,
+          "reciprocalRank": 0.2,
+          "ndcgAtK": 0.1488
+        }
+      },
+      {
+        "queryId": "24",
+        "query": "Does lowering the federal corporate income tax rate create jobs?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.1176,
+          "averagePrecision": 0.0756,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.1569
+        }
+      },
+      {
+        "queryId": "26",
+        "query": "Do standardized tests improve education?",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.1304,
+          "averagePrecision": 0.0638,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.3125
+        }
+      },
+      {
+        "queryId": "27",
+        "query": "Should more gun control laws be enacted?",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.1538,
+          "averagePrecision": 0.0833,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.3967
+        }
+      },
+      {
+        "queryId": "28",
+        "query": "Should prostitution be legal?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.0833,
+          "averagePrecision": 0.0162,
+          "reciprocalRank": 0.1667,
+          "ndcgAtK": 0.1447
+        }
+      },
+      {
+        "queryId": "29",
+        "query": "Should the government allow illegal immigrants to become citizens?",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.1429,
+          "averagePrecision": 0.0777,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.4383
+        }
+      },
+      {
+        "queryId": "30",
+        "query": "Should adults have the right to carry a concealed handgun?",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.2105,
+          "averagePrecision": 0.1868,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.5389
+        }
+      },
+      {
+        "queryId": "31",
+        "query": "Is obesity a disease?",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.25,
+          "averagePrecision": 0.1563,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.5358
+        }
+      },
+      {
+        "queryId": "32",
+        "query": "Do electronic voting machines improve the voting process?",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.5714,
+          "averagePrecision": 0.4167,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6551
+        }
+      },
+      {
+        "queryId": "33",
+        "query": "Should people become vegetarian?",
+        "metrics": {
+          "precisionAtK": 0.7,
+          "recallAtK": 0.25,
+          "averagePrecision": 0.1808,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.71
+        }
+      },
+      {
+        "queryId": "34",
+        "query": "Are social networking sites good for our society?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.087,
+          "averagePrecision": 0.0196,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.1584
+        }
+      },
+      {
+        "queryId": "35",
+        "query": "Do violent video games contribute to youth violence?",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.1667,
+          "averagePrecision": 0.1132,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.3389
+        }
+      },
+      {
+        "queryId": "36",
+        "query": "Is golf a sport?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.0952,
+          "averagePrecision": 0.0595,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.2895
+        }
+      },
+      {
+        "queryId": "37",
+        "query": "Is cell phone radiation safe?",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.4286,
+          "averagePrecision": 0.2143,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.462
+        }
+      },
+      {
+        "queryId": "38",
+        "query": "Should marijuana be a medical option?",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.1923,
+          "averagePrecision": 0.1813,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6372
+        }
+      },
+      {
+        "queryId": "39",
+        "query": "Should the federal minimum wage be increased?",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.2353,
+          "averagePrecision": 0.0857,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.3128
+        }
+      },
+      {
+        "queryId": "40",
+        "query": "Should the death penalty be allowed?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "41",
+        "query": "Should student loan debt be easier to discharge in bankruptcy?",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.5556,
+          "averagePrecision": 0.2889,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.4613
+        }
+      },
+      {
+        "queryId": "42",
+        "query": "Should fighting be allowed in hockey?",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.8333,
+          "averagePrecision": 0.7593,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.7826
+        }
+      },
+      {
+        "queryId": "43",
+        "query": "Should bottled water be banned?",
+        "metrics": {
+          "precisionAtK": 0.8,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.7677
+        }
+      },
+      {
+        "queryId": "44",
+        "query": "Should election day be a national holiday?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.1667,
+          "averagePrecision": 0.0333,
+          "reciprocalRank": 0.2,
+          "ndcgAtK": 0.1568
+        }
+      },
+      {
+        "queryId": "45",
+        "query": "Should the penny stay in circulation?",
+        "metrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.3333,
+          "averagePrecision": 0.2389,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.5669
+        }
+      },
+      {
+        "queryId": "46",
+        "query": "Should net neutrality be restored?",
+        "metrics": {
+          "precisionAtK": 0.3,
+          "recallAtK": 0.1579,
+          "averagePrecision": 0.038,
+          "reciprocalRank": 0.2,
+          "ndcgAtK": 0.215
+        }
+      },
+      {
+        "queryId": "47",
+        "query": "Is homework beneficial?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.0769,
+          "averagePrecision": 0.0173,
+          "reciprocalRank": 0.2,
+          "ndcgAtK": 0.1546
+        }
+      },
+      {
+        "queryId": "48",
+        "query": "Should the voting age be lowered?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.1333,
+          "averagePrecision": 0.0389,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.1732
+        }
+      },
+      {
+        "queryId": "49",
+        "query": "Should body cameras be mandatory for police?",
+        "metrics": {
+          "precisionAtK": 0.6,
+          "recallAtK": 0.3158,
+          "averagePrecision": 0.2947,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.7126
+        }
+      },
+      {
+        "queryId": "50",
+        "query": "Should everyone get a universal basic income?",
+        "metrics": {
+          "precisionAtK": 0.6,
+          "recallAtK": 0.4615,
+          "averagePrecision": 0.3192,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.5896
+        }
+      }
+    ]
+  },
+  "failureAnalysis": {
+    "k": 10,
+    "groupCount": 5,
+    "groups": [
+      {
+        "id": "broad_need_low_recall",
+        "label": "Broad information need with low recall",
+        "description": "The query has many relevant judgments, but the top K captures only a small fraction.",
+        "queryCount": 24,
+        "averageMetrics": {
+          "precisionAtK": 0.375,
+          "recallAtK": 0.1862,
+          "averagePrecision": 0.1268,
+          "reciprocalRank": 0.7917,
+          "ndcgAtK": 0.4021
+        },
+        "averageRelevantCount": 20.875,
+        "averageRelevantHitsAtK": 3.75
+      },
+      {
+        "id": "late_first_relevant",
+        "label": "Relevant result ranked too late",
+        "description": "A relevant document appears in the top K, but below the first three positions.",
+        "queryCount": 11,
+        "averageMetrics": {
+          "precisionAtK": 0.2182,
+          "recallAtK": 0.1183,
+          "averagePrecision": 0.0291,
+          "reciprocalRank": 0.1918,
+          "ndcgAtK": 0.1705
+        },
+        "averageRelevantCount": 20.3636,
+        "averageRelevantHitsAtK": 2.1818
+      },
+      {
+        "id": "passing_or_minor",
+        "label": "Passing or minor issue",
+        "description": "The top K behavior is not currently classified as a meaningful failure.",
+        "queryCount": 5,
+        "averageMetrics": {
+          "precisionAtK": 0.56,
+          "recallAtK": 0.6012,
+          "averagePrecision": 0.5021,
+          "reciprocalRank": 0.8667,
+          "ndcgAtK": 0.7018
+        },
+        "averageRelevantCount": 9.8,
+        "averageRelevantHitsAtK": 5.6
+      },
+      {
+        "id": "zero_relevant_at_k",
+        "label": "No relevant result in top K",
+        "description": "The query retrieved results, but none of the top K results are judged relevant.",
+        "queryCount": 5,
+        "averageMetrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        },
+        "averageRelevantCount": 21.6,
+        "averageRelevantHitsAtK": 0
+      },
+      {
+        "id": "partial_recall",
+        "label": "Partial recall",
+        "description": "The query has relevant hits, but leaves most judged relevant documents outside top K.",
+        "queryCount": 4,
+        "averageMetrics": {
+          "precisionAtK": 0.5,
+          "recallAtK": 0.4055,
+          "averagePrecision": 0.2319,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.4944
+        },
+        "averageRelevantCount": 12.5,
+        "averageRelevantHitsAtK": 5
+      }
+    ],
+    "examplesByGroup": {
+      "passing_or_minor": [
+        {
+          "queryId": "41",
+          "query": "Should student loan debt be easier to discharge in bankruptcy?",
+          "behaviorGroup": "passing_or_minor",
+          "behaviorLabel": "Passing or minor issue",
+          "metrics": {
+            "precisionAtK": 0.5,
+            "recallAtK": 0.5556,
+            "averagePrecision": 0.2889,
+            "reciprocalRank": 0.3333,
+            "ndcgAtK": 0.4613
+          },
+          "relevantCount": 9,
+          "hitCountAtK": 5,
+          "firstRelevantRank": 3,
+          "retrievedIdsAtK": [
+            "a2310a08-2019-04-18T15:11:53Z-00005-000",
+            "574204c1-2019-04-18T16:10:11Z-00002-000",
+            "574204a2-2019-04-18T16:11:24Z-00002-000",
+            "574204c1-2019-04-18T16:10:11Z-00003-000",
+            "5d69331e-2019-04-18T19:00:35Z-00001-000",
+            "5279eb1d-2019-04-18T17:25:55Z-00002-000",
+            "5d69331e-2019-04-18T19:00:35Z-00000-000",
+            "5d69331e-2019-04-18T19:00:35Z-00002-000",
+            "574204c1-2019-04-18T16:10:11Z-00001-000",
+            "bafdb0f3-2019-04-18T16:28:51Z-00003-000"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "574204a2-2019-04-18T16:11:24Z-00002-000",
+            "574204c1-2019-04-18T16:10:11Z-00003-000",
+            "5d69331e-2019-04-18T19:00:35Z-00001-000",
+            "5279eb1d-2019-04-18T17:25:55Z-00002-000",
+            "bafdb0f3-2019-04-18T16:28:51Z-00003-000"
+          ],
+          "topNonRelevantIdsAtK": [
+            "a2310a08-2019-04-18T15:11:53Z-00005-000",
+            "574204c1-2019-04-18T16:10:11Z-00002-000",
+            "5d69331e-2019-04-18T19:00:35Z-00000-000",
+            "5d69331e-2019-04-18T19:00:35Z-00002-000",
+            "574204c1-2019-04-18T16:10:11Z-00001-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "a2310a08-2019-04-18T15:11:53Z-00003-000",
+              "grade": 1
+            },
+            {
+              "id": "b78f8bbc-2019-04-18T13:17:13Z-00001-000",
+              "grade": 1
+            },
+            {
+              "id": "d8daa153-2019-04-18T15:42:57Z-00001-000",
+              "grade": 1
+            },
+            {
+              "id": "e6ffa8fb-2019-04-19T12:45:14Z-00025-000",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "32",
+          "query": "Do electronic voting machines improve the voting process?",
+          "behaviorGroup": "passing_or_minor",
+          "behaviorLabel": "Passing or minor issue",
+          "metrics": {
+            "precisionAtK": 0.4,
+            "recallAtK": 0.5714,
+            "averagePrecision": 0.4167,
+            "reciprocalRank": 1,
+            "ndcgAtK": 0.6551
+          },
+          "relevantCount": 7,
+          "hitCountAtK": 4,
+          "firstRelevantRank": 1,
+          "retrievedIdsAtK": [
+            "2c05e9fb-2019-04-15T20:23:05Z-00016-000",
+            "f2c72c91-2019-04-18T19:54:40Z-00000-000",
+            "2c05e9fb-2019-04-15T20:23:05Z-00017-000",
+            "2c05e9fb-2019-04-15T20:23:05Z-00020-000",
+            "2c05e9fb-2019-04-15T20:23:05Z-00019-000",
+            "e109226c-2019-04-18T13:02:48Z-00000-000",
+            "2c05e9fb-2019-04-15T20:23:05Z-00011-000",
+            "2c05e9fb-2019-04-15T20:23:05Z-00014-000",
+            "c301704b-2019-04-18T20:03:50Z-00002-000",
+            "2c05e9fb-2019-04-15T20:23:05Z-00023-000"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "2c05e9fb-2019-04-15T20:23:05Z-00016-000",
+            "2c05e9fb-2019-04-15T20:23:05Z-00017-000",
+            "2c05e9fb-2019-04-15T20:23:05Z-00020-000",
+            "2c05e9fb-2019-04-15T20:23:05Z-00014-000"
+          ],
+          "topNonRelevantIdsAtK": [
+            "f2c72c91-2019-04-18T19:54:40Z-00000-000",
+            "2c05e9fb-2019-04-15T20:23:05Z-00019-000",
+            "e109226c-2019-04-18T13:02:48Z-00000-000",
+            "2c05e9fb-2019-04-15T20:23:05Z-00011-000",
+            "c301704b-2019-04-18T20:03:50Z-00002-000",
+            "2c05e9fb-2019-04-15T20:23:05Z-00023-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "45121256-2019-04-18T18:50:06Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "2c05e9fb-2019-04-15T20:23:05Z-00004-000",
+              "grade": 1
+            },
+            {
+              "id": "2c05e9fb-2019-04-15T20:23:05Z-00009-000",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "43",
+          "query": "Should bottled water be banned?",
+          "behaviorGroup": "passing_or_minor",
+          "behaviorLabel": "Passing or minor issue",
+          "metrics": {
+            "precisionAtK": 0.8,
+            "recallAtK": 0.5,
+            "averagePrecision": 0.5,
+            "reciprocalRank": 1,
+            "ndcgAtK": 0.7677
+          },
+          "relevantCount": 16,
+          "hitCountAtK": 8,
+          "firstRelevantRank": 1,
+          "retrievedIdsAtK": [
+            "824ed8eb-2019-04-18T18:32:31Z-00006-000",
+            "824ed986-2019-04-18T11:15:23Z-00001-000",
+            "824ed8eb-2019-04-18T18:32:31Z-00000-000",
+            "824ed8eb-2019-04-18T18:32:31Z-00005-000",
+            "824ed986-2019-04-18T11:15:23Z-00003-000",
+            "824ed8eb-2019-04-18T18:32:31Z-00002-000",
+            "824ed8eb-2019-04-18T18:32:31Z-00004-000",
+            "824ed8eb-2019-04-18T18:32:31Z-00007-000",
+            "824ed8eb-2019-04-18T18:32:31Z-00009-000",
+            "824ed8eb-2019-04-18T18:32:31Z-00008-000"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "824ed8eb-2019-04-18T18:32:31Z-00006-000",
+            "824ed986-2019-04-18T11:15:23Z-00001-000",
+            "824ed8eb-2019-04-18T18:32:31Z-00000-000",
+            "824ed8eb-2019-04-18T18:32:31Z-00005-000",
+            "824ed986-2019-04-18T11:15:23Z-00003-000",
+            "824ed8eb-2019-04-18T18:32:31Z-00002-000",
+            "824ed8eb-2019-04-18T18:32:31Z-00004-000",
+            "824ed8eb-2019-04-18T18:32:31Z-00007-000"
+          ],
+          "topNonRelevantIdsAtK": [
+            "824ed8eb-2019-04-18T18:32:31Z-00009-000",
+            "824ed8eb-2019-04-18T18:32:31Z-00008-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "39e75959-2019-04-19T12:45:40Z-00006-000",
+              "grade": 2
+            },
+            {
+              "id": "39e75959-2019-04-19T12:45:40Z-00024-000",
+              "grade": 2
+            },
+            {
+              "id": "824ed8eb-2019-04-18T18:32:31Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "aec074d3-2019-04-18T15:35:44Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "b0a7bcdb-2019-04-18T18:05:08Z-00006-000",
+              "grade": 2
+            },
+            {
+              "id": "6e2bff99-2019-04-19T12:47:58Z-00002-000",
+              "grade": 1
+            },
+            {
+              "id": "aec074d3-2019-04-18T15:35:44Z-00004-000",
+              "grade": 1
+            },
+            {
+              "id": "c8469c0c-2019-04-18T18:28:13Z-00006-000",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "42",
+          "query": "Should fighting be allowed in hockey?",
+          "behaviorGroup": "passing_or_minor",
+          "behaviorLabel": "Passing or minor issue",
+          "metrics": {
+            "precisionAtK": 0.5,
+            "recallAtK": 0.8333,
+            "averagePrecision": 0.7593,
+            "reciprocalRank": 1,
+            "ndcgAtK": 0.7826
+          },
+          "relevantCount": 6,
+          "hitCountAtK": 5,
+          "firstRelevantRank": 1,
+          "retrievedIdsAtK": [
+            "7282d1c1-2019-04-18T11:33:12Z-00004-000",
+            "7282d1c1-2019-04-18T11:33:12Z-00005-000",
+            "7282d1c1-2019-04-18T11:33:12Z-00003-000",
+            "7282d1c1-2019-04-18T11:33:12Z-00000-000",
+            "7282d1c1-2019-04-18T11:33:12Z-00001-000",
+            "7282d1c1-2019-04-18T11:33:12Z-00002-000",
+            "d4da401a-2019-04-18T16:24:29Z-00006-000",
+            "27512099-2019-04-18T18:41:40Z-00001-000",
+            "27512099-2019-04-18T18:41:40Z-00003-000",
+            "cf884bca-2019-04-18T15:29:03Z-00004-000"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "7282d1c1-2019-04-18T11:33:12Z-00004-000",
+            "7282d1c1-2019-04-18T11:33:12Z-00005-000",
+            "7282d1c1-2019-04-18T11:33:12Z-00003-000",
+            "7282d1c1-2019-04-18T11:33:12Z-00000-000",
+            "27512099-2019-04-18T18:41:40Z-00003-000"
+          ],
+          "topNonRelevantIdsAtK": [
+            "7282d1c1-2019-04-18T11:33:12Z-00001-000",
+            "7282d1c1-2019-04-18T11:33:12Z-00002-000",
+            "d4da401a-2019-04-18T16:24:29Z-00006-000",
+            "27512099-2019-04-18T18:41:40Z-00001-000",
+            "cf884bca-2019-04-18T15:29:03Z-00004-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "27512099-2019-04-18T18:41:40Z-00002-000",
+              "grade": 2
+            }
+          ]
+        },
+        {
+          "queryId": "1",
+          "query": "Should teachers get tenure?",
+          "behaviorGroup": "passing_or_minor",
+          "behaviorLabel": "Passing or minor issue",
+          "metrics": {
+            "precisionAtK": 0.6,
+            "recallAtK": 0.5455,
+            "averagePrecision": 0.5455,
+            "reciprocalRank": 1,
+            "ndcgAtK": 0.8421
+          },
+          "relevantCount": 11,
+          "hitCountAtK": 6,
+          "firstRelevantRank": 1,
+          "retrievedIdsAtK": [
+            "c065954f-2019-04-18T14:32:52Z-00003-000",
+            "c065954f-2019-04-18T14:32:52Z-00001-000",
+            "b0680508-2019-04-18T13:48:51Z-00002-000",
+            "c065954f-2019-04-18T14:32:52Z-00002-000",
+            "c065954f-2019-04-18T14:32:52Z-00000-000",
+            "ff0947ec-2019-04-18T12:23:12Z-00000-000",
+            "c065954f-2019-04-18T14:32:52Z-00005-000",
+            "51530f3f-2019-04-18T18:15:02Z-00004-000",
+            "51530f3f-2019-04-18T18:15:02Z-00000-000",
+            "51530f3f-2019-04-18T18:15:02Z-00003-000"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "c065954f-2019-04-18T14:32:52Z-00003-000",
+            "c065954f-2019-04-18T14:32:52Z-00001-000",
+            "b0680508-2019-04-18T13:48:51Z-00002-000",
+            "c065954f-2019-04-18T14:32:52Z-00002-000",
+            "c065954f-2019-04-18T14:32:52Z-00000-000",
+            "ff0947ec-2019-04-18T12:23:12Z-00000-000"
+          ],
+          "topNonRelevantIdsAtK": [
+            "c065954f-2019-04-18T14:32:52Z-00005-000",
+            "51530f3f-2019-04-18T18:15:02Z-00004-000",
+            "51530f3f-2019-04-18T18:15:02Z-00000-000",
+            "51530f3f-2019-04-18T18:15:02Z-00003-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "1b03f390-2019-04-18T18:42:36Z-00003-000",
+              "grade": 1
+            },
+            {
+              "id": "1b03f390-2019-04-18T18:42:36Z-00007-000",
+              "grade": 1
+            },
+            {
+              "id": "30dbd85-2019-04-18T17:13:37Z-00004-000",
+              "grade": 1
+            },
+            {
+              "id": "4fb4627-2019-04-18T18:47:37Z-00003-000",
+              "grade": 1
+            },
+            {
+              "id": "e3f07189-2019-04-18T17:54:23Z-00006-000",
+              "grade": 1
+            }
+          ]
+        }
+      ],
+      "broad_need_low_recall": [
+        {
+          "queryId": "12",
+          "query": "Should birth control pills be available over the counter?",
+          "behaviorGroup": "broad_need_low_recall",
+          "behaviorLabel": "Broad information need with low recall",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.0769,
+            "averagePrecision": 0.0385,
+            "reciprocalRank": 0.5,
+            "ndcgAtK": 0.0771
+          },
+          "relevantCount": 13,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 2,
+          "retrievedIdsAtK": [
+            "3d9819c3-2019-04-18T18:25:50Z-00002-000",
+            "8e214b94-2019-04-18T12:19:56Z-00001-000",
+            "8d834d48-2019-04-18T20:01:52Z-00000-000",
+            "8d834d48-2019-04-18T20:01:52Z-00002-000",
+            "10c1d5c6-2019-04-18T16:38:18Z-00003-000",
+            "3d1a752c-2019-04-18T17:01:05Z-00003-000",
+            "3d1a752c-2019-04-18T17:01:05Z-00000-000",
+            "2218331a-2019-04-18T17:10:01Z-00001-000",
+            "88b831f5-2019-04-18T18:25:06Z-00001-000",
+            "606a81ac-2019-04-18T16:27:00Z-00004-000"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "8e214b94-2019-04-18T12:19:56Z-00001-000"
+          ],
+          "topNonRelevantIdsAtK": [
+            "3d9819c3-2019-04-18T18:25:50Z-00002-000",
+            "8d834d48-2019-04-18T20:01:52Z-00000-000",
+            "8d834d48-2019-04-18T20:01:52Z-00002-000",
+            "10c1d5c6-2019-04-18T16:38:18Z-00003-000",
+            "3d1a752c-2019-04-18T17:01:05Z-00003-000",
+            "3d1a752c-2019-04-18T17:01:05Z-00000-000",
+            "2218331a-2019-04-18T17:10:01Z-00001-000",
+            "88b831f5-2019-04-18T18:25:06Z-00001-000",
+            "606a81ac-2019-04-18T16:27:00Z-00004-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "284f3543-2019-04-18T12:51:10Z-00001-000",
+              "grade": 2
+            },
+            {
+              "id": "3d1a752c-2019-04-18T17:01:05Z-00006-000",
+              "grade": 2
+            },
+            {
+              "id": "3d1a752c-2019-04-18T17:01:05Z-00007-000",
+              "grade": 2
+            },
+            {
+              "id": "3d1a752c-2019-04-18T17:01:05Z-00009-000",
+              "grade": 2
+            },
+            {
+              "id": "b1869884-2019-04-18T13:49:38Z-00001-000",
+              "grade": 2
+            },
+            {
+              "id": "c64898ed-2019-04-18T18:17:24Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "e1347bd3-2019-04-19T12:47:56Z-00009-000",
+              "grade": 2
+            },
+            {
+              "id": "7c48bf09-2019-04-18T16:59:10Z-00001-000",
+              "grade": 1
+            },
+            {
+              "id": "7d6799b0-2019-04-18T17:09:31Z-00005-000",
+              "grade": 1
+            },
+            {
+              "id": "8d834d48-2019-04-18T20:01:52Z-00004-000",
+              "grade": 1
+            },
+            {
+              "id": "dd985bd6-2019-04-18T17:07:09Z-00005-000",
+              "grade": 1
+            },
+            {
+              "id": "f27da082-2019-04-15T20:22:16Z-00016-000",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "6",
+          "query": "Is a college education worth it?",
+          "behaviorGroup": "broad_need_low_recall",
+          "behaviorLabel": "Broad information need with low recall",
+          "metrics": {
+            "precisionAtK": 0.2,
+            "recallAtK": 0.1538,
+            "averagePrecision": 0.0577,
+            "reciprocalRank": 0.5,
+            "ndcgAtK": 0.1041
+          },
+          "relevantCount": 13,
+          "hitCountAtK": 2,
+          "firstRelevantRank": 2,
+          "retrievedIdsAtK": [
+            "561c5e25-2019-04-18T15:50:58Z-00004-000",
+            "472d8abe-2019-04-18T12:17:23Z-00005-000",
+            "472d8abe-2019-04-18T12:17:23Z-00003-000",
+            "472d8abe-2019-04-18T12:17:23Z-00002-000",
+            "472d8abe-2019-04-18T12:17:23Z-00001-000",
+            "472d8abe-2019-04-18T12:17:23Z-00004-000",
+            "472d8abe-2019-04-18T12:17:23Z-00000-000",
+            "76c7c4bc-2019-04-18T13:04:33Z-00003-000",
+            "561c5e25-2019-04-18T15:50:58Z-00003-000",
+            "561c5e25-2019-04-18T15:50:58Z-00002-000"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "472d8abe-2019-04-18T12:17:23Z-00005-000",
+            "76c7c4bc-2019-04-18T13:04:33Z-00003-000"
+          ],
+          "topNonRelevantIdsAtK": [
+            "561c5e25-2019-04-18T15:50:58Z-00004-000",
+            "472d8abe-2019-04-18T12:17:23Z-00003-000",
+            "472d8abe-2019-04-18T12:17:23Z-00002-000",
+            "472d8abe-2019-04-18T12:17:23Z-00001-000",
+            "472d8abe-2019-04-18T12:17:23Z-00004-000",
+            "472d8abe-2019-04-18T12:17:23Z-00000-000",
+            "561c5e25-2019-04-18T15:50:58Z-00003-000",
+            "561c5e25-2019-04-18T15:50:58Z-00002-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "2ea519c-2019-04-18T15:42:30Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "9221b9ae-2019-04-18T16:38:23Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "c195ff79-2019-04-18T13:35:02Z-00000-000",
+              "grade": 2
+            },
+            {
+              "id": "c195ff79-2019-04-18T13:35:02Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "e4a40999-2019-04-18T18:11:30Z-00007-000",
+              "grade": 2
+            },
+            {
+              "id": "f3328136-2019-04-18T19:46:38Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "f76890a8-2019-04-18T12:32:48Z-00001-000",
+              "grade": 2
+            },
+            {
+              "id": "f76890a8-2019-04-18T12:32:48Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "f76890a8-2019-04-18T12:32:48Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "f76890a8-2019-04-18T12:32:48Z-00004-000",
+              "grade": 2
+            },
+            {
+              "id": "28b3999f-2019-04-18T18:29:22Z-00004-000",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "20",
+          "query": "Is drinking milk healthy for humans?",
+          "behaviorGroup": "broad_need_low_recall",
+          "behaviorLabel": "Broad information need with low recall",
+          "metrics": {
+            "precisionAtK": 0.2,
+            "recallAtK": 0.1176,
+            "averagePrecision": 0.0425,
+            "reciprocalRank": 0.5,
+            "ndcgAtK": 0.1059
+          },
+          "relevantCount": 17,
+          "hitCountAtK": 2,
+          "firstRelevantRank": 2,
+          "retrievedIdsAtK": [
+            "f63b76cb-2019-04-18T16:55:02Z-00003-000",
+            "f0e341f2-2019-04-18T12:13:47Z-00000-000",
+            "349509a7-2019-04-18T15:33:27Z-00004-000",
+            "84da562b-2019-04-18T19:20:50Z-00007-000",
+            "40eccde7-2019-04-18T15:21:23Z-00001-000",
+            "48ae4466-2019-04-18T18:45:18Z-00003-000",
+            "cec03dc2-2019-04-18T16:50:59Z-00000-000",
+            "c70591bd-2019-04-17T11:47:43Z-00053-000",
+            "48ae4466-2019-04-18T18:45:18Z-00002-000",
+            "c2eeacb1-2019-04-18T18:59:19Z-00000-000"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "f0e341f2-2019-04-18T12:13:47Z-00000-000",
+            "48ae4466-2019-04-18T18:45:18Z-00002-000"
+          ],
+          "topNonRelevantIdsAtK": [
+            "f63b76cb-2019-04-18T16:55:02Z-00003-000",
+            "349509a7-2019-04-18T15:33:27Z-00004-000",
+            "84da562b-2019-04-18T19:20:50Z-00007-000",
+            "40eccde7-2019-04-18T15:21:23Z-00001-000",
+            "48ae4466-2019-04-18T18:45:18Z-00003-000",
+            "cec03dc2-2019-04-18T16:50:59Z-00000-000",
+            "c70591bd-2019-04-17T11:47:43Z-00053-000",
+            "c2eeacb1-2019-04-18T18:59:19Z-00000-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "3471caff-2019-04-18T14:09:31Z-00001-000",
+              "grade": 2
+            },
+            {
+              "id": "3471caff-2019-04-18T14:09:31Z-00006-000",
+              "grade": 2
+            },
+            {
+              "id": "3471caff-2019-04-18T14:09:31Z-00008-000",
+              "grade": 2
+            },
+            {
+              "id": "349509a7-2019-04-18T15:33:27Z-00006-000",
+              "grade": 2
+            },
+            {
+              "id": "829468d-2019-04-18T17:21:53Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "84da562b-2019-04-18T19:20:50Z-00001-000",
+              "grade": 2
+            },
+            {
+              "id": "c2eeacb1-2019-04-18T18:59:19Z-00004-000",
+              "grade": 2
+            },
+            {
+              "id": "ce21fce9-2019-04-18T12:52:34Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "fbd3b59c-2019-04-18T16:29:11Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "39d70d06-2019-04-18T18:53:26Z-00004-000",
+              "grade": 1
+            },
+            {
+              "id": "5e63f3a1-2019-04-18T15:53:17Z-00003-000",
+              "grade": 1
+            },
+            {
+              "id": "84da562b-2019-04-18T19:20:50Z-00000-000",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "24",
+          "query": "Does lowering the federal corporate income tax rate create jobs?",
+          "behaviorGroup": "broad_need_low_recall",
+          "behaviorLabel": "Broad information need with low recall",
+          "metrics": {
+            "precisionAtK": 0.2,
+            "recallAtK": 0.1176,
+            "averagePrecision": 0.0756,
+            "reciprocalRank": 1,
+            "ndcgAtK": 0.1569
+          },
+          "relevantCount": 17,
+          "hitCountAtK": 2,
+          "firstRelevantRank": 1,
+          "retrievedIdsAtK": [
+            "5c336b56-2019-04-18T14:30:50Z-00003-000",
+            "4cd87808-2019-04-18T17:29:44Z-00001-000",
+            "5c336b56-2019-04-18T14:30:50Z-00005-000",
+            "ebea7596-2019-04-18T16:04:14Z-00003-000",
+            "5c336b56-2019-04-18T14:30:50Z-00001-000",
+            "da2ddeb5-2019-04-18T18:29:10Z-00003-000",
+            "2c183942-2019-04-18T16:35:26Z-00004-000",
+            "ebea7596-2019-04-18T16:04:14Z-00005-000",
+            "35c1b265-2019-04-18T14:23:30Z-00009-000",
+            "2c183942-2019-04-18T16:35:26Z-00001-000"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "5c336b56-2019-04-18T14:30:50Z-00003-000",
+            "2c183942-2019-04-18T16:35:26Z-00004-000"
+          ],
+          "topNonRelevantIdsAtK": [
+            "4cd87808-2019-04-18T17:29:44Z-00001-000",
+            "5c336b56-2019-04-18T14:30:50Z-00005-000",
+            "ebea7596-2019-04-18T16:04:14Z-00003-000",
+            "5c336b56-2019-04-18T14:30:50Z-00001-000",
+            "da2ddeb5-2019-04-18T18:29:10Z-00003-000",
+            "ebea7596-2019-04-18T16:04:14Z-00005-000",
+            "35c1b265-2019-04-18T14:23:30Z-00009-000",
+            "2c183942-2019-04-18T16:35:26Z-00001-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "5993a6ac-2019-04-18T16:46:48Z-00007-000",
+              "grade": 2
+            },
+            {
+              "id": "a44baae-2019-04-18T17:58:49Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "bf86583-2019-04-18T18:37:59Z-00006-000",
+              "grade": 2
+            },
+            {
+              "id": "cce037b4-2019-04-18T18:37:37Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "f1166b20-2019-04-18T18:31:47Z-00001-000",
+              "grade": 2
+            },
+            {
+              "id": "f1166b5e-2019-04-18T18:31:24Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "f1166b5e-2019-04-18T18:31:24Z-00004-000",
+              "grade": 2
+            },
+            {
+              "id": "fbe0f0fc-2019-04-18T14:37:21Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "2131c836-2019-04-18T12:42:05Z-00002-000",
+              "grade": 1
+            },
+            {
+              "id": "2131c836-2019-04-18T12:42:05Z-00003-000",
+              "grade": 1
+            },
+            {
+              "id": "2de2f8b-2019-04-18T19:24:00Z-00004-000",
+              "grade": 1
+            },
+            {
+              "id": "4688fcc6-2019-04-18T14:43:50Z-00005-000",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "7",
+          "query": "Should felons who have completed their sentence be allowed to vote?",
+          "behaviorGroup": "broad_need_low_recall",
+          "behaviorLabel": "Broad information need with low recall",
+          "metrics": {
+            "precisionAtK": 0.2,
+            "recallAtK": 0.087,
+            "averagePrecision": 0.0254,
+            "reciprocalRank": 0.3333,
+            "ndcgAtK": 0.1795
+          },
+          "relevantCount": 23,
+          "hitCountAtK": 2,
+          "firstRelevantRank": 3,
+          "retrievedIdsAtK": [
+            "826727db-2019-04-18T14:31:24Z-00007-000",
+            "bcb43496-2019-04-18T19:26:12Z-00003-000",
+            "826727bc-2019-04-18T15:25:22Z-00007-000",
+            "8267279d-2019-04-18T15:31:31Z-00007-000",
+            "7da97fb8-2019-04-18T14:19:59Z-00005-000",
+            "d57ca0db-2019-04-18T15:34:22Z-00005-000",
+            "d57ca0db-2019-04-18T15:34:22Z-00001-000",
+            "ffc1c5ad-2019-04-18T16:49:56Z-00005-000",
+            "ffc1c5ad-2019-04-18T16:49:56Z-00003-000",
+            "85363321-2019-04-18T18:11:52Z-00000-000"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "826727bc-2019-04-18T15:25:22Z-00007-000",
+            "ffc1c5ad-2019-04-18T16:49:56Z-00005-000"
+          ],
+          "topNonRelevantIdsAtK": [
+            "826727db-2019-04-18T14:31:24Z-00007-000",
+            "bcb43496-2019-04-18T19:26:12Z-00003-000",
+            "8267279d-2019-04-18T15:31:31Z-00007-000",
+            "7da97fb8-2019-04-18T14:19:59Z-00005-000",
+            "d57ca0db-2019-04-18T15:34:22Z-00005-000",
+            "d57ca0db-2019-04-18T15:34:22Z-00001-000",
+            "ffc1c5ad-2019-04-18T16:49:56Z-00003-000",
+            "85363321-2019-04-18T18:11:52Z-00000-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "146c9c8-2019-04-18T15:39:55Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "49ab5919-2019-04-19T12:47:24Z-00014-000",
+              "grade": 2
+            },
+            {
+              "id": "49ab5919-2019-04-19T12:47:24Z-00028-000",
+              "grade": 2
+            },
+            {
+              "id": "826727db-2019-04-18T14:31:24Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "8fa3a9aa-2019-04-18T19:35:39Z-00004-000",
+              "grade": 2
+            },
+            {
+              "id": "8fdf3c42-2019-04-18T19:34:44Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "9762761d-2019-04-18T19:34:37Z-00004-000",
+              "grade": 2
+            },
+            {
+              "id": "9762761d-2019-04-18T19:34:37Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "9acf5a44-2019-04-17T11:47:40Z-00078-000",
+              "grade": 2
+            },
+            {
+              "id": "d57ca0db-2019-04-18T15:34:22Z-00006-000",
+              "grade": 2
+            },
+            {
+              "id": "de499a0-2019-04-18T15:30:59Z-00004-000",
+              "grade": 2
+            },
+            {
+              "id": "e5aaa355-2019-04-18T19:35:37Z-00008-000",
+              "grade": 2
+            }
+          ]
+        }
+      ],
+      "zero_relevant_at_k": [
+        {
+          "queryId": "19",
+          "query": "Should gay marriage be legal?",
+          "behaviorGroup": "zero_relevant_at_k",
+          "behaviorLabel": "No relevant result in top K",
+          "metrics": {
+            "precisionAtK": 0,
+            "recallAtK": 0,
+            "averagePrecision": 0,
+            "reciprocalRank": 0,
+            "ndcgAtK": 0
+          },
+          "relevantCount": 26,
+          "hitCountAtK": 0,
+          "firstRelevantRank": null,
+          "retrievedIdsAtK": [
+            "3fdbc7fb-2019-04-18T18:13:43Z-00004-000",
+            "4ce3fccf-2019-04-18T16:32:51Z-00000-000",
+            "4366841b-2019-04-18T15:33:58Z-00002-000",
+            "14341653-2019-04-18T18:15:30Z-00006-000",
+            "3fdbc7fb-2019-04-18T18:13:43Z-00001-000",
+            "14339aee-2019-04-18T19:27:46Z-00005-000",
+            "4366841b-2019-04-18T15:33:58Z-00000-000",
+            "ea2e99e5-2019-04-18T18:31:36Z-00002-000",
+            "ea2e99e5-2019-04-18T18:31:36Z-00001-000",
+            "14339ab0-2019-04-18T19:35:57Z-00000-000"
+          ],
+          "relevantRetrievedIdsAtK": [],
+          "topNonRelevantIdsAtK": [
+            "3fdbc7fb-2019-04-18T18:13:43Z-00004-000",
+            "4ce3fccf-2019-04-18T16:32:51Z-00000-000",
+            "4366841b-2019-04-18T15:33:58Z-00002-000",
+            "14341653-2019-04-18T18:15:30Z-00006-000",
+            "3fdbc7fb-2019-04-18T18:13:43Z-00001-000",
+            "14339aee-2019-04-18T19:27:46Z-00005-000",
+            "4366841b-2019-04-18T15:33:58Z-00000-000",
+            "ea2e99e5-2019-04-18T18:31:36Z-00002-000",
+            "ea2e99e5-2019-04-18T18:31:36Z-00001-000",
+            "14339ab0-2019-04-18T19:35:57Z-00000-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "1aa165a9-2019-04-18T19:19:46Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "3138dd6d-2019-04-18T16:51:12Z-00004-000",
+              "grade": 2
+            },
+            {
+              "id": "369e4f3a-2019-04-18T19:20:56Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "4494bc81-2019-04-18T15:15:51Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "452c0de8-2019-04-18T19:19:05Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "4686f91-2019-04-18T15:19:05Z-00006-000",
+              "grade": 2
+            },
+            {
+              "id": "63346ee3-2019-04-18T18:10:40Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "63347646-2019-04-18T17:41:45Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "633484ce-2019-04-18T17:00:33Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "6334dfa0-2019-04-18T16:32:19Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "6335541e-2019-04-18T14:59:13Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "7692e3ab-2019-04-18T18:06:02Z-00009-000",
+              "grade": 2
+            }
+          ]
+        },
+        {
+          "queryId": "3",
+          "query": "Should insider trading be allowed?",
+          "behaviorGroup": "zero_relevant_at_k",
+          "behaviorLabel": "No relevant result in top K",
+          "metrics": {
+            "precisionAtK": 0,
+            "recallAtK": 0,
+            "averagePrecision": 0,
+            "reciprocalRank": 0,
+            "ndcgAtK": 0
+          },
+          "relevantCount": 6,
+          "hitCountAtK": 0,
+          "firstRelevantRank": null,
+          "retrievedIdsAtK": [
+            "1f29e12f-2019-04-18T19:13:12Z-00002-000",
+            "150432ef-2019-04-18T16:36:32Z-00007-000",
+            "92e1cc41-2019-04-18T17:03:48Z-00007-000",
+            "1f29e12f-2019-04-18T19:13:12Z-00001-000",
+            "abae14fd-2019-04-18T17:20:05Z-00004-000",
+            "9079b088-2019-04-18T18:14:43Z-00006-000",
+            "e2d0281b-2019-04-18T17:28:40Z-00003-000",
+            "660f5d92-2019-04-18T19:49:56Z-00005-000",
+            "d5890587-2019-04-18T18:15:39Z-00002-000",
+            "1f29e12f-2019-04-18T19:13:12Z-00000-000"
+          ],
+          "relevantRetrievedIdsAtK": [],
+          "topNonRelevantIdsAtK": [
+            "1f29e12f-2019-04-18T19:13:12Z-00002-000",
+            "150432ef-2019-04-18T16:36:32Z-00007-000",
+            "92e1cc41-2019-04-18T17:03:48Z-00007-000",
+            "1f29e12f-2019-04-18T19:13:12Z-00001-000",
+            "abae14fd-2019-04-18T17:20:05Z-00004-000",
+            "9079b088-2019-04-18T18:14:43Z-00006-000",
+            "e2d0281b-2019-04-18T17:28:40Z-00003-000",
+            "660f5d92-2019-04-18T19:49:56Z-00005-000",
+            "d5890587-2019-04-18T18:15:39Z-00002-000",
+            "1f29e12f-2019-04-18T19:13:12Z-00000-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "82973dd4-2019-04-18T18:46:16Z-00001-000",
+              "grade": 2
+            },
+            {
+              "id": "82973dd4-2019-04-18T18:46:16Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "82973dd4-2019-04-18T18:46:16Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "82973dd4-2019-04-18T18:46:16Z-00004-000",
+              "grade": 2
+            },
+            {
+              "id": "cf2ed51-2019-04-18T17:32:56Z-00005-000",
+              "grade": 1
+            },
+            {
+              "id": "f0bf014b-2019-04-15T20:23:05Z-00029-000",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "40",
+          "query": "Should the death penalty be allowed?",
+          "behaviorGroup": "zero_relevant_at_k",
+          "behaviorLabel": "No relevant result in top K",
+          "metrics": {
+            "precisionAtK": 0,
+            "recallAtK": 0,
+            "averagePrecision": 0,
+            "reciprocalRank": 0,
+            "ndcgAtK": 0
+          },
+          "relevantCount": 29,
+          "hitCountAtK": 0,
+          "firstRelevantRank": null,
+          "retrievedIdsAtK": [
+            "7ad5a00-2019-04-18T17:12:23Z-00000-000",
+            "c0a5f15c-2019-04-18T13:45:23Z-00005-000",
+            "7ad5a1f-2019-04-18T12:20:56Z-00005-000",
+            "ec00b32a-2019-04-18T17:26:25Z-00001-000",
+            "ed8c6e01-2019-04-18T18:08:43Z-00004-000",
+            "7ad5a1f-2019-04-18T12:20:56Z-00002-000",
+            "ec00b32a-2019-04-18T17:26:25Z-00003-000",
+            "6604e4c2-2019-04-18T14:32:22Z-00003-000",
+            "ed87542a-2019-04-18T16:41:26Z-00004-000",
+            "eaf9851d-2019-04-18T15:40:44Z-00003-000"
+          ],
+          "relevantRetrievedIdsAtK": [],
+          "topNonRelevantIdsAtK": [
+            "7ad5a00-2019-04-18T17:12:23Z-00000-000",
+            "c0a5f15c-2019-04-18T13:45:23Z-00005-000",
+            "7ad5a1f-2019-04-18T12:20:56Z-00005-000",
+            "ec00b32a-2019-04-18T17:26:25Z-00001-000",
+            "ed8c6e01-2019-04-18T18:08:43Z-00004-000",
+            "7ad5a1f-2019-04-18T12:20:56Z-00002-000",
+            "ec00b32a-2019-04-18T17:26:25Z-00003-000",
+            "6604e4c2-2019-04-18T14:32:22Z-00003-000",
+            "ed87542a-2019-04-18T16:41:26Z-00004-000",
+            "eaf9851d-2019-04-18T15:40:44Z-00003-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "20bc7726-2019-04-18T19:59:37Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "351fa6f9-2019-04-18T18:52:58Z-00000-000",
+              "grade": 2
+            },
+            {
+              "id": "351fa6f9-2019-04-18T18:52:58Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "41272f07-2019-04-18T18:31:56Z-00001-000",
+              "grade": 2
+            },
+            {
+              "id": "564603a4-2019-04-18T14:44:26Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "5662ebe2-2019-04-18T20:04:05Z-00001-000",
+              "grade": 2
+            },
+            {
+              "id": "5efff4d3-2019-04-18T13:32:58Z-00001-000",
+              "grade": 2
+            },
+            {
+              "id": "808a3887-2019-04-18T18:20:50Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "a4630a13-2019-04-18T17:14:46Z-00006-000",
+              "grade": 2
+            },
+            {
+              "id": "abe4d584-2019-04-18T18:55:53Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "e2115df8-2019-04-18T17:46:57Z-00006-000",
+              "grade": 2
+            },
+            {
+              "id": "e3bc0af0-2019-04-18T16:00:50Z-00003-000",
+              "grade": 2
+            }
+          ]
+        },
+        {
+          "queryId": "5",
+          "query": "Should social security be privatized?",
+          "behaviorGroup": "zero_relevant_at_k",
+          "behaviorLabel": "No relevant result in top K",
+          "metrics": {
+            "precisionAtK": 0,
+            "recallAtK": 0,
+            "averagePrecision": 0,
+            "reciprocalRank": 0,
+            "ndcgAtK": 0
+          },
+          "relevantCount": 16,
+          "hitCountAtK": 0,
+          "firstRelevantRank": null,
+          "retrievedIdsAtK": [
+            "dac7811d-2019-04-18T20:00:32Z-00004-000",
+            "dac7811d-2019-04-18T20:00:32Z-00002-000",
+            "dac7811d-2019-04-18T20:00:32Z-00005-000",
+            "dac7811d-2019-04-18T20:00:32Z-00001-000",
+            "cf4c9cbf-2019-04-17T11:47:24Z-00024-000",
+            "dac7811d-2019-04-18T20:00:32Z-00000-000",
+            "cf4c9cbf-2019-04-17T11:47:24Z-00009-000",
+            "cf4c9cbf-2019-04-17T11:47:24Z-00004-000",
+            "cf4c9cbf-2019-04-17T11:47:24Z-00028-000",
+            "cf4c9cbf-2019-04-17T11:47:24Z-00002-000"
+          ],
+          "relevantRetrievedIdsAtK": [],
+          "topNonRelevantIdsAtK": [
+            "dac7811d-2019-04-18T20:00:32Z-00004-000",
+            "dac7811d-2019-04-18T20:00:32Z-00002-000",
+            "dac7811d-2019-04-18T20:00:32Z-00005-000",
+            "dac7811d-2019-04-18T20:00:32Z-00001-000",
+            "cf4c9cbf-2019-04-17T11:47:24Z-00024-000",
+            "dac7811d-2019-04-18T20:00:32Z-00000-000",
+            "cf4c9cbf-2019-04-17T11:47:24Z-00009-000",
+            "cf4c9cbf-2019-04-17T11:47:24Z-00004-000",
+            "cf4c9cbf-2019-04-17T11:47:24Z-00028-000",
+            "cf4c9cbf-2019-04-17T11:47:24Z-00002-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "2d6f4e75-2019-04-15T20:22:43Z-00007-000",
+              "grade": 2
+            },
+            {
+              "id": "2d6f4e75-2019-04-15T20:22:43Z-00009-000",
+              "grade": 2
+            },
+            {
+              "id": "2d6f4e75-2019-04-15T20:22:43Z-00013-000",
+              "grade": 2
+            },
+            {
+              "id": "38b0fdf5-2019-04-18T12:55:15Z-00001-000",
+              "grade": 2
+            },
+            {
+              "id": "38b0fe14-2019-04-18T12:54:22Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "8c527629-2019-04-18T19:33:00Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "8c527629-2019-04-18T19:33:00Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "8c527667-2019-04-18T19:32:56Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "b4e53fbf-2019-04-18T12:06:48Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "ca713976-2019-04-18T12:06:48Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "e28c98a3-2019-04-18T13:23:25Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "ed146d2b-2019-04-18T18:30:30Z-00003-000",
+              "grade": 2
+            }
+          ]
+        },
+        {
+          "queryId": "8",
+          "query": "Should abortion be legal?",
+          "behaviorGroup": "zero_relevant_at_k",
+          "behaviorLabel": "No relevant result in top K",
+          "metrics": {
+            "precisionAtK": 0,
+            "recallAtK": 0,
+            "averagePrecision": 0,
+            "reciprocalRank": 0,
+            "ndcgAtK": 0
+          },
+          "relevantCount": 31,
+          "hitCountAtK": 0,
+          "firstRelevantRank": null,
+          "retrievedIdsAtK": [
+            "72a540d2-2019-04-18T20:00:34Z-00005-000",
+            "e12b543e-2019-04-18T12:39:42Z-00004-000",
+            "a039e5e3-2019-04-18T18:54:55Z-00005-000",
+            "c32a8d70-2019-04-18T11:49:53Z-00000-000",
+            "6702415d-2019-04-18T15:27:01Z-00002-000",
+            "6702bd00-2019-04-18T17:57:26Z-00006-000",
+            "c7ab4e76-2019-04-18T19:47:10Z-00005-000",
+            "72a540d2-2019-04-18T20:00:34Z-00001-000",
+            "f32ea357-2019-04-18T13:58:59Z-00007-000",
+            "6702bd00-2019-04-18T17:57:26Z-00007-000"
+          ],
+          "relevantRetrievedIdsAtK": [],
+          "topNonRelevantIdsAtK": [
+            "72a540d2-2019-04-18T20:00:34Z-00005-000",
+            "e12b543e-2019-04-18T12:39:42Z-00004-000",
+            "a039e5e3-2019-04-18T18:54:55Z-00005-000",
+            "c32a8d70-2019-04-18T11:49:53Z-00000-000",
+            "6702415d-2019-04-18T15:27:01Z-00002-000",
+            "6702bd00-2019-04-18T17:57:26Z-00006-000",
+            "c7ab4e76-2019-04-18T19:47:10Z-00005-000",
+            "72a540d2-2019-04-18T20:00:34Z-00001-000",
+            "f32ea357-2019-04-18T13:58:59Z-00007-000",
+            "6702bd00-2019-04-18T17:57:26Z-00007-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "1420e340-2019-04-18T13:12:04Z-00004-000",
+              "grade": 2
+            },
+            {
+              "id": "3e9ff172-2019-04-18T12:09:10Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "416207df-2019-04-18T15:57:04Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "670240e1-2019-04-18T19:43:42Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "6702c0a2-2019-04-18T16:52:16Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "6702c425-2019-04-18T15:23:27Z-00001-000",
+              "grade": 2
+            },
+            {
+              "id": "6702cba7-2019-04-18T11:43:44Z-00000-000",
+              "grade": 2
+            },
+            {
+              "id": "6702cc04-2019-04-18T11:32:09Z-00001-000",
+              "grade": 2
+            },
+            {
+              "id": "67e96422-2019-04-18T17:11:59Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "7586b840-2019-04-18T16:39:25Z-00006-000",
+              "grade": 2
+            },
+            {
+              "id": "81ed9aa-2019-04-18T16:01:44Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "984c99de-2019-04-18T15:23:08Z-00004-000",
+              "grade": 2
+            }
+          ]
+        }
+      ],
+      "late_first_relevant": [
+        {
+          "queryId": "10",
+          "query": "Should any vaccines be required for children?",
+          "behaviorGroup": "late_first_relevant",
+          "behaviorLabel": "Relevant result ranked too late",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.0385,
+            "averagePrecision": 0.0048,
+            "reciprocalRank": 0.125,
+            "ndcgAtK": 0.0694
+          },
+          "relevantCount": 26,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 8,
+          "retrievedIdsAtK": [
+            "6c8d356f-2019-04-18T20:03:16Z-00004-000",
+            "ea0ed4bb-2019-04-18T11:37:52Z-00000-000",
+            "81901837-2019-04-18T17:55:43Z-00001-000",
+            "9f71c585-2019-04-18T19:02:47Z-00005-000",
+            "6c8d356f-2019-04-18T20:03:16Z-00005-000",
+            "6c8d356f-2019-04-18T20:03:16Z-00001-000",
+            "1f658c7-2019-04-18T15:06:29Z-00003-000",
+            "9f71c585-2019-04-18T19:02:47Z-00004-000",
+            "1f658c7-2019-04-18T15:06:29Z-00004-000",
+            "9f71c585-2019-04-18T19:02:47Z-00003-000"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "9f71c585-2019-04-18T19:02:47Z-00004-000"
+          ],
+          "topNonRelevantIdsAtK": [
+            "6c8d356f-2019-04-18T20:03:16Z-00004-000",
+            "ea0ed4bb-2019-04-18T11:37:52Z-00000-000",
+            "81901837-2019-04-18T17:55:43Z-00001-000",
+            "9f71c585-2019-04-18T19:02:47Z-00005-000",
+            "6c8d356f-2019-04-18T20:03:16Z-00005-000",
+            "6c8d356f-2019-04-18T20:03:16Z-00001-000",
+            "1f658c7-2019-04-18T15:06:29Z-00003-000",
+            "1f658c7-2019-04-18T15:06:29Z-00004-000",
+            "9f71c585-2019-04-18T19:02:47Z-00003-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "10cdf65f-2019-04-18T12:30:37Z-00000-000",
+              "grade": 2
+            },
+            {
+              "id": "173e9f20-2019-04-18T13:26:12Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "3575d3d7-2019-04-18T15:45:28Z-00001-000",
+              "grade": 2
+            },
+            {
+              "id": "6abd1330-2019-04-18T14:24:26Z-00004-000",
+              "grade": 2
+            },
+            {
+              "id": "6abd1330-2019-04-18T14:24:26Z-00007-000",
+              "grade": 2
+            },
+            {
+              "id": "79f05a51-2019-04-18T14:20:37Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "7d2f63b6-2019-04-18T14:52:21Z-00004-000",
+              "grade": 2
+            },
+            {
+              "id": "7e60a5d4-2019-04-18T15:49:08Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "81901837-2019-04-18T17:55:43Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "954be27-2019-04-18T15:19:53Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "9854dc30-2019-04-18T16:23:28Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "ac76a191-2019-04-15T20:24:11Z-00010-000",
+              "grade": 2
+            }
+          ]
+        },
+        {
+          "queryId": "22",
+          "query": "Is a two-state solution an acceptable solution to the Israeli-Palestinian conflict?",
+          "behaviorGroup": "late_first_relevant",
+          "behaviorLabel": "Relevant result ranked too late",
+          "metrics": {
+            "precisionAtK": 0.2,
+            "recallAtK": 0.1333,
+            "averagePrecision": 0.0262,
+            "reciprocalRank": 0.1429,
+            "ndcgAtK": 0.1428
+          },
+          "relevantCount": 15,
+          "hitCountAtK": 2,
+          "firstRelevantRank": 7,
+          "retrievedIdsAtK": [
+            "3b38021e-2019-04-18T11:38:27Z-00001-000",
+            "402902df-2019-04-17T11:47:31Z-00046-000",
+            "8d325e50-2019-04-15T20:22:20Z-00014-000",
+            "402902df-2019-04-17T11:47:31Z-00025-000",
+            "402902df-2019-04-17T11:47:31Z-00001-000",
+            "71d8bac1-2019-04-18T17:26:47Z-00003-000",
+            "8d325e50-2019-04-15T20:22:20Z-00011-000",
+            "8d325e50-2019-04-15T20:22:20Z-00007-000",
+            "402902df-2019-04-17T11:47:31Z-00069-000",
+            "71d8bac1-2019-04-18T17:26:47Z-00002-000"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "8d325e50-2019-04-15T20:22:20Z-00011-000",
+            "8d325e50-2019-04-15T20:22:20Z-00007-000"
+          ],
+          "topNonRelevantIdsAtK": [
+            "3b38021e-2019-04-18T11:38:27Z-00001-000",
+            "402902df-2019-04-17T11:47:31Z-00046-000",
+            "8d325e50-2019-04-15T20:22:20Z-00014-000",
+            "402902df-2019-04-17T11:47:31Z-00025-000",
+            "402902df-2019-04-17T11:47:31Z-00001-000",
+            "71d8bac1-2019-04-18T17:26:47Z-00003-000",
+            "402902df-2019-04-17T11:47:31Z-00069-000",
+            "71d8bac1-2019-04-18T17:26:47Z-00002-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "36da2186-2019-04-18T14:57:30Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "3aef71f-2019-04-18T18:02:16Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "402902df-2019-04-17T11:47:31Z-00044-000",
+              "grade": 2
+            },
+            {
+              "id": "402902df-2019-04-17T11:47:31Z-00053-000",
+              "grade": 2
+            },
+            {
+              "id": "402902df-2019-04-17T11:47:31Z-00066-000",
+              "grade": 2
+            },
+            {
+              "id": "6d80da78-2019-04-18T16:47:39Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "71d8bac1-2019-04-18T17:26:47Z-00001-000",
+              "grade": 2
+            },
+            {
+              "id": "8d325e50-2019-04-15T20:22:20Z-00009-000",
+              "grade": 2
+            },
+            {
+              "id": "8d325e50-2019-04-15T20:22:20Z-00013-000",
+              "grade": 2
+            },
+            {
+              "id": "c63a5a63-2019-04-18T19:29:06Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "c63a5a63-2019-04-18T19:29:06Z-00004-000",
+              "grade": 2
+            },
+            {
+              "id": "c63a5a63-2019-04-18T19:29:06Z-00005-000",
+              "grade": 2
+            }
+          ]
+        },
+        {
+          "queryId": "28",
+          "query": "Should prostitution be legal?",
+          "behaviorGroup": "late_first_relevant",
+          "behaviorLabel": "Relevant result ranked too late",
+          "metrics": {
+            "precisionAtK": 0.2,
+            "recallAtK": 0.0833,
+            "averagePrecision": 0.0162,
+            "reciprocalRank": 0.1667,
+            "ndcgAtK": 0.1447
+          },
+          "relevantCount": 24,
+          "hitCountAtK": 2,
+          "firstRelevantRank": 6,
+          "retrievedIdsAtK": [
+            "f2b77005-2019-04-18T14:36:34Z-00007-000",
+            "318b36b2-2019-04-18T19:09:34Z-00001-000",
+            "7c83e847-2019-04-18T16:13:26Z-00001-000",
+            "cf3ad38f-2019-04-18T16:49:54Z-00003-000",
+            "94b6b4c-2019-04-18T11:10:45Z-00003-000",
+            "bbe2f561-2019-04-18T19:26:06Z-00005-000",
+            "436cc21d-2019-04-18T13:44:16Z-00003-000",
+            "936e7b82-2019-04-18T12:19:14Z-00000-000",
+            "cf3ad38f-2019-04-18T16:49:54Z-00004-000",
+            "66ec5f29-2019-04-18T15:01:11Z-00004-000"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "bbe2f561-2019-04-18T19:26:06Z-00005-000",
+            "cf3ad38f-2019-04-18T16:49:54Z-00004-000"
+          ],
+          "topNonRelevantIdsAtK": [
+            "f2b77005-2019-04-18T14:36:34Z-00007-000",
+            "318b36b2-2019-04-18T19:09:34Z-00001-000",
+            "7c83e847-2019-04-18T16:13:26Z-00001-000",
+            "cf3ad38f-2019-04-18T16:49:54Z-00003-000",
+            "94b6b4c-2019-04-18T11:10:45Z-00003-000",
+            "436cc21d-2019-04-18T13:44:16Z-00003-000",
+            "936e7b82-2019-04-18T12:19:14Z-00000-000",
+            "66ec5f29-2019-04-18T15:01:11Z-00004-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "181f179a-2019-04-18T16:34:11Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "29e66283-2019-04-18T19:27:24Z-00000-000",
+              "grade": 2
+            },
+            {
+              "id": "31806999-2019-04-18T16:58:21Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "35179721-2019-04-18T19:41:11Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "3677e360-2019-04-19T12:44:54Z-00061-000",
+              "grade": 2
+            },
+            {
+              "id": "436cc21d-2019-04-18T13:44:16Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "52c8b976-2019-04-18T15:37:15Z-00000-000",
+              "grade": 2
+            },
+            {
+              "id": "52c8b976-2019-04-18T15:37:15Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "622af56b-2019-04-18T14:56:01Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "821c3072-2019-04-18T12:07:12Z-00000-000",
+              "grade": 2
+            },
+            {
+              "id": "8f7cc685-2019-04-18T15:45:42Z-00000-000",
+              "grade": 2
+            },
+            {
+              "id": "9010a352-2019-04-18T14:32:49Z-00003-000",
+              "grade": 2
+            }
+          ]
+        },
+        {
+          "queryId": "23",
+          "query": "Should euthanasia or physician-assisted suicide be legal?",
+          "behaviorGroup": "late_first_relevant",
+          "behaviorLabel": "Relevant result ranked too late",
+          "metrics": {
+            "precisionAtK": 0.2,
+            "recallAtK": 0.0741,
+            "averagePrecision": 0.0148,
+            "reciprocalRank": 0.2,
+            "ndcgAtK": 0.1488
+          },
+          "relevantCount": 27,
+          "hitCountAtK": 2,
+          "firstRelevantRank": 5,
+          "retrievedIdsAtK": [
+            "d80382e8-2019-04-18T15:28:06Z-00003-000",
+            "dccf7263-2019-04-18T16:52:37Z-00004-000",
+            "7dba56a5-2019-04-18T12:15:17Z-00003-000",
+            "4f51142c-2019-04-18T15:23:59Z-00003-000",
+            "c8f72601-2019-04-18T15:27:47Z-00004-000",
+            "25dc8ac6-2019-04-18T19:24:09Z-00002-000",
+            "25dc8ac6-2019-04-18T19:24:09Z-00004-000",
+            "9f12f501-2019-04-18T19:55:28Z-00001-000",
+            "4f51142c-2019-04-18T15:23:59Z-00006-000",
+            "a2c85c65-2019-04-18T16:57:45Z-00002-000"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "c8f72601-2019-04-18T15:27:47Z-00004-000",
+            "a2c85c65-2019-04-18T16:57:45Z-00002-000"
+          ],
+          "topNonRelevantIdsAtK": [
+            "d80382e8-2019-04-18T15:28:06Z-00003-000",
+            "dccf7263-2019-04-18T16:52:37Z-00004-000",
+            "7dba56a5-2019-04-18T12:15:17Z-00003-000",
+            "4f51142c-2019-04-18T15:23:59Z-00003-000",
+            "25dc8ac6-2019-04-18T19:24:09Z-00002-000",
+            "25dc8ac6-2019-04-18T19:24:09Z-00004-000",
+            "9f12f501-2019-04-18T19:55:28Z-00001-000",
+            "4f51142c-2019-04-18T15:23:59Z-00006-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "114892b1-2019-04-18T11:52:47Z-00007-000",
+              "grade": 2
+            },
+            {
+              "id": "2a7a3832-2019-04-18T14:51:38Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "32c18ac6-2019-04-18T12:19:10Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "41ed75c9-2019-04-18T13:41:02Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "49cd40b7-2019-04-18T11:56:34Z-00001-000",
+              "grade": 2
+            },
+            {
+              "id": "60881920-2019-04-18T13:22:37Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "84a6fafa-2019-04-18T14:47:38Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "88e3525b-2019-04-18T18:52:58Z-00009-000",
+              "grade": 2
+            },
+            {
+              "id": "9386e70a-2019-04-18T16:09:37Z-00004-000",
+              "grade": 2
+            },
+            {
+              "id": "9386eaea-2019-04-18T15:39:40Z-00001-000",
+              "grade": 2
+            },
+            {
+              "id": "9386eaea-2019-04-18T15:39:40Z-00004-000",
+              "grade": 2
+            },
+            {
+              "id": "9386f26c-2019-04-18T13:35:08Z-00003-000",
+              "grade": 2
+            }
+          ]
+        },
+        {
+          "queryId": "47",
+          "query": "Is homework beneficial?",
+          "behaviorGroup": "late_first_relevant",
+          "behaviorLabel": "Relevant result ranked too late",
+          "metrics": {
+            "precisionAtK": 0.2,
+            "recallAtK": 0.0769,
+            "averagePrecision": 0.0173,
+            "reciprocalRank": 0.2,
+            "ndcgAtK": 0.1546
+          },
+          "relevantCount": 26,
+          "hitCountAtK": 2,
+          "firstRelevantRank": 5,
+          "retrievedIdsAtK": [
+            "c6512081-2019-04-18T16:44:37Z-00004-000",
+            "bd7013ea-2019-04-18T14:03:21Z-00002-000",
+            "c6512081-2019-04-18T16:44:37Z-00002-000",
+            "bd7013ea-2019-04-18T14:03:21Z-00003-000",
+            "7de56526-2019-04-18T15:10:01Z-00008-000",
+            "d81957dd-2019-04-18T11:36:08Z-00000-000",
+            "c6512081-2019-04-18T16:44:37Z-00000-000",
+            "f6e16c0b-2019-04-18T12:39:51Z-00005-000",
+            "68a4cf31-2019-04-18T18:58:34Z-00003-000",
+            "68a4d00a-2019-04-18T16:43:31Z-00000-000"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "7de56526-2019-04-18T15:10:01Z-00008-000",
+            "f6e16c0b-2019-04-18T12:39:51Z-00005-000"
+          ],
+          "topNonRelevantIdsAtK": [
+            "c6512081-2019-04-18T16:44:37Z-00004-000",
+            "bd7013ea-2019-04-18T14:03:21Z-00002-000",
+            "c6512081-2019-04-18T16:44:37Z-00002-000",
+            "bd7013ea-2019-04-18T14:03:21Z-00003-000",
+            "d81957dd-2019-04-18T11:36:08Z-00000-000",
+            "c6512081-2019-04-18T16:44:37Z-00000-000",
+            "68a4cf31-2019-04-18T18:58:34Z-00003-000",
+            "68a4d00a-2019-04-18T16:43:31Z-00000-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "1733befb-2019-04-18T15:36:46Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "2705e985-2019-04-18T12:49:50Z-00001-000",
+              "grade": 2
+            },
+            {
+              "id": "48cd3dfc-2019-04-18T13:56:49Z-00004-000",
+              "grade": 2
+            },
+            {
+              "id": "4f4d73ec-2019-04-18T16:13:26Z-00000-000",
+              "grade": 2
+            },
+            {
+              "id": "6013441c-2019-04-18T16:58:33Z-00007-000",
+              "grade": 2
+            },
+            {
+              "id": "68a4cf8e-2019-04-18T17:19:01Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "68a4cf8e-2019-04-18T17:19:01Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "68a4d029-2019-04-18T16:39:32Z-00001-000",
+              "grade": 2
+            },
+            {
+              "id": "82c5bb4f-2019-04-18T17:27:44Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "abf49c16-2019-04-18T11:37:52Z-00001-000",
+              "grade": 2
+            },
+            {
+              "id": "ae7c3aca-2019-04-18T13:14:06Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "cf3337ae-2019-04-18T18:36:24Z-00001-000",
+              "grade": 2
+            }
+          ]
+        }
+      ],
+      "partial_recall": [
+        {
+          "queryId": "16",
+          "query": "Should prescription drugs be advertised directly to consumers?",
+          "behaviorGroup": "partial_recall",
+          "behaviorLabel": "Partial recall",
+          "metrics": {
+            "precisionAtK": 0.5,
+            "recallAtK": 0.3571,
+            "averagePrecision": 0.1504,
+            "reciprocalRank": 0.5,
+            "ndcgAtK": 0.4401
+          },
+          "relevantCount": 14,
+          "hitCountAtK": 5,
+          "firstRelevantRank": 2,
+          "retrievedIdsAtK": [
+            "8cb27dbc-2019-04-15T20:22:42Z-00008-000",
+            "6a050331-2019-04-18T18:57:24Z-00005-000",
+            "8cb27dbc-2019-04-15T20:22:42Z-00007-000",
+            "8cb27dbc-2019-04-15T20:22:42Z-00011-000",
+            "8cb27dbc-2019-04-15T20:22:42Z-00006-000",
+            "6a050331-2019-04-18T18:57:24Z-00004-000",
+            "8cb27dbc-2019-04-15T20:22:42Z-00017-000",
+            "8cb27dbc-2019-04-15T20:22:42Z-00010-000",
+            "8cb27dbc-2019-04-15T20:22:42Z-00009-000",
+            "8cb27dbc-2019-04-15T20:22:42Z-00015-000"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "6a050331-2019-04-18T18:57:24Z-00005-000",
+            "8cb27dbc-2019-04-15T20:22:42Z-00017-000",
+            "8cb27dbc-2019-04-15T20:22:42Z-00010-000",
+            "8cb27dbc-2019-04-15T20:22:42Z-00009-000",
+            "8cb27dbc-2019-04-15T20:22:42Z-00015-000"
+          ],
+          "topNonRelevantIdsAtK": [
+            "8cb27dbc-2019-04-15T20:22:42Z-00008-000",
+            "8cb27dbc-2019-04-15T20:22:42Z-00007-000",
+            "8cb27dbc-2019-04-15T20:22:42Z-00011-000",
+            "8cb27dbc-2019-04-15T20:22:42Z-00006-000",
+            "6a050331-2019-04-18T18:57:24Z-00004-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "44c44402-2019-04-18T14:44:19Z-00003-000",
+              "grade": 2
+            },
+            {
+              "id": "8cb27dbc-2019-04-15T20:22:42Z-00001-000",
+              "grade": 2
+            },
+            {
+              "id": "8cb27dbc-2019-04-15T20:22:42Z-00016-000",
+              "grade": 2
+            },
+            {
+              "id": "44c44402-2019-04-18T14:44:19Z-00004-000",
+              "grade": 1
+            },
+            {
+              "id": "61dc5834-2019-04-18T18:31:58Z-00001-000",
+              "grade": 1
+            },
+            {
+              "id": "61dc5834-2019-04-18T18:31:58Z-00006-000",
+              "grade": 1
+            },
+            {
+              "id": "8cb27dbc-2019-04-15T20:22:42Z-00002-000",
+              "grade": 1
+            },
+            {
+              "id": "bf3fbda4-2019-04-18T18:34:09Z-00001-000",
+              "grade": 1
+            },
+            {
+              "id": "dab1f67b-2019-04-18T18:43:23Z-00001-000",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "37",
+          "query": "Is cell phone radiation safe?",
+          "behaviorGroup": "partial_recall",
+          "behaviorLabel": "Partial recall",
+          "metrics": {
+            "precisionAtK": 0.3,
+            "recallAtK": 0.4286,
+            "averagePrecision": 0.2143,
+            "reciprocalRank": 0.5,
+            "ndcgAtK": 0.462
+          },
+          "relevantCount": 7,
+          "hitCountAtK": 3,
+          "firstRelevantRank": 2,
+          "retrievedIdsAtK": [
+            "b2b3385f-2019-04-18T11:40:05Z-00006-000",
+            "b2b3385f-2019-04-18T11:40:05Z-00000-000",
+            "b2b3385f-2019-04-18T11:40:05Z-00004-000",
+            "b2b3385f-2019-04-18T11:40:05Z-00002-000",
+            "b2b3385f-2019-04-18T11:40:05Z-00003-000",
+            "b2b3385f-2019-04-18T11:40:05Z-00001-000",
+            "b2b3385f-2019-04-18T11:40:05Z-00005-000",
+            "1ecb131d-2019-04-18T18:41:04Z-00002-000",
+            "9aa2da1b-2019-04-19T12:46:59Z-00013-000",
+            "b61f3301-2019-04-18T12:40:37Z-00000-000"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "b2b3385f-2019-04-18T11:40:05Z-00000-000",
+            "b2b3385f-2019-04-18T11:40:05Z-00004-000",
+            "9aa2da1b-2019-04-19T12:46:59Z-00013-000"
+          ],
+          "topNonRelevantIdsAtK": [
+            "b2b3385f-2019-04-18T11:40:05Z-00006-000",
+            "b2b3385f-2019-04-18T11:40:05Z-00002-000",
+            "b2b3385f-2019-04-18T11:40:05Z-00003-000",
+            "b2b3385f-2019-04-18T11:40:05Z-00001-000",
+            "b2b3385f-2019-04-18T11:40:05Z-00005-000",
+            "1ecb131d-2019-04-18T18:41:04Z-00002-000",
+            "b61f3301-2019-04-18T12:40:37Z-00000-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "26d40999-2019-04-18T18:23:26Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "337d5b0b-2019-04-18T17:17:37Z-00002-000",
+              "grade": 1
+            },
+            {
+              "id": "9a803cbb-2019-04-18T11:41:24Z-00001-000",
+              "grade": 1
+            },
+            {
+              "id": "9aa2da1b-2019-04-19T12:46:59Z-00010-000",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "18",
+          "query": "Should churches remain tax-exempt?",
+          "behaviorGroup": "partial_recall",
+          "behaviorLabel": "Partial recall",
+          "metrics": {
+            "precisionAtK": 0.6,
+            "recallAtK": 0.375,
+            "averagePrecision": 0.2436,
+            "reciprocalRank": 0.5,
+            "ndcgAtK": 0.4858
+          },
+          "relevantCount": 16,
+          "hitCountAtK": 6,
+          "firstRelevantRank": 2,
+          "retrievedIdsAtK": [
+            "ffa16c3b-2019-04-18T15:59:53Z-00003-000",
+            "7f792826-2019-04-18T15:23:48Z-00004-000",
+            "2f656c50-2019-04-18T18:20:05Z-00000-000",
+            "b80912ea-2019-04-18T17:08:58Z-00002-000",
+            "ffa16c3b-2019-04-18T15:59:53Z-00001-000",
+            "2f656c50-2019-04-18T18:20:05Z-00002-000",
+            "2f656c50-2019-04-18T18:20:05Z-00001-000",
+            "5efc5feb-2019-04-18T16:38:30Z-00001-000",
+            "a84c3c83-2019-04-18T15:40:29Z-00001-000",
+            "7f792826-2019-04-18T15:23:48Z-00003-000"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "7f792826-2019-04-18T15:23:48Z-00004-000",
+            "2f656c50-2019-04-18T18:20:05Z-00000-000",
+            "ffa16c3b-2019-04-18T15:59:53Z-00001-000",
+            "2f656c50-2019-04-18T18:20:05Z-00002-000",
+            "2f656c50-2019-04-18T18:20:05Z-00001-000",
+            "5efc5feb-2019-04-18T16:38:30Z-00001-000"
+          ],
+          "topNonRelevantIdsAtK": [
+            "ffa16c3b-2019-04-18T15:59:53Z-00003-000",
+            "b80912ea-2019-04-18T17:08:58Z-00002-000",
+            "a84c3c83-2019-04-18T15:40:29Z-00001-000",
+            "7f792826-2019-04-18T15:23:48Z-00003-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "32e89ba9-2019-04-18T16:30:48Z-00001-000",
+              "grade": 2
+            },
+            {
+              "id": "48db7620-2019-04-18T18:11:25Z-00004-000",
+              "grade": 2
+            },
+            {
+              "id": "9a66988-2019-04-18T12:07:13Z-00006-000",
+              "grade": 2
+            },
+            {
+              "id": "9a66988-2019-04-18T12:07:13Z-00008-000",
+              "grade": 2
+            },
+            {
+              "id": "a84c3c83-2019-04-18T15:40:29Z-00000-000",
+              "grade": 2
+            },
+            {
+              "id": "f2f7c9c0-2019-04-18T12:43:51Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "f2f7c9c0-2019-04-18T12:43:51Z-00004-000",
+              "grade": 2
+            },
+            {
+              "id": "32e89ba9-2019-04-18T16:30:48Z-00002-000",
+              "grade": 1
+            },
+            {
+              "id": "3f1c75e-2019-04-18T11:15:58Z-00005-000",
+              "grade": 1
+            },
+            {
+              "id": "f0d9c7b8-2019-04-18T16:34:21Z-00001-000",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "50",
+          "query": "Should everyone get a universal basic income?",
+          "behaviorGroup": "partial_recall",
+          "behaviorLabel": "Partial recall",
+          "metrics": {
+            "precisionAtK": 0.6,
+            "recallAtK": 0.4615,
+            "averagePrecision": 0.3192,
+            "reciprocalRank": 0.5,
+            "ndcgAtK": 0.5896
+          },
+          "relevantCount": 13,
+          "hitCountAtK": 6,
+          "firstRelevantRank": 2,
+          "retrievedIdsAtK": [
+            "4d103793-2019-04-18T11:35:54Z-00007-000",
+            "4d1037f0-2019-04-18T11:08:29Z-00000-000",
+            "4d103774-2019-04-18T13:49:55Z-00005-000",
+            "4d103793-2019-04-18T11:35:54Z-00005-000",
+            "4d1037f0-2019-04-18T11:08:29Z-00002-000",
+            "b7051d6f-2019-04-18T11:25:14Z-00001-000",
+            "4d1037b2-2019-04-18T11:26:06Z-00002-000",
+            "4d1037d1-2019-04-18T11:25:50Z-00002-000",
+            "4d103774-2019-04-18T13:49:55Z-00001-000",
+            "12cc98d3-2019-04-18T11:08:03Z-00002-000"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "4d1037f0-2019-04-18T11:08:29Z-00000-000",
+            "4d103774-2019-04-18T13:49:55Z-00005-000",
+            "4d103793-2019-04-18T11:35:54Z-00005-000",
+            "4d1037f0-2019-04-18T11:08:29Z-00002-000",
+            "b7051d6f-2019-04-18T11:25:14Z-00001-000",
+            "12cc98d3-2019-04-18T11:08:03Z-00002-000"
+          ],
+          "topNonRelevantIdsAtK": [
+            "4d103793-2019-04-18T11:35:54Z-00007-000",
+            "4d1037b2-2019-04-18T11:26:06Z-00002-000",
+            "4d1037d1-2019-04-18T11:25:50Z-00002-000",
+            "4d103774-2019-04-18T13:49:55Z-00001-000"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "b7051d6f-2019-04-18T11:25:14Z-00002-000",
+              "grade": 2
+            },
+            {
+              "id": "ffdf2e2e-2019-04-18T11:43:09Z-00005-000",
+              "grade": 2
+            },
+            {
+              "id": "ffdf2e2e-2019-04-18T11:43:09Z-00006-000",
+              "grade": 2
+            },
+            {
+              "id": "260780d5-2019-04-18T15:27:35Z-00005-000",
+              "grade": 1
+            },
+            {
+              "id": "2e784eb9-2019-04-19T12:45:17Z-00005-000",
+              "grade": 1
+            },
+            {
+              "id": "74547446-2019-04-18T19:11:29Z-00005-000",
+              "grade": 1
+            },
+            {
+              "id": "7872f5d5-2019-04-19T12:47:52Z-00007-000",
+              "grade": 1
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

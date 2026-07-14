@@ -1,12 +1,12 @@
 import { createHash } from "node:crypto";
 import { existsSync } from "node:fs";
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { extractZipEntries } from "../src/datasets/zip.js";
 import { getDataset } from "../src/datasets/registry.js";
 
 function parseArgs(argv) {
-  const args = { dataset: null, force: false };
+  const args = { dataset: null, force: false, archive: null };
   for (let index = 0; index < argv.length; index += 1) {
     const value = argv[index];
     if (value === "--dataset") {
@@ -14,6 +14,9 @@ function parseArgs(argv) {
       index += 1;
     } else if (value === "--force") {
       args.force = true;
+    } else if (value === "--archive") {
+      args.archive = argv[index + 1];
+      index += 1;
     }
   }
   if (!args.dataset) {
@@ -28,18 +31,27 @@ async function main() {
   if (dataset.family !== "beir") {
     throw new Error(`Dataset ${dataset.id} is not a BEIR download`);
   }
+  if (dataset.fetchVia) {
+    throw new Error(`Dataset ${dataset.id} is fetched via --dataset ${dataset.fetchVia}`);
+  }
 
-  const corpusPath = join(dataset.dataDir, "corpus.jsonl");
+  const probeDir = dataset.aggregateOnly && dataset.subDatasets ? getDataset(dataset.subDatasets[0]).dataDir : dataset.dataDir;
+  const corpusPath = join(probeDir, "corpus.jsonl");
   if (existsSync(corpusPath) && !args.force) {
     console.log(JSON.stringify({ status: "ok", dataset: dataset.id, action: "already-fetched", dataDir: dataset.dataDir }, null, 2));
     return;
   }
 
-  const response = await fetch(dataset.downloadUrl);
-  if (!response.ok) {
-    throw new Error(`BEIR download failed for ${dataset.id}: ${response.status}`);
+  let archive;
+  if (args.archive) {
+    archive = await readFile(args.archive);
+  } else {
+    const response = await fetch(dataset.downloadUrl);
+    if (!response.ok) {
+      throw new Error(`BEIR download failed for ${dataset.id}: ${response.status}`);
+    }
+    archive = Buffer.from(await response.arrayBuffer());
   }
-  const archive = Buffer.from(await response.arrayBuffer());
   const checksum = createHash("md5").update(archive).digest("hex");
   const entries = extractZipEntries(archive);
 

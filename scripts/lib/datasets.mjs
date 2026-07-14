@@ -1,5 +1,7 @@
+import { createReadStream } from "node:fs";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+import { createInterface } from "node:readline";
 import {
   buildBeirBm25SearchBody,
   buildBeirEvaluationQueries,
@@ -16,17 +18,43 @@ export function resolveDataset(datasetId) {
   return getDataset(datasetId);
 }
 
+// Streams line by line: Tier 2-3 corpus files exceed the V8 single-string limit.
 export async function loadBeirCorpusDocuments(dataset, dataDir = null) {
   const directory = dataDir || dataset.dataDir;
-  const content = await readFile(join(directory, "corpus.jsonl"), "utf8");
-  return parseBeirCorpus(content);
+  const documents = [];
+  const lines = createInterface({
+    input: createReadStream(join(directory, "corpus.jsonl")),
+    crlfDelay: Infinity
+  });
+  for await (const line of lines) {
+    if (line) {
+      documents.push(...parseBeirCorpus(line));
+    }
+  }
+  return documents;
 }
 
 export async function loadEvaluationCases(dataset, { dataDir = null, queriesPath = null } = {}) {
   if (dataset.family === "beir") {
     const directory = dataDir || dataset.dataDir;
-    const queries = parseBeirQueries(await readFile(join(directory, "queries.jsonl"), "utf8"));
     const qrels = parseBeirQrels(await readFile(join(directory, `qrels/${dataset.qrelsSplit}.tsv`), "utf8"));
+    const neededIds = new Set(Object.keys(qrels));
+    // Streamed with an id pre-filter: some BEIR queries files (CQADupStack) are
+    // multi-gigabyte while the qrels split needs only a few hundred queries.
+    const queries = [];
+    const lines = createInterface({
+      input: createReadStream(join(directory, "queries.jsonl")),
+      crlfDelay: Infinity
+    });
+    for await (const line of lines) {
+      if (!line) {
+        continue;
+      }
+      const idMatch = line.match(/"_id"\s*:\s*"((?:[^"\\]|\\.)*)"/u);
+      if (idMatch && neededIds.has(JSON.parse(`"${idMatch[1]}"`))) {
+        queries.push(...parseBeirQueries(line));
+      }
+    }
     return buildBeirEvaluationQueries(queries, qrels);
   }
   if (dataset.family === "cranfield") {

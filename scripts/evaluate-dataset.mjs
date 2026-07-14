@@ -52,6 +52,8 @@ function parseArgs(argv) {
     } else if (value === "--relevance-mode") {
       args.relevanceMode = argv[index + 1];
       index += 1;
+    } else if (value === "--include-identical-ids") {
+      args.includeIdenticalIds = true;
     }
   }
   if (!args.dataset) {
@@ -84,16 +86,19 @@ async function runLiveEvaluation({ dataset, queries, size, env, index, architect
       const searchResults = await searchDataset({
         dataset,
         query: query.query,
-        size,
+        size: dataset.ignoreIdenticalIds ? size + 1 : size,
         env,
         index,
         architecture
       });
+      const filteredResults = dataset.ignoreIdenticalIds
+        ? searchResults.filter((result) => result.id !== query.id).slice(0, size)
+        : searchResults;
       results[currentIndex] = {
         queryId: query.id,
         query: query.query,
         qrels: query.qrels,
-        results: searchResults
+        results: filteredResults
       };
     }
   });
@@ -126,10 +131,11 @@ async function main() {
   }
 
   const queries = await loadEvaluationCases(dataset, { queriesPath: args.queries });
+  const effectiveDataset = args.includeIdenticalIds ? { ...dataset, ignoreIdenticalIds: false } : dataset;
   const retrieveSize = args.retrieveSize || args.k;
   const env = envFromProcess();
   const cases = await runLiveEvaluation({
-    dataset,
+    dataset: effectiveDataset,
     queries,
     size: retrieveSize,
     env,

@@ -1,5 +1,5 @@
 {
-  "strategy_id": "VALSTRAT-006",
+  "strategy_id": "VALSTRAT-007",
   "project_type": "mission-driven OpenSearch search platform",
   "artifact_profiles": [
     "mde_project",
@@ -22,9 +22,13 @@
     "vector_retrieval",
     "hybrid_search",
     "learning_to_rank",
-    "opensearch_knn"
+    "opensearch_knn",
+    "beir_dataset",
+    "dataset_agnostic_harness",
+    "cross_domain_evaluation",
+    "technique_scope_classification"
   ],
-  "mission_phase": "Phase 1 - Cranfield Foundation",
+  "mission_phase": "Phase 2 - Cross-Domain Validation with BEIR (M-0002)",
   "selected_validations": [
     {
       "category": "Mission Coverage",
@@ -161,10 +165,34 @@
         "scripts/evaluate-cranfield-ltr.mjs when LTR experiments are in scope"
       ],
       "reason": "Candidate query strategies must be accepted, rejected, or deferred using measured deltas and documented decision status."
+    },
+    {
+      "category": "Cross-Domain Baseline Integrity",
+      "required": true,
+      "priority": "Critical",
+      "tools_or_methods": [
+        "published-reference comparison embedded in every evaluate-dataset artifact (referenceComparison block)",
+        "expected corpus/query counts checked against the dataset registry",
+        "Cranfield shared-harness parity checks against Phase 1 numbers",
+        "evaluation-convention checks (e.g. self-hit exclusion) when a baseline lands far from its reference"
+      ],
+      "reason": "Mission Update 002: the harness is trustworthy only if baselines reproduce published numbers; far-off values indicate a harness bug, not a discovery, and must be investigated before any technique evidence is recorded."
+    },
+    {
+      "category": "Infra Limits Recording",
+      "required": true,
+      "priority": "High",
+      "tools_or_methods": [
+        "index store size (storeMb) recorded at load time per dataset",
+        "sequential index-evaluate-drop pattern for Tier 2-3 corpora",
+        "free-tier storage headroom check before large loads"
+      ],
+      "reason": "The single free-tier OpenSearch instance (4 GB RAM / 20 GB storage) is a concurrent constraint; every dataset must record its footprint so tier execution stays reproducible."
     }
   ],
   "validation_gates": {
     "required_pass_count_before_phase_exit": 2,
     "second_pass_policy": "Rerun all Critical validations, all changed validations, and deployment blocker checks with no implementation, test, strategy, or validator changes between passes."
-  }
+  },
+  "second_run_policy": {}
 }

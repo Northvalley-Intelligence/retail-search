@@ -1,0 +1,7150 @@
+{
+  "generatedAt": "2026-07-14T00:00:00.000Z",
+  "dataset": "beir/cqadupstack/wordpress",
+  "datasetTier": 2,
+  "harness": "dataset-agnostic-v1",
+  "technique": "bm25-multi-match",
+  "transport": "live-opensearch",
+  "index": "beir-cqadupstack-wordpress-v0",
+  "retrieveSize": 10,
+  "metrics": {
+    "map": 0.2568,
+    "ndcgAtK": 0.2919,
+    "precisionAtK": 0.0442,
+    "recallAtK": 0.3816,
+    "mrr": 0.2737
+  },
+  "referenceComparison": null,
+  "evaluation": {
+    "k": 10,
+    "relevanceMode": "linear",
+    "queryCount": 541,
+    "aggregate": {
+      "precisionAtK": 0.0442,
+      "recallAtK": 0.3816,
+      "averagePrecision": 0.2568,
+      "reciprocalRank": 0.2737,
+      "ndcgAtK": 0.2919
+    },
+    "perQuery": [
+      {
+        "queryId": "13",
+        "query": "Updates for a private plugin?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.25,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.4307
+        }
+      },
+      {
+        "queryId": "106",
+        "query": "Can I rename the wp-admin folder?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 1,
+          "averagePrecision": 0.75,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.8772
+        }
+      },
+      {
+        "queryId": "175",
+        "query": "Marking future dated post as published",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.2,
+          "reciprocalRank": 0.2,
+          "ndcgAtK": 0.3869
+        }
+      },
+      {
+        "queryId": "194",
+        "query": "How to show a single post on the front page but have normal paging?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "199",
+        "query": "Steps to Optimize WordPress in Regard to Server Load?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "222",
+        "query": "Do deactivated plugins slow down a WordPress site?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "458",
+        "query": "OpenID for WordPress 3.x?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "477",
+        "query": "How do I get the size of an attachment file?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "859",
+        "query": "Show a WP 3.0 Custom Menu in an HTML Select with Auto-Navigation?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "1395",
+        "query": "Adding Custom Field to Taxonomy Input :Panel",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "1507",
+        "query": "Steps to Take to Hide the Fact a Site is Using WordPress?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6131
+        }
+      },
+      {
+        "queryId": "2100",
+        "query": "Database synchronization between dev/staging and production",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "2623",
+        "query": "Include custom taxonomy term in search",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "2680",
+        "query": "best way to overide plugin CSS?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 1,
+          "averagePrecision": 0.8333,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.9197
+        }
+      },
+      {
+        "queryId": "3041",
+        "query": "Make WordPress WYSIWYG not strip out iframe's",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "3068",
+        "query": "How to detect WP plugins used on a site",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "3396",
+        "query": "Create custom page templates with plugins?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "3725",
+        "query": "WordPress frameworks and parent themes",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "3727",
+        "query": "How can I install a plugin on a Wordpress.com hosted blog?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "4259",
+        "query": "Limiting sessions to one IP at a time",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "4307",
+        "query": "How can I add an image upload field directly to a custom write panel?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "4336",
+        "query": "Is There A Hook To Process The Content Of The Text Widget?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "4514",
+        "query": "How do I customise the new user welcome email",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "4751",
+        "query": "Adding Pages to Menus - No Page Hierarchy in Backend",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "4789",
+        "query": "Changing the 'wp-admin' URL to whatever I want",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "4984",
+        "query": "Resizing all images",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.125,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.2641
+        }
+      },
+      {
+        "queryId": "5220",
+        "query": "Automatic Updates For Private And Commercial Themes?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "5331",
+        "query": "append_content help",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "5422",
+        "query": "How to move the wordpress site from test url to main url?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "5742",
+        "query": "Change the Author Slug from Username to Nickname",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "5748",
+        "query": "How to replace the domain name in a Wordpress database?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "6106",
+        "query": "Remove parent category from permalink? Basically only have the child category?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "6163",
+        "query": "Commenting in user profile page?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "6247",
+        "query": "Can I turn off write-in tags/taxonomies?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "6645",
+        "query": "Turn a URL into an Attachment / Post ID",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "6774",
+        "query": "Restricting access to files within a specific folder",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "8050",
+        "query": "Definitive list of WordPress books",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "9202",
+        "query": "Thumbnail (featured image) of next and previous post is not being properly displayed!",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "9231",
+        "query": "What's the preferred method of writing AJAX-enabled plugins?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "9308",
+        "query": "How to split a loop into multiple columns",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "10310",
+        "query": "authenticate user without password from email activation link",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "10582",
+        "query": "How to add Disqus comment count",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.125,
+          "reciprocalRank": 0.125,
+          "ndcgAtK": 0.3155
+        }
+      },
+      {
+        "queryId": "10706",
+        "query": "WP 3.1 - archive pages for custom content types possible now without a plugin?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "11085",
+        "query": "Truncating custom fields",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "11722",
+        "query": "Applying automatic link class to images embedded to posts",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "11798",
+        "query": "Loading template files from a subfolder in my theme?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.3333,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.5
+        }
+      },
+      {
+        "queryId": "11822",
+        "query": "how to limit search to post titles?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "11920",
+        "query": "Submit post and upload image from front-end",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "12201",
+        "query": "WordPress Multisite - global categories",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.6667,
+          "averagePrecision": 0.25,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.4441
+        }
+      },
+      {
+        "queryId": "12360",
+        "query": "custom registration form",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "12531",
+        "query": "Is it possible to add a first and latest posts link?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6131
+        }
+      },
+      {
+        "queryId": "12889",
+        "query": "Will WP work on a multi-server environment?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "13636",
+        "query": "How to add pages to custom menus on the fly",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "14169",
+        "query": "Return $post_id when DOING_AUTOSAVE?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "14306",
+        "query": "Using wp_query is it possible to orderby taxonomy?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6131
+        }
+      },
+      {
+        "queryId": "14677",
+        "query": "Automatically create pages in a post based on number of words",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "14773",
+        "query": "Retrieving a custom link on an attachment",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "15251",
+        "query": "Moving a blog from Tumblr to Wordpress",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "15376",
+        "query": "How to set default screen options?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "15699",
+        "query": "Export whole wordpress blog to PDF or similar including images",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.25,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.4307
+        }
+      },
+      {
+        "queryId": "15764",
+        "query": "\"Leave a comment\" link even when you can't",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "15840",
+        "query": "How to rename default posts-type Posts",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "16004",
+        "query": "Redirect user to original url after login?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "16414",
+        "query": "Can't edit style.css in subdirectory of my theme?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "16709",
+        "query": "meta_query with meta values as serialize arrays",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "16727",
+        "query": "Questions about WordPress.org theme review",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "17715",
+        "query": "Plugin search sorting for admin section - Wordpress",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.3333,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.5
+        }
+      },
+      {
+        "queryId": "17947",
+        "query": "Expanding the allowed HTML tags in comments?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "19031",
+        "query": "WP plugin updates",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "19446",
+        "query": "WordPress upgrade now receiving Error 101 (net::ERR_CONNECTION_RESET): Unknown error",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "19607",
+        "query": "Wordpress Copyright Dillema (i.e. Powered by)",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "20194",
+        "query": "Super WordPress debugging toolkit and triage procedures?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "20196",
+        "query": "Transient / object cache maximum key length",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "20923",
+        "query": "How can I make add_image_size() crop from the top?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.6667,
+          "averagePrecision": 0.3889,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.5307
+        }
+      },
+      {
+        "queryId": "21152",
+        "query": "display all posts in wordpress admin",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "21341",
+        "query": "Alternative to query_posts for main loop?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "21367",
+        "query": "When you create a custom post type, does that also create capabilities for editing/deleting that post type automatically?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "21634",
+        "query": "What is your take: TimThumb vs. WordPress Thumbnails? The great debate",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "21742",
+        "query": "jQuery plugin function is not a function",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "21952",
+        "query": "WP_Query with checkbox meta_query",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "22134",
+        "query": "Add Plugins to Wordpress Theme",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "22943",
+        "query": "how do I get_sidebar into a varaible?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "23089",
+        "query": "Are get_bloginfo queries cached to start, or should they be cached?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "23263",
+        "query": "Syntax highlighting for post/page editor",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "23710",
+        "query": "Why isn't the Settings API designed to work for plugins using custom admin menus?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "24173",
+        "query": "How should I best incorporate WordPress in my static website?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "24443",
+        "query": "When is it appropriate to create a new table in the WordPress database?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "24650",
+        "query": "Hooks for Links Box",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "24652",
+        "query": "subdomain archiving",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "24924",
+        "query": "Programmatically change post templates?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "25099",
+        "query": "Change login error messages",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "25118",
+        "query": "Change comments form title on a page by page basis",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "25344",
+        "query": "How do you make relational post types in Wordpress?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "25385",
+        "query": "How to autologin users after creating a new site (multisite)?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "25461",
+        "query": "How to determine the current widget's parent container (sidebar widget id)",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "26110",
+        "query": "What methods to use to create small, editable pieces of text for static pages?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "26595",
+        "query": "Listing Authors - URL Formats",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "27832",
+        "query": "WP_query 'orderby=none' Problem",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6131
+        }
+      },
+      {
+        "queryId": "27840",
+        "query": "How to have a custom URL structure for a custom post type?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "27941",
+        "query": "Getting 404.php instead of single-<post-type>.php",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.1667,
+          "averagePrecision": 0.0167,
+          "reciprocalRank": 0.1,
+          "ndcgAtK": 0.0875
+        }
+      },
+      {
+        "queryId": "29338",
+        "query": "How to show 'login error' and 'lost password' on my template page?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "29822",
+        "query": "Custom bulk_action",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.3333,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.5
+        }
+      },
+      {
+        "queryId": "30139",
+        "query": "Adding a class (arrows) to main menu links that have children?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "31143",
+        "query": "How to remove attachments size attribute",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "31512",
+        "query": "Custom Post Type Slug / Page Slug Conflict - Prevent use of reserved slug on page save?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "31531",
+        "query": "Automated adding of one tag to all the posts in a category",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "32004",
+        "query": "How to validate WordPress generated password in DB using PHP?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6131
+        }
+      },
+      {
+        "queryId": "32297",
+        "query": "Use template_include with custom post types",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "32584",
+        "query": "Localization: I want the backend: english and frontend in defined language",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "33072",
+        "query": "How to remove feeds from WordPress totally?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "33193",
+        "query": "How do you load WordPress from an external script when using MultiSite?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "33198",
+        "query": "First item in each category list is not a link",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "33913",
+        "query": "Exclude admin from the top commenters list",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "35139",
+        "query": "*box for images displayed as a post's [gallery]",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "35416",
+        "query": "Re Order Editor to be after meta box",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "36017",
+        "query": "custom slug for custom post type",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "36118",
+        "query": "How to HIDE everything in PUBLISH metabox except Move to Trash & PUBLISH button",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "36149",
+        "query": "How to place random widgets in the Wordpress sidebar?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "36174",
+        "query": "How to disable generation of default image sizes for some custom post types?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "36493",
+        "query": "Get post thumbnail size",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "36772",
+        "query": "Image Captions Have a 10px Extra Margin, And It's Not CSS?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "37256",
+        "query": "Paged posts - how to use numbers and next/previous links?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "37828",
+        "query": "Is there a plugin that will override the \"Error establishing a database connection\" message?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "38361",
+        "query": "Advanced search form with filters for custom taxonomies and custom fields",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "39446",
+        "query": "Change The Title Of a Meta Box",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "39665",
+        "query": "custom htaccess rewrite rule for page",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "40173",
+        "query": "How-to: push a GitHub repo to the wordpress plugin servers",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "40353",
+        "query": "Change custom post type to hierarchical after being registered",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.25,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.4307
+        }
+      },
+      {
+        "queryId": "40805",
+        "query": "How to secure WordPress XMLRPC?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "40994",
+        "query": "single-{$post_type}-{slug}.php for custom post types",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.3333,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.5
+        }
+      },
+      {
+        "queryId": "41207",
+        "query": "How do I enqueue styles/scripts on certain /wp-admin pages?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "41634",
+        "query": "How can you upload an image from within a settings page?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "41934",
+        "query": "Plugin that would allow WordPress Authors to \"follow\" other Authors and query \"Activity Info\" from that",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.25,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.4307
+        }
+      },
+      {
+        "queryId": "42120",
+        "query": "Remove slug in taxonomy url",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "42586",
+        "query": "How to troubleshoot WordPress issues?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "42882",
+        "query": "current_shortcode() - detect currently used shortcode",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "42891",
+        "query": "How to create live autofill search?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "42893",
+        "query": "Wordpress Plugin function callback by URL",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "43004",
+        "query": "wp_enqueue has a resource but doesn't generate a script tag",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "43643",
+        "query": "Make a navigation menu in the same post",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "43657",
+        "query": "White-list file types for media upload",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.1667,
+          "reciprocalRank": 0.1667,
+          "ndcgAtK": 0.3562
+        }
+      },
+      {
+        "queryId": "44110",
+        "query": "PageLines theme: how to change the background color of the main content vs. entire page?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "44516",
+        "query": "Can someone please help me find a solution to my youtube embed problems?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "45437",
+        "query": "Including jQuery and JavaScript files the correct way",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "46136",
+        "query": "Archive by Year",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "46398",
+        "query": "Check before publishing, if already exist post with current custom field value",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.1667,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.3066
+        }
+      },
+      {
+        "queryId": "46469",
+        "query": "Can I Prevent Enumeration of Usernames?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "46547",
+        "query": "How to use logout function on custom menu link?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "47049",
+        "query": "What is the correct way to use wordpress functions outside wordpress files?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "47346",
+        "query": "How can I display parent and child taxonomies in separate drop downs?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "48145",
+        "query": "\"Discussion\" checkboxes unchecked by default on pages?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "49020",
+        "query": "Handling jQuery Component Collision",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "49154",
+        "query": "Hide other users' posts in admin panel",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "49339",
+        "query": "Notice that the wp_enqueue_style is not being called correctly! ",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "50033",
+        "query": "featuring old articles without messing up with the archive",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "50044",
+        "query": "how query string in wordpress receive the value other than post and page",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "50092",
+        "query": "Custom meta box shown when template is chosen",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "50478",
+        "query": "Scan for first image in post and display it",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.6667,
+          "averagePrecision": 0.6667,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.7654
+        }
+      },
+      {
+        "queryId": "50530",
+        "query": "custom post types, wp_get_archives and add_rewrite_rule",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "50649",
+        "query": "How to scale up featured post thumbnail?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "51005",
+        "query": "RSS Feed Custom Title?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "51281",
+        "query": "Add a Save Button to Custom Meta Box",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.1667,
+          "reciprocalRank": 0.1667,
+          "ndcgAtK": 0.3562
+        }
+      },
+      {
+        "queryId": "51444",
+        "query": "Add extra parameters after permalink?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "52002",
+        "query": "Add Page number to Meta Description in Wordpress SEO by Yoast",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.2,
+          "reciprocalRank": 0.2,
+          "ndcgAtK": 0.3869
+        }
+      },
+      {
+        "queryId": "52330",
+        "query": "How to remove \"login to reply\" from individual comments",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.25,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.4307
+        }
+      },
+      {
+        "queryId": "52400",
+        "query": "How to save a translation of a plugin in \"CodeStyling Localization\"?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "52489",
+        "query": "the_date() not working",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.05,
+          "reciprocalRank": 0.1,
+          "ndcgAtK": 0.1772
+        }
+      },
+      {
+        "queryId": "53403",
+        "query": "Wordpress Beginer to Guru",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "53486",
+        "query": "How to add or remove metabox each page separately?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "53866",
+        "query": "How to use a Must-Use plugin to hide a regular one and to hide itself?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "55227",
+        "query": "How to execute conditional script when on new customize.php (Theme Customize) screen",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "55522",
+        "query": "How to prefix post permalinks with /blog/ - without affecting custom post types?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "55550",
+        "query": "Short_title character problem",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "56206",
+        "query": "Permalink: postname EXCEPT for blog",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.125,
+          "reciprocalRank": 0.125,
+          "ndcgAtK": 0.3155
+        }
+      },
+      {
+        "queryId": "56256",
+        "query": "Custom Post Type Pagination Doesn't Work in Wordpress 3.4",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "56343",
+        "query": "Template issues getting ajax search results",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "56476",
+        "query": "How not to display posts from a certain category?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "56652",
+        "query": "Filtering the Admin Comments List to Show Only Comments from the Current User?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "56775",
+        "query": "Add Comment Custom Field",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "56779",
+        "query": "Check if post is being published for the first time, or is an already published post being updated",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "56781",
+        "query": "shortcode outputs first before the page content",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.3333,
+          "averagePrecision": 0.0833,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.2258
+        }
+      },
+      {
+        "queryId": "56966",
+        "query": "Custom $wpdb Query for Custom Post Type by Category",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "57446",
+        "query": "Custom Taxonomy Archives on Custom Post type Page",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "57512",
+        "query": "Determine if Term has Grandparent/Great-Grandparent",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "57944",
+        "query": "Why does wordpress keep asking for ftp login info when I go to install a plugin",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "58391",
+        "query": "Is moving wp-config outside the web root really beneficial?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6131
+        }
+      },
+      {
+        "queryId": "58481",
+        "query": "List Custom Post Types by Date Archive",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "58903",
+        "query": "Mandatory fields in Custom Post Types",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "59590",
+        "query": "how to style an individual page in a category",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "59753",
+        "query": "Wp_Insert_Post: Do not insert if the title exists",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "59767",
+        "query": "Order by custom field date with ASC order",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "59891",
+        "query": "trying to add custom landing page to Twenty Eleven- can't get rid of Twenty Eleven header/container?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "60132",
+        "query": "How can I add custom fields in a custom post type?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "60383",
+        "query": "Correct process for a new Page Template?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "60831",
+        "query": "Duplicate posts",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "61455",
+        "query": "Cron job not run on activation",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "61749",
+        "query": "Adding meta values to permalink",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "62036",
+        "query": "How to show Next/Previous within the same Category?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "62054",
+        "query": "Custom Walker: how to get ID in function start_lvl",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "62573",
+        "query": "Remove the Yoast SEO Post Metabox",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.2,
+          "reciprocalRank": 0.2,
+          "ndcgAtK": 0.3869
+        }
+      },
+      {
+        "queryId": "62820",
+        "query": "Custom post type not displaying content from single-{custopm post type} page ctd",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "62999",
+        "query": "Worthwhile to restrict direct access of theme files?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "63041",
+        "query": "Removing the URL field from Comments",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "63098",
+        "query": "How do I turn comments off for pages, but not posts?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "63277",
+        "query": "How to get the top most term (top ancestor) of a custom taxonomy child term?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "63292",
+        "query": "how to make custom posts sticky?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "63418",
+        "query": "Removing user fields",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "63424",
+        "query": "How To Modify The Loop in archives.php To Have 11 Posts Per Page and CSS Styling",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "63840",
+        "query": "Is it possible to have full category-parent/post-name with custom post types?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "63917",
+        "query": "Can a developer adopt a plugin marked as \"not updated in over 2 years\"?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "64001",
+        "query": "Best way to customise wp_nav_menu",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "64050",
+        "query": "Does WordPress send data about your blog to WordPress.org or Automattic?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "64389",
+        "query": "WordPress independent plugin upgrade notification system",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "64808",
+        "query": "conditional shortcode not working",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "65446",
+        "query": "Load wp_editor via ajax",
+        "metrics": {
+          "precisionAtK": 0.4,
+          "recallAtK": 0.8,
+          "averagePrecision": 0.3857,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.5801
+        }
+      },
+      {
+        "queryId": "66180",
+        "query": "Programmatically insert hierarchical terms & set terms for post causes glitch?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "66606",
+        "query": "replace plugin .po without modifying plugin core?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "66943",
+        "query": "How to repeat a loop after 4 posts",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "66944",
+        "query": "Conditional Tag Based on Age of Post",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "67065",
+        "query": "Properly add an upload media button in a meta box field",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "67480",
+        "query": "Custom background for the index page only?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "67780",
+        "query": "Restrict url to one segment, even when page or post is nested",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "67790",
+        "query": "Custom search form with empty parameters",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "68040",
+        "query": "How to be notified when a YT video becomes unavailable on my website?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "69386",
+        "query": "shortcodes output before content",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.3333,
+          "averagePrecision": 0.1389,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.2987
+        }
+      },
+      {
+        "queryId": "69388",
+        "query": "How can I track active users of my plugin? and why doesn't WordPress.Org offer this?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "69460",
+        "query": "Get multiple custom field values in a $wpdb query",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "69772",
+        "query": "Execute function when post is published",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "70203",
+        "query": "Final Attempt - Adding default post content based on category?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "70519",
+        "query": "Shared Members between two different wordpress installations with different databases",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "70979",
+        "query": "Remove Meta-boxes (Yoast SEO plugin)",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "71000",
+        "query": "paginate_links refers to \"Not Found\" page",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "71005",
+        "query": "Theme development: Pre-activated widgets",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "71304",
+        "query": "Action hook for custom tax edit",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "71381",
+        "query": "How to disable `SQL_CALC_FOUND_ROWS`",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "71922",
+        "query": "how to change capability required to view an admin page?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "72116",
+        "query": "How can I display all Multisite blogs where this user is administrator?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "73031",
+        "query": "Where to put my code: plugin or functions.php?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "73367",
+        "query": "How do I sort multiples pages?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "73385",
+        "query": "Make search result returned only from tags!",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "73782",
+        "query": "Showing shortcode of contact form instead of displaying form",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "74160",
+        "query": "Showing A Menu When Only Users Are Logged In",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "74517",
+        "query": "Must Log In to Visit Site",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "74853",
+        "query": "Apply custom role capabilities to administrator (without plugin)",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "75565",
+        "query": "How to use same email for multiple users",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6131
+        }
+      },
+      {
+        "queryId": "75665",
+        "query": "Archive listing of posts by publish year (multiple years)",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "75723",
+        "query": "Get user input from a form",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "76072",
+        "query": "$wpdb->prepare() warning in WordPress 3.5",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.6667,
+          "averagePrecision": 0.4167,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6173
+        }
+      },
+      {
+        "queryId": "76125",
+        "query": "Change the default-view of Media Library in 3.5?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 1,
+          "averagePrecision": 0.6,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.7904
+        }
+      },
+      {
+        "queryId": "76216",
+        "query": "How to add a filter based on custom field to admin user list",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "76334",
+        "query": "Prevent menu from loading in a page template",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "76720",
+        "query": "How to use taxonomies on attachments with the new Media Library?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "76943",
+        "query": "Add New Footer Widget Area with Limited Options?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.3333,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.5
+        }
+      },
+      {
+        "queryId": "77012",
+        "query": "publish_post action hook not working",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "77227",
+        "query": "Enqueue Google Web Fonts Without Messing Up Symbols In URL",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "77424",
+        "query": "Show category list on attachment page",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.1429,
+          "reciprocalRank": 0.1429,
+          "ndcgAtK": 0.3333
+        }
+      },
+      {
+        "queryId": "77597",
+        "query": "How to Create a Custom WordPress Install Package?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "77661",
+        "query": "Next_posts_link() works only with original $wp_query",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "78062",
+        "query": "How can I fix this code",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "78325",
+        "query": "How to add dynamically the main parent pages's custom fields and their values to all sub-pages?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "78357",
+        "query": "My wordpress site must be being affected by outside sources",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "78368",
+        "query": "is_singular won't call my functions?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "78544",
+        "query": "How to write an efficient metabox with repetitive fields",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "78630",
+        "query": "ID of images from wordpress galelry",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "78792",
+        "query": "How to select featured images for 1500 posts?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "78881",
+        "query": "Wordpress 3.5 Media Manager - add a button",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.1,
+          "reciprocalRank": 0.1,
+          "ndcgAtK": 0.2891
+        }
+      },
+      {
+        "queryId": "79894",
+        "query": "Save Thumbnails From wp_oembed_get Function",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "79903",
+        "query": "Author Pages For Custom Post Types",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.25,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.4307
+        }
+      },
+      {
+        "queryId": "79914",
+        "query": "Limit the post for differents custom post type in the same wp_query",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "80266",
+        "query": "Performance and styles problem after changing permalink structure",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "80454",
+        "query": "How to know which one is the main query?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "81591",
+        "query": "Making epub, pdf, mobi formats available in a post?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "82051",
+        "query": "Meta data posted in different table",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "82343",
+        "query": "How to display links in specific page",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "82718",
+        "query": "How do I implement the Wordpress Iris picker into my plugin on the front-end?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "83102",
+        "query": "How do you change the theme location?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "83435",
+        "query": "Wordpress video end function",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "83650",
+        "query": "Adding admin-ajax.php to the frontend. Good or bad idea?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "84254",
+        "query": "WP.org API: Accessing plugin downloads \"Today\" value?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "84314",
+        "query": "Custom .php page that contains json for dynamically loaded content",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "84986",
+        "query": "How to add additional JavaScript code",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.1,
+          "reciprocalRank": 0.2,
+          "ndcgAtK": 0.2372
+        }
+      },
+      {
+        "queryId": "85416",
+        "query": "Advanced custom field plugin not showing in admin sidebar",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.25,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.4307
+        }
+      },
+      {
+        "queryId": "87264",
+        "query": "Do I need to use The Loop on pages?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.3333,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.5
+        }
+      },
+      {
+        "queryId": "87478",
+        "query": "How do I position meta_box on post edit screen after the title?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "87514",
+        "query": "Make Google index the entire post if it is separated into several pages",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "87746",
+        "query": "query_posts() vs get_posts() multiple loops",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.125,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.2641
+        }
+      },
+      {
+        "queryId": "87779",
+        "query": "Taxonomy view page doesn't show terms with parents",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "88062",
+        "query": "Preset categories in wordpress by GET-paremters",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "88093",
+        "query": "Settings API enable default settings on theme install?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "88549",
+        "query": "How to reduce the database query-es",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "89409",
+        "query": "Need oop for wordpress theme?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.2,
+          "reciprocalRank": 0.2,
+          "ndcgAtK": 0.3869
+        }
+      },
+      {
+        "queryId": "89886",
+        "query": "How to create a custom search for custom post type?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "90199",
+        "query": "How to declare WooCommerce support in your theme",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "90241",
+        "query": "Dynamic content in a static page",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "90939",
+        "query": "All-in-One Event Calendar: Custom Query - Getting each event Instance",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "91166",
+        "query": "How to disable WordPress from creating thumbnails?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "92103",
+        "query": "Disable Wordpress URL auto complete",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "92551",
+        "query": "How to retrieve an image from a post and display it before excerpt of a post?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "93830",
+        "query": "Really simple query giving error in SQL syntax",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "94615",
+        "query": "How to set up wordpress domain mapping on MAMP Pro",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "94682",
+        "query": "Issue after changing permalink structure",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.1429,
+          "reciprocalRank": 0.1429,
+          "ndcgAtK": 0.3333
+        }
+      },
+      {
+        "queryId": "94705",
+        "query": "Link to subpages on the same page",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "95576",
+        "query": "Increase of failed login attempts, brute force attacks?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.1111,
+          "reciprocalRank": 0.1111,
+          "ndcgAtK": 0.301
+        }
+      },
+      {
+        "queryId": "95799",
+        "query": "Is it possible to disable a function of a parent theme?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "96199",
+        "query": "What does \"_x( \" and \"__(\" mean in Custom Post Type Arguments",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "96361",
+        "query": "Categorising themes by folders in backend",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "96563",
+        "query": "Call sidebar from a template",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "96762",
+        "query": "How to make a meta box field a requirement",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "96945",
+        "query": "How do I just display the part of the array that I want to?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "97895",
+        "query": "Plugin works for default post types, but not for custom",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "98226",
+        "query": "Admin Menus - Name Menu different from first Submenu",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "98899",
+        "query": "Creating Theme Settings Page",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "98913",
+        "query": "Add Parent to List of Subpages",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "98939",
+        "query": "Allow acces to wp-admin in wordpress",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.3333,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.5
+        }
+      },
+      {
+        "queryId": "98995",
+        "query": "Custom post type archive and single.php files not working",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "99042",
+        "query": "Pagination problem in custom post type used as front page",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "99138",
+        "query": "Creating a Custom Post Type as a Plugin? Why?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "99282",
+        "query": "Code Only On Mobile",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "99338",
+        "query": "Loaded JavaScript file not showing",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "99386",
+        "query": "How to load wordpress sidebar using AJAX",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "100230",
+        "query": "adding the full image path to a wordpress javascript file",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "100547",
+        "query": "How to redirect all page requests to a single \"goodbye\" homepage?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "100726",
+        "query": "Add custom attributes to menu items without plugin",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "100833",
+        "query": "FB - Comment Moderation Tool bug or error in the code?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "100939",
+        "query": "simple solution for restricting access to (some) uploads/downloads",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.25,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.4307
+        }
+      },
+      {
+        "queryId": "101042",
+        "query": "Changing upload directory for plugin uploads only",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "101619",
+        "query": "adding parent link to submenu",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "101834",
+        "query": "CPT admin column auto order by date instead of title",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "102451",
+        "query": "Export data as CSV in back end with proper HTTP headers",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "103181",
+        "query": "Sorting: custom query with orderby meta_value_num THEN by title",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "103227",
+        "query": "Exclude subcategories from the url",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "104061",
+        "query": "Auto generate meta data value in post",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "104307",
+        "query": "How does wordpress distinguish a plugin's main php file from other php files?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "104373",
+        "query": "Custom template for a product in Woocommerce",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "104722",
+        "query": "Media Library page super slow, loading up full quality images",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "105641",
+        "query": "Help with Wordpress Walker Function",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "105772",
+        "query": "Move Title and the Content WYSIWYG editor position",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "105940",
+        "query": "Passing a variable into Contact Form 7",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "106371",
+        "query": "gallery - size is thumbnail by default change it to medium",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "106451",
+        "query": "load plugin with ajax",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.05,
+          "reciprocalRank": 0.1,
+          "ndcgAtK": 0.1772
+        }
+      },
+      {
+        "queryId": "106559",
+        "query": "dbDelta using Foreign key not working on update",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "107249",
+        "query": "Remove title attribute from tag cloud widget",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "109333",
+        "query": "Twenty Eleven Theme",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "109646",
+        "query": "Active Plugins for current blog in WP Multisite Network?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "109793",
+        "query": "Delete Associated Media Upon Page Deletion",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "109985",
+        "query": "How to pass arguments to add_action()",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "110349",
+        "query": "Template Hierarchy: confused with index.php, front-page.php, home.php",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.25,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.4307
+        }
+      },
+      {
+        "queryId": "110766",
+        "query": "Multidimensional array problem with update_post_meta",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "110768",
+        "query": "returning 404 page error on form submission",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.4,
+          "averagePrecision": 0.2571,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.4522
+        }
+      },
+      {
+        "queryId": "111254",
+        "query": "What are the minimum database privileges to run WP?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 1,
+          "averagePrecision": 0.5833,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6934
+        }
+      },
+      {
+        "queryId": "112010",
+        "query": "Strip shortcode from excerpt",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "112043",
+        "query": "How can i list all user registered on my website and have pagination",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "112088",
+        "query": "Let admin users edit member profiles from front end",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "112685",
+        "query": "Thickbox doesn't respect dimensions when used in admin",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "112773",
+        "query": "How can I inject html after the [x]th widget inside a Sidebar?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "113196",
+        "query": "Send message to author without showing email address",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "113211",
+        "query": "Calling up a second Theme functions.php",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "113235",
+        "query": "Add number new posts (post_status = pending) to administration menu",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "113631",
+        "query": "Putting PHP variables into javascript",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "113901",
+        "query": "Don´t allow access wp-admin for non-admins but allow to upload files",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "114225",
+        "query": "Set default Screen Options on theme setup",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "114271",
+        "query": "Retrieve categories of a WooCommerce product in hierachical order",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "114350",
+        "query": "how to saved the values ​​of selected checkboxes in an array",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "114581",
+        "query": "Replace Paid Shipping Method With Free Shipping Method WooCommerce",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.3333,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.5
+        }
+      },
+      {
+        "queryId": "114673",
+        "query": "Articles show some of text",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "114734",
+        "query": "How To Customize Position of »add to cart« of WooCommerce on Product Page",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "114909",
+        "query": "WordPress Image Scaling Quality",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.1429,
+          "reciprocalRank": 0.1429,
+          "ndcgAtK": 0.3333
+        }
+      },
+      {
+        "queryId": "114914",
+        "query": "rewrite script to use wp_remote_get instead of file_get_contents_curl",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "115020",
+        "query": "Listing pages which uses specific template",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.0625,
+          "reciprocalRank": 0.125,
+          "ndcgAtK": 0.1934
+        }
+      },
+      {
+        "queryId": "115021",
+        "query": "date function not correctly returning date",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "115278",
+        "query": "Admin Post - Keep Child Below Parent",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "115676",
+        "query": "Change core metaboxes labels",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "115783",
+        "query": "I'm not able to get access to $wpdb",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "116260",
+        "query": "Turn Custom Post Title into external link",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "116288",
+        "query": "Getting the count of a shortcode that is nested",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "116514",
+        "query": "Setting up a virtual subdirectory to display identical content as root directory",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "116609",
+        "query": "What is meant by __('page','twentytwelve')",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "116880",
+        "query": "Serve HTTPS requests from subdomain",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "116917",
+        "query": "Notification when new post is submitted",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.3333,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.5
+        }
+      },
+      {
+        "queryId": "116953",
+        "query": "Show all post types in the same table of posts",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "117349",
+        "query": "What is the Best Way to Secure a Commercial Wordpress Plugin?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "117353",
+        "query": "How to add images to taxonomy terms?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "117385",
+        "query": "date_query seems to be ignored by wp_query",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "117546",
+        "query": "is_active_sidebar() Always Returns False",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.3333,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.5
+        }
+      },
+      {
+        "queryId": "118731",
+        "query": "WordPress keeps writing rewrite rules to .htaccess",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "118742",
+        "query": "Auto-create/assign category from post title",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "119271",
+        "query": "Text Widget Automatically Adding Website Link",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "119560",
+        "query": "How can I edit the content in index.php?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "119899",
+        "query": "How to increase excerpt length in wordpress?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.3333,
+          "averagePrecision": 0.0333,
+          "reciprocalRank": 0.1,
+          "ndcgAtK": 0.1357
+        }
+      },
+      {
+        "queryId": "119988",
+        "query": "Loading post like facebook on scrool to bottom",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "120122",
+        "query": "How to enqueue script or style in a theme's template file?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.25,
+          "averagePrecision": 0.025,
+          "reciprocalRank": 0.1,
+          "ndcgAtK": 0.1128
+        }
+      },
+      {
+        "queryId": "120126",
+        "query": "WP Query / Meta Query",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "120193",
+        "query": "assign 2 $args to one wp_query",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "120216",
+        "query": "Include wp-load.php in custom PHP script",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.3333,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.5
+        }
+      },
+      {
+        "queryId": "120247",
+        "query": "How to add an image in the widget zone?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "120339",
+        "query": "Difference between do_action and add_action",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "120377",
+        "query": "Declare plugin dependency",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "120675",
+        "query": "add_submenu_page set for multiple roles",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "120710",
+        "query": "query multiple posts orderby two custom fields?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "120772",
+        "query": "Updating existing table in wordpress plugin",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "121058",
+        "query": "Permission of uploads folder",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "121132",
+        "query": "How to trigger the core WPLANG to make automatically set a language when the theme is activated?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.1667,
+          "reciprocalRank": 0.1667,
+          "ndcgAtK": 0.3562
+        }
+      },
+      {
+        "queryId": "121143",
+        "query": "Show only second level menu items?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "121219",
+        "query": "Words After Url Redirect to Matching Blog Posts",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "121406",
+        "query": "How to remove/hide elements from the admin menu?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "121464",
+        "query": "Can one display a specific page on the WordPress dashboard using the WordPress dashboard API?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "121540",
+        "query": "How to access WP database inside ipn.php?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "121686",
+        "query": "How to make category page as the home page?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "123135",
+        "query": "Shortcode executing order wrongly",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "123182",
+        "query": "Custom admin column disappearing when using Quick Edit",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.2,
+          "reciprocalRank": 0.2,
+          "ndcgAtK": 0.3869
+        }
+      },
+      {
+        "queryId": "123237",
+        "query": "Pagination in get post of custom post type",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "124300",
+        "query": "disable comments if array exists",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "124341",
+        "query": "Redirect to correct author template based on author role",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "124344",
+        "query": "How do you make your theme Child Theme-able?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "124354",
+        "query": "Why wp_register_style() is important while I'm using a complete wp_enqueue_style()?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "124358",
+        "query": "paging is not working properly on news archives page",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "124420",
+        "query": "Local environment update WordPress require FTP server",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.125,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.2641
+        }
+      },
+      {
+        "queryId": "124555",
+        "query": "Filter username field on registration for profanity and unwanted words",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "124573",
+        "query": "Using a url variable, is there a way to display a draft post when not logged in",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "124626",
+        "query": "How to include taxonomy.php from wp-includes the proper way?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "124848",
+        "query": "Security: How to disallow viewing/browsing by author?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "125050",
+        "query": "How to Override \"Blog pages show at most\" in tag.php",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "125066",
+        "query": "Image gallery thumbnails on product page",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "125200",
+        "query": "How can I loop into two different DIVS without repeating the DIVs",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.25,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.4307
+        }
+      },
+      {
+        "queryId": "125356",
+        "query": "Get custom taxonomies from multiple posts",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "125634",
+        "query": "How do I use update_option to give me a new option name each time a form is submitted?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "125937",
+        "query": "Lock my blog only for me",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.25,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.4307
+        }
+      },
+      {
+        "queryId": "125980",
+        "query": "Worth enqueue_scripts for mobile via is_mobile?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "126186",
+        "query": "How can I process $post->post_content before echoing it?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "126266",
+        "query": "Report/Flag post function?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "126871",
+        "query": "Without user loging inner page is disable wordpress",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "126942",
+        "query": "Multiple taxonomies & terms (no hyperlinking) in 1 function",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "127252",
+        "query": "page template within custom post type",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "127277",
+        "query": "How to use ajax_url in front end when using with theme?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "127487",
+        "query": "How to change location, charset in Wordpress query",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "127653",
+        "query": "Sessions in word press",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "128323",
+        "query": "Wordpress Multisite - Change Permalinks On Subdomain Posts To Postname",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "128535",
+        "query": "post_date_gmt and post_date",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "128768",
+        "query": "WordPress Updates 3.5.2 to 3.8 Any Problem?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "128969",
+        "query": "Get_post_meta returns Array instead of actual value",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.3333,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.5
+        }
+      },
+      {
+        "queryId": "128979",
+        "query": "How to return Javascript variable to wordpress",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "129425",
+        "query": "Why I have this error when I try to install this old blog on my local webserver?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 1,
+          "averagePrecision": 0.8333,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.9197
+        }
+      },
+      {
+        "queryId": "129497",
+        "query": "Transferring WordPress Instances",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "129512",
+        "query": "get_template_part within plugin",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.3333,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.5
+        }
+      },
+      {
+        "queryId": "129620",
+        "query": "Reduce repetitive code filtering custom post type categories",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "129865",
+        "query": "Is a conditional image creation with add_image_size possible and which would be the best hook?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "130158",
+        "query": "custom admin screen or setting screen for a custom post type",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "130519",
+        "query": "Loading jQuery and jQuery plugin script files correctly",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "130675",
+        "query": "How to change posts page to use own template",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.1667,
+          "reciprocalRank": 0.1667,
+          "ndcgAtK": 0.3562
+        }
+      },
+      {
+        "queryId": "130926",
+        "query": "How to move images from /uploads to the /uploads/Year/Month structure?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "131190",
+        "query": "Transform php shortcode into a widget",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "131399",
+        "query": "Share login data/cookies between multiple installations",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "131405",
+        "query": "Adding dashicon fonts to the admin of pre 3.8 installs",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "131589",
+        "query": "how to change the default login page of wordpress from wp-login.php to custom login page?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.125,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.2641
+        }
+      },
+      {
+        "queryId": "131758",
+        "query": "Migration from Squarespace to WordPress: Remove leading 0 from %monthnum% in permalinks",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "131767",
+        "query": "Overwriting a theme function with a plugin",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "131890",
+        "query": "Apply comment to different post (not the current post)",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "131958",
+        "query": "Queries gone haywire since update to 3.8.1",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "132179",
+        "query": "How to load dynamic content via jquery/css in a page?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "132260",
+        "query": "query two meta values",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "132282",
+        "query": "Removing WordPress version number from included files",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.1,
+          "reciprocalRank": 0.2,
+          "ndcgAtK": 0.2372
+        }
+      },
+      {
+        "queryId": "133545",
+        "query": "Sort posts by title, sort array by largest number",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "133665",
+        "query": "Can variables be used to rewrite a Custom Post Type permalink?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "133674",
+        "query": "How to show an error message after publishing a post?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "133953",
+        "query": "How to add a box underneath the Post Box in Wordpress admin?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "133985",
+        "query": "Multiple WYSIWYG editors with settings teeny => true",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "134026",
+        "query": "Setting an attribute as variation in woo commerce via php",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "134062",
+        "query": "How to get date using timezone saved in options?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "134069",
+        "query": "Getting start_el() error",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.6667,
+          "averagePrecision": 0.6667,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.7654
+        }
+      },
+      {
+        "queryId": "134128",
+        "query": "ajax response is 0 instead of 'script'",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "134249",
+        "query": "When using a cache plugin I destroyed a menu structure",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "134661",
+        "query": "WP Nonce with Ajax- is it always neccessary?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.1667,
+          "reciprocalRank": 0.1667,
+          "ndcgAtK": 0.3562
+        }
+      },
+      {
+        "queryId": "134839",
+        "query": "Is it possible to install WordPress within WordPress installation?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "135083",
+        "query": "WP_Query & posts_per_page",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "135315",
+        "query": "Change default gallery image size?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "135581",
+        "query": "Privacy Blog, maybe?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.1667,
+          "reciprocalRank": 0.1667,
+          "ndcgAtK": 0.3562
+        }
+      },
+      {
+        "queryId": "136322",
+        "query": "WP Cron: Save third party data as user meta",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "136756",
+        "query": "Retrieve all posts within tag OR category?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.2,
+          "reciprocalRank": 0.2,
+          "ndcgAtK": 0.3869
+        }
+      },
+      {
+        "queryId": "137307",
+        "query": "transition_comment_status gets called when untrashing comments",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "137409",
+        "query": "How to print a shortcode?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "137986",
+        "query": "WordPress 3.9 - Trouble Editing new TinyMCE",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "138051",
+        "query": "How do I enqueue a js file in functions.php for a if lt IE 9 statement?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "138076",
+        "query": "Wordpress pie register custom registration",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "138329",
+        "query": "Make WordPress search for only this tags or exclude certain tags from search",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "138627",
+        "query": "Wordpress double post name distinguish by term",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "138977",
+        "query": "Adding help for user when using $wp_customize->add_control()",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.1429,
+          "reciprocalRank": 0.1429,
+          "ndcgAtK": 0.3333
+        }
+      },
+      {
+        "queryId": "139269",
+        "query": "WordPress taxonomy radio buttons",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "139638",
+        "query": "Adding a photo to each WP user",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.25,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.4307
+        }
+      },
+      {
+        "queryId": "139850",
+        "query": "How to reinit tinymce for wp_editor after ajax?",
+        "metrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 1,
+          "averagePrecision": 0.325,
+          "reciprocalRank": 0.25,
+          "ndcgAtK": 0.5013
+        }
+      },
+      {
+        "queryId": "140139",
+        "query": "multisite: allow only specific users to update sites",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "140141",
+        "query": "Random posts loop order",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.2,
+          "reciprocalRank": 0.2,
+          "ndcgAtK": 0.3869
+        }
+      },
+      {
+        "queryId": "140444",
+        "query": "How to edit the admin photo?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "140966",
+        "query": "How do I disable comments on a page?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "141017",
+        "query": "relation OR instead of AND - Filtered term ID's in loop",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "141110",
+        "query": "Why does wp add slashes to $_POST?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.1667,
+          "reciprocalRank": 0.1667,
+          "ndcgAtK": 0.3562
+        }
+      },
+      {
+        "queryId": "141117",
+        "query": "CPT search using meta_query and meta key as array",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "141132",
+        "query": "Automatically Share Posts Across Wordpress Multisite",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "141149",
+        "query": "Duplicate domain database to local - How?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "142221",
+        "query": "rewrite url for a single custom post on a multisite",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "142792",
+        "query": "Monthly Archive page for custom post type",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.1111,
+          "reciprocalRank": 0.1111,
+          "ndcgAtK": 0.301
+        }
+      },
+      {
+        "queryId": "143301",
+        "query": "Default image (logo) for customizer",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "143303",
+        "query": "Child theme preview missing",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "143540",
+        "query": "Sort pre_get_posts by multiple Simple Fields meta values?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.3333,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.5
+        }
+      },
+      {
+        "queryId": "143727",
+        "query": "setting global and using as argument",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "144627",
+        "query": "How to remove a filter that has been added as a function",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.3333,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.5
+        }
+      },
+      {
+        "queryId": "145589",
+        "query": "Post label \"new!\" in wp_nav_menu using class?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.3333,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.5
+        }
+      },
+      {
+        "queryId": "145692",
+        "query": "Sort posts by category priority",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "145811",
+        "query": "Menu items (all menus) being deleted randomly on their own",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.1,
+          "reciprocalRank": 0.2,
+          "ndcgAtK": 0.2372
+        }
+      },
+      {
+        "queryId": "147194",
+        "query": "I have a wp_media uploader question",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "147385",
+        "query": "Is it OK to remove theme credits from footer?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "147797",
+        "query": "Getting latest posts from network",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "147867",
+        "query": "Export my posts from WordPress blog, each to single PDF file, incl. images",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "147885",
+        "query": "$post->ID not working but the get_the_id() is",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.2,
+          "reciprocalRank": 0.2,
+          "ndcgAtK": 0.3869
+        }
+      },
+      {
+        "queryId": "149013",
+        "query": "Display a list of subcategories a post belongs to",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "149263",
+        "query": "Enqueue Stylesheets After Theme's \"rtl.css\"",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "149850",
+        "query": "Static posts page with home.php",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "150122",
+        "query": "Woothemes Canvas - Variable Excerpt Length",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "151384",
+        "query": "Help to cleanup this code",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "152253",
+        "query": "Multisite: List all Blogs alphabetically",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "152334",
+        "query": "How to show file size of featured image?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "152453",
+        "query": "Wordpress metabox file upload in custom post",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "154271",
+        "query": "Why is my ajax live search not working when i use a shortcode to call it?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.5,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 1,
+          "ndcgAtK": 0.6131
+        }
+      },
+      {
+        "queryId": "154454",
+        "query": "Remove Parent Image Size and Create Different Size",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "154470",
+        "query": "Why this Wordpress page.php file contain the posts loop?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.3333,
+          "reciprocalRank": 0.3333,
+          "ndcgAtK": 0.5
+        }
+      },
+      {
+        "queryId": "154579",
+        "query": "Most commented post should be the first post in the blog",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "154873",
+        "query": "How to make Next and Previous attached image navigation on the attachment page?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "156820",
+        "query": "I need to run a AJAX Fuction from within a WP_Query but only works on first item",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.1429,
+          "reciprocalRank": 0.1429,
+          "ndcgAtK": 0.3333
+        }
+      },
+      {
+        "queryId": "157779",
+        "query": "Error opening in a admin panel",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "157865",
+        "query": "Function in Child Theme not overriding Parent Theme function",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "158089",
+        "query": "Echo Insert Media in input",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "158113",
+        "query": "How to change the publishing date of each posts?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.1429,
+          "reciprocalRank": 0.1429,
+          "ndcgAtK": 0.3333
+        }
+      },
+      {
+        "queryId": "158194",
+        "query": "Multi site - pass post between sites",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "158284",
+        "query": "Plugin update without overwriting the functionality",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 1,
+          "reciprocalRank": 1,
+          "ndcgAtK": 1
+        }
+      },
+      {
+        "queryId": "158432",
+        "query": "How to increase menu size limit?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "158469",
+        "query": "Paginate Term Archive?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "158874",
+        "query": "Is it possible to use meta_query with both AND and OR relations?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.5,
+          "reciprocalRank": 0.5,
+          "ndcgAtK": 0.6309
+        }
+      },
+      {
+        "queryId": "159089",
+        "query": "Get \"wp_get_nav_menu_items\" to sort alphabetically",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "159238",
+        "query": "Custom register and login page for Wordpress",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "160041",
+        "query": "How to make this change without changing the core?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "160568",
+        "query": "How do I create a link that will always show the latest post?",
+        "metrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        }
+      },
+      {
+        "queryId": "160595",
+        "query": "Why I can't align an image center using Tiny MCE editor?",
+        "metrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 1,
+          "averagePrecision": 0.1667,
+          "reciprocalRank": 0.1667,
+          "ndcgAtK": 0.3562
+        }
+      }
+    ]
+  },
+  "failureAnalysis": {
+    "k": 10,
+    "groupCount": 5,
+    "groups": [
+      {
+        "id": "zero_relevant_at_k",
+        "label": "No relevant result in top K",
+        "description": "The query retrieved results, but none of the top K results are judged relevant.",
+        "queryCount": 319,
+        "averageMetrics": {
+          "precisionAtK": 0,
+          "recallAtK": 0,
+          "averagePrecision": 0,
+          "reciprocalRank": 0,
+          "ndcgAtK": 0
+        },
+        "averageRelevantCount": 1.4389,
+        "averageRelevantHitsAtK": 0
+      },
+      {
+        "id": "lexical_noise_low_precision",
+        "label": "Lexical noise dominates",
+        "description": "The query finds at least one relevant document, but most top K results are non-relevant.",
+        "queryCount": 155,
+        "averageMetrics": {
+          "precisionAtK": 0.1,
+          "recallAtK": 0.971,
+          "averagePrecision": 0.7957,
+          "reciprocalRank": 0.8226,
+          "ndcgAtK": 0.8469
+        },
+        "averageRelevantCount": 1.0581,
+        "averageRelevantHitsAtK": 1
+      },
+      {
+        "id": "late_first_relevant",
+        "label": "Relevant result ranked too late",
+        "description": "A relevant document appears in the top K, but below the first three positions.",
+        "queryCount": 54,
+        "averageMetrics": {
+          "precisionAtK": 0.1037,
+          "recallAtK": 0.8534,
+          "averagePrecision": 0.1631,
+          "reciprocalRank": 0.1868,
+          "ndcgAtK": 0.3336
+        },
+        "averageRelevantCount": 1.4815,
+        "averageRelevantHitsAtK": 1.037
+      },
+      {
+        "id": "passing_or_minor",
+        "label": "Passing or minor issue",
+        "description": "The top K behavior is not currently classified as a meaningful failure.",
+        "queryCount": 11,
+        "averageMetrics": {
+          "precisionAtK": 0.2182,
+          "recallAtK": 0.8303,
+          "averagePrecision": 0.5795,
+          "reciprocalRank": 0.8182,
+          "ndcgAtK": 0.7185
+        },
+        "averageRelevantCount": 2.7273,
+        "averageRelevantHitsAtK": 2.1818
+      },
+      {
+        "id": "partial_recall",
+        "label": "Partial recall",
+        "description": "The query has relevant hits, but leaves most judged relevant documents outside top K.",
+        "queryCount": 2,
+        "averageMetrics": {
+          "precisionAtK": 0.2,
+          "recallAtK": 0.3667,
+          "averagePrecision": 0.198,
+          "reciprocalRank": 0.75,
+          "ndcgAtK": 0.3755
+        },
+        "averageRelevantCount": 5.5,
+        "averageRelevantHitsAtK": 2
+      }
+    ],
+    "examplesByGroup": {
+      "late_first_relevant": [
+        {
+          "queryId": "27941",
+          "query": "Getting 404.php instead of single-<post-type>.php",
+          "behaviorGroup": "late_first_relevant",
+          "behaviorLabel": "Relevant result ranked too late",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.1667,
+            "averagePrecision": 0.0167,
+            "reciprocalRank": 0.1,
+            "ndcgAtK": 0.0875
+          },
+          "relevantCount": 6,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 10,
+          "retrievedIdsAtK": [
+            "62384",
+            "59630",
+            "105187",
+            "95468",
+            "30341",
+            "88177",
+            "55357",
+            "95475",
+            "139265",
+            "97525"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "97525"
+          ],
+          "topNonRelevantIdsAtK": [
+            "62384",
+            "59630",
+            "105187",
+            "95468",
+            "30341",
+            "88177",
+            "55357",
+            "95475",
+            "139265"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "117629",
+              "grade": 1
+            },
+            {
+              "id": "126640",
+              "grade": 1
+            },
+            {
+              "id": "133711",
+              "grade": 1
+            },
+            {
+              "id": "134600",
+              "grade": 1
+            },
+            {
+              "id": "96634",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "120122",
+          "query": "How to enqueue script or style in a theme's template file?",
+          "behaviorGroup": "late_first_relevant",
+          "behaviorLabel": "Relevant result ranked too late",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.25,
+            "averagePrecision": 0.025,
+            "reciprocalRank": 0.1,
+            "ndcgAtK": 0.1128
+          },
+          "relevantCount": 4,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 10,
+          "retrievedIdsAtK": [
+            "152658",
+            "85592",
+            "122892",
+            "115332",
+            "115146",
+            "54327",
+            "61244",
+            "95970",
+            "55909",
+            "21561"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "21561"
+          ],
+          "topNonRelevantIdsAtK": [
+            "152658",
+            "85592",
+            "122892",
+            "115332",
+            "115146",
+            "54327",
+            "61244",
+            "95970",
+            "55909"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "27604",
+              "grade": 1
+            },
+            {
+              "id": "66189",
+              "grade": 1
+            },
+            {
+              "id": "84763",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "119899",
+          "query": "How to increase excerpt length in wordpress?",
+          "behaviorGroup": "late_first_relevant",
+          "behaviorLabel": "Relevant result ranked too late",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.3333,
+            "averagePrecision": 0.0333,
+            "reciprocalRank": 0.1,
+            "ndcgAtK": 0.1357
+          },
+          "relevantCount": 3,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 10,
+          "retrievedIdsAtK": [
+            "145227",
+            "113078",
+            "98438",
+            "11688",
+            "6310",
+            "26219",
+            "61271",
+            "50247",
+            "75675",
+            "70913"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "70913"
+          ],
+          "topNonRelevantIdsAtK": [
+            "145227",
+            "113078",
+            "98438",
+            "11688",
+            "6310",
+            "26219",
+            "61271",
+            "50247",
+            "75675"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "69436",
+              "grade": 1
+            },
+            {
+              "id": "72150",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "106451",
+          "query": "load plugin with ajax",
+          "behaviorGroup": "late_first_relevant",
+          "behaviorLabel": "Relevant result ranked too late",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.5,
+            "averagePrecision": 0.05,
+            "reciprocalRank": 0.1,
+            "ndcgAtK": 0.1772
+          },
+          "relevantCount": 2,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 10,
+          "retrievedIdsAtK": [
+            "131061",
+            "144316",
+            "39141",
+            "124444",
+            "97908",
+            "31321",
+            "150270",
+            "103896",
+            "108874",
+            "129120"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "129120"
+          ],
+          "topNonRelevantIdsAtK": [
+            "131061",
+            "144316",
+            "39141",
+            "124444",
+            "97908",
+            "31321",
+            "150270",
+            "103896",
+            "108874"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "121560",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "52489",
+          "query": "the_date() not working",
+          "behaviorGroup": "late_first_relevant",
+          "behaviorLabel": "Relevant result ranked too late",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.5,
+            "averagePrecision": 0.05,
+            "reciprocalRank": 0.1,
+            "ndcgAtK": 0.1772
+          },
+          "relevantCount": 2,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 10,
+          "retrievedIdsAtK": [
+            "157579",
+            "19181",
+            "13280",
+            "108008",
+            "138025",
+            "27092",
+            "55436",
+            "97489",
+            "90321",
+            "59391"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "59391"
+          ],
+          "topNonRelevantIdsAtK": [
+            "157579",
+            "19181",
+            "13280",
+            "108008",
+            "138025",
+            "27092",
+            "55436",
+            "97489",
+            "90321"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "125208",
+              "grade": 1
+            }
+          ]
+        }
+      ],
+      "passing_or_minor": [
+        {
+          "queryId": "12201",
+          "query": "WordPress Multisite - global categories",
+          "behaviorGroup": "passing_or_minor",
+          "behaviorLabel": "Passing or minor issue",
+          "metrics": {
+            "precisionAtK": 0.2,
+            "recallAtK": 0.6667,
+            "averagePrecision": 0.25,
+            "reciprocalRank": 0.5,
+            "ndcgAtK": 0.4441
+          },
+          "relevantCount": 3,
+          "hitCountAtK": 2,
+          "firstRelevantRank": 2,
+          "retrievedIdsAtK": [
+            "10651",
+            "24653",
+            "116905",
+            "79995",
+            "70758",
+            "21516",
+            "130423",
+            "127166",
+            "155915",
+            "18314"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "24653",
+            "127166"
+          ],
+          "topNonRelevantIdsAtK": [
+            "10651",
+            "116905",
+            "79995",
+            "70758",
+            "21516",
+            "130423",
+            "155915",
+            "18314"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "1516",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "20923",
+          "query": "How can I make add_image_size() crop from the top?",
+          "behaviorGroup": "passing_or_minor",
+          "behaviorLabel": "Passing or minor issue",
+          "metrics": {
+            "precisionAtK": 0.2,
+            "recallAtK": 0.6667,
+            "averagePrecision": 0.3889,
+            "reciprocalRank": 0.5,
+            "ndcgAtK": 0.5307
+          },
+          "relevantCount": 3,
+          "hitCountAtK": 2,
+          "firstRelevantRank": 2,
+          "retrievedIdsAtK": [
+            "106607",
+            "16535",
+            "39377",
+            "87190",
+            "142882",
+            "93775",
+            "39798",
+            "32558",
+            "30965",
+            "88789"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "16535",
+            "39377"
+          ],
+          "topNonRelevantIdsAtK": [
+            "106607",
+            "87190",
+            "142882",
+            "93775",
+            "39798",
+            "32558",
+            "30965",
+            "88789"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "125548",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "65446",
+          "query": "Load wp_editor via ajax",
+          "behaviorGroup": "passing_or_minor",
+          "behaviorLabel": "Passing or minor issue",
+          "metrics": {
+            "precisionAtK": 0.4,
+            "recallAtK": 0.8,
+            "averagePrecision": 0.3857,
+            "reciprocalRank": 0.5,
+            "ndcgAtK": 0.5801
+          },
+          "relevantCount": 5,
+          "hitCountAtK": 4,
+          "firstRelevantRank": 2,
+          "retrievedIdsAtK": [
+            "150270",
+            "106639",
+            "106248",
+            "70548",
+            "82714",
+            "31321",
+            "145167",
+            "51776",
+            "27936",
+            "144578"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "106639",
+            "70548",
+            "145167",
+            "51776"
+          ],
+          "topNonRelevantIdsAtK": [
+            "150270",
+            "106248",
+            "82714",
+            "31321",
+            "27936",
+            "144578"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "141681",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "76072",
+          "query": "$wpdb->prepare() warning in WordPress 3.5",
+          "behaviorGroup": "passing_or_minor",
+          "behaviorLabel": "Passing or minor issue",
+          "metrics": {
+            "precisionAtK": 0.2,
+            "recallAtK": 0.6667,
+            "averagePrecision": 0.4167,
+            "reciprocalRank": 1,
+            "ndcgAtK": 0.6173
+          },
+          "relevantCount": 3,
+          "hitCountAtK": 2,
+          "firstRelevantRank": 1,
+          "retrievedIdsAtK": [
+            "76294",
+            "76512",
+            "117212",
+            "76714",
+            "156972",
+            "129201",
+            "157906",
+            "147266",
+            "142998",
+            "128382"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "76294",
+            "147266"
+          ],
+          "topNonRelevantIdsAtK": [
+            "76512",
+            "117212",
+            "76714",
+            "156972",
+            "129201",
+            "157906",
+            "142998",
+            "128382"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "125885",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "111254",
+          "query": "What are the minimum database privileges to run WP?",
+          "behaviorGroup": "passing_or_minor",
+          "behaviorLabel": "Passing or minor issue",
+          "metrics": {
+            "precisionAtK": 0.2,
+            "recallAtK": 1,
+            "averagePrecision": 0.5833,
+            "reciprocalRank": 0.5,
+            "ndcgAtK": 0.6934
+          },
+          "relevantCount": 2,
+          "hitCountAtK": 2,
+          "firstRelevantRank": 2,
+          "retrievedIdsAtK": [
+            "1679",
+            "6424",
+            "157892",
+            "142705",
+            "91187",
+            "2060",
+            "23327",
+            "115915",
+            "127107",
+            "84064"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "6424",
+            "157892"
+          ],
+          "topNonRelevantIdsAtK": [
+            "1679",
+            "142705",
+            "91187",
+            "2060",
+            "23327",
+            "115915",
+            "127107",
+            "84064"
+          ],
+          "missingRelevantIdsAtK": []
+        }
+      ],
+      "lexical_noise_low_precision": [
+        {
+          "queryId": "46398",
+          "query": "Check before publishing, if already exist post with current custom field value",
+          "behaviorGroup": "lexical_noise_low_precision",
+          "behaviorLabel": "Lexical noise dominates",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 0.5,
+            "averagePrecision": 0.1667,
+            "reciprocalRank": 0.3333,
+            "ndcgAtK": 0.3066
+          },
+          "relevantCount": 2,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 3,
+          "retrievedIdsAtK": [
+            "123612",
+            "21898",
+            "54736",
+            "121154",
+            "122821",
+            "46583",
+            "72688",
+            "137308",
+            "78772",
+            "78701"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "54736"
+          ],
+          "topNonRelevantIdsAtK": [
+            "123612",
+            "21898",
+            "121154",
+            "122821",
+            "46583",
+            "72688",
+            "137308",
+            "78772",
+            "78701"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "42013",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "114581",
+          "query": "Replace Paid Shipping Method With Free Shipping Method WooCommerce",
+          "behaviorGroup": "lexical_noise_low_precision",
+          "behaviorLabel": "Lexical noise dominates",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 1,
+            "averagePrecision": 0.3333,
+            "reciprocalRank": 0.3333,
+            "ndcgAtK": 0.5
+          },
+          "relevantCount": 1,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 3,
+          "retrievedIdsAtK": [
+            "119827",
+            "123136",
+            "90835",
+            "122802",
+            "65305",
+            "96850",
+            "121412",
+            "99327",
+            "116916",
+            "15112"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "90835"
+          ],
+          "topNonRelevantIdsAtK": [
+            "119827",
+            "123136",
+            "122802",
+            "65305",
+            "96850",
+            "121412",
+            "99327",
+            "116916",
+            "15112"
+          ],
+          "missingRelevantIdsAtK": []
+        },
+        {
+          "queryId": "116917",
+          "query": "Notification when new post is submitted",
+          "behaviorGroup": "lexical_noise_low_precision",
+          "behaviorLabel": "Lexical noise dominates",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 1,
+            "averagePrecision": 0.3333,
+            "reciprocalRank": 0.3333,
+            "ndcgAtK": 0.5
+          },
+          "relevantCount": 1,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 3,
+          "retrievedIdsAtK": [
+            "141173",
+            "144405",
+            "20602",
+            "116604",
+            "112137",
+            "54277",
+            "60496",
+            "151880",
+            "100476",
+            "53136"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "20602"
+          ],
+          "topNonRelevantIdsAtK": [
+            "141173",
+            "144405",
+            "116604",
+            "112137",
+            "54277",
+            "60496",
+            "151880",
+            "100476",
+            "53136"
+          ],
+          "missingRelevantIdsAtK": []
+        },
+        {
+          "queryId": "117546",
+          "query": "is_active_sidebar() Always Returns False",
+          "behaviorGroup": "lexical_noise_low_precision",
+          "behaviorLabel": "Lexical noise dominates",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 1,
+            "averagePrecision": 0.3333,
+            "reciprocalRank": 0.3333,
+            "ndcgAtK": 0.5
+          },
+          "relevantCount": 1,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 3,
+          "retrievedIdsAtK": [
+            "129877",
+            "107442",
+            "107843",
+            "72260",
+            "142343",
+            "112229",
+            "115980",
+            "22661",
+            "105137",
+            "123028"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "107843"
+          ],
+          "topNonRelevantIdsAtK": [
+            "129877",
+            "107442",
+            "72260",
+            "142343",
+            "112229",
+            "115980",
+            "22661",
+            "105137",
+            "123028"
+          ],
+          "missingRelevantIdsAtK": []
+        },
+        {
+          "queryId": "11798",
+          "query": "Loading template files from a subfolder in my theme?",
+          "behaviorGroup": "lexical_noise_low_precision",
+          "behaviorLabel": "Lexical noise dominates",
+          "metrics": {
+            "precisionAtK": 0.1,
+            "recallAtK": 1,
+            "averagePrecision": 0.3333,
+            "reciprocalRank": 0.3333,
+            "ndcgAtK": 0.5
+          },
+          "relevantCount": 1,
+          "hitCountAtK": 1,
+          "firstRelevantRank": 3,
+          "retrievedIdsAtK": [
+            "125267",
+            "21321",
+            "40742",
+            "15521",
+            "110602",
+            "112745",
+            "13137",
+            "103424",
+            "95451",
+            "143889"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "40742"
+          ],
+          "topNonRelevantIdsAtK": [
+            "125267",
+            "21321",
+            "15521",
+            "110602",
+            "112745",
+            "13137",
+            "103424",
+            "95451",
+            "143889"
+          ],
+          "missingRelevantIdsAtK": []
+        }
+      ],
+      "zero_relevant_at_k": [
+        {
+          "queryId": "100230",
+          "query": "adding the full image path to a wordpress javascript file",
+          "behaviorGroup": "zero_relevant_at_k",
+          "behaviorLabel": "No relevant result in top K",
+          "metrics": {
+            "precisionAtK": 0,
+            "recallAtK": 0,
+            "averagePrecision": 0,
+            "reciprocalRank": 0,
+            "ndcgAtK": 0
+          },
+          "relevantCount": 1,
+          "hitCountAtK": 0,
+          "firstRelevantRank": null,
+          "retrievedIdsAtK": [
+            "89791",
+            "18828",
+            "77960",
+            "111194",
+            "113904",
+            "54894",
+            "54031",
+            "151950",
+            "1596",
+            "128302"
+          ],
+          "relevantRetrievedIdsAtK": [],
+          "topNonRelevantIdsAtK": [
+            "89791",
+            "18828",
+            "77960",
+            "111194",
+            "113904",
+            "54894",
+            "54031",
+            "151950",
+            "1596",
+            "128302"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "100942",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "100547",
+          "query": "How to redirect all page requests to a single \"goodbye\" homepage?",
+          "behaviorGroup": "zero_relevant_at_k",
+          "behaviorLabel": "No relevant result in top K",
+          "metrics": {
+            "precisionAtK": 0,
+            "recallAtK": 0,
+            "averagePrecision": 0,
+            "reciprocalRank": 0,
+            "ndcgAtK": 0
+          },
+          "relevantCount": 1,
+          "hitCountAtK": 0,
+          "firstRelevantRank": null,
+          "retrievedIdsAtK": [
+            "5933",
+            "95156",
+            "47657",
+            "119475",
+            "117646",
+            "40506",
+            "97991",
+            "56633",
+            "95633",
+            "76257"
+          ],
+          "relevantRetrievedIdsAtK": [],
+          "topNonRelevantIdsAtK": [
+            "5933",
+            "95156",
+            "47657",
+            "119475",
+            "117646",
+            "40506",
+            "97991",
+            "56633",
+            "95633",
+            "76257"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "76802",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "101042",
+          "query": "Changing upload directory for plugin uploads only",
+          "behaviorGroup": "zero_relevant_at_k",
+          "behaviorLabel": "No relevant result in top K",
+          "metrics": {
+            "precisionAtK": 0,
+            "recallAtK": 0,
+            "averagePrecision": 0,
+            "reciprocalRank": 0,
+            "ndcgAtK": 0
+          },
+          "relevantCount": 1,
+          "hitCountAtK": 0,
+          "firstRelevantRank": null,
+          "retrievedIdsAtK": [
+            "5828",
+            "47415",
+            "97780",
+            "128084",
+            "67763",
+            "100983",
+            "115781",
+            "104005",
+            "140796",
+            "50462"
+          ],
+          "relevantRetrievedIdsAtK": [],
+          "topNonRelevantIdsAtK": [
+            "5828",
+            "47415",
+            "97780",
+            "128084",
+            "67763",
+            "100983",
+            "115781",
+            "104005",
+            "140796",
+            "50462"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "101263",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "101619",
+          "query": "adding parent link to submenu",
+          "behaviorGroup": "zero_relevant_at_k",
+          "behaviorLabel": "No relevant result in top K",
+          "metrics": {
+            "precisionAtK": 0,
+            "recallAtK": 0,
+            "averagePrecision": 0,
+            "reciprocalRank": 0,
+            "ndcgAtK": 0
+          },
+          "relevantCount": 1,
+          "hitCountAtK": 0,
+          "firstRelevantRank": null,
+          "retrievedIdsAtK": [
+            "125388",
+            "26499",
+            "119293",
+            "38113",
+            "136457",
+            "149927",
+            "119276",
+            "92287",
+            "74056",
+            "90215"
+          ],
+          "relevantRetrievedIdsAtK": [],
+          "topNonRelevantIdsAtK": [
+            "125388",
+            "26499",
+            "119293",
+            "38113",
+            "136457",
+            "149927",
+            "119276",
+            "92287",
+            "74056",
+            "90215"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "100484",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "101834",
+          "query": "CPT admin column auto order by date instead of title",
+          "behaviorGroup": "zero_relevant_at_k",
+          "behaviorLabel": "No relevant result in top K",
+          "metrics": {
+            "precisionAtK": 0,
+            "recallAtK": 0,
+            "averagePrecision": 0,
+            "reciprocalRank": 0,
+            "ndcgAtK": 0
+          },
+          "relevantCount": 1,
+          "hitCountAtK": 0,
+          "firstRelevantRank": null,
+          "retrievedIdsAtK": [
+            "84847",
+            "126574",
+            "49320",
+            "65253",
+            "123575",
+            "29112",
+            "38675",
+            "141391",
+            "123812",
+            "97837"
+          ],
+          "relevantRetrievedIdsAtK": [],
+          "topNonRelevantIdsAtK": [
+            "84847",
+            "126574",
+            "49320",
+            "65253",
+            "123575",
+            "29112",
+            "38675",
+            "141391",
+            "123812",
+            "97837"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "81939",
+              "grade": 1
+            }
+          ]
+        }
+      ],
+      "partial_recall": [
+        {
+          "queryId": "69386",
+          "query": "shortcodes output before content",
+          "behaviorGroup": "partial_recall",
+          "behaviorLabel": "Partial recall",
+          "metrics": {
+            "precisionAtK": 0.2,
+            "recallAtK": 0.3333,
+            "averagePrecision": 0.1389,
+            "reciprocalRank": 0.5,
+            "ndcgAtK": 0.2987
+          },
+          "relevantCount": 6,
+          "hitCountAtK": 2,
+          "firstRelevantRank": 2,
+          "retrievedIdsAtK": [
+            "52984",
+            "75554",
+            "96114",
+            "120691",
+            "53983",
+            "45378",
+            "83480",
+            "54220",
+            "10783",
+            "59615"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "75554",
+            "45378"
+          ],
+          "topNonRelevantIdsAtK": [
+            "52984",
+            "96114",
+            "120691",
+            "53983",
+            "83480",
+            "54220",
+            "10783",
+            "59615"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "47062",
+              "grade": 1
+            },
+            {
+              "id": "83448",
+              "grade": 1
+            },
+            {
+              "id": "89692",
+              "grade": 1
+            },
+            {
+              "id": "90654",
+              "grade": 1
+            }
+          ]
+        },
+        {
+          "queryId": "110768",
+          "query": "returning 404 page error on form submission",
+          "behaviorGroup": "partial_recall",
+          "behaviorLabel": "Partial recall",
+          "metrics": {
+            "precisionAtK": 0.2,
+            "recallAtK": 0.4,
+            "averagePrecision": 0.2571,
+            "reciprocalRank": 1,
+            "ndcgAtK": 0.4522
+          },
+          "relevantCount": 5,
+          "hitCountAtK": 2,
+          "firstRelevantRank": 1,
+          "retrievedIdsAtK": [
+            "126338",
+            "9358",
+            "115347",
+            "4620",
+            "12169",
+            "141613",
+            "77337",
+            "111504",
+            "60758",
+            "144859"
+          ],
+          "relevantRetrievedIdsAtK": [
+            "126338",
+            "77337"
+          ],
+          "topNonRelevantIdsAtK": [
+            "9358",
+            "115347",
+            "4620",
+            "12169",
+            "141613",
+            "111504",
+            "60758",
+            "144859"
+          ],
+          "missingRelevantIdsAtK": [
+            {
+              "id": "102002",
+              "grade": 1
+            },
+            {
+              "id": "124755",
+              "grade": 1
+            },
+            {
+              "id": "53511",
+              "grade": 1
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
