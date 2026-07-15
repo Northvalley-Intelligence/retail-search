@@ -74,17 +74,39 @@ export function datasetIndex(dataset, env = {}, override = null) {
   return dataset.defaultIndex;
 }
 
+// Offline evaluation over large indexes hits transient free-tier fetch failures;
+// retry with backoff so one blip does not abort a multi-thousand-query run. This
+// is a script-lib concern only -- the Worker's runtime search path never retries.
+const SEARCH_BACKOFF_MS = [1000, 3000, 8000, 20000];
+
+async function withSearchRetry(fn) {
+  for (let attempt = 0; ; attempt += 1) {
+    try {
+      return await fn();
+    } catch (error) {
+      if (attempt >= SEARCH_BACKOFF_MS.length) {
+        throw error;
+      }
+      await new Promise((resolve) => setTimeout(resolve, SEARCH_BACKOFF_MS[attempt]));
+    }
+  }
+}
+
 export async function searchDataset({ dataset, query, size, env, index = null, architecture = null }) {
   if (dataset.family === "cranfield") {
-    const response = await searchCranfield({ query, size, env, ...(architecture ? { architecture } : {}) });
+    const response = await withSearchRetry(() =>
+      searchCranfield({ query, size, env, ...(architecture ? { architecture } : {}) })
+    );
     return response.results;
   }
   if (dataset.family === "beir") {
-    const payload = await executeOpenSearchSearch({
-      env,
-      index: datasetIndex(dataset, env, index),
-      body: buildBeirBm25SearchBody(query, size)
-    });
+    const payload = await withSearchRetry(() =>
+      executeOpenSearchSearch({
+        env,
+        index: datasetIndex(dataset, env, index),
+        body: buildBeirBm25SearchBody(query, size)
+      })
+    );
     return parseBeirSearchResponse(payload);
   }
   throw new Error(`No search executor for dataset family ${dataset.family}`);
