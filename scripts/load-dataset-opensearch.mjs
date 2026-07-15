@@ -67,16 +67,30 @@ async function request(env, pathname, init = {}) {
 async function streamBulkLoad(env, dataset, index, chunkSize, onProgress) {
   let pending = [];
   let indexed = 0;
+  // Free-tier instances throw transient 429/503s and connection resets under
+  // sustained bulk load; retry with backoff instead of abandoning a long run.
+  const BACKOFF_MS = [2000, 5000, 15000, 30000, 60000];
   const flush = async () => {
     if (!pending.length) {
       return;
     }
-    const loaded = await request(env, "/_bulk", {
-      method: "POST",
-      body: buildBeirBulkPayload(pending, { index, datasetId: dataset.id })
-    });
-    if (!loaded.response.ok || loaded.payload.errors) {
-      throw new Error(`Bulk load failed: ${loaded.response.status}`);
+    const body = buildBeirBulkPayload(pending, { index, datasetId: dataset.id });
+    for (let attempt = 0; ; attempt += 1) {
+      try {
+        const loaded = await request(env, "/_bulk", { method: "POST", body });
+        if (!loaded.response.ok || loaded.payload.errors) {
+          throw new Error(
+            `Bulk load failed: ${loaded.response.status} ${JSON.stringify(loaded.payload?.items?.find((item) => item.index?.error)?.index?.error || {}).slice(0, 200)}`
+          );
+        }
+        break;
+      } catch (error) {
+        if (attempt >= BACKOFF_MS.length) {
+          throw error;
+        }
+        console.error(`bulk attempt ${attempt + 1} failed (${error.message.slice(0, 120)}); retrying in ${BACKOFF_MS[attempt] / 1000}s`);
+        await new Promise((resolve) => setTimeout(resolve, BACKOFF_MS[attempt]));
+      }
     }
     indexed += pending.length;
     pending = [];

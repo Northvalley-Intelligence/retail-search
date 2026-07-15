@@ -1,0 +1,121 @@
+{
+  "generatedAt": "2026-07-14T00:00:00.000Z",
+  "technique": "bm25-multi-match",
+  "harness": "dataset-agnostic-v1",
+  "measuredCount": 10,
+  "pendingCount": 5,
+  "averageBm25NdcgAt10": 0.4405,
+  "publishedAverageReference": "BM25 (Anserini/ES class) averages ~0.43 across public BEIR datasets",
+  "rows": [
+    {
+      "dataset": "beir/scifact",
+      "tier": 1,
+      "status": "measured",
+      "queries": 300,
+      "bm25NdcgAt10": 0.6906,
+      "published": 0.665,
+      "relativeDelta": 0.0385
+    },
+    {
+      "dataset": "beir/nfcorpus",
+      "tier": 1,
+      "status": "measured",
+      "queries": 323,
+      "bm25NdcgAt10": 0.3273,
+      "published": 0.325,
+      "relativeDelta": 0.0071
+    },
+    {
+      "dataset": "beir/fiqa",
+      "tier": 1,
+      "status": "measured",
+      "queries": 648,
+      "bm25NdcgAt10": 0.2536,
+      "published": 0.236,
+      "relativeDelta": 0.0746
+    },
+    {
+      "dataset": "beir/arguana",
+      "tier": 1,
+      "status": "measured",
+      "queries": 1406,
+      "bm25NdcgAt10": 0.4739,
+      "published": 0.472,
+      "relativeDelta": 0.004
+    },
+    {
+      "dataset": "beir/scidocs",
+      "tier": 1,
+      "status": "measured",
+      "queries": 1000,
+      "bm25NdcgAt10": 0.1647,
+      "published": 0.158,
+      "relativeDelta": 0.0424
+    },
+    {
+      "dataset": "beir/trec-covid",
+      "tier": 2,
+      "status": "measured",
+      "queries": 50,
+      "bm25NdcgAt10": 0.6877,
+      "published": 0.656,
+      "relativeDelta": 0.0483
+    },
+    {
+      "dataset": "beir/webis-touche2020",
+      "tier": 2,
+      "status": "measured",
+      "queries": 49,
+      "bm25NdcgAt10": 0.3472,
+      "published": 0.367,
+      "relativeDelta": -0.054
+    },
+    {
+      "dataset": "beir/cqadupstack",
+      "tier": 2,
+      "status": "measured",
+      "queries": 13145,
+      "bm25NdcgAt10": 0.3253,
+      "published": 0.299,
+      "relativeDelta": 0.088
+    },
+    {
+      "dataset": "beir/quora",
+      "tier": 2,
+      "status": "measured",
+      "queries": 10000,
+      "bm25NdcgAt10": 0.8084,
+      "published": 0.789,
+      "relativeDelta": 0.0246
+    },
+    {
+      "dataset": "beir/nq",
+      "tier": 3,
+      "status": "measured",
+      "queries": 3452,
+      "bm25NdcgAt10": 0.3263,
+      "published": 0.329,
+      "relativeDelta": -0.0082
+    },
+    {
+      "dataset": "beir/hotpotqa",
+      "status": "pending"
+    },
+    {
+      "dataset": "beir/dbpedia-entity",
+      "status": "pending"
+    },
+    {
+      "dataset": "beir/msmarco",
+      "status": "pending"
+    },
+    {
+      "dataset": "beir/climate-fever",
+      "status": "pending"
+    },
+    {
+      "dataset": "beir/fever",
+      "status": "pending"
+    }
+  ]
+}
