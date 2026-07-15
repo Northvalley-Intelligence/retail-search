@@ -32,6 +32,7 @@ function parseArgs(argv) {
     textProfile: "full",
     documentPrefix: "",
     queryPrefix: "",
+    datasetLabel: "cranfield",
     progress: false,
     summary: false
   };
@@ -87,6 +88,9 @@ function parseArgs(argv) {
       index += 1;
     } else if (value === "--query-prefix") {
       args.queryPrefix = argv[index + 1];
+      index += 1;
+    } else if (value === "--dataset-label") {
+      args.datasetLabel = argv[index + 1];
       index += 1;
     } else if (value === "--progress") {
       args.progress = true;
@@ -330,7 +334,7 @@ async function main() {
   const dimension = documentEmbeddings[0]?.embedding.length || 0;
   const output = {
     generatedAt: new Date().toISOString(),
-    dataset: "cranfield",
+    dataset: args.datasetLabel,
     transport:
       args.provider === "openai"
         ? "llm-embedding-api"
