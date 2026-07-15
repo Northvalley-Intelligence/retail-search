@@ -1,0 +1,131 @@
+{
+  "generatedAt": "2026-07-15T00:00:00.000Z",
+  "note": "M-0002.3 lexical rerank technique matrix over the field-sum first stage, across the Cranfield+Tier1 superset. BGE hybrid and LTR columns pending the embedding pipeline (M-0002.4); Tier 2-3 rerank columns pending one pool-caching pass. Classification is a PREVIEW over currently-evaluated datasets, not the final Phase 2 scope decision.",
+  "policy": {
+    "universal": "improves >=70% of evaluated datasets, no dataset regresses >5% relative",
+    "domainConditional": "improves >=2 datasets but misses the universal bar",
+    "dormant": "improves <2 datasets"
+  },
+  "techniques": [
+    {
+      "technique": "coverage-rerank",
+      "firstStage": "field-sum (Phase 1 native config)",
+      "classificationPreview": {
+        "scope": "domain-conditional",
+        "datasetsEvaluated": 6,
+        "datasetsImproved": 3,
+        "improveRate": 0.5,
+        "worstRelativeRegression": -0.014,
+        "improvedOn": [
+          "cranfield",
+          "beir/scifact",
+          "beir/fiqa"
+        ]
+      },
+      "perDataset": [
+        {
+          "dataset": "cranfield",
+          "baseline": 0.3022,
+          "technique": 0.3095,
+          "absoluteDelta": 0.0073,
+          "relativeDelta": 0.0242
+        },
+        {
+          "dataset": "beir/scifact",
+          "baseline": 0.6509,
+          "technique": 0.6523,
+          "absoluteDelta": 0.0014,
+          "relativeDelta": 0.0022
+        },
+        {
+          "dataset": "beir/nfcorpus",
+          "baseline": 0.3183,
+          "technique": 0.3176,
+          "absoluteDelta": -0.0007,
+          "relativeDelta": -0.0022
+        },
+        {
+          "dataset": "beir/fiqa",
+          "baseline": 0.2536,
+          "technique": 0.2572,
+          "absoluteDelta": 0.0036,
+          "relativeDelta": 0.0142
+        },
+        {
+          "dataset": "beir/arguana",
+          "baseline": 0.4795,
+          "technique": 0.4726,
+          "absoluteDelta": -0.0069,
+          "relativeDelta": -0.0144
+        },
+        {
+          "dataset": "beir/scidocs",
+          "baseline": 0.1612,
+          "technique": 0.1606,
+          "absoluteDelta": -0.0006,
+          "relativeDelta": -0.0037
+        }
+      ]
+    },
+    {
+      "technique": "prf-rerank",
+      "firstStage": "field-sum (Phase 1 native config)",
+      "classificationPreview": {
+        "scope": "domain-conditional",
+        "datasetsEvaluated": 6,
+        "datasetsImproved": 3,
+        "improveRate": 0.5,
+        "worstRelativeRegression": -0.068,
+        "improvedOn": [
+          "cranfield",
+          "beir/scifact",
+          "beir/nfcorpus"
+        ]
+      },
+      "perDataset": [
+        {
+          "dataset": "cranfield",
+          "baseline": 0.3022,
+          "technique": 0.326,
+          "absoluteDelta": 0.0238,
+          "relativeDelta": 0.0788
+        },
+        {
+          "dataset": "beir/scifact",
+          "baseline": 0.6509,
+          "technique": 0.6573,
+          "absoluteDelta": 0.0064,
+          "relativeDelta": 0.0098
+        },
+        {
+          "dataset": "beir/nfcorpus",
+          "baseline": 0.3183,
+          "technique": 0.3229,
+          "absoluteDelta": 0.0046,
+          "relativeDelta": 0.0145
+        },
+        {
+          "dataset": "beir/fiqa",
+          "baseline": 0.2536,
+          "technique": 0.2452,
+          "absoluteDelta": -0.0084,
+          "relativeDelta": -0.0331
+        },
+        {
+          "dataset": "beir/arguana",
+          "baseline": 0.4795,
+          "technique": 0.447,
+          "absoluteDelta": -0.0325,
+          "relativeDelta": -0.0678
+        },
+        {
+          "dataset": "beir/scidocs",
+          "baseline": 0.1612,
+          "technique": 0.1609,
+          "absoluteDelta": -0.0003,
+          "relativeDelta": -0.0019
+        }
+      ]
+    }
+  ]
+}
