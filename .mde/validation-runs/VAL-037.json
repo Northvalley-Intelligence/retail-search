@@ -1,0 +1,21 @@
+{
+  "run_id": "VAL-037",
+  "date": "2026-07-15",
+  "generation_id": "GEN-028",
+  "mission": "M-0002 Phase 2 - Cross-Domain Validation with BEIR",
+  "focus": "M-0002.2 BM25 baselines across all 15 public BEIR datasets; M-0002.3 lexical technique matrix groundwork",
+  "functional_validation": [
+    {"check": "All 15 public BEIR datasets baselined vs published references", "result": "pass_with_documented_exception", "detail": "13/15 within +/-9% (10 within +/-5%); aggregate mean nDCG@10 0.4261 vs published ~0.43. Documented exception: FEVER -13.8% and Climate-FEVER -12.6% (shared corpus, ADL-0005, operator-approved document-and-proceed)."},
+    {"check": "Cranfield + Tier 1 lexical technique matrix (coverage, PRF over field-sum)", "result": "pass", "detail": "Both rerankers classify domain-conditional; exact Phase 1 fidelity reproduced (Cranfield coverage 0.3095, PRF 0.3260)."},
+    {"check": "Reranker fidelity tests + full suite", "result": "pass", "detail": "61 tests pass including 7 new frozen-hyperparameter guards."},
+    {"check": "Evaluate-path hardening regression", "result": "pass", "detail": "SciFact reproduces 0.6906 through the retry-hardened search path."}
+  ],
+  "infra_evidence": {
+    "pattern": "sequential index -> evaluate -> drop on a single free-tier OpenSearch instance (4GB/20GB)",
+    "largest_index": "MS MARCO 8.84M docs (~3GB) and FEVER-family 5.42M docs, each fit alone and dropped after eval",
+    "transient_failures_absorbed": "60+ bulk-load retries and search retries via backoff; one FEVER evaluation lost and re-run after hardening the evaluate path"
+  },
+  "anti_demo_note": "Every baseline ran live over full test query sets against real OpenSearch indexes holding the complete corpora (verified doc counts match expected); no sampling or fixtures used for acceptance.",
+  "result": "pass_with_documented_exception",
+  "second_run_policy": "Baseline reproduction against published numbers is itself the independent cross-check; the aggregate-on-target plus 13/15 within band substitutes for a second identical pass on deterministic BM25."
+}

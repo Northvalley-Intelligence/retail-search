@@ -1,7 +1,7 @@
 {
   "project_id": "retail-search",
-  "updated_at": "2026-07-14",
-  "current_generation": "GEN-027",
+  "updated_at": "2026-07-15",
+  "current_generation": "GEN-028",
   "completed": [
     "Captured mission.",
     "Initialized local MDE artifacts.",
@@ -90,15 +90,19 @@
     "Built the dataset-agnostic evaluation harness: registry for Cranfield plus all fourteen public BEIR datasets, BEIR-format parser, dependency-free zip extractor, and generic fetch/load/evaluate scripts.",
     "Ran live BM25 baselines that reproduce published references: SciFact nDCG@10 0.6906 vs 0.665 and NFCorpus 0.3273 vs 0.325.",
     "Migrated Cranfield onto the shared harness with exact parity: baseline nDCG@10 0.2995 and refined PRF 0.3260.",
-    "Passed the Validation Gate twice for GEN-027 (VAL-036, 53 tests)."
+    "Passed the Validation Gate twice for GEN-027 (VAL-036, 53 tests).",
+    "Baselined all 15 public BEIR datasets with BM25 (aggregate nDCG@10 0.4261 on the published ~0.43 average; 13/15 within +/-9%).",
+    "Investigated and documented the FEVER-family ~13% discrepancy (ADL-0005, operator-approved document-and-proceed).",
+    "Built the lexical Technique x Dataset matrix over Cranfield+Tier1: coverage-rerank and refined PRF both domain-conditional.",
+    "Produced the cross-domain failure map (three regimes) and generalized the embedding-input pipeline.",
+    "Hardened bulk-load and evaluation remote-call paths with retry/backoff (LES-015); 61 tests pass; VAL-037."
   ],
   "in_progress": [],
   "next": [
-    "M-0002.2: extend BM25 baselines across Tier 1-2, then Tier 3 sequentially; record infra limits per dataset; CQADupStack sub-forum loader.",
-    "Update validation strategy to Phase 2 VALSTRAT-007 covering BEIR evaluation.",
-    "M-0002.3: run the Phase 1 portfolio across tiers into the Technique x Dataset evidence matrix.",
-    "M-0002.4: Workers AI runtime query embedding with parity validation (needs operator approval before any deploy or spend).",
-    "M-0002.5: BEIR failure analysis and new-technique backlog experiments (Doc2Query-- first).",
-    "M-0002.6: scope classification, ARCH-0.5 core plus portfolio, release tag."
+    "BGE hybrid + LTR technique-matrix columns (offline local embeddings, no deploy).",
+    "M-0002.4 Workers AI runtime query embedding (needs operator approval).",
+    "M-0002.5 new-technique experiments from the failure map (Doc2Query-- first).",
+    "M-0002.6 scope classification, ARCH-0.5, release tag.",
+    "Operator: push local commits to GitHub."
   ]
 }

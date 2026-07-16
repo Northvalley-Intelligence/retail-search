@@ -1,8 +1,8 @@
 {
   "project_id": "retail-search",
-  "updated_at": "2026-07-14",
+  "updated_at": "2026-07-15",
   "current_phase": "Phase 2 - Cross-Domain Validation with BEIR (M-0002)",
-  "active_generation": "GEN-027",
+  "active_generation": "GEN-028",
   "phase_goal": "Build the cross-domain technique portfolio per Mission Update 002: dataset-agnostic evaluation harness (Cranfield migrated), BM25 baselines on all ~14 public BEIR datasets sanity-checked against published numbers, Technique x Dataset evidence matrix for the Phase 1 portfolio, runtime query embedding to unblock arch-0.3-bge, public /api/beir/* endpoints, and Superset-Not-Filter scope classification (Universal / Domain-conditional / Dormant) leading to ARCH-0.5.",
   "mission_update_amendments": [
     "Mission Update 003 (2026-07-14): articles are authored by Ferosh personally, only after phase implementation is complete and validated; agents never initiate or draft article work or post content anywhere unless Ferosh explicitly asks. Supersedes the article-per-mission mandate for delegation purposes."
@@ -16,22 +16,22 @@
       "final_deliverable": "SLAB-RS article series published at https://feroshjacob.github.io/series/self-learning-agent-based-retail-search/ (Parts 1-4, A-0002/A-0003/A-0004)"
     }
   ],
-  "mission_status": "phase_2_active_m_0002_1_complete",
-  "implementation_status": "dataset_agnostic_harness_live_scifact_nfcorpus_baselines_reproduce_published_cranfield_migrated",
+  "mission_status": "phase_2_active_m_0002_2_complete_m_0002_3_lexical_matrix_underway",
+  "implementation_status": "all_15_public_beir_datasets_baselined_lexical_technique_matrix_domain_conditional_embedding_pipeline_prepped",
   "validation_gate": {
-    "latest_result": "pass",
-    "pass_count": 2,
-    "latest_run_id": "VAL-036",
+    "latest_result": "pass_with_documented_exception",
+    "pass_count": 1,
+    "latest_run_id": "VAL-037",
     "required_before_phase_exit": 2
   },
   "active_blockers": [],
   "pending_approvals": [],
   "next_recommended_actions": [
-    "M-0002.2 (next): extend BM25 baselines across Tier 1-2, then Tier 3 sequentially; record infra limits per dataset; add CQADupStack sub-forum loader support; update validation strategy to a Phase 2 VALSTRAT-007.",
-    "M-0002.3: run the Phase 1 portfolio (field-sum, coverage, PRF, BGE hybrid, LTR) across tiers into the Technique x Dataset evidence matrix.",
-    "M-0002.4: runtime query embedding via Cloudflare Workers AI binding with parity validation and query-vector cache; generalized embedding pipeline.",
-    "M-0002.5: BEIR failure analysis and new-technique backlog experiments (Doc2Query-- first), back-tested on Cranfield.",
-    "M-0002.6: scope classification, ARCH-0.5 core plus portfolio declaration, release tag. No article work - Ferosh writes articles himself after implementation (Mission Update 003)."
+    "M-0002.3 continue: BGE hybrid + LTR columns of the technique matrix (offline local embeddings via the prepared pipeline; no deploy/spend).",
+    "M-0002.4: Workers AI runtime query embedding + parity validation (NEEDS OPERATOR APPROVAL before touching Cloudflare).",
+    "M-0002.5: new-technique experiments from the failure map (Doc2Query-- first), back-tested on Cranfield.",
+    "M-0002.6: scope classification, ARCH-0.5 core + portfolio, release tag.",
+    "Operator: push local commits to GitHub (GEN-027/028 are local-only)."
   ],
   "applicable_learning_check": {
     "performed_at": "2026-07-05",

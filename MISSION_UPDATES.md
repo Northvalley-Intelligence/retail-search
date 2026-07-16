@@ -247,3 +247,13 @@
 - Migrated Cranfield onto the shared interface with exact parity: baseline nDCG@10 0.2995 and refined PRF nDCG@10 0.3260 through the shared evaluator match the Phase 1 numbers to four decimals.
 - Validation Gate passed twice (VAL-036, 53 tests). The original Cranfield source host was unreachable; the full query set was reconstructed from the GEN-017 retrieval-pool cache with provenance recorded.
 - Next: M-0002.2 extends BM25 baselines across Tier 1-2 and then Tier 3 sequentially (CQADupStack needs sub-forum loader support).
+
+## 2026-07-15 - GEN-028 M-0002.2 Complete: All Public BEIR BM25 Baselines + Lexical Technique Matrix
+
+- Baselined all 15 public BEIR datasets (Tiers 1-3) with BM25 on a single free-tier OpenSearch instance via sequential index -> evaluate -> drop. Aggregate mean nDCG@10 0.4261, on the published BEIR BM25 average (~0.43); 13/15 within +/-9%, 10 within +/-5%.
+- Tier 3 highlights (all within 2.5% of published): NQ 0.3263, HotpotQA 0.6022, DBPedia 0.3205, MS MARCO 0.2278 (8.84M passages indexed on the free tier).
+- Documented exception (ADL-0005, operator-approved): FEVER (0.6493 vs 0.753) and Climate-FEVER (0.1862 vs 0.213) run ~13% low. Shared 5.42M-doc corpus; localized OpenSearch-vs-Anserini BM25 config difference, not a harness bug (13/15 reproduce, including three other Wikipedia corpora). Document-and-proceed per the mission's non-goal against optimizing BEIR scores for their own sake.
+- M-0002.3 groundwork: ported Phase 1 rerankers with exact fidelity, generalized the retrieval-pool fast loop and embedding-input prep, and built the Technique x Dataset matrix over the Cranfield+Tier1 superset. Finding: both coverage-rerank and refined PRF classify domain-conditional - wins cluster on scientific/medical text; PRF hurts financial (FiQA -3.3%) and argument (ArguAna -6.8%) retrieval.
+- Cross-domain failure map produced (three regimes: vocabulary mismatch, ranking noise, broad many-answer), feeding M-0002.5 new-technique selection.
+- Robustness: hardened both the bulk-load and evaluation remote-call paths with retry/backoff after transient free-tier failures cost one FEVER run (LES-015). Validation: 61 tests pass; VAL-037.
+- Next: BGE hybrid + LTR columns of the matrix (offline, no deploy), then M-0002.4 Workers AI runtime (needs operator approval).

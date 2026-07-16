@@ -2,9 +2,9 @@
   "generatedAt": "2026-07-14T00:00:00.000Z",
   "technique": "bm25-multi-match",
   "harness": "dataset-agnostic-v1",
-  "measuredCount": 10,
-  "pendingCount": 5,
-  "averageBm25NdcgAt10": 0.4405,
+  "measuredCount": 15,
+  "pendingCount": 0,
+  "averageBm25NdcgAt10": 0.4261,
   "publishedAverageReference": "BM25 (Anserini/ES class) averages ~0.43 across public BEIR datasets",
   "rows": [
     {
@@ -99,23 +99,48 @@
     },
     {
       "dataset": "beir/hotpotqa",
-      "status": "pending"
+      "tier": 3,
+      "status": "measured",
+      "queries": 7405,
+      "bm25NdcgAt10": 0.6022,
+      "published": 0.603,
+      "relativeDelta": -0.0013
     },
     {
       "dataset": "beir/dbpedia-entity",
-      "status": "pending"
+      "tier": 3,
+      "status": "measured",
+      "queries": 400,
+      "bm25NdcgAt10": 0.3205,
+      "published": 0.313,
+      "relativeDelta": 0.024
     },
     {
       "dataset": "beir/msmarco",
-      "status": "pending"
+      "tier": 3,
+      "status": "measured",
+      "queries": 6980,
+      "bm25NdcgAt10": 0.2278,
+      "published": 0.228,
+      "relativeDelta": -0.0009
     },
     {
       "dataset": "beir/climate-fever",
-      "status": "pending"
+      "tier": 3,
+      "status": "measured",
+      "queries": 1535,
+      "bm25NdcgAt10": 0.1862,
+      "published": 0.213,
+      "relativeDelta": -0.1258
     },
     {
       "dataset": "beir/fever",
-      "status": "pending"
+      "tier": 3,
+      "status": "measured",
+      "queries": 6666,
+      "bm25NdcgAt10": 0.6493,
+      "published": 0.753,
+      "relativeDelta": -0.1377
     }
   ]
 }

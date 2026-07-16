@@ -223,6 +223,14 @@
 - Validation: Validation Gate passed twice (VAL-036, 53 tests); SciFact nDCG@10 0.6906 vs published 0.665 and NFCorpus 0.3273 vs published 0.325; Cranfield shared-harness parity exact (baseline 0.2995, prf-rerank 0.3260)
 - Result: the harness is trustworthy per the Mission Update 002 sanity policy; every future dataset plugs in through the registry, and Cranfield plus BEIR are uniformly testable for every technique
 
+## GEN-028 - All Public BEIR Baselines + Lexical Technique Matrix (M-0002.2/3)
+
+- Date: 2026-07-14 to 2026-07-15
+- Status: M-0002.2 complete; M-0002.3 lexical matrix underway
+- Focus: BM25 baselines across all 15 public BEIR datasets; port Phase 1 rerankers and build the Technique x Dataset matrix
+- Validation: VAL-037 pass_with_documented_exception; 61 tests
+- Result: aggregate BM25 nDCG@10 0.4261 on the published ~0.43 average (13/15 within +/-9%); FEVER-family ~13% low documented/accepted (ADL-0005); both Phase 1 lexical rerankers classify domain-conditional
+
 ## Next Action
 
-M-0002.2: extend BM25 baselines across Tier 1-2 (FiQA-2018, ArguAna, SCIDOCS, then TREC-COVID, Touche-2020, CQADupStack, Quora) and Tier 3 sequentially, recording infra limits per dataset. Update the validation strategy to a Phase 2 version (VALSTRAT-007) covering BEIR evaluation. Per Mission Update 003, no article work unless Ferosh explicitly asks.
+Extend the technique matrix with BGE hybrid + LTR columns (offline local embeddings, no deploy), then M-0002.4 Workers AI runtime (operator approval required). Per Mission Update 003, no article work unless Ferosh explicitly asks.
