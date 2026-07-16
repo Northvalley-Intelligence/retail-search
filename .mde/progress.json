@@ -1,7 +1,7 @@
 {
   "project_id": "retail-search",
-  "updated_at": "2026-07-15",
-  "current_generation": "GEN-028",
+  "updated_at": "2026-07-16",
+  "current_generation": "GEN-029",
   "completed": [
     "Captured mission.",
     "Initialized local MDE artifacts.",
@@ -95,14 +95,18 @@
     "Investigated and documented the FEVER-family ~13% discrepancy (ADL-0005, operator-approved document-and-proceed).",
     "Built the lexical Technique x Dataset matrix over Cranfield+Tier1: coverage-rerank and refined PRF both domain-conditional.",
     "Produced the cross-domain failure map (three regimes) and generalized the embedding-input pipeline.",
-    "Hardened bulk-load and evaluation remote-call paths with retry/backoff (LES-015); 61 tests pass; VAL-037."
+    "Hardened bulk-load and evaluation remote-call paths with retry/backoff (LES-015); 61 tests pass; VAL-037.",
+    "Generated BGE-base-en-v1.5 embeddings locally (MPS) for Cranfield + all 5 Tier-1 BEIR datasets.",
+    "Evaluated BGE vector-only + BM25/BGE hybrid; vector-only reproduces published BGE-base numbers.",
+    "Classified BGE hybrid Universal (6/6, +9.5% to +64.0%, zero regressions); ADL-0006, SE-0005, ARCH-0.5 core candidate.",
+    "Built generic vector/hybrid evaluator (JS) + numpy large-dataset path (cross-validated); fixed vector-side self-hit bug."
   ],
   "in_progress": [],
   "next": [
-    "BGE hybrid + LTR technique-matrix columns (offline local embeddings, no deploy).",
-    "M-0002.4 Workers AI runtime query embedding (needs operator approval).",
-    "M-0002.5 new-technique experiments from the failure map (Doc2Query-- first).",
-    "M-0002.6 scope classification, ARCH-0.5, release tag.",
+    "LTR technique-matrix column; Tier 2-3 dense evaluation where feasible.",
+    "M-0002.4 Workers AI runtime (needs operator approval).",
+    "M-0002.5 new-technique experiments (Doc2Query-- first).",
+    "M-0002.6 declare ARCH-0.5 core + portfolio, release tag.",
     "Operator: push local commits to GitHub."
   ]
 }

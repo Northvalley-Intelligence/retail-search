@@ -257,3 +257,12 @@
 - Cross-domain failure map produced (three regimes: vocabulary mismatch, ranking noise, broad many-answer), feeding M-0002.5 new-technique selection.
 - Robustness: hardened both the bulk-load and evaluation remote-call paths with retry/backoff after transient free-tier failures cost one FEVER run (LES-015). Validation: 61 tests pass; VAL-037.
 - Next: BGE hybrid + LTR columns of the matrix (offline, no deploy), then M-0002.4 Workers AI runtime (needs operator approval).
+
+## 2026-07-16 - GEN-029 M-0002.3: BGE Hybrid Is the First Universal Technique
+
+- Generated BAAI/bge-base-en-v1.5 embeddings locally (MPS) for Cranfield + all five Tier-1 BEIR datasets and evaluated dense vector-only and BM25+BGE hybrid retrieval offline.
+- **BGE hybrid improves 6/6 superset datasets by +9.5% to +64.0% with zero regressions => classified Universal**, admitted to the ARCH-0.5 cross-domain core candidate (SE-0005, ADL-0006). Best gains: FiQA +64.0%, ArguAna +35.7%, SCIDOCS +34.6% - exactly where the Phase 1 lexical rerankers were flat or negative.
+- Coverage-rerank and refined PRF remain domain-conditional (each 3/6); PRF hurts FiQA (-3.3%) and ArguAna (-6.8%). Confirms the Phase 2 thesis: Phase 1 keyword-reranking wins were partly scientific-corpus-shaped; dense retrieval transfers.
+- Harness correctness: BGE vector-only reproduced published BGE-base numbers on every dataset (NFCorpus 0.374, SciFact 0.740, FiQA 0.406, ArguAna 0.640). Fixed a vector-side self-hit bug (ArguAna vector-only 0.456 -> 0.640).
+- Engineering: added a generic vector/hybrid evaluator (JS) plus a numpy large-dataset path (fiqa's 946MB embeddings exceed Node's string limit), cross-validated to within 0.001 nDCG. Validation: 61 tests, VAL-038.
+- Scope caveat: Universal spans Cranfield+Tier1 (corpora where full-corpus dense eval is tractable); Tier 2-3 dense eval remains offline/subsampled per free-tier limits. Next: LTR column, then Tier 2-3 dense where feasible, then ARCH-0.5 declaration (M-0002.6). M-0002.4 Workers AI runtime still needs operator approval.

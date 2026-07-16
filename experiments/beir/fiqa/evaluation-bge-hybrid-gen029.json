@@ -1,0 +1,139 @@
+{
+  "generatedAt": "2026-07-16T00:00:00.000Z",
+  "dataset": "beir/fiqa",
+  "model": "BAAI/bge-base-en-v1.5",
+  "firstStage": "bm25-multi-match",
+  "k": 10,
+  "relevanceMode": "linear",
+  "queryCount": 648,
+  "best": {
+    "label": "hybrid-linear-0.8",
+    "metrics": {
+      "ndcgAtK": 0.4158
+    }
+  },
+  "lexicalBaseline": 0.2536,
+  "vectorOnly": 0.4062,
+  "runs": [
+    {
+      "label": "lexical-first-stage",
+      "metrics": {
+        "ndcgAtK": 0.2536
+      }
+    },
+    {
+      "label": "vector-only",
+      "metrics": {
+        "ndcgAtK": 0.4062
+      }
+    },
+    {
+      "label": "hybrid-linear-0.1",
+      "metrics": {
+        "ndcgAtK": 0.2696
+      }
+    },
+    {
+      "label": "hybrid-rrf-0.1",
+      "metrics": {
+        "ndcgAtK": 0.2904
+      }
+    },
+    {
+      "label": "hybrid-linear-0.2",
+      "metrics": {
+        "ndcgAtK": 0.288
+      }
+    },
+    {
+      "label": "hybrid-rrf-0.2",
+      "metrics": {
+        "ndcgAtK": 0.3129
+      }
+    },
+    {
+      "label": "hybrid-linear-0.3",
+      "metrics": {
+        "ndcgAtK": 0.3156
+      }
+    },
+    {
+      "label": "hybrid-rrf-0.3",
+      "metrics": {
+        "ndcgAtK": 0.3332
+      }
+    },
+    {
+      "label": "hybrid-linear-0.4",
+      "metrics": {
+        "ndcgAtK": 0.3506
+      }
+    },
+    {
+      "label": "hybrid-rrf-0.4",
+      "metrics": {
+        "ndcgAtK": 0.345
+      }
+    },
+    {
+      "label": "hybrid-linear-0.5",
+      "metrics": {
+        "ndcgAtK": 0.3853
+      }
+    },
+    {
+      "label": "hybrid-rrf-0.5",
+      "metrics": {
+        "ndcgAtK": 0.3615
+      }
+    },
+    {
+      "label": "hybrid-linear-0.6",
+      "metrics": {
+        "ndcgAtK": 0.4074
+      }
+    },
+    {
+      "label": "hybrid-rrf-0.6",
+      "metrics": {
+        "ndcgAtK": 0.3763
+      }
+    },
+    {
+      "label": "hybrid-linear-0.7",
+      "metrics": {
+        "ndcgAtK": 0.4128
+      }
+    },
+    {
+      "label": "hybrid-rrf-0.7",
+      "metrics": {
+        "ndcgAtK": 0.3921
+      }
+    },
+    {
+      "label": "hybrid-linear-0.8",
+      "metrics": {
+        "ndcgAtK": 0.4158
+      }
+    },
+    {
+      "label": "hybrid-rrf-0.8",
+      "metrics": {
+        "ndcgAtK": 0.4043
+      }
+    },
+    {
+      "label": "hybrid-linear-0.9",
+      "metrics": {
+        "ndcgAtK": 0.412
+      }
+    },
+    {
+      "label": "hybrid-rrf-0.9",
+      "metrics": {
+        "ndcgAtK": 0.4095
+      }
+    }
+  ]
+}

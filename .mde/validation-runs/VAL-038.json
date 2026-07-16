@@ -1,0 +1,16 @@
+{
+  "run_id": "VAL-038",
+  "date": "2026-07-16",
+  "generation_id": "GEN-029",
+  "mission": "M-0002 Phase 2 - Cross-Domain Validation with BEIR",
+  "focus": "M-0002.3 BGE hybrid column: dense embeddings across Cranfield+Tier1, scope classification",
+  "functional_validation": [
+    {"check": "BGE vector-only reproduces published BGE-base numbers", "result": "pass", "detail": "NFCorpus 0.374, SciFact 0.740, FiQA 0.406, ArguAna 0.640 - all match published BGE-base-en-v1.5."},
+    {"check": "BGE hybrid improves over BM25 across the superset", "result": "pass", "detail": "6/6 datasets improved +9.5% to +64.0%, zero regressions => Universal."},
+    {"check": "numpy large-dataset evaluator equivalence", "result": "pass", "detail": "Cross-validated vs JS evaluator on NFCorpus and ArguAna to within 0.001 nDCG@10."},
+    {"check": "self-hit exclusion on vector side", "result": "pass", "detail": "ArguAna vector-only corrected from distorted 0.456 to 0.640 (matches published) after excluding query's own doc."},
+    {"check": "full suite", "result": "pass", "detail": "61 tests pass."}
+  ],
+  "anti_demo_note": "Every BGE number is a real dense-retrieval evaluation over full test query sets with locally-generated BAAI/bge-base-en-v1.5 embeddings; vector-only reproducing published numbers is the independent correctness anchor.",
+  "result": "pass"
+}

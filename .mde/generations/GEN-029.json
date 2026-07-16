@@ -1,0 +1,23 @@
+{
+  "generation_id": "GEN-029",
+  "project_id": "retail-search",
+  "started_at": "2026-07-16",
+  "ended_at": "2026-07-16",
+  "mission_phase": "Phase 2 - Cross-Domain Validation with BEIR (M-0002)",
+  "validation_strategy_version": "VALSTRAT-007",
+  "status": "m_0002_3_bge_hybrid_universal",
+  "focus": "BGE hybrid column of the technique matrix: local dense embeddings across Cranfield+Tier1, vector/hybrid evaluation, scope classification.",
+  "key_findings": [
+    "BGE hybrid is the first Universal technique: improves 6/6 superset datasets +9.5% to +64.0%, zero regressions; joins the ARCH-0.5 core candidate (ADL-0006, SE-0005).",
+    "Gains largest where lexical rerankers failed: FiQA +64% (PRF -3.3%), ArguAna +35.7% (PRF -6.8%), SCIDOCS +34.6%.",
+    "Vector-only reproduces published BGE-base numbers on every dataset (harness correctness anchor).",
+    "Coverage-rerank and refined PRF remain domain-conditional (3/6)."
+  ],
+  "validation_gate": {"result": "pass", "run_id": "VAL-038"},
+  "reusable_lessons": [
+    "LES-016: the embedding script spawns a fresh Python process per IPC batch (model reload each time); fine for small corpora but pathological at scale (fiqa 57K docs). Use a single-load direct embedder for large datasets.",
+    "LES-017: a 946MB embeddings JSON exceeds Node's ~536MB string limit for JSON.parse; large-dataset vector eval needs a numpy path (cross-validated to <0.001 nDCG vs the JS evaluator)."
+  ],
+  "loc_note": "New generic vector/hybrid evaluator (JS + numpy large-dataset path), portfolio classifier, embedding-input prep; capability growth for the cross-domain matrix.",
+  "evidence_quality_notes": "Dense numbers anchored by reproducing published BGE-base scores; the one oversized dataset (fiqa) evaluated with a numpy evaluator cross-validated against the JS one."
+}

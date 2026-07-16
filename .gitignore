@@ -15,3 +15,6 @@ experiments/cranfield-v0/embeddings-ollama-llama31-8b-title-abstract-gen019.json
 data/beir/
 # Full Cranfield export is regenerated locally (npm run export:cranfield)
 data/cranfield/full/
+
+# BGE BEIR embedding caches (large, regenerable via embed runner)
+experiments/beir/*/embeddings-bge-base-en-v15-gen029.json

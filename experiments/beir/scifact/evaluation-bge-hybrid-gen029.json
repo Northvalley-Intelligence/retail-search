@@ -1,0 +1,265 @@
+{
+  "generatedAt": "2026-07-16T00:00:00.000Z",
+  "dataset": "beir/scifact",
+  "model": "BAAI/bge-base-en-v1.5",
+  "firstStage": "bm25-multi-match",
+  "k": 10,
+  "relevanceMode": "linear",
+  "queryCount": 300,
+  "best": {
+    "label": "hybrid-linear-0.8",
+    "retrieval": "bge-hybrid-linear",
+    "vectorWeight": 0.8,
+    "metrics": {
+      "map": 0.7127,
+      "ndcgAtK": 0.7565,
+      "precisionAtK": 0.099,
+      "recallAtK": 0.8776,
+      "mrr": 0.7246
+    }
+  },
+  "lexicalBaseline": 0.6906,
+  "vectorOnly": 0.7404,
+  "runs": [
+    {
+      "label": "lexical-first-stage",
+      "retrieval": "bm25-multi-match",
+      "vectorWeight": 0,
+      "metrics": {
+        "map": 0.6437,
+        "ndcgAtK": 0.6906,
+        "precisionAtK": 0.0907,
+        "recallAtK": 0.8198,
+        "mrr": 0.6581
+      }
+    },
+    {
+      "label": "vector-only",
+      "retrieval": "dense-bge",
+      "vectorWeight": 1,
+      "metrics": {
+        "map": 0.693,
+        "ndcgAtK": 0.7404,
+        "precisionAtK": 0.0987,
+        "recallAtK": 0.8742,
+        "mrr": 0.7034
+      }
+    },
+    {
+      "label": "hybrid-linear-0.1",
+      "retrieval": "bge-hybrid-linear",
+      "vectorWeight": 0.1,
+      "metrics": {
+        "map": 0.656,
+        "ndcgAtK": 0.7036,
+        "precisionAtK": 0.0923,
+        "recallAtK": 0.8338,
+        "mrr": 0.6704
+      }
+    },
+    {
+      "label": "hybrid-rrf-0.1",
+      "retrieval": "bge-hybrid-rrf",
+      "vectorWeight": 0.1,
+      "metrics": {
+        "map": 0.6547,
+        "ndcgAtK": 0.7035,
+        "precisionAtK": 0.0927,
+        "recallAtK": 0.8371,
+        "mrr": 0.6694
+      }
+    },
+    {
+      "label": "hybrid-linear-0.2",
+      "retrieval": "bge-hybrid-linear",
+      "vectorWeight": 0.2,
+      "metrics": {
+        "map": 0.6637,
+        "ndcgAtK": 0.7136,
+        "precisionAtK": 0.0943,
+        "recallAtK": 0.8513,
+        "mrr": 0.678
+      }
+    },
+    {
+      "label": "hybrid-rrf-0.2",
+      "retrieval": "bge-hybrid-rrf",
+      "vectorWeight": 0.2,
+      "metrics": {
+        "map": 0.6645,
+        "ndcgAtK": 0.714,
+        "precisionAtK": 0.0943,
+        "recallAtK": 0.8484,
+        "mrr": 0.6797
+      }
+    },
+    {
+      "label": "hybrid-linear-0.3",
+      "retrieval": "bge-hybrid-linear",
+      "vectorWeight": 0.3,
+      "metrics": {
+        "map": 0.6762,
+        "ndcgAtK": 0.7248,
+        "precisionAtK": 0.0953,
+        "recallAtK": 0.8588,
+        "mrr": 0.6885
+      }
+    },
+    {
+      "label": "hybrid-rrf-0.3",
+      "retrieval": "bge-hybrid-rrf",
+      "vectorWeight": 0.3,
+      "metrics": {
+        "map": 0.6727,
+        "ndcgAtK": 0.7212,
+        "precisionAtK": 0.0953,
+        "recallAtK": 0.8533,
+        "mrr": 0.6864
+      }
+    },
+    {
+      "label": "hybrid-linear-0.4",
+      "retrieval": "bge-hybrid-linear",
+      "vectorWeight": 0.4,
+      "metrics": {
+        "map": 0.6881,
+        "ndcgAtK": 0.7388,
+        "precisionAtK": 0.098,
+        "recallAtK": 0.8794,
+        "mrr": 0.701
+      }
+    },
+    {
+      "label": "hybrid-rrf-0.4",
+      "retrieval": "bge-hybrid-rrf",
+      "vectorWeight": 0.4,
+      "metrics": {
+        "map": 0.6852,
+        "ndcgAtK": 0.7335,
+        "precisionAtK": 0.097,
+        "recallAtK": 0.8683,
+        "mrr": 0.6958
+      }
+    },
+    {
+      "label": "hybrid-linear-0.5",
+      "retrieval": "bge-hybrid-linear",
+      "vectorWeight": 0.5,
+      "metrics": {
+        "map": 0.6958,
+        "ndcgAtK": 0.7456,
+        "precisionAtK": 0.0987,
+        "recallAtK": 0.8834,
+        "mrr": 0.7091
+      }
+    },
+    {
+      "label": "hybrid-rrf-0.5",
+      "retrieval": "bge-hybrid-rrf",
+      "vectorWeight": 0.5,
+      "metrics": {
+        "map": 0.6908,
+        "ndcgAtK": 0.738,
+        "precisionAtK": 0.097,
+        "recallAtK": 0.8683,
+        "mrr": 0.7023
+      }
+    },
+    {
+      "label": "hybrid-linear-0.6",
+      "retrieval": "bge-hybrid-linear",
+      "vectorWeight": 0.6,
+      "metrics": {
+        "map": 0.7061,
+        "ndcgAtK": 0.7537,
+        "precisionAtK": 0.0993,
+        "recallAtK": 0.8858,
+        "mrr": 0.7188
+      }
+    },
+    {
+      "label": "hybrid-rrf-0.6",
+      "retrieval": "bge-hybrid-rrf",
+      "vectorWeight": 0.6,
+      "metrics": {
+        "map": 0.6962,
+        "ndcgAtK": 0.744,
+        "precisionAtK": 0.0983,
+        "recallAtK": 0.8758,
+        "mrr": 0.7084
+      }
+    },
+    {
+      "label": "hybrid-linear-0.7",
+      "retrieval": "bge-hybrid-linear",
+      "vectorWeight": 0.7,
+      "metrics": {
+        "map": 0.7094,
+        "ndcgAtK": 0.756,
+        "precisionAtK": 0.0997,
+        "recallAtK": 0.8842,
+        "mrr": 0.723
+      }
+    },
+    {
+      "label": "hybrid-rrf-0.7",
+      "retrieval": "bge-hybrid-rrf",
+      "vectorWeight": 0.7,
+      "metrics": {
+        "map": 0.7004,
+        "ndcgAtK": 0.748,
+        "precisionAtK": 0.099,
+        "recallAtK": 0.8802,
+        "mrr": 0.7113
+      }
+    },
+    {
+      "label": "hybrid-linear-0.8",
+      "retrieval": "bge-hybrid-linear",
+      "vectorWeight": 0.8,
+      "metrics": {
+        "map": 0.7127,
+        "ndcgAtK": 0.7565,
+        "precisionAtK": 0.099,
+        "recallAtK": 0.8776,
+        "mrr": 0.7246
+      }
+    },
+    {
+      "label": "hybrid-rrf-0.8",
+      "retrieval": "bge-hybrid-rrf",
+      "vectorWeight": 0.8,
+      "metrics": {
+        "map": 0.7086,
+        "ndcgAtK": 0.7538,
+        "precisionAtK": 0.099,
+        "recallAtK": 0.8802,
+        "mrr": 0.7187
+      }
+    },
+    {
+      "label": "hybrid-linear-0.9",
+      "retrieval": "bge-hybrid-linear",
+      "vectorWeight": 0.9,
+      "metrics": {
+        "map": 0.7026,
+        "ndcgAtK": 0.7494,
+        "precisionAtK": 0.0993,
+        "recallAtK": 0.8809,
+        "mrr": 0.7141
+      }
+    },
+    {
+      "label": "hybrid-rrf-0.9",
+      "retrieval": "bge-hybrid-rrf",
+      "vectorWeight": 0.9,
+      "metrics": {
+        "map": 0.7064,
+        "ndcgAtK": 0.7518,
+        "precisionAtK": 0.0993,
+        "recallAtK": 0.8792,
+        "mrr": 0.7158
+      }
+    }
+  ]
+}

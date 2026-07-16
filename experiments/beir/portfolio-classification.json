@@ -1,0 +1,176 @@
+{
+  "generatedAt": "2026-07-16T00:00:00.000Z",
+  "note": "Superset scope classification over Cranfield+Tier1. Lexical deltas vs field-sum first stage; BGE hybrid delta vs BM25 first stage (its own artifact baseline). Tier 2-3 and LTR pending.",
+  "policy": {
+    "universal": ">=70% improved, no >5% relative regression",
+    "domainConditional": ">=2 improved",
+    "dormant": "<2 improved"
+  },
+  "techniques": {
+    "coverage-rerank": {
+      "classification": {
+        "scope": "domain-conditional",
+        "evaluated": 6,
+        "improved": 3,
+        "improveRate": 0.5,
+        "worstRelativeRegression": -0.014,
+        "improvedOn": [
+          "cranfield",
+          "beir/scifact",
+          "beir/fiqa"
+        ]
+      },
+      "perDataset": [
+        {
+          "id": "cranfield",
+          "baseline": 0.3022,
+          "technique": 0.3095,
+          "relativeDelta": 0.0242
+        },
+        {
+          "id": "beir/scifact",
+          "baseline": 0.6509,
+          "technique": 0.6523,
+          "relativeDelta": 0.0022
+        },
+        {
+          "id": "beir/nfcorpus",
+          "baseline": 0.3183,
+          "technique": 0.3176,
+          "relativeDelta": -0.0022
+        },
+        {
+          "id": "beir/fiqa",
+          "baseline": 0.2536,
+          "technique": 0.2572,
+          "relativeDelta": 0.0142
+        },
+        {
+          "id": "beir/arguana",
+          "baseline": 0.4795,
+          "technique": 0.4726,
+          "relativeDelta": -0.0144
+        },
+        {
+          "id": "beir/scidocs",
+          "baseline": 0.1612,
+          "technique": 0.1606,
+          "relativeDelta": -0.0037
+        }
+      ]
+    },
+    "prf-rerank": {
+      "classification": {
+        "scope": "domain-conditional",
+        "evaluated": 6,
+        "improved": 3,
+        "improveRate": 0.5,
+        "worstRelativeRegression": -0.068,
+        "improvedOn": [
+          "cranfield",
+          "beir/scifact",
+          "beir/nfcorpus"
+        ]
+      },
+      "perDataset": [
+        {
+          "id": "cranfield",
+          "baseline": 0.3022,
+          "technique": 0.326,
+          "relativeDelta": 0.0788
+        },
+        {
+          "id": "beir/scifact",
+          "baseline": 0.6509,
+          "technique": 0.6573,
+          "relativeDelta": 0.0098
+        },
+        {
+          "id": "beir/nfcorpus",
+          "baseline": 0.3183,
+          "technique": 0.3229,
+          "relativeDelta": 0.0145
+        },
+        {
+          "id": "beir/fiqa",
+          "baseline": 0.2536,
+          "technique": 0.2452,
+          "relativeDelta": -0.0331
+        },
+        {
+          "id": "beir/arguana",
+          "baseline": 0.4795,
+          "technique": 0.447,
+          "relativeDelta": -0.0678
+        },
+        {
+          "id": "beir/scidocs",
+          "baseline": 0.1612,
+          "technique": 0.1609,
+          "relativeDelta": -0.0019
+        }
+      ]
+    },
+    "bge-hybrid": {
+      "classification": {
+        "scope": "universal",
+        "evaluated": 6,
+        "improved": 6,
+        "improveRate": 1,
+        "worstRelativeRegression": 0,
+        "improvedOn": [
+          "cranfield",
+          "beir/scifact",
+          "beir/nfcorpus",
+          "beir/fiqa",
+          "beir/arguana",
+          "beir/scidocs"
+        ]
+      },
+      "perDataset": [
+        {
+          "id": "cranfield",
+          "baseline": 0.3022,
+          "technique": 0.3533,
+          "relativeDelta": 0.1691,
+          "variant": "remote-hybrid-gen023"
+        },
+        {
+          "id": "beir/scifact",
+          "baseline": 0.6906,
+          "technique": 0.7565,
+          "relativeDelta": 0.0954,
+          "variant": "hybrid-linear-0.8"
+        },
+        {
+          "id": "beir/nfcorpus",
+          "baseline": 0.3273,
+          "technique": 0.3818,
+          "relativeDelta": 0.1665,
+          "variant": "hybrid-linear-0.6"
+        },
+        {
+          "id": "beir/fiqa",
+          "baseline": 0.2536,
+          "technique": 0.4158,
+          "relativeDelta": 0.6396,
+          "variant": "hybrid-linear-0.8"
+        },
+        {
+          "id": "beir/arguana",
+          "baseline": 0.4739,
+          "technique": 0.6432,
+          "relativeDelta": 0.3572,
+          "variant": "hybrid-linear-0.9"
+        },
+        {
+          "id": "beir/scidocs",
+          "baseline": 0.1647,
+          "technique": 0.2217,
+          "relativeDelta": 0.3461,
+          "variant": "hybrid-linear-0.7"
+        }
+      ]
+    }
+  }
+}
