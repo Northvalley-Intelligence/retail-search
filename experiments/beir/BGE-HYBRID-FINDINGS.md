@@ -39,3 +39,27 @@ per the free-tier infra limits; the classification is re-tested as those land. T
 - FiQA (57K docs, 946MB embeddings) exceeded Node's string limit for JSON.parse; evaluated
   with an equivalent numpy evaluator, cross-validated against the JS evaluator to within
   0.001 nDCG on NFCorpus and ArguAna.
+
+## LTR column (GEN-029 cont.): strong technique, but Occam keeps hybrid as core
+
+Boosted-tree LTR with BGE + lexical features, query-grouped cross-validation, over the
+BM25 pool. LTR improves over BM25 everywhere (a capable ranker), and on some datasets
+even beats plain BGE hybrid:
+
+| Dataset | BM25 | LTR (CV) | vs BGE hybrid | Verdict |
+|---|---|---|---|---|
+| Cranfield | 0.3022 | 0.3603 (+19.2%) | 0.3533 | LTR wins |
+| ArguAna | 0.4739 | 0.6708 (+41.5%) | 0.6432 | LTR wins |
+| SciFact | 0.6906 | 0.7510 (+8.8%) | 0.7565 | hybrid wins |
+| NFCorpus | 0.3273 | 0.3568 (+9.0%) | 0.3818 | hybrid wins |
+
+**LTR beats plain BGE hybrid on 2/4 (50%) < the 70% universal bar => BGE hybrid stays the
+ARCH-0.5 core (Occam rule: the simpler technique runs live). LTR is a portfolio technique**
+- activatable where it helps (Cranfield-like scientific, argument retrieval), infrastructure
+kept for Phase 4 behavioral features which will likely need a learned ranker.
+
+Notes: fiqa LTR deferred (946MB embeddings exceed Node's JSON.parse limit; needs the numpy
+path). scidocs LTR attempted but pathologically slow in pure-JS boosted-tree CV; not run.
+The 2/4 split is decisive for the Occam call regardless of those two. Light CV settings
+(3 folds, 30 trees) were validated to preserve the LTR-vs-hybrid direction (nfcorpus full
+0.3568 vs light 0.3584).

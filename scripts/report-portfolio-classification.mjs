@@ -45,7 +45,7 @@ function rel(technique, baseline) {
 
 async function main() {
   const base = "experiments/beir";
-  const techniques = { "coverage-rerank": [], "prf-rerank": [], "bge-hybrid": [] };
+  const techniques = { "coverage-rerank": [], "prf-rerank": [], "bge-hybrid": [], "ltr-bge": [] };
 
   for (const { id, dir } of SUPERSET) {
     // Lexical baseline + coverage/prf from field-sum offline artifacts.
@@ -58,19 +58,33 @@ async function main() {
 
     // BGE hybrid: artifact carries its own lexical (BM25) baseline + best hybrid.
     const bge = await readJsonIfExists(join(base, dir, "evaluation-bge-hybrid-gen029.json"));
+    let bgeHybridNdcg = null;
     if (bge) {
-      techniques["bge-hybrid"].push({ id, baseline: bge.lexicalBaseline, technique: bge.best?.metrics?.ndcgAtK ?? null, relativeDelta: rel(bge.best?.metrics?.ndcgAtK ?? null, bge.lexicalBaseline), variant: bge.best?.label });
+      bgeHybridNdcg = bge.best?.metrics?.ndcgAtK ?? null;
+      techniques["bge-hybrid"].push({ id, baseline: bge.lexicalBaseline, technique: bgeHybridNdcg, relativeDelta: rel(bgeHybridNdcg, bge.lexicalBaseline), variant: bge.best?.label });
     } else if (id === "cranfield") {
-      // GEN-023 documented remote BGE hybrid vs field-sum baseline.
+      bgeHybridNdcg = 0.3533;
       techniques["bge-hybrid"].push({ id, baseline: 0.3022, technique: 0.3533, relativeDelta: rel(0.3533, 0.3022), variant: "remote-hybrid-gen023" });
     } else {
       techniques["bge-hybrid"].push({ id, baseline: null, technique: null, relativeDelta: null });
+    }
+
+    // LTR (BGE features): classified against its lexical baseline, but the
+    // decision-relevant comparison is vs plain BGE hybrid (Occam rule).
+    const ltr = await readJsonIfExists(join(base, dir, "evaluation-ltr-bge-gen029.json"));
+    if (ltr) {
+      techniques["ltr-bge"].push({ id, baseline: ltr.firstStageNdcg, technique: ltr.ltrCvNdcg, relativeDelta: rel(ltr.ltrCvNdcg, ltr.firstStageNdcg), variant: "boosted-trees-cv", vsHybrid: ltr.bgeHybridNdcg, beatsHybrid: ltr.ltrBeatsHybrid });
+    } else if (id === "cranfield") {
+      // GEN-022 documented: BGE boosted-tree LTR CV 0.3603 vs hybrid 0.3533.
+      techniques["ltr-bge"].push({ id, baseline: 0.3022, technique: 0.3603, relativeDelta: rel(0.3603, 0.3022), variant: "boosted-trees-cv-gen022", vsHybrid: 0.3533, beatsHybrid: true });
+    } else {
+      techniques["ltr-bge"].push({ id, baseline: null, technique: null, relativeDelta: null });
     }
   }
 
   const output = {
     generatedAt: "2026-07-16T00:00:00.000Z",
-    note: "Superset scope classification over Cranfield+Tier1. Lexical deltas vs field-sum first stage; BGE hybrid delta vs BM25 first stage (its own artifact baseline). Tier 2-3 and LTR pending.",
+    note: "Superset scope classification over Cranfield+Tier1. Deltas are vs each dataset's lexical baseline. NOTE on ltr-bge: its scope is shown vs the BM25 baseline (where it improves everywhere), but the DECISION-relevant comparison is the Occam check vs plain BGE hybrid - LTR wins only 2/4, so it is a PORTFOLIO technique, not core (ADL-0007). BGE hybrid is the ARCH-0.5 core (ADL-0006). Tier 2-3 dense/LTR and fiqa/scidocs LTR deferred.",
     policy: { universal: ">=70% improved, no >5% relative regression", domainConditional: ">=2 improved", dormant: "<2 improved" },
     techniques: Object.fromEntries(Object.entries(techniques).map(([name, rows]) => [name, { classification: classify(rows), perDataset: rows }]))
   };
@@ -82,9 +96,15 @@ async function main() {
     for (const r of t.perDataset) {
       if (r.relativeDelta === null) { console.log(`  ${r.id.padEnd(16)} (pending)`); continue; }
       const s = r.relativeDelta > 0 ? "+" : "";
-      console.log(`  ${r.id.padEnd(16)} ${String(r.baseline).padEnd(7)} -> ${String(r.technique).padEnd(7)} ${s}${(r.relativeDelta * 100).toFixed(1)}%${r.variant ? "  [" + r.variant + "]" : ""}`);
+      const occam = r.vsHybrid != null ? `  vs hybrid ${r.vsHybrid} => ${r.beatsHybrid ? "LTR wins" : "hybrid wins"}` : "";
+      console.log(`  ${r.id.padEnd(16)} ${String(r.baseline).padEnd(7)} -> ${String(r.technique).padEnd(7)} ${s}${(r.relativeDelta * 100).toFixed(1)}%${r.variant ? "  [" + r.variant + "]" : ""}${occam}`);
     }
   }
+
+  // Occam summary: LTR only becomes core if it beats plain BGE hybrid cross-domain.
+  const ltrRows = output.techniques["ltr-bge"].perDataset.filter((r) => r.beatsHybrid != null);
+  const ltrWins = ltrRows.filter((r) => r.beatsHybrid).length;
+  console.log(`\nOccam check (LTR vs plain BGE hybrid): LTR wins ${ltrWins}/${ltrRows.length} => ${ltrWins / ltrRows.length >= 0.7 ? "LTR could be core" : "BGE hybrid stays core, LTR is portfolio (simpler wins)"}`);
   console.log(`\nwrote ${join(base, "portfolio-classification.json")}`);
 }
 

@@ -1,6 +1,6 @@
 {
   "generatedAt": "2026-07-16T00:00:00.000Z",
-  "note": "Superset scope classification over Cranfield+Tier1. Lexical deltas vs field-sum first stage; BGE hybrid delta vs BM25 first stage (its own artifact baseline). Tier 2-3 and LTR pending.",
+  "note": "Superset scope classification over Cranfield+Tier1. Deltas are vs each dataset's lexical baseline. NOTE on ltr-bge: its scope is shown vs the BM25 baseline (where it improves everywhere), but the DECISION-relevant comparison is the Occam check vs plain BGE hybrid - LTR wins only 2/4, so it is a PORTFOLIO technique, not core (ADL-0007). BGE hybrid is the ARCH-0.5 core (ADL-0006). Tier 2-3 dense/LTR and fiqa/scidocs LTR deferred.",
   "policy": {
     "universal": ">=70% improved, no >5% relative regression",
     "domainConditional": ">=2 improved",
@@ -169,6 +169,71 @@
           "technique": 0.2217,
           "relativeDelta": 0.3461,
           "variant": "hybrid-linear-0.7"
+        }
+      ]
+    },
+    "ltr-bge": {
+      "classification": {
+        "scope": "universal",
+        "evaluated": 4,
+        "improved": 4,
+        "improveRate": 1,
+        "worstRelativeRegression": 0,
+        "improvedOn": [
+          "cranfield",
+          "beir/scifact",
+          "beir/nfcorpus",
+          "beir/arguana"
+        ]
+      },
+      "perDataset": [
+        {
+          "id": "cranfield",
+          "baseline": 0.3022,
+          "technique": 0.3603,
+          "relativeDelta": 0.1923,
+          "variant": "boosted-trees-cv-gen022",
+          "vsHybrid": 0.3533,
+          "beatsHybrid": true
+        },
+        {
+          "id": "beir/scifact",
+          "baseline": 0.6906,
+          "technique": 0.751,
+          "relativeDelta": 0.0875,
+          "variant": "boosted-trees-cv",
+          "vsHybrid": 0.7565,
+          "beatsHybrid": false
+        },
+        {
+          "id": "beir/nfcorpus",
+          "baseline": 0.3273,
+          "technique": 0.3568,
+          "relativeDelta": 0.0901,
+          "variant": "boosted-trees-cv",
+          "vsHybrid": 0.3818,
+          "beatsHybrid": false
+        },
+        {
+          "id": "beir/fiqa",
+          "baseline": null,
+          "technique": null,
+          "relativeDelta": null
+        },
+        {
+          "id": "beir/arguana",
+          "baseline": 0.4739,
+          "technique": 0.6708,
+          "relativeDelta": 0.4155,
+          "variant": "boosted-trees-cv",
+          "vsHybrid": 0.6432,
+          "beatsHybrid": true
+        },
+        {
+          "id": "beir/scidocs",
+          "baseline": null,
+          "technique": null,
+          "relativeDelta": null
         }
       ]
     }

@@ -266,3 +266,9 @@
 - Harness correctness: BGE vector-only reproduced published BGE-base numbers on every dataset (NFCorpus 0.374, SciFact 0.740, FiQA 0.406, ArguAna 0.640). Fixed a vector-side self-hit bug (ArguAna vector-only 0.456 -> 0.640).
 - Engineering: added a generic vector/hybrid evaluator (JS) plus a numpy large-dataset path (fiqa's 946MB embeddings exceed Node's string limit), cross-validated to within 0.001 nDCG. Validation: 61 tests, VAL-038.
 - Scope caveat: Universal spans Cranfield+Tier1 (corpora where full-corpus dense eval is tractable); Tier 2-3 dense eval remains offline/subsampled per free-tier limits. Next: LTR column, then Tier 2-3 dense where feasible, then ARCH-0.5 declaration (M-0002.6). M-0002.4 Workers AI runtime still needs operator approval.
+
+## 2026-07-16 - GEN-029 cont.: LTR Column - Strong Technique, Portfolio by Occam
+
+- Ran boosted-tree LTR with BGE + lexical features (query-grouped cross-validation) across Cranfield + 4 Tier-1 datasets. LTR improves over BM25 everywhere (+8.8% to +41.5%) and beats even plain BGE hybrid on 2/4 (Cranfield +19.2% vs hybrid, ArguAna 0.6708 vs hybrid 0.6432).
+- But LTR beats plain BGE hybrid on only 2/4 (50%) < the 70% universal bar => by the Occam rule (simpler runs live) BGE hybrid stays the ARCH-0.5 core and LTR is a portfolio technique (ADL-0007, SE-0006). LTR infrastructure retained for Phase 4 behavioral ranking.
+- Completes the M-0002.3 technique matrix: lexical rerankers = domain-conditional, BGE hybrid = Universal/core, LTR = portfolio. fiqa/scidocs LTR deferred (embeddings-size / compute) - the 2/4 split is decisive regardless.
