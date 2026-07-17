@@ -18,3 +18,6 @@ data/cranfield/full/
 
 # BGE BEIR embedding caches (large, regenerable via embed runner)
 experiments/beir/*/embeddings-bge-base-en-v15-gen029.json
+
+# BEIR retrieval-pool caches (large, regenerable via cache-dataset-retrieval-pools.mjs)
+experiments/beir/*/retrieval-pools-*.json
